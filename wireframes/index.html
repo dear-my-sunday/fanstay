@@ -50,7 +50,7 @@
 <body>
 <header>
   <h1>FanStay 와이어프레임 초안</h1>
-  <p>로파이 · MVP 핵심 8개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
+  <p>로파이 · MVP 핵심 9개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
 </header>
 
 <main class="grid">
@@ -95,9 +95,30 @@
     </div>
   </figure>
 
+  <!-- 3. 숙소 메인 -->
+  <figure>
+    <figcaption>3. 숙소 메인<small>IA: 숙소 → 메인(내 예약 · 추천) → 목록 / 비교</small></figcaption>
+    <div class="phone">
+      <div class="bar"><span>숙소</span><span class="chip on" style="margin:0">OOO 콘서트 ▾</span></div>
+      <div class="box row" style="background:var(--ok-bg);border-color:var(--ok)">
+        <div class="grow"><b>내 예약 · 호텔 A</b><div class="mute">11.28 체크인 · 1박 · 2명</div></div><span class="mute">상세 ›</span>
+      </div>
+      <div class="box plain">
+        <div class="mute">고척스카이돔 주변 숙소 찾기</div>
+        <div class="row" style="margin-top:6px"><span class="chip" style="margin:0">11.28 ~ 11.29</span><span class="chip" style="margin:0">2명</span></div>
+      </div>
+      <div><span class="chip on">공연장 도보권</span><span class="chip">심야 귀가 가능</span><span class="chip">안전 귀가 보증</span></div>
+      <div class="mute">추천 제휴 숙소</div>
+      <div class="box plain row"><div class="img" style="width:54px;height:44px;flex:none">사진</div><div class="grow"><b>호텔 A</b><div class="mute">도보 8분 · 89,000원</div></div></div>
+      <div class="box plain row"><div class="img" style="width:54px;height:44px;flex:none">사진</div><div class="grow"><b>호텔 B</b><div class="mute">차량 15분 · 72,000원</div></div></div>
+      <div class="btn ghost" style="margin-top:0">숙소 모두 보기</div>
+      <div class="tabs"><span>홈</span><b>숙소</b><span>지도</span><span>동행</span><span>마이</span></div>
+    </div>
+  </figure>
+
   <!-- 2. 숙소 목록 -->
   <figure>
-    <figcaption>3. 공연장별 제휴 숙소<small>IA: 숙소 → 목록 / 비교 (3~4곳)</small></figcaption>
+    <figcaption>4. 공연장별 제휴 숙소<small>IA: 숙소 → 목록 / 비교 (3~4곳)</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 고척스카이돔 숙소</span></div>
       <div><span class="chip on">거리순</span><span class="chip">가격순</span><span class="chip">심야 이동 편의</span></div>
@@ -119,7 +140,7 @@
 
   <!-- 3. 귀가 수단 + 보호자 초대 -->
   <figure>
-    <figcaption>4. 귀가 수단 · 보호자 초대<small>IA: 귀가/안전 → 귀가 수단 선택 → 보호자 초대</small></figcaption>
+    <figcaption>5. 귀가 수단 · 보호자 초대<small>IA: 귀가/안전 → 귀가 수단 선택 → 보호자 초대</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 안전 귀가</span></div>
       <div class="mute">귀가 수단</div>
@@ -138,7 +159,7 @@
 
   <!-- 4. 팬 실시간 상태 -->
   <figure>
-    <figcaption>5. 귀가 실시간 상태 (팬)<small>IA: 귀가/안전 → 실시간 상태 알림 · 위치 공유 토글</small></figcaption>
+    <figcaption>6. 귀가 실시간 상태 (팬)<small>IA: 귀가/안전 → 실시간 상태 알림 · 위치 공유 토글</small></figcaption>
     <div class="phone">
       <div class="bar"><span>귀가 진행 중</span><span class="tag">보호자 2명 연결</span></div>
       <div class="box plain" style="padding:14px">
@@ -157,9 +178,10 @@
 
   <!-- 5. 보호자 화면 -->
   <figure>
-    <figcaption>6. 보호자 화면<small>IA: 보호자 화면 → 도착 알림 · 위치 확인</small></figcaption>
+    <figcaption>7. 홈 · 보호자로 전환했을 때<small>홈에서 “👪 지수 보호자” 선택 시 보이는 화면 · IA: 보호자 화면 → 도착 알림 · 위치 확인</small></figcaption>
     <div class="phone">
-      <div class="bar"><span>FanStay 보호자</span></div>
+      <div class="bar"><span>FanStay</span><span class="mute">마이</span></div>
+      <div><span class="chip">OOO 콘서트</span><span class="chip">△△ 페스티벌</span><span class="chip on">👪 지수 보호자 ▾</span></div>
       <div class="box plain">
         <div class="mute">연결된 팬</div>
         <div style="font-weight:600;margin-top:2px">지수 (예시)</div>
@@ -179,7 +201,7 @@
 
   <!-- 6. 공연장 지도 -->
   <figure>
-    <figcaption>7. 공연장 상세 지도<small>IA: 지도 → 공연장 상세 지도 · 편의시설/보관소</small></figcaption>
+    <figcaption>8. 공연장 상세 지도<small>IA: 지도 → 공연장 상세 지도 · 편의시설/보관소</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 고척스카이돔</span></div>
       <div><span class="chip on">전체</span><span class="chip">화장실</span><span class="chip">식음료</span><span class="chip">짐 보관</span></div>
@@ -199,7 +221,7 @@
 
   <!-- 7. 동행 매칭 -->
   <figure>
-    <figcaption>8. 동행 매칭<small>IA: 동행 → 프로필/선호 → 매칭 방식 → 채팅 · 신고</small></figcaption>
+    <figcaption>9. 동행 매칭<small>IA: 동행 → 프로필/선호 → 매칭 방식 → 채팅 · 신고</small></figcaption>
     <div class="phone">
       <div class="bar"><span>동행 찾기</span><span class="tag">티켓 인증됨</span></div>
       <div class="mute">매칭 방식</div>
