@@ -50,14 +50,33 @@
 <body>
 <header>
   <h1>FanStay 와이어프레임 초안</h1>
-  <p>로파이 · MVP 핵심 7개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
+  <p>로파이 · MVP 핵심 8개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
 </header>
 
 <main class="grid">
 
-  <!-- 1. 홈 -->
+  <!-- 1. 로그인 -->
   <figure>
-    <figcaption>1. 홈 / 공연 선택<small>IA: 홈 · 인증 상태에 따라 메뉴 잠금 표시</small></figcaption>
+    <figcaption>1. 로그인 / 시작<small>IA: 진입 → 로그인 · 회원가입 · 보호자 초대 링크로 시작</small></figcaption>
+    <div class="phone">
+      <div class="bar"><span></span><span class="mute">둘러보기</span></div>
+      <div style="text-align:center;margin:36px 0 18px">
+        <div class="img" style="width:64px;height:64px;border-radius:16px;margin:0 auto 10px">로고</div>
+        <div style="font-weight:700;font-size:18px">FanStay</div>
+        <div class="mute" style="margin-top:4px">공연 보고, 안전하게 쉬고, 안심하고 귀가</div>
+      </div>
+      <div class="box plain mute">이메일</div>
+      <div class="box plain mute">비밀번호</div>
+      <div class="btn" style="margin-top:0">로그인</div>
+      <div class="row" style="justify-content:center"><span class="mute">회원가입</span><span class="mute">·</span><span class="mute">비밀번호 찾기</span></div>
+      <div class="row"><div class="box grow" style="text-align:center">카카오</div><div class="box grow" style="text-align:center">네이버</div><div class="box grow" style="text-align:center">Apple</div></div>
+      <div class="box plain" style="margin-top:auto;text-align:center">보호자 초대 링크를 받으셨나요?<div class="mute">초대 코드로 시작하기</div></div>
+    </div>
+  </figure>
+
+  <!-- 2. 홈 -->
+  <figure>
+    <figcaption>2. 홈 / 공연 선택<small>IA: 홈 · 인증 상태에 따라 메뉴 잠금 표시</small></figcaption>
     <div class="phone">
       <div class="bar"><span>FanStay</span><span class="mute">마이</span></div>
       <div class="box row"><span class="grow">티켓 인증을 하면 숙소·귀가·동행을 쓸 수 있어요</span><span class="tag">미인증</span></div>
@@ -81,7 +100,7 @@
 
   <!-- 2. 숙소 목록 -->
   <figure>
-    <figcaption>2. 공연장별 제휴 숙소<small>IA: 숙소 → 목록 / 비교 (3~4곳)</small></figcaption>
+    <figcaption>3. 공연장별 제휴 숙소<small>IA: 숙소 → 목록 / 비교 (3~4곳)</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 고척스카이돔 숙소</span></div>
       <div><span class="chip on">거리순</span><span class="chip">가격순</span><span class="chip">심야 이동 편의</span></div>
@@ -102,7 +121,7 @@
 
   <!-- 3. 귀가 수단 + 보호자 초대 -->
   <figure>
-    <figcaption>3. 귀가 수단 · 보호자 초대<small>IA: 귀가/안전 → 귀가 수단 선택 → 보호자 초대</small></figcaption>
+    <figcaption>4. 귀가 수단 · 보호자 초대<small>IA: 귀가/안전 → 귀가 수단 선택 → 보호자 초대</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 안전 귀가</span></div>
       <div class="mute">귀가 수단</div>
@@ -121,7 +140,7 @@
 
   <!-- 4. 팬 실시간 상태 -->
   <figure>
-    <figcaption>4. 귀가 실시간 상태 (팬)<small>IA: 귀가/안전 → 실시간 상태 알림 · 위치 공유 토글</small></figcaption>
+    <figcaption>5. 귀가 실시간 상태 (팬)<small>IA: 귀가/안전 → 실시간 상태 알림 · 위치 공유 토글</small></figcaption>
     <div class="phone">
       <div class="bar"><span>귀가 진행 중</span><span class="tag">보호자 2명 연결</span></div>
       <div class="box plain" style="padding:14px">
@@ -140,7 +159,7 @@
 
   <!-- 5. 보호자 화면 -->
   <figure>
-    <figcaption>5. 보호자 화면<small>IA: 보호자 화면 → 도착 알림 · 위치 확인</small></figcaption>
+    <figcaption>6. 보호자 화면<small>IA: 보호자 화면 → 도착 알림 · 위치 확인</small></figcaption>
     <div class="phone">
       <div class="bar"><span>FanStay 보호자</span></div>
       <div class="box plain">
@@ -162,7 +181,7 @@
 
   <!-- 6. 공연장 지도 -->
   <figure>
-    <figcaption>6. 공연장 상세 지도<small>IA: 지도 → 공연장 상세 지도 · 편의시설/보관소</small></figcaption>
+    <figcaption>7. 공연장 상세 지도<small>IA: 지도 → 공연장 상세 지도 · 편의시설/보관소</small></figcaption>
     <div class="phone">
       <div class="bar"><span>‹ 고척스카이돔</span></div>
       <div><span class="chip on">전체</span><span class="chip">화장실</span><span class="chip">식음료</span><span class="chip">짐 보관</span></div>
@@ -182,7 +201,7 @@
 
   <!-- 7. 동행 매칭 -->
   <figure>
-    <figcaption>7. 동행 매칭<small>IA: 동행 → 프로필/선호 → 매칭 방식 → 채팅 · 신고</small></figcaption>
+    <figcaption>8. 동행 매칭<small>IA: 동행 → 프로필/선호 → 매칭 방식 → 채팅 · 신고</small></figcaption>
     <div class="phone">
       <div class="bar"><span>동행 찾기</span><span class="tag">티켓 인증됨</span></div>
       <div class="mute">매칭 방식</div>
