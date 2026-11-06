@@ -59,7 +59,6 @@
   <figure>
     <figcaption>1. 로그인 / 시작<small>IA: 진입 → 로그인 · 회원가입 · 보호자 초대 링크로 시작</small></figcaption>
     <div class="phone">
-      <div class="bar"><span></span><span class="mute">둘러보기</span></div>
       <div style="text-align:center;margin:36px 0 18px">
         <div class="img" style="width:64px;height:64px;border-radius:16px;margin:0 auto 10px">로고</div>
         <div style="font-weight:700;font-size:18px">FanStay</div>
@@ -76,24 +75,22 @@
 
   <!-- 2. 홈 -->
   <figure>
-    <figcaption>2. 홈 / 공연 선택<small>IA: 홈 · 인증 상태에 따라 메뉴 잠금 표시</small></figcaption>
+    <figcaption>2. 홈 (내 예약 대시보드)<small>IA: 홈 · 공연/역할 전환 · 예약 내역 · 메뉴는 인증 없이 열람 가능</small></figcaption>
     <div class="phone">
       <div class="bar"><span>FanStay</span><span class="mute">마이</span></div>
-      <div class="box row"><span class="grow">티켓 인증을 하면 숙소·귀가·동행을 쓸 수 있어요</span><span class="tag">미인증</span></div>
+      <div>
+        <span class="chip on">OOO 콘서트 ▾</span><span class="chip">△△ 페스티벌</span><span class="chip">👪 지수 보호자</span>
+      </div>
       <div class="box plain">
-        <div class="mute">내 공연</div>
-        <div style="font-weight:600;margin:4px 0">OOO 콘서트</div>
-        <div class="mute">11.28 (토) 18:00 · 고척스카이돔</div>
+        <div class="row"><b class="grow">OOO 콘서트</b><span class="tag">티켓 미인증</span></div>
+        <div class="mute" style="margin:3px 0 8px">11.28 (토) 18:00 · 고척스카이돔 · D-22</div>
+        <div class="btn ghost" style="padding:7px;font-size:13px">티켓 인증하기</div>
       </div>
-      <div class="row">
-        <div class="box grow">숙소<div class="mute">🔒 인증 필요</div></div>
-        <div class="box grow">귀가·안전<div class="mute">🔒 인증 필요</div></div>
-      </div>
-      <div class="row">
-        <div class="box grow">공연장 지도<div class="mute">누구나</div></div>
-        <div class="box grow">동행<div class="mute">🔒 인증 필요</div></div>
-      </div>
-      <div class="btn">티켓 인증하기</div>
+      <div class="mute">내 예약 · 신청</div>
+      <div class="box row"><div class="grow"><b>숙소</b><div class="mute">호텔 A · 11.28 체크인</div></div><span class="tag" style="background:var(--ok-bg)">예약 확정</span></div>
+      <div class="box row"><div class="grow"><b>귀가·안전</b><div class="mute">승합차 22:30 · 보호자 2명 연결</div></div><span class="tag" style="background:var(--ok-bg)">신청 완료</span></div>
+      <div class="box plain row"><div class="grow"><b>동행</b><div class="mute">아직 없어요 · 동행 찾아보기 ›</div></div></div>
+      <div class="mute">숙소·귀가·동행은 인증 없이 둘러볼 수 있고, 예약·신청·채팅 요청 때 티켓 인증이 필요해요.</div>
       <div class="tabs"><b>홈</b><span>숙소</span><span>지도</span><span>동행</span><span>마이</span></div>
     </div>
   </figure>
@@ -115,6 +112,7 @@
         <div class="mute">공연장 차량 15분 · 승합차 귀가 가능</div>
       </div>
       <div class="box plain row"><b class="grow">호텔 C</b><span class="mute">+ 2곳 더보기</span></div>
+      <div class="mute">예약할 때 티켓 인증이 필요해요 (둘러보기는 자유)</div>
       <div class="btn ghost">숙소 비교하기</div>
     </div>
   </figure>
