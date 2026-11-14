@@ -8,6 +8,7 @@
 |---|---|
 | [docs/PRD.md](docs/PRD.md) | PRD 초안 (1105 1차 회의록 기반) |
 | [docs/IA.md](docs/IA.md) | 정보구조(IA). 원본은 FigJam |
+| [docs/business-plan-checklist.md](docs/business-plan-checklist.md) | 사업계획서 필수 요소 체크리스트 (수업자료 34장 기준) |
 | [wireframes/index.html](wireframes/index.html) | 로파이 와이어프레임 초안 (브라우저로 열기) |
 
 ## 이어서 작업하기
