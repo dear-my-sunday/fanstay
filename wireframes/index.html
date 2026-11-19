@@ -50,7 +50,7 @@
 <body>
 <header>
   <h1>FanStay 와이어프레임 초안</h1>
-  <p>로파이 · MVP 핵심 9개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
+  <p>로파이 · MVP 핵심 12개 화면 · 문구와 데이터는 모두 예시입니다. 출처: docs/PRD.md, docs/IA.md</p>
 </header>
 
 <main class="grid">
@@ -219,27 +219,82 @@
     </div>
   </figure>
 
-  <!-- 7. 동행 매칭 -->
+  <!-- 9. 동행 프로필 등록 -->
   <figure>
-    <figcaption>9. 동행 매칭<small>IA: 동행 → 프로필/선호 → 매칭 방식 → 채팅 · 신고</small></figcaption>
+    <figcaption>9. 동행 프로필 · 안전 인증<small>IA: 동행 → 프로필/선호 등록 · PRD F7 (티켓 인증 사용자만)</small></figcaption>
     <div class="phone">
-      <div class="bar"><span>동행 찾기</span><span class="tag">티켓 인증됨</span></div>
+      <div class="bar"><span>‹ 동행 프로필</span><span class="tag" style="background:var(--ok-bg)">티켓 인증됨</span></div>
+      <div class="mute">안전 인증 (상대에게 배지로 표시돼요)</div>
+      <div class="box plain row"><span class="grow">본인 인증</span><span class="tag" style="background:var(--ok-bg)">완료</span></div>
+      <div class="box plain row"><span class="grow">여성 인증 <span class="mute">(선택)</span></span><span class="chip on" style="margin:0">인증하기</span></div>
+      <div class="box plain row"><span class="grow">미성년자 · 보호자 동행</span><span class="chip" style="margin:0">해당 없음 ▾</span></div>
+      <div class="mute" style="margin-top:4px">연령대</div>
+      <div><span class="chip">10대</span><span class="chip on">20대 초반</span><span class="chip">20대 후반</span><span class="chip">30대+</span></div>
+      <div class="mute">공연 선호</div>
+      <div><span class="chip on">떼창</span><span class="chip">조용히 관람</span><span class="chip on">응원봉</span><span class="chip">굿즈 같이</span><span class="chip on">귀가 같이</span></div>
+      <div class="mute">닉네임·연령대·배지만 공개돼요. 연락처와 실명은 공개되지 않아요.</div>
+      <div class="btn">저장하고 동행 찾기</div>
+    </div>
+  </figure>
+
+  <!-- 10. 동행 찾기 -->
+  <figure>
+    <figcaption>10. 동행 찾기 (매칭 방식 선택)<small>IA: 동행 → 매칭 방식 선택 · 성향 유사 / 상이 / 무작위</small></figcaption>
+    <div class="phone">
+      <div class="bar"><span>동행 찾기</span><span class="chip on" style="margin:0">OOO 콘서트 ▾</span></div>
       <div class="mute">매칭 방식</div>
       <div><span class="chip on">성향 비슷한 사람</span><span class="chip">다른 성향</span><span class="chip">무작위</span></div>
+      <div><span class="chip">여성 인증만</span><span class="chip">같은 숙소</span><span class="chip">귀가 같이</span></div>
       <div class="box plain">
-        <div class="mute">내 정보</div>
-        <div style="margin-top:4px"><span class="chip on">20대 초반</span><span class="chip on">떼창 선호</span><span class="chip on">귀가 같이</span></div>
+        <div class="row"><div class="img" style="width:36px;height:36px;border-radius:50%">사진</div>
+          <div class="grow"><b>하늘 (예시)</b><div class="mute">20대 초반 · 떼창 · 숙소 동일</div></div></div>
+        <div style="margin-top:6px"><span class="tag" style="background:var(--ok-bg)">티켓 인증</span> <span class="tag">본인 인증</span> <span class="tag">여성 인증</span></div>
+        <div class="btn ghost" style="padding:7px;margin-top:8px">채팅 요청</div>
       </div>
       <div class="box plain">
         <div class="row"><div class="img" style="width:36px;height:36px;border-radius:50%">사진</div>
-          <div class="grow"><b>하늘 (예시)</b> <span class="tag">본인 인증</span><div class="mute">20대 초반 · 같은 구역 · 숙소 동일</div></div></div>
-        <div class="row" style="margin-top:8px"><div class="btn ghost grow" style="padding:7px">채팅 요청</div><span class="mute">신고 · 차단</span></div>
+          <div class="grow"><b>민서 (예시)</b><div class="mute">10대 · 응원봉 · 귀가 같이</div></div></div>
+        <div style="margin-top:6px"><span class="tag" style="background:var(--ok-bg)">티켓 인증</span> <span class="tag">본인 인증</span> <span class="tag">보호자 동행</span></div>
       </div>
-      <div class="box plain">
-        <div class="row"><div class="img" style="width:36px;height:36px;border-radius:50%">사진</div>
-          <div class="grow"><b>민서 (예시)</b> <span class="tag">보호자 동행</span><div class="mute">10대 · 보호자 동행 여부 표시</div></div></div>
-      </div>
+      <div class="mute">상대가 수락하면 채팅이 열려요.</div>
       <div class="tabs"><span>홈</span><span>숙소</span><span>지도</span><b>동행</b><span>마이</span></div>
+    </div>
+  </figure>
+
+  <!-- 11. 동행 채팅 -->
+  <figure>
+    <figcaption>11. 동행 채팅<small>IA: 동행 → 채팅 · 만남은 공연장 안 공개 장소 권장</small></figcaption>
+    <div class="phone">
+      <div class="bar"><span>‹ 하늘</span><span class="mute">⋯ 신고·차단</span></div>
+      <div class="box" style="background:var(--warn-bg);font-size:12px">처음 만날 땐 공연장 안 사람 많은 곳에서 만나요. 송금·개인 연락처 요구는 신고해 주세요.</div>
+      <div style="display:flex;flex-direction:column;gap:8px;flex:1">
+        <div class="box plain" style="align-self:flex-start;max-width:75%">안녕하세요! 저도 호텔 A예요 🙂</div>
+        <div class="box" style="align-self:flex-end;max-width:75%;background:var(--accent-bg);border-color:var(--accent)">오 반가워요. 공연 전에 만날까요?</div>
+        <div class="box plain" style="align-self:flex-start;max-width:75%">좋아요! 17시쯤 어때요?</div>
+        <div class="box plain" style="align-self:center;width:90%">
+          <b>📍 만남 장소 제안</b><div class="mute">고척스카이돔 북문 앞 · 17:00 · 지도에서 보기 ›</div>
+        </div>
+      </div>
+      <div class="row"><span class="chip" style="margin:0">장소 제안</span><span class="chip" style="margin:0">귀가 셔틀 같이 타기</span></div>
+      <div class="box plain row"><span class="grow mute">메시지 입력</span><span style="color:var(--accent);font-weight:600">전송</span></div>
+    </div>
+  </figure>
+
+  <!-- 12. 신고 · 차단 -->
+  <figure>
+    <figcaption>12. 신고 · 차단<small>IA: 동행 → 신고 / 차단 · 채팅 ⋯ 메뉴에서 열리는 시트</small></figcaption>
+    <div class="phone" style="justify-content:flex-end;background:var(--fill)">
+      <div class="mute" style="text-align:center;margin-bottom:auto;margin-top:40px">(채팅 화면 위에 열리는 바텀시트)</div>
+      <div class="box plain" style="background:var(--phone);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:8px">
+        <b>하늘 님을 신고할까요?</b>
+        <div class="mute">사유 선택</div>
+        <div><span class="chip">불쾌한 언행</span><span class="chip on">개인정보·송금 요구</span><span class="chip">티켓 거래 유도</span><span class="chip">약속 장소 변경 강요</span><span class="chip">기타</span></div>
+        <div class="box plain mute">상세 내용 (선택) · 대화 내용이 함께 접수돼요</div>
+        <div class="box plain row"><span class="grow">상대 차단하기</span><span class="toggle"></span></div>
+        <div class="mute">차단하면 서로 프로필·채팅이 보이지 않아요. 신고는 상대에게 알리지 않아요.</div>
+        <div class="btn" style="margin-top:4px">신고하기</div>
+        <div class="mute" style="text-align:center">긴급 상황이면 112 · 공연장 안전요원 호출</div>
+      </div>
     </div>
   </figure>
 
