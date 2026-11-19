@@ -9,6 +9,9 @@ fanstay/
 ├── docs/
 │   ├── PRD.md                          기획 문서 (1105 1차 회의록 기반)
 │   ├── IA.md                           정보구조(IA), 원본은 FigJam
+│   ├── planning/
+│   │   ├── business-plan-checklist.md  사업계획서 필수 요소 체크리스트
+│   │   └── slide-notion-source-map.html  슬라이드 ↔ 노션 근거 매핑
 │   └── design/
 │       ├── DESIGN-SYSTEM.md            디자인 시스템 (토스 페이스페이 기반, PPT 제작 가이드 포함)
 │       └── offline-slides-reference.html   디자인 시스템 적용 예시 (1920×1080 HTML 슬라이드)
@@ -24,6 +27,8 @@ fanstay/
 | [IA](docs/IA.md) | 화면 구조와 진입 흐름 |
 | [디자인 시스템](docs/design/DESIGN-SYSTEM.md) | 컬러·타이포·레이아웃·컴포넌트·모션. **최종 발표 자료는 이 기준으로 PPT를 만들어요** |
 | [슬라이드 레퍼런스](docs/design/offline-slides-reference.html) | 디자인 시스템을 슬라이드로 옮긴 예시 (키보드 ←/→) |
+| [사업계획서 체크리스트](docs/planning/business-plan-checklist.md) | 수업자료 34장 기준 필수 요소 |
+| [슬라이드 근거 매핑](docs/planning/slide-notion-source-map.html) | 슬라이드별 노션 원문 출처 |
 | [와이어프레임](wireframes/index.html) | 앱 화면 초안 |
 
 ## 이어서 작업하기
