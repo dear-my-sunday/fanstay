@@ -43,4 +43,14 @@ open wireframes/index.html   # macOS
 
 - MVP 범위: 숙소 선택, 티켓 인증, 보호자 알림·위치 공유, 승합차 귀가, 공연장 지도, 동행 매칭
 - 와이어프레임의 문구와 데이터는 모두 예시임
-- 발표 자료는 디자인 시스템 기준으로 PPT(.pptx) 제작 예정
+
+## 발표 자료(PPT)
+
+최종 발표 자료는 **PPT(.pptx)** 로 만들어요. 아래 두 가지를 기준으로 삼아요.
+
+| 기준 | 내용 |
+|---|---|
+| [디자인 시스템](docs/design/DESIGN-SYSTEM.md) | 컬러·타이포·레이아웃·컴포넌트·모션 규칙, PPT 환산 규칙(1px = 0.5pt)은 10장 |
+| [Figma 디자인 (7PM)](https://www.figma.com/design/yKaNJ4atEgHqsUttcwknv9/7PM?node-id=59-1799) | 슬라이드 화면 디자인 원본 |
+
+HTML 슬라이드([레퍼런스](docs/design/offline-slides-reference.html))는 디자인 확인용 예시이고, 제출용은 아니에요.
