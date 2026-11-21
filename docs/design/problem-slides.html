@@ -122,29 +122,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .lg span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--c);margin-right:10px}
 
 
-/* ===== 03 고객 문제 (여정 칩 + 인용 카드) ===== */
-.pb .ttl{top:132px}
-.pb .sub{top:226px}
-.jr{position:absolute;left:160px;right:160px;top:318px;height:44px}
-.jr::before{content:"";position:absolute;left:0;right:0;top:22px;height:2px;background:linear-gradient(90deg,rgba(7,25,76,.10),rgba(7,25,76,.10))}
+/* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
+.pb .ttl{top:132px;white-space:normal;width:1600px}
+.pb .sub{top:296px}
+.jr{position:absolute;left:160px;right:160px;top:362px;height:44px}
+.jr::before{content:"";position:absolute;left:0;right:0;top:22px;height:2px;background:rgba(7,25,76,.10)}
 .jr .st{position:absolute;top:0;height:44px;display:flex;align-items:center;padding:0 18px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1.5px rgba(7,25,76,.12);font-size:18px;font-weight:600;color:var(--h2);letter-spacing:-.18px;white-space:nowrap}
-.jr .st.on{background:var(--blue);box-shadow:none;color:#fff}
-.jr .st.all{border-style:dashed;box-shadow:none;border:1.5px dashed rgba(7,25,76,.3);color:var(--body)}
-.pc{position:absolute;top:392px;width:382px;height:568px;border-radius:52px;background:var(--soft);padding:40px 40px 0;overflow:hidden}
-.pc.hl{background:var(--blue-100)}
-.pc,.pc .pt,.pc .q,.pc .ev{word-break:keep-all}
+.pc{position:absolute;top:432px;width:517px;height:528px;border-radius:52px;background:var(--soft);padding:40px 48px 0;overflow:hidden;word-break:keep-all}
 .pc .no{font-size:18px;font-weight:600;color:var(--label);line-height:1.2}
-.pc .pt{margin-top:12px;font-size:28px;font-weight:700;line-height:1.4;letter-spacing:-.56px;color:var(--h1)}
-.pc .q{margin-top:26px;font-size:20px;font-weight:500;line-height:1.6;letter-spacing:-.2px;color:var(--h2);position:relative;padding-top:34px}
-.pc .q::before{content:"\201C";position:absolute;left:-2px;top:-14px;font-size:64px;font-weight:700;line-height:1;color:var(--blue);opacity:.55}
-.pc .who2{margin-top:12px;font-size:16px;color:var(--cap)}
-.pc .ev{position:absolute;left:40px;right:40px;bottom:38px;padding-top:20px;border-top:1px solid rgba(7,25,76,.08);font-size:17px;line-height:1.55;letter-spacing:-.17px;color:var(--body)}
+.pc .pt{margin-top:12px;width:calc(100% - 64px);font-size:30px;font-weight:700;line-height:1.4;letter-spacing:-.6px;color:var(--h1)}
+.pc .qi{position:absolute;right:44px;top:34px;width:52px;height:52px;border-radius:50%;background:var(--blue-100);color:var(--blue);display:grid;place-items:center}
+.pc .qi svg{width:26px;height:26px}
+.pc .q{margin-top:28px;font-size:22px;font-weight:500;line-height:1.6;letter-spacing:-.22px;color:var(--h2)}
+.pc .ev{position:absolute;left:48px;right:48px;bottom:36px;padding-top:20px;border-top:1px solid rgba(7,25,76,.08);font-size:17px;line-height:1.55;letter-spacing:-.17px;color:var(--body)}
 .pc .ev .bdg{margin-bottom:10px}
 .bdg{display:inline-block;font-size:16px;font-weight:600;line-height:1;padding:7px 12px;border-radius:999px;letter-spacing:-.16px}
 .bdg.s{background:rgba(49,130,246,.13);color:var(--blue)}
 .bdg.c{background:rgba(7,25,76,.07);color:#4E5968}
 .bdg.h{background:var(--amber-bg);color:var(--amber)}
-.pb .srcnote{position:absolute;left:160px;right:160px;top:978px;font-size:16px;line-height:1.5;color:var(--cap);letter-spacing:-.16px}
 
 /* ===== nav ===== */
 #bar{position:fixed;left:0;top:0;height:3px;background:var(--blue);width:0;transition:width .4s ease;z-index:9}
@@ -181,49 +176,40 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="foot"><span>FanStay · IR-DAY</span><span>02 / 14</span></div>
 </section>
 
-<!-- 03 시장 규모 · 수치 대시보드 -->
+<!-- 02 고객 문제 -->
 <section class="slide pb" data-id="problems" data-no="03">
   <div class="kick rv">고객 문제</div>
-  <div class="ttl rv" style="--i:1">숙소부터 귀가까지, 네 번 막혀요</div>
-  <div class="sub rv" style="--i:2">영상 속 팬이 직접 한 말이에요</div>
+  <div class="ttl rv" style="--i:1">즐기기만 해도 바쁜 내 가수의 콘서트,<br>부가적인 요소로 신경 써야 할 것들이 너무 많아요.</div>
+  <div class="sub rv" style="--i:2">페르소나 설정 후 공연 여정에 따른 페인 포인트를 도출했습니다.</div>
 
   <div class="jr rv" style="--i:3">
-    <span class="st" style="left:0">공연 전</span>
-    <span class="st" style="left:406px">공연장에서</span>
-    <span class="st on" style="left:812px">공연 종료 후</span>
-    <span class="st all" style="left:1218px">혼자일 때</span>
+    <span class="st" style="left:0">공연 준비</span>
+    <span class="st" style="left:541px">공연 전</span>
+    <span class="st" style="left:1082px">공연 종료 후</span>
   </div>
 
   <div class="pc rv" style="left:160px;--i:4">
+    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
     <div class="no">문제 1 · 숙소</div>
-    <div class="pt">예약이 취소되면<br>갈 곳이 없어요</div>
-    <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.</div>
-    <div class="who2">일본 · 20대 여성</div>
+    <div class="pt">외국인이라는 이유로 갑질하는 숙소가 불편해요</div>
+    <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
     <div class="ev"><span class="bdg s">조사</span><br>공연 여행에서 인근 숙소 찾기가 어렵다 71% (해외 라이브 음악 팬 13개국)</div>
   </div>
-  <div class="pc rv" style="left:566px;--i:5">
-    <div class="no">문제 2 · 길 찾기</div>
-    <div class="pt">공연장 구조가<br>낯설어요</div>
-    <div class="q">공연장 구조가 낯설어서 헤맨 적이 많아요.</div>
-    <div class="who2">영어권 · 20대 여성</div>
-    <div class="ev"><span class="bdg h">가설</span><br>화장실·식음료·짐 보관 정보가 앱·SNS·공지에 흩어져 있어요 (근거 확인 중)</div>
-  </div>
-  <div class="pc hl rv" style="left:972px;--i:6">
-    <div class="no">문제 3 · 귀가</div>
-    <div class="pt">끝나고 나면<br>귀가가 막막해요</div>
-    <div class="q">공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.</div>
-    <div class="who2">일본 · 20대 여성</div>
-    <div class="ev"><span class="bdg c">사례</span><br>인스파이어 아레나 셔틀은 종료 후 최대 1시간 30분 운행, 30분 넘게 기다릴 수 있어요</div>
-  </div>
-  <div class="pc rv" style="left:1378px;--i:7">
-    <div class="no">문제 4 · 동행</div>
-    <div class="pt">혼자 오면<br>부러워져요</div>
+  <div class="pc rv" style="left:701px;--i:5">
+    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
+    <div class="no">문제 2 · 동행</div>
+    <div class="pt">취향과 성향이 잘 맞는 친구와 같이 공연을 즐길 수 있으면 더 좋을 것 같아요</div>
     <div class="q">친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.</div>
-    <div class="who2">영어권 · 20대 여성</div>
     <div class="ev"><span class="bdg c">참고</span><br>K-POP 관람자의 26.6%는 혼자, 48.5%는 동성 친구와 와요 (2020, 국내 241명)</div>
   </div>
+  <div class="pc rv" style="left:1242px;--i:6">
+    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
+    <div class="no">문제 3 · 귀가</div>
+    <div class="pt">공연이 끝난 늦은 시각에 교통편 이용이 어려워요</div>
+    <div class="q">사람들이 몰려 택시를 부르는 것도 힘들고, 늦은 시각이다 보니 위험한 것도 있죠.</div>
+    <div class="ev"><span class="bdg c">사례</span><br>인스파이어 아레나 셔틀은 종료 후 최대 1시간 30분 운행, 30분 넘게 기다릴 수 있어요</div>
+  </div>
 
-  <div class="srcnote rv" style="--i:8">출처: Live Nation(13개국 3,300명) · 인스파이어 셔틀 안내(팝가) · 2020 K-POP 콘서트 체험 논문(서울·경기 86.3%) · 인터뷰는 *AI 생성 페르소나</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>03 / 14</span></div>
 </section>
 
