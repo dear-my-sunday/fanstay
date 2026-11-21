@@ -57,6 +57,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .vhint{position:absolute;right:32px;top:34px;font-size:16px;color:rgba(23,30,41,.55);transition:opacity .3s ease}
 .exp .vbig .chp,.exp .vhint{opacity:0}
 #vwrap{position:absolute;inset:0}
+#vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;transition:opacity .3s ease}
+.vbig.play #vposter,.vbig.done #vposter{opacity:0}
 #vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
 #vwrap video.on{opacity:1}
 .vbig.hasvid .chp,.vbig.hasvid .vhint{display:none}
@@ -301,14 +303,15 @@ fit();
 /* ===== 인터뷰 영상 (클립 여러 개를 이어서 1회 재생) =====
    클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
 const CLIPS=[
-  {src:'assets/interview.mp4', who:['일본','20대 여성'], cues:[
+  {src:'assets/interview.mp4', poster:'assets/interview-poster.jpg', who:['일본','20대 여성'], cues:[
     {a:0.7,b:5.8,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
   {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
     {a:0.25,b:6.3,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
   /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261121b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261121b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const poster=document.createElement('img');poster.id='vposter';poster.alt='';poster.src=CLIPS[0].poster;$('#vwrap').insertBefore(poster,$('#vwrap').firstChild);
 vbig.classList.add('hasvid');
 let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
 const cur$=()=>vids[ci];
@@ -338,7 +341,7 @@ function tick(){
   raf=requestAnimationFrame(tick);
 }
 function startVideo(){
-  vs=1;
+  vs=1;vids.forEach(v=>{v.preload='auto'});
   $('[data-id=video]').classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
   who.classList.add('on');showClip(0);
   vids[0].currentTime=0;vids[0].play().catch(()=>{});
