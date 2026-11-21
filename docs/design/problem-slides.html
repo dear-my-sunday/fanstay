@@ -68,9 +68,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .playbtn svg{width:48px;height:48px;margin-left:6px;fill:currentColor}
 .play .playbtn,.done .playbtn{opacity:0;pointer-events:none}
 /* 화자 라벨 + 자막 */
-.who{position:absolute;left:160px;top:96px;display:flex;gap:12px;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s var(--ease)}
+.who{position:absolute;left:160px;right:160px;top:96px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s var(--ease)}
 .who.on{opacity:1;transform:none}
+.who .ai{margin-left:auto;font-size:16px;font-weight:500;color:rgba(255,255,255,.82);letter-spacing:-.16px}
 .who b{font-size:18px;font-weight:600;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.24);color:#fff;letter-spacing:-.18px}
+.vbig::after{content:"";position:absolute;left:0;right:0;top:0;height:300px;background:linear-gradient(180deg,rgba(20,29,48,.42) 0%,rgba(20,29,48,0) 100%);opacity:0;transition:opacity .5s ease;pointer-events:none}
+.play.vbig::after{opacity:1}
+.who{z-index:2}
 .scrim{position:absolute;left:0;right:0;bottom:0;height:420px;background:linear-gradient(180deg,rgba(20,29,48,0) 0%,rgba(20,29,48,.45) 100%);opacity:0;transition:opacity .5s ease;pointer-events:none}
 .play .scrim{opacity:1}
 .cap{position:absolute;left:160px;right:160px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
@@ -123,7 +127,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 10초 · 1회 재생</span>
     <span class="vhint">→ 키를 누르면 재생돼요</span>
     <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></div>
-    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b></div>
+    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b><span class="ai">*AI 생성 페르소나</span></div>
     <div class="cap" id="cap"><div class="ko" id="capKo"></div><div class="og" id="capOg"></div></div>
     <div class="vprog"><i id="vprog"></i></div>
   </div>
