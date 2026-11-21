@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FanStay · 문제 제기 슬라이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+/* 기준: DESIGN-SYSTEM.md (좌우 여백 160 · 카드 radius 52/60 · 제목 56 · 5C-1 풀블리드 영상 확장 · 체크보드 자리) */
+:root{
+  --blue:#3182F6; --blue-100:#EAF2FF; --navy:#1B2A4A;
+  --h1:#1E1F21; --h2:#36383A; --body:#525355; --label:rgba(22,31,46,.61); --cap:rgba(23,30,41,.47);
+  --soft:#F9F9FB;
+  --ease:cubic-bezier(.22,1,.36,1); --snap:cubic-bezier(.6,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#EDEFF3}
+body{font-family:"Pretendard","Apple SD Gothic Neo",sans-serif;color:var(--h2);-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;background:#fff;transform-origin:0 0;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.12)}
+
+/* ===== slide frame ===== */
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s;background:#fff}
+.slide.on{opacity:1;visibility:visible;transition:opacity .4s ease}
+.kick{position:absolute;left:160px;top:96px;font-size:18px;font-weight:600;color:var(--label);line-height:1.2}
+.ttl{position:absolute;left:160px;top:132px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
+.sub{position:absolute;left:160px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body)}
+.foot{position:absolute;left:160px;right:160px;bottom:44px;display:flex;justify-content:space-between;font-size:16px;color:var(--cap);z-index:5}
+
+/* ===== reveal (5-1): 위로 20px → 제자리, 100ms 간격 ===== */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0)*100ms)}
+.slide.on .rv{opacity:1;transform:none}
+.slide:not(.on) .rv{transition-duration:0s;transition-delay:0s}
+
+/* ===== 체크보드 (1-4) ===== */
+.chk{background-color:#FAFAFA;background-image:linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%),linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%);background-size:76px 76px;background-position:0 0,38px 38px}
+.chp{display:inline-block;font-size:16px;font-weight:600;color:#33383C;background:#fff;padding:8px 14px;border-radius:999px;letter-spacing:-.16px}
+
+/* ===== 01 표지 (미정) ===== */
+.cover{position:absolute;inset:0;display:grid;place-items:center}
+.cover .chp{font-size:20px;padding:12px 20px}
+
+/* ===== 02 인터뷰 영상 ===== */
+.glowtop{position:absolute;left:0;top:0;width:1920px;height:620px;background:radial-gradient(ellipse 62% 100% at 50% 0%,#CFE3FB 0%,rgba(207,227,251,0) 100%);pointer-events:none}
+.vbig{position:absolute;left:160px;top:412px;width:1600px;height:548px;border-radius:60px;overflow:hidden;cursor:pointer;
+  transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),border-radius .8s var(--snap),opacity .6s var(--ease),transform .6s var(--ease)}
+.slide.exp .vbig{left:0;top:0;width:1920px;height:1080px;border-radius:0;z-index:3}
+.slide.exp .rv:not(.vbig){opacity:0;transform:translateY(-60px)}
+.slide.exp .foot{opacity:0}
+.vbig .chp{position:absolute;left:32px;top:30px;transition:opacity .3s ease}
+.vhint{position:absolute;right:32px;top:34px;font-size:16px;color:rgba(23,30,41,.55);transition:opacity .3s ease}
+.exp .vbig .chp,.exp .vhint{opacity:0}
+.vbig video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.vbig.hasvid video{opacity:1}
+/* 영상이 없을 때 재생 중 배경 (blue 면 1곳) */
+.vbig .stage-bg{position:absolute;inset:0;background:linear-gradient(160deg,#4DA3FF 0%,#9CC9FF 100%);opacity:0;transition:opacity .6s ease}
+.vbig.play .stage-bg{opacity:1}
+.vbig.hasvid .stage-bg{display:none}
+.playbtn{position:absolute;left:50%;top:50%;width:132px;height:132px;margin:-66px 0 0 -66px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;box-shadow:0 24px 64px rgba(25,31,40,.12);transition:opacity .3s ease,transform .3s var(--ease)}
+.vbig:hover .playbtn{transform:scale(1.06)}
+.playbtn svg{width:48px;height:48px;margin-left:6px;fill:currentColor}
+.play .playbtn,.done .playbtn{opacity:0;pointer-events:none}
+/* 화자 라벨 + 자막 */
+.who{position:absolute;left:160px;top:96px;display:flex;gap:12px;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s var(--ease)}
+.who.on{opacity:1;transform:none}
+.who b{font-size:18px;font-weight:600;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.24);color:#fff;letter-spacing:-.18px}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:420px;background:linear-gradient(180deg,rgba(20,29,48,0) 0%,rgba(20,29,48,.45) 100%);opacity:0;transition:opacity .5s ease;pointer-events:none}
+.play .scrim{opacity:1}
+.cap{position:absolute;left:160px;right:160px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
+.cap.on{opacity:1;transform:none}
+.cap .ko{font-size:44px;font-weight:700;line-height:1.4;letter-spacing:-.88px}
+.cap .og{margin-top:14px;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.22px;color:rgba(255,255,255,.78)}
+.vprog{position:absolute;left:160px;right:160px;bottom:72px;height:4px;border-radius:2px;background:rgba(255,255,255,.28);opacity:0;transition:opacity .4s ease}
+.play .vprog{opacity:1}
+.vprog i{display:block;height:100%;width:0;border-radius:2px;background:#fff}
+
+/* ===== 02 문제 제기 (통계) ===== */
+.sc{position:absolute;top:520px;width:788px;height:376px;border-radius:52px;padding:52px 56px}
+.sc.l{left:160px;background:var(--navy);color:#fff}
+.sc.r{left:972px;background:var(--blue-100)}
+.sc .lb{font-size:20px;font-weight:600;line-height:1.4;letter-spacing:-.2px}
+.sc.l .lb{color:rgba(255,255,255,.8)}
+.sc.r .lb{color:var(--label)}
+.sc .big{margin-top:28px;font-size:128px;font-weight:700;line-height:1.1;letter-spacing:-3.8px;font-variant-numeric:tabular-nums}
+.sc .big small{font-size:72px;letter-spacing:-2px;margin-left:12px}
+.sc.r .big{color:var(--blue)}
+.sc .ft{margin-top:28px;font-size:20px;line-height:1.5;letter-spacing:-.2px}
+.sc.l .ft{color:rgba(255,255,255,.72)}
+.sc.r .ft{color:var(--body)}
+
+/* ===== nav ===== */
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--blue);width:0;transition:width .4s ease;z-index:9}
+#help{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:rgba(23,30,41,.5);z-index:9;transition:opacity .6s}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="stage">
+
+<!-- 01 표지 (미정) -->
+<section class="slide on" data-id="cover" data-no="01">
+  <div class="cover chk"><span class="chp rv">COVER SLOT · 표지 미정</span></div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>01 / 14</span></div>
+</section>
+
+<!-- 02 문제 제기 · 인터뷰 영상 -->
+<section class="slide" data-id="video" data-no="02">
+  <div class="glowtop"></div>
+  <div class="kick rv">문제 제기</div>
+  <div class="ttl rv" style="--i:1">가파른 성장세의 K-POP,<br>방한 외국인은 편리한 공연 경험을 누리고 있을까요?</div>
+
+  <div class="vbig chk rv" id="vbig" style="--i:3">
+    <video id="vid" playsinline preload="auto" muted></video>
+    <div class="stage-bg"></div>
+    <div class="scrim"></div>
+    <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 24초 · 1회 재생</span>
+    <span class="vhint">→ 키를 누르면 재생돼요</span>
+    <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></div>
+    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b></div>
+    <div class="cap" id="cap"><div class="ko" id="capKo"></div><div class="og" id="capOg"></div></div>
+    <div class="vprog"><i id="vprog"></i></div>
+  </div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>02 / 14</span></div>
+</section>
+
+<!-- 02 문제 제기 · 통계 -->
+<section class="slide" data-id="stats" data-no="02">
+  <div class="kick rv">문제 제기</div>
+  <div class="ttl rv" style="--i:1">공연이 끝난 뒤,<br>팬은 어디로 갈까요?</div>
+  <div class="sub rv" style="top:312px;--i:2">공연 하나를 보러 먼 길을 온 팬은 공연 전후가 가장 불안해요</div>
+
+  <div class="sc l rv" style="--i:3">
+    <div class="lb">2025 방한 외래관광객</div>
+    <div class="big"><span id="n1">0</span><small>만 명</small></div>
+    <div class="ft">관광 목적 1,582만 명 (83.5%) · 평균 체재 6.5일</div>
+  </div>
+  <div class="sc r rv" style="--i:4">
+    <div class="lb">공연 여행에서 숙박을 계획에 고려해요</div>
+    <div class="big"><span id="n2">0</span><small>%</small></div>
+    <div class="ft">해외 라이브 음악 팬 13개국 (Live Nation)</div>
+  </div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>02 / 14</span></div>
+</section>
+
+</div>
+<div id="help">← → 이동 · F 전체화면 · 영상 슬라이드는 → 로 재생</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const stage=$('#stage');
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`scale(${s}) translate(-50%,-50%)`;stage.style.left='50%';stage.style.top='50%'}
+addEventListener('resize',fit);fit();
+
+/* ===== 인터뷰 영상 =====
+   실제 영상이 생기면 이 경로에 mp4를 넣으면 돼요 (자막은 아래 CUES가 영상 시간에 맞춰 얹혀요).
+   파일이 없으면 같은 시간표로 시뮬레이션(파랑 배경 + 자막)해서 흐름을 확인할 수 있어요. */
+const VIDEO_SRC='assets/interview.mp4';
+const DURATION=24;
+const CUES=[
+  {a:0.5, b:6,   who:['일본','20대 여성'], ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'},
+  {a:6.5,b:12,   who:['일본','20대 여성'], ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'},
+  {a:12.5,b:18,  who:['영어권','20대 여성'], ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."},
+  {a:18.5,b:23.5,who:['영어권','20대 여성'], ko:'친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.', og:"I've definitely envied people who come and enjoy it together with friends."}
+];
+const vid=$('#vid'),vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
+let vs=0,t0=0,raf=0,cueIdx=-1,hasVid=false;       // vs: 0 대기 · 1 재생 · 2 종료
+vid.addEventListener('loadeddata',()=>{hasVid=true;vbig.classList.add('hasvid')});
+vid.addEventListener('error',()=>{hasVid=false});
+vid.src=VIDEO_SRC;
+
+const clock=()=>hasVid&&!vid.paused?vid.currentTime:(performance.now()-t0)/1000;
+const dur=()=>hasVid&&isFinite(vid.duration)?vid.duration:DURATION;
+function setCue(i){
+  if(i===cueIdx)return;cueIdx=i;
+  if(i<0){cap.classList.remove('on');who.classList.remove('on');return}
+  const c=CUES[i];
+  $('#capKo').textContent=c.ko;$('#capOg').textContent=c.og;
+  $('#whoA').textContent=c.who[0];$('#whoB').textContent=c.who[1];
+  cap.classList.remove('on');void cap.offsetWidth;cap.classList.add('on');who.classList.add('on');
+}
+function tick(){
+  if(vs!==1)return;
+  const t=clock();
+  $('#vprog').style.width=Math.min(100,t/dur()*100)+'%';
+  let i=-1;CUES.forEach((c,k)=>{if(t>=c.a&&t<c.b)i=k});setCue(i);
+  if(t>=dur()||(hasVid&&vid.ended)){endVideo();return}
+  raf=requestAnimationFrame(tick);
+}
+function startVideo(){
+  vs=1;cueIdx=-2;t0=performance.now();
+  const s=$('[data-id=video]');s.classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
+  if(hasVid){vid.currentTime=0;vid.play().catch(()=>{hasVid=false;t0=performance.now()})}
+  setTimeout(()=>{if(vs===1)raf=requestAnimationFrame(tick)},500); // 확장 모션(0.8s) 시작 직후부터
+}
+function endVideo(){
+  vs=2;cancelAnimationFrame(raf);if(hasVid)vid.pause();setCue(-1);
+  $('#vprog').style.width='100%';
+  setTimeout(()=>{if(vs===2){$('[data-id=video]').classList.remove('exp');vbig.classList.remove('play');vbig.classList.add('done');$('.vhint').textContent='→ 다음으로'}},900);
+}
+function resetVideo(){
+  vs=0;cancelAnimationFrame(raf);if(hasVid){vid.pause();vid.currentTime=0}
+  $('[data-id=video]').classList.remove('exp');vbig.classList.remove('play','done');
+  $('.vhint').textContent='→ 키를 누르면 재생돼요';$('#vprog').style.width='0';setCue(-1);
+}
+vbig.onclick=()=>next();
+
+/* ===== 통계 숫자 카운트업 ===== */
+function count(el,v,fmt){const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(v*e));if(p<1)requestAnimationFrame(f)})(s)}
+function runStats(){count($('#n1'),1894,n=>n.toLocaleString('en-US'));count($('#n2'),88,n=>n)}
+
+/* ===== 이동 ===== */
+const slides=$$('.slide');let cur=0;
+function show(i){i=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));cur=i;
+  $('#bar').style.width=((i+1)/slides.length*100)+'%';
+  history.replaceState(null,'','#'+(i+1));
+  const id=slides[i].dataset.id;
+  resetVideo();
+  if(id==='stats'){$('#n1').textContent='0';$('#n2').textContent='0';setTimeout(runStats,500)}
+}
+const isVideo=()=>slides[cur].dataset.id==='video';
+function next(){
+  if(isVideo()){
+    if(vs===0){startVideo();return}
+    if(vs===1){endVideo();return}   // 재생 중 → 은 건너뛰기
+  }
+  show(cur+1);
+}
+function prev(){
+  if(isVideo()&&vs===1){resetVideo();return}
+  show(cur-1);
+}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){prev()}
+  else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX);addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)d<0?next():prev();tx=null});
+setTimeout(()=>{const hp=$('#help');hp.style.opacity=0},6000);
+const h=parseInt(location.hash.slice(1));show(h>0?h-1:0);
+</script>
+</body>
+</html>
