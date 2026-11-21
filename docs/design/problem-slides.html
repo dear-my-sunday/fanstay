@@ -219,11 +219,11 @@ const CLIPS=[
   {src:'assets/interview.mp4', who:['일본','20대 여성'], cues:[
     {a:0.5,b:4.7,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
   {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
-    {a:0.2,b:5.1,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
+    {a:0.2,b:4.1,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
   /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=c.src+(i||c.src.startsWith('data:')?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261121b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
 vbig.classList.add('hasvid');
 let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
 const cur$=()=>vids[ci];
