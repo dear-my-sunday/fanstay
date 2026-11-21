@@ -128,13 +128,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .jr{position:absolute;left:160px;right:160px;top:362px;height:44px}
 .jr::before{content:"";position:absolute;left:0;right:0;top:22px;height:2px;background:rgba(7,25,76,.10)}
 .jr .st{position:absolute;top:0;height:44px;display:flex;align-items:center;padding:0 18px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1.5px rgba(7,25,76,.12);font-size:18px;font-weight:600;color:var(--h2);letter-spacing:-.18px;white-space:nowrap}
-.pc{position:absolute;top:432px;width:517px;height:528px;border-radius:52px;background:var(--soft);padding:40px 48px 0;overflow:hidden;word-break:keep-all}
+.pc{position:absolute;top:432px;width:382px;height:540px;border-radius:52px;background:var(--soft);padding:36px 36px 0;overflow:hidden;word-break:keep-all}
 .pc .no{font-size:18px;font-weight:600;color:var(--label);line-height:1.2}
-.pc .pt{margin-top:12px;width:calc(100% - 64px);font-size:30px;font-weight:700;line-height:1.4;letter-spacing:-.6px;color:var(--h1)}
-.pc .qi{position:absolute;right:44px;top:34px;width:52px;height:52px;border-radius:50%;background:var(--blue-100);color:var(--blue);display:grid;place-items:center}
-.pc .qi svg{width:26px;height:26px}
-.pc .q{margin-top:28px;font-size:22px;font-weight:500;line-height:1.6;letter-spacing:-.22px;color:var(--h2)}
-.pc .ev{position:absolute;left:48px;right:48px;bottom:36px;padding-top:20px;border-top:1px solid rgba(7,25,76,.08);font-size:17px;line-height:1.55;letter-spacing:-.17px;color:var(--body)}
+.pc .pt{margin-top:12px;width:calc(100% - 52px);font-size:26px;font-weight:700;line-height:1.4;letter-spacing:-.52px;color:var(--h1)}
+.pc .qi{position:absolute;right:32px;top:30px;width:48px;height:48px;border-radius:50%;background:var(--blue-100);color:var(--blue);display:grid;place-items:center}
+.pc .qi svg{width:26px;height:20px;fill:currentColor;stroke:none}
+.pc .q{margin-top:24px;font-size:20px;font-weight:500;line-height:1.6;letter-spacing:-.2px;color:var(--h2)}
+.pc .ev{position:absolute;left:36px;right:36px;bottom:32px;height:134px;padding-top:18px;border-top:1px solid rgba(7,25,76,.08);font-size:16px;line-height:1.55;letter-spacing:-.16px;color:var(--body)}
 .pc .ev .bdg{margin-bottom:10px}
 .bdg{display:inline-block;font-size:16px;font-weight:600;line-height:1;padding:7px 12px;border-radius:999px;letter-spacing:-.16px}
 .bdg.s{background:rgba(49,130,246,.13);color:var(--blue)}
@@ -184,27 +184,35 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
   <div class="jr rv" style="--i:3">
     <span class="st" style="left:0">공연 준비</span>
-    <span class="st" style="left:541px">공연 전</span>
-    <span class="st" style="left:1082px">공연 종료 후</span>
+    <span class="st" style="left:406px">공연 전</span>
+    <span class="st" style="left:812px">공연장에서</span>
+    <span class="st" style="left:1218px">공연 종료 후</span>
   </div>
 
   <div class="pc rv" style="left:160px;--i:4">
-    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
+    <div class="qi"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="no">문제 1 · 숙소</div>
     <div class="pt">외국인이라는 이유로 갑질하는 숙소가 불편해요</div>
     <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
     <div class="ev"><span class="bdg s">통계</span><br>BTS 부산 공연 주간 숙박 요금이 평소 주말의 2.4배, 최대 7.5배까지 올랐어요 (부산 숙소 135곳 조사)</div>
   </div>
-  <div class="pc rv" style="left:701px;--i:5">
-    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
+  <div class="pc rv" style="left:566px;--i:5">
+    <div class="qi"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="no">문제 2 · 동행</div>
     <div class="pt">취향과 성향이 잘 맞는 친구와 같이 공연을 즐길 수 있으면 더 좋을 것 같아요</div>
     <div class="q">친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.</div>
     <div class="ev"><span class="bdg c">참고</span><br>K-POP 관람자의 26.6%는 혼자, 48.5%는 동성 친구와 와요 (2020, 국내 241명)</div>
   </div>
-  <div class="pc rv" style="left:1242px;--i:6">
-    <div class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div>
-    <div class="no">문제 3 · 귀가</div>
+  <div class="pc rv" style="left:972px;--i:6">
+    <div class="qi"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
+    <div class="no">문제 3 · 길 찾기</div>
+    <div class="pt">공연장 구조가 낯설어요</div>
+    <div class="q">공연장 구조가 낯설어서 헤맨 적이 많아요.</div>
+    <div class="ev"><span class="bdg h">가설</span><br>화장실·식음료·짐 보관 정보가 앱·SNS·공지에 흩어져 있어요 (근거 확인 중)</div>
+  </div>
+  <div class="pc rv" style="left:1378px;--i:7">
+    <div class="qi"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
+    <div class="no">문제 4 · 귀가</div>
     <div class="pt">공연이 끝난 늦은 시각에 교통편 이용이 어려워요</div>
     <div class="q">사람들이 몰려 택시를 부르는 것도 힘들고, 늦은 시각이다 보니 위험한 것도 있죠.</div>
     <div class="ev"><span class="bdg c">사례</span><br>인스파이어 아레나 셔틀은 종료 후 최대 1시간 30분 운행, 30분 넘게 기다릴 수 있어요</div>
