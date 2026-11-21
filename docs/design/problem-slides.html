@@ -58,6 +58,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .exp .vbig .chp,.exp .vhint{opacity:0}
 .vbig video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
 .vbig.hasvid video{opacity:1}
+.vbig.hasvid .chp,.vbig.hasvid .vhint{display:none}
 /* 영상이 없을 때 재생 중 배경 (blue 면 1곳) */
 .vbig .stage-bg{position:absolute;inset:0;background:linear-gradient(160deg,#4DA3FF 0%,#9CC9FF 100%);opacity:0;transition:opacity .6s ease}
 .vbig.play .stage-bg{opacity:1}
@@ -116,10 +117,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="ttl rv" style="--i:1">가파른 성장세의 K-POP,<br>방한 외국인은 편리한 공연 경험을 누리고 있을까요?</div>
 
   <div class="vbig chk" id="vbig">
-    <video id="vid" playsinline preload="auto" muted></video>
+    <video id="vid" playsinline preload="auto"></video>
     <div class="stage-bg"></div>
     <div class="scrim"></div>
-    <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 24초 · 1회 재생</span>
+    <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 10초 · 1회 재생</span>
     <span class="vhint">→ 키를 누르면 재생돼요</span>
     <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></div>
     <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b></div>
@@ -165,18 +166,19 @@ addEventListener('resize',fit);fit();
    실제 영상이 생기면 이 경로에 mp4를 넣으면 돼요 (자막은 아래 CUES가 영상 시간에 맞춰 얹혀요).
    파일이 없으면 같은 시간표로 시뮬레이션(파랑 배경 + 자막)해서 흐름을 확인할 수 있어요. */
 const VIDEO_SRC='assets/interview.mp4';
-const DURATION=24;
-const CUES=[
-  {a:0.5, b:6,   who:['일본','20대 여성'], ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'},
-  {a:6.5,b:12,   who:['일본','20대 여성'], ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'},
-  {a:12.5,b:18,  who:['영어권','20대 여성'], ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."},
-  {a:18.5,b:23.5,who:['영어권','20대 여성'], ko:'친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.', og:"I've definitely envied people who come and enjoy it together with friends."}
+const DURATION=10;   // 영상이 없을 때 시뮬레이션 길이 (영상이 있으면 영상 길이를 써요)
+const CUES=[   // 영상 시간(초)에 맞춰 얹히는 자막. 말하는 타이밍에 맞게 a(시작)/b(끝)만 고치면 돼요
+  {a:0.4,b:5,  who:['일본','20대 여성'], ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'},
+  {a:5.2,b:9.8,who:['일본','20대 여성'], ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}
+  /* 영어 인터뷰 영상이 생기면 아래 자막을 새 영상 시간에 맞춰 추가해요
+  ,{a:0,b:5,who:['영어권','20대 여성'], ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}
+  ,{a:5,b:10,who:['영어권','20대 여성'], ko:'친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.', og:"I've definitely envied people who come and enjoy it together with friends."} */
 ];
 const vid=$('#vid'),vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
 let vs=0,t0=0,raf=0,cueIdx=-1,hasVid=false;       // vs: 0 대기 · 1 재생 · 2 종료
 vid.addEventListener('loadeddata',()=>{hasVid=true;vbig.classList.add('hasvid')});
 vid.addEventListener('error',()=>{hasVid=false});
-vid.src=VIDEO_SRC;
+vid.src=VIDEO_SRC+'#t=0.1';
 
 const clock=()=>hasVid&&!vid.paused?vid.currentTime:(performance.now()-t0)/1000;
 const dur=()=>hasVid&&isFinite(vid.duration)?vid.duration:DURATION;
