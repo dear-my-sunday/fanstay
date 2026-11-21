@@ -103,7 +103,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .hi .lb,.dash .hi .big{color:#fff}
 .dash .hi .ft{color:rgba(255,255,255,.82)}
 .bar{height:14px;border-radius:7px;background:rgba(7,25,76,.07);overflow:hidden;position:relative}
-.bar i{display:block;height:100%;border-radius:7px;background:var(--blue);width:0;transition:width 1.1s var(--ease) .9s}
+.bar i{display:block;height:100%;border-radius:7px;background:var(--blue);width:0;transition:width 1.1s var(--ease) .1s}
 .slide.on .bar i{width:var(--w)}
 .slide:not(.on) .bar i{transition-duration:0s}
 .navy .bar{background:rgba(255,255,255,.2)}
@@ -114,7 +114,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .row .v small{font-size:16px;font-weight:500;color:var(--cap);margin-left:6px}
 .row.on .n{color:var(--h1)}
 .stack{display:flex;height:22px;border-radius:11px;overflow:hidden;gap:4px;margin-top:20px}
-.stack i{display:block;height:100%;width:0;transition:width 1.1s var(--ease) .9s}
+.stack i{display:block;height:100%;width:0;transition:width 1.1s var(--ease) .1s}
 .slide.on .stack i{width:var(--w)}
 .slide:not(.on) .stack i{transition-duration:0s}
 .lg{display:flex;gap:36px;margin-top:22px;font-size:20px;font-weight:600;color:var(--body);letter-spacing:-.2px}
@@ -158,7 +158,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <!-- 02 문제 제기 · 수치 대시보드 -->
 <section class="slide dash" data-id="stats" data-no="02">
-  <div class="kick rv">문제 제기</div>
 
   <div class="c navy rv" style="left:160px;top:140px;width:640px;height:388px;--i:1">
     <span class="tag">규모</span>
@@ -218,9 +217,9 @@ addEventListener('resize',fit);fit();
    클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
 const CLIPS=[
   {src:'assets/interview.mp4', who:['일본','20대 여성'], cues:[
-    {a:0.8,b:7.0,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
+    {a:0.5,b:4.7,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
   {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
-    {a:0.3,b:7.5,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
+    {a:0.2,b:5.1,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
   /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
@@ -284,7 +283,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   history.replaceState(null,'','#'+(i+1));
   const id=slides[i].dataset.id;
   resetVideo();
-  if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');setTimeout(runStats,600)}
+  if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
 }
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
