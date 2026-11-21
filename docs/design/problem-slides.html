@@ -293,7 +293,10 @@ function fit(){
   st.setProperty('--W',W+'px');st.setProperty('--H',H+'px');
   st.setProperty('--ox',(W-1920)/2+'px');st.setProperty('--oy',(H-1080)/2+'px');
 }
-addEventListener('resize',fit);fit();
+addEventListener('resize',fit);addEventListener('pageshow',fit);addEventListener('load',fit);
+if(window.visualViewport)visualViewport.addEventListener('resize',fit);
+if(window.ResizeObserver)new ResizeObserver(fit).observe(document.documentElement);
+fit();
 
 /* ===== 인터뷰 영상 (클립 여러 개를 이어서 1회 재생) =====
    클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
