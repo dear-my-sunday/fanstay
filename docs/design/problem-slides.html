@@ -56,8 +56,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .vbig .chp{position:absolute;left:32px;top:30px;transition:opacity .3s ease}
 .vhint{position:absolute;right:32px;top:34px;font-size:16px;color:rgba(23,30,41,.55);transition:opacity .3s ease}
 .exp .vbig .chp,.exp .vhint{opacity:0}
-.vbig video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
-.vbig.hasvid video{opacity:1}
+#vwrap{position:absolute;inset:0}
+#vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+#vwrap video.on{opacity:1}
 .vbig.hasvid .chp,.vbig.hasvid .vhint{display:none}
 /* 영상이 없을 때 재생 중 배경 (blue 면 1곳) */
 .vbig .stage-bg{position:absolute;inset:0;background:linear-gradient(160deg,#4DA3FF 0%,#9CC9FF 100%);opacity:0;transition:opacity .6s ease}
@@ -121,7 +122,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="ttl rv" style="--i:1">가파른 성장세의 K-POP,<br>방한 외국인은 편리한 공연 경험을 누리고 있을까요?</div>
 
   <div class="vbig chk" id="vbig">
-    <video id="vid" playsinline preload="auto"></video>
+    <div id="vwrap"></div>
     <div class="stage-bg"></div>
     <div class="scrim"></div>
     <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 10초 · 1회 재생</span>
@@ -166,57 +167,61 @@ function fit(){
 }
 addEventListener('resize',fit);fit();
 
-/* ===== 인터뷰 영상 =====
-   실제 영상이 생기면 이 경로에 mp4를 넣으면 돼요 (자막은 아래 CUES가 영상 시간에 맞춰 얹혀요).
-   파일이 없으면 같은 시간표로 시뮬레이션(파랑 배경 + 자막)해서 흐름을 확인할 수 있어요. */
-const VIDEO_SRC='assets/interview.mp4';
-const DURATION=10;   // 영상이 없을 때 시뮬레이션 길이 (영상이 있으면 영상 길이를 써요)
-const CUES=[   // 영상 시간(초)에 맞춰 얹히는 자막. 말하는 타이밍에 맞게 a(시작)/b(끝)만 고치면 돼요
-  {a:0.4,b:5,  who:['일본','20대 여성'], ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'},
-  {a:5.2,b:9.8,who:['일본','20대 여성'], ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}
-  /* 영어 인터뷰 영상이 생기면 아래 자막을 새 영상 시간에 맞춰 추가해요
-  ,{a:0,b:5,who:['영어권','20대 여성'], ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}
-  ,{a:5,b:10,who:['영어권','20대 여성'], ko:'친구들과 함께 와서 즐기는 사람들을 보고 부러워한 적 있죠.', og:"I've definitely envied people who come and enjoy it together with friends."} */
+/* ===== 인터뷰 영상 (클립 여러 개를 이어서 1회 재생) =====
+   클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
+const CLIPS=[
+  {src:'assets/interview.mp4', who:['일본','20대 여성'], cues:[
+    {a:0.4,b:9.4,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
+  {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
+    {a:0.4,b:7.4,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
+  /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
-const vid=$('#vid'),vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-let vs=0,t0=0,raf=0,cueIdx=-1,hasVid=false;       // vs: 0 대기 · 1 재생 · 2 종료
-vid.addEventListener('loadeddata',()=>{hasVid=true;vbig.classList.add('hasvid')});
-vid.addEventListener('error',()=>{hasVid=false});
-vid.src=VIDEO_SRC+'#t=0.1';
-
-const clock=()=>hasVid&&!vid.paused?vid.currentTime:(performance.now()-t0)/1000;
-const dur=()=>hasVid&&isFinite(vid.duration)?vid.duration:DURATION;
-function setCue(i){
-  if(i===cueIdx)return;cueIdx=i;
-  if(i<0){cap.classList.remove('on');who.classList.remove('on');return}
-  const c=CUES[i];
+const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=c.src+(i||c.src.startsWith('data:')?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+vbig.classList.add('hasvid');
+let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
+const cur$=()=>vids[ci];
+const total=()=>vids.reduce((a,v)=>a+(isFinite(v.duration)?v.duration:0),0)||1;
+const elapsed=()=>vids.slice(0,ci).reduce((a,v)=>a+(isFinite(v.duration)?v.duration:0),0)+cur$().currentTime;
+function setCue(k){
+  if(k===cueIdx)return;cueIdx=k;
+  if(k<0){cap.classList.remove('on');return}
+  const c=CLIPS[ci].cues[k];
   $('#capKo').textContent=c.ko;$('#capOg').textContent=c.og;
-  $('#whoA').textContent=c.who[0];$('#whoB').textContent=c.who[1];
-  cap.classList.remove('on');void cap.offsetWidth;cap.classList.add('on');who.classList.add('on');
+  cap.classList.remove('on');void cap.offsetWidth;cap.classList.add('on');
+}
+function showClip(i){
+  ci=i;vids.forEach((v,k)=>v.classList.toggle('on',k===i));
+  $('#whoA').textContent=CLIPS[i].who[0];$('#whoB').textContent=CLIPS[i].who[1];
+  cueIdx=-2;setCue(-1);
 }
 function tick(){
   if(vs!==1)return;
-  const t=clock();
-  $('#vprog').style.width=Math.min(100,t/dur()*100)+'%';
-  let i=-1;CUES.forEach((c,k)=>{if(t>=c.a&&t<c.b)i=k});setCue(i);
-  if(t>=dur()||(hasVid&&vid.ended)){endVideo();return}
+  const v=cur$(),t=v.currentTime;
+  $('#vprog').style.width=Math.min(100,elapsed()/total()*100)+'%';
+  let k=-1;CLIPS[ci].cues.forEach((c,j)=>{if(t>=c.a&&t<c.b)k=j});setCue(k);
+  if(v.ended||(isFinite(v.duration)&&t>=v.duration-0.05)){
+    if(ci<CLIPS.length-1){v.pause();showClip(ci+1);vids[ci].currentTime=0;vids[ci].play().catch(()=>{})}
+    else{endVideo();return}
+  }
   raf=requestAnimationFrame(tick);
 }
 function startVideo(){
-  vs=1;cueIdx=-2;t0=performance.now();
-  const s=$('[data-id=video]');s.classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
-  if(hasVid){vid.currentTime=0;vid.play().catch(()=>{hasVid=false;t0=performance.now()})}
-  setTimeout(()=>{if(vs===1)raf=requestAnimationFrame(tick)},500); // 확장 모션(0.8s) 시작 직후부터
+  vs=1;
+  $('[data-id=video]').classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
+  who.classList.add('on');showClip(0);
+  vids[0].currentTime=0;vids[0].play().catch(()=>{});
+  raf=requestAnimationFrame(tick);
 }
 function endVideo(){
-  vs=2;cancelAnimationFrame(raf);if(hasVid)vid.pause();setCue(-1);
+  vs=2;cancelAnimationFrame(raf);vids.forEach(v=>v.pause());setCue(-1);who.classList.remove('on');
   $('#vprog').style.width='100%';
   setTimeout(()=>{if(vs===2){$('[data-id=video]').classList.remove('exp');vbig.classList.remove('play');vbig.classList.add('done');$('.vhint').textContent='→ 다음으로'}},900);
 }
 function resetVideo(){
-  vs=0;cancelAnimationFrame(raf);if(hasVid){vid.pause();vid.currentTime=0}
+  vs=0;cancelAnimationFrame(raf);vids.forEach(v=>{v.pause();v.currentTime=0});showClip(0);who.classList.remove('on');
   $('[data-id=video]').classList.remove('exp');vbig.classList.remove('play','done');
-  $('.vhint').textContent='→ 키를 누르면 재생돼요';$('#vprog').style.width='0';setCue(-1);
+  $('.vhint').textContent='→ 키를 누르면 재생돼요';$('#vprog').style.width='0';
 }
 vbig.onclick=()=>next();
 
