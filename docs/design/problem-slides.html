@@ -17,10 +17,11 @@
 html,body{height:100%;overflow:hidden;background:#EDEFF3}
 body{font-family:"Pretendard","Apple SD Gothic Neo",sans-serif;color:var(--h2);-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit}
-#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;background:#fff;transform-origin:0 0;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.12)}
+/* 창 크기에 맞춰 stage가 뷰포트를 꽉 채우고, 1920×1080 프레임은 가운데에 배치돼요(남는 영역은 배경만 이어짐) */
+#stage{position:absolute;left:0;top:0;background:#fff;transform-origin:0 0}
 
 /* ===== slide frame ===== */
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s;background:#fff}
+.slide{position:absolute;left:var(--ox,0px);top:var(--oy,0px);width:1920px;height:1080px;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
 .slide.on{opacity:1;visibility:visible;transition:opacity .4s ease}
 .kick{position:absolute;left:160px;top:96px;font-size:18px;font-weight:600;color:var(--label);line-height:1.2}
 .ttl{position:absolute;left:160px;top:132px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
@@ -37,14 +38,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .chp{display:inline-block;font-size:16px;font-weight:600;color:#33383C;background:#fff;padding:8px 14px;border-radius:999px;letter-spacing:-.16px}
 
 /* ===== 01 표지 (미정) ===== */
-.cover{position:absolute;inset:0;display:grid;place-items:center}
+.cover{position:absolute;left:-3000px;top:-3000px;width:7920px;height:7080px;display:grid;place-items:center}
 .cover .chp{font-size:20px;padding:12px 20px}
 
 /* ===== 02 인터뷰 영상 ===== */
-.glowtop{position:absolute;left:0;top:0;width:1920px;height:620px;background:radial-gradient(ellipse 62% 100% at 50% 0%,#CFE3FB 0%,rgba(207,227,251,0) 100%);pointer-events:none}
+/* 상단 하늘색 광원은 창 전체 폭에 걸쳐 */
+.glowtop{position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:620px;background:radial-gradient(ellipse 62% 100% at 50% 0%,#CFE3FB 0%,rgba(207,227,251,0) 100%);pointer-events:none}
 .vbig{position:absolute;left:160px;top:412px;width:1600px;height:548px;border-radius:60px;overflow:hidden;cursor:pointer;
   transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),border-radius .8s var(--snap),opacity .6s var(--ease),transform .6s var(--ease)}
-.slide.exp .vbig{left:0;top:0;width:1920px;height:1080px;border-radius:0;z-index:3}
+.slide.exp .vbig{left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:var(--H,1080px);border-radius:0;z-index:3}
 .slide.exp .rv:not(.vbig){opacity:0;transform:translateY(-60px)}
 .slide.exp .foot{opacity:0}
 .vbig .chp{position:absolute;left:32px;top:30px;transition:opacity .3s ease}
@@ -90,7 +92,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 /* ===== nav ===== */
 #bar{position:fixed;left:0;top:0;height:3px;background:var(--blue);width:0;transition:width .4s ease;z-index:9}
-#help{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:rgba(23,30,41,.5);z-index:9;transition:opacity .6s}
+#help-removed{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:rgba(23,30,41,.5);z-index:9;transition:opacity .6s}
 </style>
 </head>
 <body>
@@ -143,12 +145,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 </section>
 
 </div>
-<div id="help">← → 이동 · F 전체화면 · 영상 슬라이드는 → 로 재생</div>
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const stage=$('#stage');
-function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`scale(${s}) translate(-50%,-50%)`;stage.style.left='50%';stage.style.top='50%'}
+function fit(){
+  const s=Math.min(innerWidth/1920,innerHeight/1080),W=innerWidth/s,H=innerHeight/s,st=stage.style;
+  st.width=W+'px';st.height=H+'px';st.transform=`scale(${s})`;
+  st.setProperty('--W',W+'px');st.setProperty('--H',H+'px');
+  st.setProperty('--ox',(W-1920)/2+'px');st.setProperty('--oy',(H-1080)/2+'px');
+}
 addEventListener('resize',fit);fit();
 
 /* ===== 인터뷰 영상 =====
@@ -237,7 +243,6 @@ addEventListener('keydown',e=>{
   else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
 });
 let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX);addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)d<0?next():prev();tx=null});
-setTimeout(()=>{const hp=$('#help');hp.style.opacity=0},6000);
 const h=parseInt(location.hash.slice(1));show(h>0?h-1:0);
 </script>
 </body>
