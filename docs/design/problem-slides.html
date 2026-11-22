@@ -258,6 +258,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .vc small{display:block;font-size:16px;font-weight:600;letter-spacing:-.16px;color:rgba(255,255,255,.82)}
 .pos .vc b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1.3}
 
+/* ===== 05 솔루션: 티켓 인증 허브 + 4가지 해결 ===== */
+.sol .sl-ring{position:absolute;left:726px;top:360px;width:467px;height:467px;border-radius:50%;background:var(--blue-100)}
+.sol .sl-core{position:absolute;left:830px;top:464px;width:259px;height:259px;border-radius:50%;background:var(--blue);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px #fff}
+.sol .sl-core small{font-size:15px;font-weight:600;letter-spacing:.6px;color:rgba(255,255,255,.8)}
+.sol .sl-core b{display:block;margin-top:4px;font-size:44px;font-weight:700;letter-spacing:-1.3px;line-height:1.2}
+.sol .sl-core span{display:block;margin-top:8px;font-size:17px;font-weight:500;letter-spacing:-.17px;color:rgba(255,255,255,.92)}
+.sol .sl-card{position:absolute;width:500px;height:208px;border-radius:52px;background:var(--soft);padding:30px 40px}
+.sol .sl-card.mv{background:var(--blue-100)}
+.sol .sl-chip{display:inline-block;font-size:14px;font-weight:600;line-height:1;padding:8px 13px;border-radius:999px;letter-spacing:-.14px;background:rgba(7,25,76,.06);color:rgba(28,31,39,.7)}
+.sol .sl-card.mv .sl-chip{background:#fff;color:var(--blue)}
+.sol .sl-t{margin-top:12px;font-size:32px;font-weight:700;letter-spacing:-.64px;line-height:1.25;color:var(--h1)}
+.sol .sl-d{margin-top:6px;font-size:17px;font-weight:400;letter-spacing:-.17px;line-height:1.55;color:var(--body);white-space:nowrap}
+.sol .sl-s{margin-top:12px;font-size:17px;font-weight:600;letter-spacing:-.17px;color:var(--blue)}
+.sol .sl-pill{position:absolute;left:50%;top:880px;transform:translateX(-50%);white-space:nowrap;font-size:18px;font-weight:500;letter-spacing:-.18px;
+  padding:14px 28px;border-radius:999px;background:var(--blue-100);color:var(--h2)}
+.sol .sl-pill b{font-weight:700;color:var(--blue);margin-right:6px}
+.slide.on .sl-pill.rv{transform:translateX(-50%)}
+.slide:not(.on) .sl-pill.rv{transform:translateX(-50%)}
+
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
 .pb .ttl{top:132px;white-space:normal;width:1600px}
 .pb .sub{top:296px}
@@ -441,7 +461,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
 </section>
 
-<section class="slide dash pos" data-id="position" data-no="05">
+<section class="slide dash sol" data-id="solution" data-no="05">
+  <div class="kick rv">솔루션</div>
+  <div class="ttl rv" style="--i:1">티켓 인증 하나로,<br>공연 전후를 한 번에</div>
+  <div class="sub rv" style="--i:1;top:296px">숙소 · 셔틀 · 지도 · 동행, 그리고 공연장 앞 현장 접점</div>
+
+  <div class="sl-ring rv" style="--i:2"></div>
+  <div class="sl-core rv" style="--i:2"><small>HUB</small><b>티켓 인증</b><span>실제 참석자를 확인해요</span></div>
+
+  <div class="sl-card mv rv" style="left:160px;top:360px;--i:3"><span class="sl-chip">핵심 · MVP</span>
+    <div class="sl-t">제휴 숙소</div><div class="sl-d">공연장별 제휴 숙소 3~4곳 중 선택, 정가 유지</div><div class="sl-s">해결: 숙소 찾기 어려움</div></div>
+  <div class="sl-card mv rv" style="left:1260px;top:360px;--i:4"><span class="sl-chip">핵심 · MVP</span>
+    <div class="sl-t">셔틀</div><div class="sl-d">종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</div><div class="sl-s">해결: 심야 귀가 공백</div></div>
+  <div class="sl-card rv" style="left:160px;top:619px;--i:5"><span class="sl-chip">핵심 · 소규모</span>
+    <div class="sl-t">동행 매칭</div><div class="sl-d">티켓 인증된 팬끼리 매칭, 룸쉐어까지</div><div class="sl-s">해결: 혼자 오는 불안</div></div>
+  <div class="sl-card rv" style="left:1260px;top:619px;--i:6"><span class="sl-chip">무료</span>
+    <div class="sl-t">공연장 지도</div><div class="sl-d">화장실·식음료·보관소·집결지를 한눈에</div><div class="sl-s">해결: 정보 분산</div></div>
+
+  <div class="sl-pill rv" style="--i:7"><b>현장 접점</b>공연장 앞 부스에서 짐 보관 · 동행 만남 장소 · 귀가 집결지를 안내해요</div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
+</section>
+
+<section class="slide dash pos" data-id="position" data-no="06">
   <div class="kick rv">포지셔닝</div>
   <div class="ttl rv" style="--i:1">K-POP 팬 문화에 최적화된 검증 플랫폼, 그 포지션을 노려요</div>
   <div class="sub rv" style="--i:1;top:210px">공연 팬 특화도와 거래 신뢰·검증 수준, 두 기준으로 서비스를 비교했어요</div>
@@ -471,14 +512,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
   <div class="df rv" style="--i:3">
     <div class="dk">FanStay의 차별점</div>
-    <div class="dr"><div class="nn">1</div><div><h3>K-POP 팬 문화에 최적화</h3><p>공연 일정을 기준으로 숙소·셔틀·동선을 한 번에 묶어요</p></div></div>
-    <div class="dr"><div class="nn">2</div><div><h3>검증된 거래</h3><p>티켓 인증으로 실제 참석자를 확인하고,<br>숙소는 정가로 예약해요</p></div></div>
-    <div class="dr"><div class="nn">3</div><div><h3>현장까지 이어지는 연결</h3><p>짐 보관·만남 장소·집결지로 앱 밖 현장까지 이어요</p></div></div>
+    <div class="dr"><div class="nn">1</div><div><h3>K-POP 팬 문화에 최적화</h3><p>일반 여행 상품과 달리, 공연 일정이 설계의 기준이에요</p></div></div>
+    <div class="dr"><div class="nn">2</div><div><h3>검증된 거래</h3><p>개인 간 거래와 달리, 티켓 인증으로 참석자를 확인해요</p></div></div>
+    <div class="dr"><div class="nn">3</div><div><h3>현장까지 이어지는 연결</h3><p>앱 안에서 끝나지 않고, 공연장 앞 현장까지 이어져요</p></div></div>
     <div class="dcap">현장 접점까지 묶은 선례는 조사 범위에서 확인하지 못했어요</div>
   </div>
   <div class="vc rv" style="--i:4"><small>우리가 추구하는 가치</small><b>검증과 연결로 팬의 불안을 줄여요</b></div>
 
-  <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>06 / 14</span></div>
 </section>
 
 <!-- 03 고객 문제 -->
