@@ -125,6 +125,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .lg span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--c);margin-right:10px}
 
 
+/* ===== 04 타겟 고객 (중국·일본 최우선) ===== */
+.dash .fx{margin-top:16px;display:grid;row-gap:12px}
+.dash .fx>div{display:grid;grid-template-columns:116px 1fr;column-gap:12px;align-items:center;font-size:20px;line-height:1.45;font-weight:500;letter-spacing:-.2px;color:var(--h2)}
+.dash .fx b{font-size:16px;font-weight:600;color:var(--label);letter-spacing:-.16px}
+.dash .nd{display:inline-block;justify-self:start;font-size:16px;font-weight:600;line-height:1;padding:8px 14px;border-radius:999px;background:#fff;color:var(--amber);letter-spacing:-.16px}
+.dash .slot{position:absolute;border-radius:52px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.dash .c.chk{background-color:#FAFAFA;background-image:linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%),linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%);background-size:76px 76px;background-position:0 0,38px 38px}
+.dash .src{position:absolute;left:160px;right:160px;top:984px;font-size:16px;line-height:1.4;letter-spacing:-.16px;color:var(--cap)}
+.dash .bars .row{grid-template-columns:76px 1fr 120px;margin-top:6px}
+.dash .bars .row .n{font-size:18px}
+.dash .bars .row .v{font-size:20px}
+.dash .bars .row .v small{font-size:14px}
+
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
 .pb .ttl{top:132px;white-space:normal;width:1600px}
 .pb .sub{top:296px}
@@ -231,6 +244,50 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="ev"><div class="el">공연 종료 후 귀가 수단</div><div class="duo"><div class="d"><div class="n">30분+</div><div class="l">셔틀 대기 가능</div></div><div class="d"><div class="n">7건</div><div class="l">택시 불편 신고</div></div></div><div class="esrc">인스파이어 셔틀(팝가) · 부산 관광불편신고(한국관광공사, 2026.5)</div></div></div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>03 / 14</span></div>
+</section>
+
+<section class="slide dash" data-id="target" data-no="04">
+  <div class="kick rv">타겟 고객</div>
+  <div class="ttl rv" style="--i:1">중국·일본 팬이 첫 번째 고객이에요</div>
+  <div class="sub rv" style="--i:1;top:208px">방한객 1·2위 시장이에요. 둘을 합치면 전체 방한객의 48.2%예요</div>
+  <div class="hline rv" style="--i:1;top:262px"></div>
+
+  <div class="c soft rv" style="left:160px;top:288px;width:788px;height:408px;padding-top:40px;--i:2">
+    <span class="tag">최우선 · 중국 팬</span>
+    <div class="lb" style="margin-top:16px">2025 방한객 1위 · 전체의 28.9%</div>
+    <div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:44px">만 명</small></div>
+    <div class="fx">
+      <div><b>1인당 지출</b><span>글로벌 평균을 웃돌아요</span></div>
+      <div><b>접근 방향</b><span>중국어 안내 · 결제 접근성 검토</span></div>
+      <div><b>관람·재방문</b><span class="nd">근거 자료 추가 필요</span></div>
+    </div>
+  </div>
+  <div class="c soft rv" style="left:972px;top:288px;width:788px;height:408px;padding-top:40px;--i:3">
+    <span class="tag">최우선 · 일본 팬</span>
+    <div class="lb" style="margin-top:16px">2025 방한객 2위 · 전체의 19.3%</div>
+    <div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:44px">만 명</small></div>
+    <div class="fx">
+      <div><b>서울 체류</b><span>평균 3.5일 · 재방문율 71.2%</span></div>
+      <div><b>접근 방향</b><span>일본어 예약 안내 · 숙박+셔틀 선택형</span></div>
+      <div><b>공연 관람</b><span class="nd">근거 자료 추가 필요</span></div>
+    </div>
+  </div>
+
+  <div class="c bars rv" style="left:160px;top:720px;width:788px;height:256px;padding:30px 52px 0;--i:4">
+    <span class="tag">국가별 방한객 2025</span>
+    <div style="margin-top:10px">
+      <div class="row on"><span class="n">중국</span><div class="bar"><i style="--w:100%;"></i></div><span class="v"><span class="cnt" data-v="548" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row on"><span class="n">일본</span><div class="bar"><i style="--w:66.6%;"></i></div><span class="v"><span class="cnt" data-v="365" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">대만</span><div class="bar"><i style="--w:34.5%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="189" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">미국</span><div class="bar"><i style="--w:27.0%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="148" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">홍콩</span><div class="bar"><i style="--w:11.3%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="62" data-dec="0">0</span><small>만 명</small></span></div>
+    </div>
+  </div>
+  <div class="c slot chk rv" style="left:972px;top:720px;width:382px;height:256px;--i:5"><span class="chp">연령대 · 성별</span><span class="nd">근거 자료 추가 필요</span></div>
+  <div class="c slot chk rv" style="left:1378px;top:720px;width:382px;height:256px;--i:6"><span class="chp">연도별 방한객 추이</span><span class="nd">근거 자료 추가 필요</span></div>
+
+  <div class="src rv" style="--i:6">출처: 한국관광공사 2025 · 서울관광 실태조사 2025 · KB금융 연구 · 비중·합산은 방한객 1,894만 명 기준 산식 · 방한객 수는 공연 관람객 수가 아니에요</div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
 </section>
 
 <section class="slide dash" data-id="stats" data-no="04">
@@ -361,7 +418,7 @@ vbig.onclick=()=>next();
 
 /* ===== 통계 숫자 카운트업 ===== */
 function count(el,v,dec){const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100),e=1-Math.pow(1-p,3),x=v*e;el.textContent=dec?x.toFixed(dec):Math.round(x).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)})(s)}
-function runStats(){$$('[data-id=stats] .cnt').forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
+function runStats(){$$('[data-id=stats] .cnt,[data-id=target] .cnt').forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
 
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
@@ -371,7 +428,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   history.replaceState(null,'','#'+(i+1));
   const id=slides[i].dataset.id;
   resetVideo();
-  if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
+  if(id==='stats'||id==='target'){$$('[data-id=stats] .cnt,[data-id=target] .cnt').forEach(e=>e.textContent='0');runStats()}
 }
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
