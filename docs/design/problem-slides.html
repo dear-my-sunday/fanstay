@@ -138,16 +138,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .bars .row .v{font-size:20px}
 .dash .bars .row .v small{font-size:14px}
 
-/* ===== 04 타겟 고객: 국기 카드가 차례로 올라온 뒤 중국·일본이 확장 ===== */
-.dash .cx,.dash .fc{position:absolute;left:var(--l);top:392px;width:288px;height:420px;border-radius:52px;
-  transform:rotate(var(--r)) translateY(var(--dy));box-shadow:0 24px 64px rgba(25,31,40,.12);z-index:1;
-  transition:opacity .7s var(--ease) calc(var(--k)*140ms),transform .9s var(--ease) calc(var(--k)*140ms),
-    left .9s var(--snap),top .9s var(--snap),width .9s var(--snap),height .9s var(--snap),box-shadow .6s ease}
-.dash .fc{background:linear-gradient(180deg,var(--c1),var(--c2) 62%,#fff)}
-.dash .cx{z-index:2;padding:0}
+/* ===== 04 타겟 고객: 카드가 휙휙 돌다가 중국·일본에서 멈추고 → 확장 → 축소해서 자리로 ===== */
+.dash .strip{position:absolute;left:calc(-1*var(--ox,0px));top:320px;width:var(--W,1920px);height:580px;overflow:hidden;pointer-events:none;z-index:1;
+  opacity:0;transition:opacity .4s ease}
+.slide.on .strip{opacity:1}
+.hx.dash .strip{opacity:0;transition:opacity .35s ease}
+.slide:not(.on) .strip{transition:none}
+.dash .track{position:absolute;left:calc(var(--ox,0px) - 616px);top:72px;display:flex;gap:20px;transform:translateX(0)}
+.sp.dash .track{transform:translateX(-3342px);transition:transform 2.95s cubic-bezier(.1,.72,.08,1);animation:spinblur 2.95s ease-out}
+.slide:not(.on) .track{transition:none;animation:none}
+@keyframes spinblur{0%{filter:blur(0)}14%{filter:blur(5px)}60%{filter:blur(3px)}100%{filter:blur(0)}}
+.dash .sc,.dash .cx{border-radius:52px;box-shadow:0 24px 64px rgba(25,31,40,.12)}
+.dash .sc{flex:none;position:relative;width:288px;height:420px;background:linear-gradient(180deg,var(--c1),var(--c2) 62%,#fff)}
+.dash .cx{position:absolute;left:var(--l);top:392px;width:288px;height:420px;padding:0;opacity:0;z-index:3;
+  transition:opacity 0s,left .9s var(--snap),top .9s var(--snap),width .9s var(--snap),height .9s var(--snap),border-radius .9s var(--snap),box-shadow .6s ease}
+.slide:not(.on) .cx{transition:none}
 .dash .cx .pg{position:absolute;inset:0;background:linear-gradient(180deg,var(--c1),var(--c2) 62%,#fff);transition:opacity .5s ease .1s}
-.slide:not(.on) .cx,.slide:not(.on) .fc{opacity:0;transform:translateY(190px) rotate(var(--r));transition-duration:0s;transition-delay:0s}
-.dash .fi{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;transition:opacity .25s ease}
+.dash .fi{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;
+  transition:opacity .3s ease,transform .9s var(--snap)}
 .dash .flg{border-radius:14px;box-shadow:0 0 0 1px rgba(0,0,0,.07),0 8px 20px rgba(25,31,40,.12);display:block}
 .dash .fi .flg{margin-bottom:12px}
 .dash .fi .nm{font-size:32px;font-weight:700;line-height:1.2;letter-spacing:-.64px;color:var(--h1)}
@@ -155,13 +163,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .fi .rk{font-size:16px;font-weight:600;color:var(--label);letter-spacing:-.16px}
 .dash .fcn{position:absolute;left:0;top:0;width:788px;height:412px;padding:40px 52px;opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .6s var(--ease)}
 .dash .fflag{position:absolute;right:52px;top:40px}
-.xp.dash .cx{left:var(--fl);top:284px;width:788px;height:412px;transform:none;box-shadow:none;
-  transition:opacity .7s var(--ease),transform .9s var(--snap),left .9s var(--snap),top .9s var(--snap),width .9s var(--snap),height .9s var(--snap),box-shadow .6s ease}
+/* 멈춘 자리에서 바로 확장(제목을 덮어요) */
+.hx.dash .cx{opacity:1;left:var(--hl);top:120px;width:820px;height:840px;border-radius:60px}
+.hx.dash .cx .fi{transform:scale(2.3)}
+.hx.dash .kick,.hx.dash .ttl,.hx.dash .hline{opacity:0;transition:opacity .3s ease}
+.xp.dash .kick,.xp.dash .ttl,.xp.dash .hline{opacity:1;transition:opacity .6s ease .5s}
+/* 축소해서 최종 자리로 */
+.xp.dash .cx{left:var(--fl);top:284px;width:788px;height:412px;border-radius:52px;box-shadow:none}
 .xp.dash .cx .pg{opacity:0}
-.xp.dash .cx .fi{opacity:0}
+.xp.dash .cx .fi{opacity:0;transform:none}
 .xp.dash .cx .fcn{opacity:1;transform:none;transition-delay:.55s}
-.xp.dash .fc{opacity:0;transform:translateY(70px) scale(.9) rotate(var(--r));pointer-events:none;
-  transition:opacity .45s ease,transform .7s var(--snap)}
 .dash .late{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease) calc(.8s + var(--i)*100ms),transform .6s var(--ease) calc(.8s + var(--i)*100ms)}
 .xp.dash .late{opacity:1;transform:none}
 .slide:not(.on) .late{transition-duration:0s;transition-delay:0s}
@@ -327,14 +338,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 <section class="slide dash" data-id="target" data-no="04">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="f-cn" viewBox="0 0 90 60"><rect width="90" height="60" fill="#DE2910"/><g fill="#FFDE00"><polygon points="15.00,6.00 17.00,12.25 23.56,12.22 18.23,16.05 20.29,22.28 15.00,18.40 9.71,22.28 11.77,16.05 6.44,12.22 13.00,12.25"/><polygon points="27.43,7.54 28.85,5.90 27.74,4.03 29.74,4.88 31.17,3.24 30.99,5.41 32.99,6.26 30.87,6.76 30.67,8.92 29.55,7.06"/><polygon points="33.03,12.42 34.98,11.46 34.68,9.31 36.20,10.87 38.15,9.91 37.14,11.84 38.65,13.40 36.51,13.03 35.49,14.96 35.17,12.80"/><polygon points="33.12,20.18 35.29,20.09 35.89,18.00 36.64,20.05 38.82,19.97 37.11,21.32 37.85,23.36 36.04,22.15 34.32,23.49 34.92,21.39"/><polygon points="27.66,25.13 29.70,25.89 31.06,24.19 30.96,26.37 33.00,27.14 30.90,27.72 30.79,29.89 29.59,28.08 27.49,28.65 28.85,26.95"/></g></symbol><symbol id="f-jp" viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><circle cx="45" cy="30" r="18" fill="#BC002D"/></symbol><symbol id="f-tw" viewBox="0 0 90 60"><rect width="90" height="60" fill="#FE0000"/><rect width="45" height="30" fill="#000095"/><g fill="#fff"><polygon points="22.50,4.50 24.21,8.62 27.75,5.91 27.17,10.33 31.59,9.75 28.88,13.29 33.00,15.00 28.88,16.71 31.59,20.25 27.17,19.67 27.75,24.09 24.21,21.38 22.50,25.50 20.79,21.38 17.25,24.09 17.83,19.67 13.41,20.25 16.12,16.71 12.00,15.00 16.12,13.29 13.41,9.75 17.83,10.33 17.25,5.91 20.79,8.62"/></g><circle cx="22.5" cy="15" r="5.6" fill="#000095"/><circle cx="22.5" cy="15" r="4.2" fill="#fff"/></symbol><symbol id="f-us" viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><rect y="0.00" width="90" height="4.62" fill="#B22234"/><rect y="9.23" width="90" height="4.62" fill="#B22234"/><rect y="18.46" width="90" height="4.62" fill="#B22234"/><rect y="27.69" width="90" height="4.62" fill="#B22234"/><rect y="36.92" width="90" height="4.62" fill="#B22234"/><rect y="46.15" width="90" height="4.62" fill="#B22234"/><rect y="55.38" width="90" height="4.62" fill="#B22234"/><rect width="38" height="32.31" fill="#3C3B6E"/><g fill="#fff"><circle cx="3.20" cy="2.60" r="0.95"/><circle cx="9.50" cy="2.60" r="0.95"/><circle cx="15.80" cy="2.60" r="0.95"/><circle cx="22.10" cy="2.60" r="0.95"/><circle cx="28.40" cy="2.60" r="0.95"/><circle cx="34.70" cy="2.60" r="0.95"/><circle cx="6.35" cy="5.70" r="0.95"/><circle cx="12.65" cy="5.70" r="0.95"/><circle cx="18.95" cy="5.70" r="0.95"/><circle cx="25.25" cy="5.70" r="0.95"/><circle cx="31.55" cy="5.70" r="0.95"/><circle cx="3.20" cy="8.80" r="0.95"/><circle cx="9.50" cy="8.80" r="0.95"/><circle cx="15.80" cy="8.80" r="0.95"/><circle cx="22.10" cy="8.80" r="0.95"/><circle cx="28.40" cy="8.80" r="0.95"/><circle cx="34.70" cy="8.80" r="0.95"/><circle cx="6.35" cy="11.90" r="0.95"/><circle cx="12.65" cy="11.90" r="0.95"/><circle cx="18.95" cy="11.90" r="0.95"/><circle cx="25.25" cy="11.90" r="0.95"/><circle cx="31.55" cy="11.90" r="0.95"/><circle cx="3.20" cy="15.00" r="0.95"/><circle cx="9.50" cy="15.00" r="0.95"/><circle cx="15.80" cy="15.00" r="0.95"/><circle cx="22.10" cy="15.00" r="0.95"/><circle cx="28.40" cy="15.00" r="0.95"/><circle cx="34.70" cy="15.00" r="0.95"/><circle cx="6.35" cy="18.10" r="0.95"/><circle cx="12.65" cy="18.10" r="0.95"/><circle cx="18.95" cy="18.10" r="0.95"/><circle cx="25.25" cy="18.10" r="0.95"/><circle cx="31.55" cy="18.10" r="0.95"/><circle cx="3.20" cy="21.20" r="0.95"/><circle cx="9.50" cy="21.20" r="0.95"/><circle cx="15.80" cy="21.20" r="0.95"/><circle cx="22.10" cy="21.20" r="0.95"/><circle cx="28.40" cy="21.20" r="0.95"/><circle cx="34.70" cy="21.20" r="0.95"/><circle cx="6.35" cy="24.30" r="0.95"/><circle cx="12.65" cy="24.30" r="0.95"/><circle cx="18.95" cy="24.30" r="0.95"/><circle cx="25.25" cy="24.30" r="0.95"/><circle cx="31.55" cy="24.30" r="0.95"/><circle cx="3.20" cy="27.40" r="0.95"/><circle cx="9.50" cy="27.40" r="0.95"/><circle cx="15.80" cy="27.40" r="0.95"/><circle cx="22.10" cy="27.40" r="0.95"/><circle cx="28.40" cy="27.40" r="0.95"/><circle cx="34.70" cy="27.40" r="0.95"/></g></symbol><symbol id="f-hk" viewBox="0 0 90 60"><rect width="90" height="60" fill="#DE2910"/><g transform="translate(45 30)" fill="#fff"><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(0)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(72)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(144)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(216)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(288)"/></g><circle cx="45" cy="30" r="1.8" fill="#DE2910"/></symbol></defs></svg>
   <div class="kick rv" style="left:0;width:1920px;text-align:center">타겟 고객</div>
-  <div class="ttl rv" style="--i:1;left:0;width:1920px;text-align:center">중국·일본 팬이 첫 번째 고객이에요</div>
+  <div class="ttl rv" style="--i:1;left:0;width:1920px;text-align:center">타겟 고객은 중국·일본 팬</div>
   <div class="hline rv" style="--i:1;top:252px"></div>
 
-  <div class="c soft cx" style="--k:0;--l:200px;--r:-6deg;--dy:28px;--c1:#FCE4E8;--c2:#FDF0EE;--fl:160px"><div class="pg"></div><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div><div class="fcn"><span class="tag">최우선 · 중국 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 1위 · 전체의 28.9%</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="fx"><div><b>1인당 지출</b><span>글로벌 평균을 웃돌아요</span></div><div><b>접근 방향</b><span>중국어 안내 · 결제 접근성 검토</span></div><div><b>관람·재방문</b><span class="nd">근거 자료 추가 필요</span></div></div></div></div>
-  <div class="c soft cx" style="--k:1;--l:508px;--r:-3deg;--dy:8px;--c1:#D9EAFD;--c2:#EEF6FF;--fl:972px"><div class="pg"></div><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div><div class="fcn"><span class="tag">최우선 · 일본 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 2위 · 전체의 19.3%</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="fx"><div><b>서울 체류</b><span>평균 3.5일 · 재방문율 71.2%</span></div><div><b>접근 방향</b><span>일본어 예약 안내 · 숙박+셔틀 선택형</span></div><div><b>공연 관람</b><span class="nd">근거 자료 추가 필요</span></div></div></div></div>
-  <div class="fc" style="--k:2;--l:816px;--r:0deg;--dy:0px;--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div>
-  <div class="fc" style="--k:3;--l:1124px;--r:3deg;--dy:8px;--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div>
-  <div class="fc" style="--k:4;--l:1432px;--r:6deg;--dy:28px;--c1:#FFF1CC;--c2:#FFF8E3;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-hk"/></svg><div class="nm">홍콩</div><div class="nu" style="color:#B97F0B">62만 명</div><div class="rk">2025 방한객 5위</div></div></div>
+  <div class="strip"><div class="track"><div class="sc" style="--c1:#FCE4E8;--c2:#FDF0EE;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div></div><div class="sc" style="--c1:#D9EAFD;--c2:#EEF6FF;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div></div><div class="sc" style="--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div><div class="sc" style="--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div><div class="sc" style="--c1:#FFF1CC;--c2:#FFF8E3;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-hk"/></svg><div class="nm">홍콩</div><div class="nu" style="color:#B97F0B">62만 명</div><div class="rk">2025 방한객 5위</div></div></div><div class="sc" style="--c1:#FCE4E8;--c2:#FDF0EE;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div></div><div class="sc" style="--c1:#D9EAFD;--c2:#EEF6FF;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div></div><div class="sc" style="--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div><div class="sc" style="--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div><div class="sc" style="--c1:#FFF1CC;--c2:#FFF8E3;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-hk"/></svg><div class="nm">홍콩</div><div class="nu" style="color:#B97F0B">62만 명</div><div class="rk">2025 방한객 5위</div></div></div><div class="sc" style="--c1:#FCE4E8;--c2:#FDF0EE;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div></div><div class="sc" style="--c1:#D9EAFD;--c2:#EEF6FF;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div></div><div class="sc" style="--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div><div class="sc" style="--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div><div class="sc" style="--c1:#FFF1CC;--c2:#FFF8E3;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-hk"/></svg><div class="nm">홍콩</div><div class="nu" style="color:#B97F0B">62만 명</div><div class="rk">2025 방한객 5위</div></div></div><div class="sc" style="--c1:#FCE4E8;--c2:#FDF0EE;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div></div><div class="sc" style="--c1:#D9EAFD;--c2:#EEF6FF;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div></div><div class="sc" style="--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div><div class="sc" style="--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div><div class="sc" style="--c1:#FFF1CC;--c2:#FFF8E3;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-hk"/></svg><div class="nm">홍콩</div><div class="nu" style="color:#B97F0B">62만 명</div><div class="rk">2025 방한객 5위</div></div></div><div class="sc" style="--c1:#FCE4E8;--c2:#FDF0EE;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div></div><div class="sc" style="--c1:#D9EAFD;--c2:#EEF6FF;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div></div><div class="sc" style="--c1:#D9F2E7;--c2:#EAF8F1;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-tw"/></svg><div class="nm">대만</div><div class="nu" style="color:#23996F">189만 명</div><div class="rk">2025 방한객 3위</div></div></div><div class="sc" style="--c1:#E6E2FA;--c2:#F1EFFC;"><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-us"/></svg><div class="nm">미국</div><div class="nu" style="color:#6F5FDB">148만 명</div><div class="rk">2025 방한객 4위</div></div></div></div></div>
+  <div class="c soft cx" style="--c1:#FCE4E8;--c2:#FDF0EE;--l:662px;--hl:120px;--fl:160px"><div class="pg"></div><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-cn"/></svg><div class="nm">중국</div><div class="nu" style="color:#DB5B77">548만 명</div><div class="rk">2025 방한객 1위</div></div><div class="fcn"><span class="tag">최우선 · 중국 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 1위 · 전체의 28.9%</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="fx"><div><b>1인당 지출</b><span>글로벌 평균을 웃돌아요</span></div><div><b>접근 방향</b><span>중국어 안내 · 결제 접근성 검토</span></div><div><b>관람·재방문</b><span class="nd">근거 자료 추가 필요</span></div></div></div></div>
+  <div class="c soft cx" style="--c1:#D9EAFD;--c2:#EEF6FF;--l:970px;--hl:980px;--fl:972px"><div class="pg"></div><div class="fi"><svg class="flg" width="132" height="88" viewBox="0 0 90 60"><use href="#f-jp"/></svg><div class="nm">일본</div><div class="nu" style="color:#2F73E0">365만 명</div><div class="rk">2025 방한객 2위</div></div><div class="fcn"><span class="tag">최우선 · 일본 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 2위 · 전체의 19.3%</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="fx"><div><b>서울 체류</b><span>평균 3.5일 · 재방문율 71.2%</span></div><div><b>접근 방향</b><span>일본어 예약 안내 · 숙박+셔틀 선택형</span></div><div><b>공연 관람</b><span class="nd">근거 자료 추가 필요</span></div></div></div></div>
   
   <div class="c bars late" style="left:160px;top:720px;width:788px;height:256px;padding:30px 52px 0;--i:0">
     <span class="tag">국가별 방한객 2025</span>
@@ -435,13 +444,25 @@ vbig.onclick=()=>next();
 function count(el,v,dec){const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100),e=1-Math.pow(1-p,3),x=v*e;el.textContent=dec?x.toFixed(dec):Math.round(x).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)})(s)}
 function runStats(){$$('[data-id=stats] .cnt').forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
 
-/* ===== 04 타겟 고객: 국기 카드 등장 → 중국·일본 확장 (→ 키로 바로 확장) ===== */
-const tgt=$('[data-id=target]');let tgtT=0;
-function resetTarget(){clearTimeout(tgtT);tgt.classList.remove('xp');$$('.cnt',tgt).forEach(e=>e.textContent='0')}
-function expandTarget(){
-  clearTimeout(tgtT);if(tgt.classList.contains('xp'))return;
-  tgt.classList.add('xp');
-  setTimeout(()=>{if(tgt.classList.contains('xp'))$$('.cnt',tgt).forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))},700);
+/* ===== 04 타겟 고객: 카드가 돌다가 중국·일본에서 멈춤(sp) → 확장(hx) → 축소해서 자리로(xp). → 키로 건너뛰기 ===== */
+const tgt=$('[data-id=target]');let tgtT=[];
+const tgtAt=(ms,f)=>tgtT.push(setTimeout(f,ms));
+const tgtClear=()=>{tgtT.forEach(clearTimeout);tgtT=[]};
+function resetTarget(){tgtClear();tgt.classList.remove('sp','hx','xp');$$('.cnt',tgt).forEach(e=>e.textContent='0')}
+function startTarget(){
+  tgtAt(350,()=>tgt.classList.add('sp'));
+  tgtAt(3400,()=>tgt.classList.add('hx'));
+  tgtAt(5000,showTargetFinal);
+}
+function showTargetFinal(){
+  if(tgt.classList.contains('xp'))return;
+  tgt.classList.add('hx','xp');
+  tgtAt(700,()=>$$('.cnt',tgt).forEach(e=>count(e,+e.dataset.v,+e.dataset.dec)));
+}
+function skipTarget(){
+  tgtClear();
+  if(tgt.classList.contains('hx')){showTargetFinal();return}
+  tgt.classList.add('sp','hx');tgtAt(500,showTargetFinal);
 }
 const isTarget=()=>slides[cur].dataset.id==='target';
 
@@ -454,11 +475,11 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   const id=slides[i].dataset.id;
   resetVideo();
   if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
-  resetTarget();if(id==='target')tgtT=setTimeout(expandTarget,3400);
+  resetTarget();if(id==='target')startTarget();
 }
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
-  if(isTarget()&&!tgt.classList.contains('xp')){expandTarget();return}
+  if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
   if(isVideo()){
     if(vs===0){startVideo();return}
     if(vs===1){endVideo();return}   // 재생 중 → 은 건너뛰기
