@@ -152,7 +152,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .strip{position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:var(--H,1080px);overflow:hidden;pointer-events:none;z-index:1}
 .hx.dash .strip{opacity:0;transition:opacity .35s ease}
 .dash .wheel{position:absolute;left:calc(var(--ox,0px) + 960px);top:calc(var(--oy,0px) + 1872px);width:0;height:0;transform:rotate(-7.2deg)}
-.sp.dash .wheel{animation:wspin 2.6s cubic-bezier(.14,.66,.1,1) both}
+.sp.dash .wheel{animation:wspin 1.7s cubic-bezier(.14,.66,.1,1) both}
 .slide:not(.on) .wheel{animation:none}
 @keyframes wspin{from{transform:rotate(-247.2deg)}to{transform:rotate(-7.2deg)}}
 .dash .rc{position:absolute;left:0;top:0;width:288px;height:420px;margin:-210px 0 0 -144px;border-radius:52px;overflow:hidden;
@@ -685,8 +685,8 @@ const tgtClear=()=>{tgtT.forEach(clearTimeout);tgtT=[]};
 function resetTarget(){tgtClear();tgt.classList.remove('sp','hx','xp');$$('.cnt',tgt).forEach(e=>e.textContent='0')}
 function startTarget(){
   tgt.classList.add('sp');                 // 페이지에 들어오자마자 회전 시작
-  tgtAt(2750,()=>tgt.classList.add('hx'));
-  tgtAt(3950,showTargetFinal);
+  tgtAt(1800,()=>tgt.classList.add('hx'));
+  tgtAt(2800,showTargetFinal);
 }
 function showTargetFinal(){
   if(tgt.classList.contains('xp'))return;
