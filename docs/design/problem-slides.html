@@ -365,53 +365,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .sol .sx-r{margin-left:auto;font-size:13px;font-weight:600;line-height:1;padding:7px 11px;border-radius:999px;background:rgba(49,130,246,.1);color:var(--blue);letter-spacing:-.13px}
 .sol .sl-ext p{margin:12px 0 0;font-size:15.5px;line-height:1.55;letter-spacing:-.25px;color:var(--body)}
 
-.sol .cl{position:absolute;left:770px;top:120px;width:880px;height:880px}
-.sol .pw{position:absolute;inset:0;transform-origin:440px 440px;opacity:0;transform:scale(.55);transition:opacity .7s ease calc(.5s + var(--k)*.16s),transform 1s var(--ease) calc(.5s + var(--k)*.16s)}
-.slide.on.sol .pw{opacity:1;transform:none}
-.slide:not(.on).sol .pw{transition-duration:0s;transition-delay:0s}
-.sol .pt{position:absolute;width:283px;height:283px;transform:rotate(45deg);
-  background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(222,235,255,.78) 55%,rgba(160,198,255,.6) 100%);
-  border:1px solid rgba(255,255,255,.75);
-  box-shadow:0 26px 56px rgba(60,110,220,.18),inset 0 0 20px 3px rgba(255,255,255,.85),inset 0 14px 28px rgba(255,255,255,.55),inset 0 -22px 46px rgba(110,165,255,.26)}
-.sol .pt-t{--o:100% 100%;left:298.5px;top:92.5px;border-radius:50% 26% 0 26%}
-.sol .pt-r{--o:0% 100%;left:504.5px;top:298.5px;border-radius:26% 50% 26% 0}
-.sol .pt-b{--o:0% 0%;left:298.5px;top:504.5px;border-radius:0 26% 50% 26%}
-.sol .pt-l{--o:100% 0%;left:92.5px;top:298.5px;border-radius:26% 0 26% 50%}
-.sol .ptx{position:absolute;width:250px;text-align:center}
-.sol .ptx .pch{display:inline-block;font-size:13px;font-weight:700;line-height:1;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.9);color:var(--blue);letter-spacing:-.13px;box-shadow:0 2px 8px rgba(49,130,246,.12)}
-.sol .ptx b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.2;color:var(--h1)}
-.sol .ptx p{margin:6px 0 0;font-size:15px;line-height:1.5;letter-spacing:-.2px;color:var(--body)}
-.sol .pt-t-x{left:315px;top:152px}
-.sol .pt-r-x{left:551px;top:380px}
-.sol .pt-b-x{left:315px;top:608px}
-.sol .pt-l-x{left:79px;top:380px}
-.sol .hub{position:absolute;left:340px;top:340px;width:200px;height:200px;border-radius:50%;opacity:0;transform:scale(.4);transition:opacity .6s ease .2s,transform .9s var(--ease) .2s;
-  background:radial-gradient(circle at 36% 26%,rgba(150,196,255,.96) 0%,rgba(49,130,246,.94) 52%,rgba(36,104,216,.96) 100%);
-  box-shadow:0 24px 56px rgba(49,130,246,.38),inset 0 0 26px 4px rgba(255,255,255,.32),inset 0 -18px 34px rgba(20,70,170,.34)}
-.sol .hub::before{content:"";position:absolute;inset:-30px;border-radius:50%;z-index:-1;background:rgba(255,255,255,.38);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  box-shadow:inset 0 0 26px 4px rgba(255,255,255,.85),0 12px 34px rgba(60,110,220,.16)}
-.slide.on.sol .hub{opacity:1;transform:none}
-.slide:not(.on).sol .hub{transition-duration:0s;transition-delay:0s}
-.sol .hub i{position:absolute;inset:-30px;border-radius:50%;opacity:0;filter:blur(5px);background:radial-gradient(circle closest-side,rgba(49,130,246,0) 78%,rgba(49,130,246,.26) 94%,rgba(49,130,246,0) 100%)}
-.slide.on.sol .hub i{animation:slhub 4.4s ease-out 1.6s infinite}
-.slide.on.sol .hub i+i{animation-delay:3.8s}
-@keyframes slhub{0%{transform:scale(1);opacity:0}20%{opacity:.8}100%{transform:scale(1.7);opacity:0}}
-.sol .hb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
-.sol .hb small{font-size:13px;font-weight:700;letter-spacing:.6px;color:rgba(255,255,255,.8)}
-.sol .hb b{margin-top:2px;font-size:32px;font-weight:700;letter-spacing:-.9px;line-height:1.2}
-.sol .hb span{margin-top:5px;font-size:13px;font-weight:500;letter-spacing:-.13px;color:rgba(255,255,255,.92)}
-.sol .cc{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-  background:linear-gradient(160deg,rgba(255,255,255,.95),rgba(232,241,255,.7));border:1px solid rgba(255,255,255,.75);
-  box-shadow:0 18px 40px rgba(60,110,220,.14),inset 0 0 16px 3px rgba(255,255,255,.85),inset 0 -14px 28px rgba(110,165,255,.16);
-  opacity:0;transform:scale(.7);transition:opacity .6s ease calc(1.1s + var(--k)*.14s),transform .8s var(--ease) calc(1.1s + var(--k)*.14s)}
-.slide.on.sol .cc{opacity:1;transform:none}
-.slide:not(.on).sol .cc{transition-duration:0s;transition-delay:0s}
-.sol .cc small{font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--blue)}
-.sol .cc b{margin-top:4px;font-size:18px;font-weight:700;line-height:1.3;letter-spacing:-.4px;color:var(--h1)}
-.sol .cc-tl{left:35px;top:65px}
-.sol .cc-tr{left:695px;top:65px}
-.sol .cc-bl{left:35px;top:665px}
-.sol .cc-br{left:695px;top:665px}
+/* 벤토 글로우 타일 */
+.sol .bgrid{position:absolute;left:760px;top:140px;width:1000px;height:830px}
+.sol .bt{position:absolute;overflow:hidden;border-radius:46px;color:#fff;opacity:0;transform:translateY(40px) scale(.96);
+  transition:opacity .7s ease calc(.45s + var(--k)*.14s),transform 1s var(--ease) calc(.45s + var(--k)*.14s);
+  box-shadow:0 24px 50px rgba(60,80,200,.16)}
+.slide.on.sol .bt{opacity:1;transform:none}
+.slide:not(.on).sol .bt{transition-duration:0s;transition-delay:0s}
+.sol .bt::before{content:"";position:absolute;inset:-18%;filter:blur(16px);animation:btdrift 9s ease-in-out infinite alternate}
+.sol .bt::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 38px 12px rgba(255,255,255,.55),inset 0 0 0 1px rgba(255,255,255,.55);pointer-events:none}
+@keyframes btdrift{0%{transform:translate(-2.5%,-2%) scale(1)}100%{transform:translate(2.5%,2.5%) scale(1.06)}}
+.sol .bt-hub{left:0;top:0;width:1000px;height:250px;background:#D2E1FF}
+.sol .bt-hub::before{background:radial-gradient(ellipse 46% 80% at 24% 58%,#2F6BFF 0%,rgba(47,107,255,0) 72%),radial-gradient(ellipse 40% 70% at 78% 40%,#7B5CFF 0%,rgba(123,92,255,0) 72%),radial-gradient(ellipse 36% 60% at 52% 108%,#13C4FF 0%,rgba(19,196,255,0) 72%)}
+.sol .bt-1{left:0;top:270px;width:490px;height:270px;background:#D6EBFF}
+.sol .bt-1::before{background:radial-gradient(ellipse 52% 60% at 34% 40%,#18C7FF 0%,rgba(24,199,255,0) 72%),radial-gradient(ellipse 60% 60% at 66% 92%,#2F6BFF 0%,rgba(47,107,255,0) 72%)}
+.sol .bt-2{left:510px;top:270px;width:490px;height:270px;background:#E3DDFF}
+.sol .bt-2::before{background:radial-gradient(ellipse 70% 78% at 46% 40%,#5B4DFF 0%,rgba(91,77,255,0) 76%),radial-gradient(ellipse 56% 56% at 28% 94%,#C14BFF 0%,rgba(193,75,255,0) 72%)}
+.sol .bt-3{left:0;top:560px;width:490px;height:270px;background:#FFE1EC}
+.sol .bt-3::before{background:radial-gradient(ellipse 72% 80% at 26% 46%,#FF3F82 0%,rgba(255,63,130,0) 76%),radial-gradient(ellipse 58% 58% at 76% 94%,#FF9A3C 0%,rgba(255,154,60,0) 72%)}
+.sol .bt-4{left:510px;top:560px;width:490px;height:270px;background:#D8F6E8}
+.sol .bt-4::before{background:radial-gradient(ellipse 74% 80% at 44% 44%,#12C783 0%,rgba(18,199,131,0) 76%),radial-gradient(ellipse 56% 56% at 20% 94%,#0FA7C8 0%,rgba(15,167,200,0) 72%)}
+.sol .bc{position:absolute;inset:0;z-index:1;padding:34px 38px;text-shadow:0 1px 12px rgba(20,40,140,.4)}
+.sol .bt-hub .bc{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.sol .bt-hub small{font-size:15px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.85)}
+.sol .bt-hub b{margin-top:4px;font-size:68px;font-weight:700;letter-spacing:-2px;line-height:1.1}
+.sol .bt-hub p{margin:10px 0 0;font-size:19px;font-weight:500;letter-spacing:-.3px;color:rgba(255,255,255,.92)}
+.sol .bch{display:inline-block;font-size:13px;font-weight:700;line-height:1;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);letter-spacing:-.13px;text-shadow:0 1px 8px rgba(20,40,140,.35)}
+.sol .bc>b{display:block;margin-top:16px;font-size:42px;font-weight:700;letter-spacing:-1px;line-height:1.15}
+.sol .bc>p{margin:8px 0 0;font-size:17px;line-height:1.5;letter-spacing:-.25px;color:rgba(255,255,255,.92);max-width:400px}
+.sol .bp{position:absolute;left:38px;bottom:30px;display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:-.2px;padding:9px 16px 9px 10px;border-radius:999px;background:rgba(255,255,255,.26);text-shadow:none}
+.sol .bp i{font-style:normal;font-size:12px;font-weight:700;line-height:1;padding:5px 8px;border-radius:999px;background:#fff;color:#2F6BFF}
 
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
 .pb .ttl{top:132px;white-space:normal;width:1600px}
@@ -693,16 +676,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <p>우표 스타일 사진 기록 · 추억 지도 · 공연 디지털 스탬프 · SNS 공유</p>
   </div>
 
-  <div class="cl">
-    <div class="pw" style="--k:0"><div class="pt pt-t"></div><div class="ptx pt-t-x"><span class="pch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소<br>3~4곳 중 선택, 정가 유지</p></div></div>
-    <div class="pw" style="--k:1"><div class="pt pt-r"></div><div class="ptx pt-r-x"><span class="pch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약,<br>QR 탑승 확인, 동승 가이드</p></div></div>
-    <div class="pw" style="--k:2"><div class="pt pt-b"></div><div class="ptx pt-b-x"><span class="pch">무료</span><b>공연장 지도</b><p>화장실·식음료·보관소·<br>집결지를 한눈에</p></div></div>
-    <div class="pw" style="--k:3"><div class="pt pt-l"></div><div class="ptx pt-l-x"><span class="pch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리<br>매칭, 룸쉐어까지</p></div></div>
-    <div class="hub"><i></i><i></i><div class="hb"><small>HUB</small><b>티켓 인증</b><span>실제 참석자를 확인해요</span></div></div>
-    <div class="cc cc-tl" style="--k:0"><small>해결</small><b>숙소 찾기<br>어려움</b></div>
-    <div class="cc cc-tr" style="--k:1"><small>해결</small><b>심야 귀가<br>공백</b></div>
-    <div class="cc cc-bl" style="--k:3"><small>해결</small><b>혼자 오는<br>불안</b></div>
-    <div class="cc cc-br" style="--k:2"><small>해결</small><b>정보<br>분산</b></div>
+  <div class="bgrid">
+    <div class="bt bt-hub" style="--k:0"><div class="bc"><small>HUB</small><b>티켓 인증</b><p>실제 참석자를 확인하고, 아래 네 가지 해결을 하나로 열어요</p></div></div>
+    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택, 정가 유지</p><span class="bp"><i>해결</i>숙소 찾기 어려움</span></div></div>
+    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>해결</i>심야 귀가 공백</span></div></div>
+    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭, 룸쉐어까지</p><span class="bp"><i>해결</i>혼자 오는 불안</span></div></div>
+    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>해결</i>정보 분산</span></div></div>
   </div>
 
   <div class="sl-hint rv" style="--i:9">→ 키를 누르면 확장 기능이 보여요</div>
