@@ -255,8 +255,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 /* ===== 05 포지셔닝: 2×2 타일 맵 + 차별점 3가지 + 추구하는 가치 ===== */
 .pos .pm{position:absolute;left:160px;top:292px;width:1040px;height:668px;border-radius:52px;background:var(--soft);overflow:hidden}
 .pos .pl{position:absolute;left:84px;top:28px;width:928px;height:564px}
-.pos .pmw{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 270px;transition:transform 1.1s var(--ease);pointer-events:none}
-.pos.x2 .pmw{transform:scale(.5)}
+.pos .pmw{z-index:1;position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 270px;transition:transform 1.1s var(--ease);pointer-events:none}
 .pos .pm{left:160px;top:270px;width:1600px;height:740px;background:none;box-shadow:none;border-radius:0}
 .pos .pl{left:0;top:0;width:1600px;height:740px}
 .pos .rg{position:absolute;left:calc(800px - var(--r)*1px);top:calc(370px - var(--r)*1px);width:calc(var(--r)*2px);height:calc(var(--r)*2px);border-radius:50%;border:1.5px dashed #AEB6C6;opacity:0;transform:scale(.8);transition:opacity .7s ease .2s,transform 1s var(--ease) .2s}
@@ -288,22 +287,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .lg2{position:absolute;left:30px;bottom:30px}
 .pos .lg2 span{font-size:15px}
 /* 하단 차별점 패널 */
-.pos .dpn{position:absolute;left:calc(-1*var(--ox,0px));top:620px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 620px);color:#fff;pointer-events:none;
-  background:linear-gradient(180deg,rgba(49,130,246,0) 0%,rgba(66,140,255,.55) 14%,#3182F6 34%,#2455D0 100%);opacity:0;transform:translateY(60%);transition:opacity .7s ease,transform 1.1s var(--ease)}
+.pos .dpn{z-index:3;position:absolute;left:calc(-1*var(--ox,0px));top:500px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 500px);color:#fff;pointer-events:none;
+  background:linear-gradient(180deg,rgba(49,130,246,0) 0%,rgba(66,140,255,.7) 10%,#3182F6 26%,#2455D0 100%);opacity:0;transform:translateY(60%);transition:opacity .7s ease,transform 1.1s var(--ease)}
 .pos.x2 .dpn{opacity:1;transform:none}
 .pos.x2 .foot,.pos.x2 .foot span{color:rgba(255,255,255,.75);z-index:6}
 .pos .dk2,.pos .dcols,.pos .dval{position:absolute;left:calc(var(--ox,0px) + 160px);width:1600px}
-.pos .dk2{top:88px;font-size:18px;font-weight:600;letter-spacing:-.18px;color:rgba(255,255,255,.8)}
-.pos .dcols{top:124px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px}
+.pos .dk2{top:136px;font-size:18px;font-weight:600;letter-spacing:-.18px;color:rgba(255,255,255,.8)}
+.pos .dcols{top:182px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:64px}
 .pos .pdc{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .6s var(--ease)}
 .pos.x2 .pdc{opacity:1;transform:none;transition-delay:calc(.7s + var(--k)*.18s)}
 .pos .pdc .nn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:18px;font-weight:700}
-.pos .pdc h3{margin-top:12px;font-size:30px;font-weight:700;letter-spacing:-.7px;line-height:1.3}
-.pos .pdc p{margin-top:10px;font-size:20px;line-height:1.55;letter-spacing:-.2px;color:rgba(255,255,255,.88)}
-.pos .dval{top:296px;padding-top:16px;border-top:1px solid rgba(255,255,255,.3);opacity:0;transition:opacity .6s ease}
+.pos .pdc h3{margin-top:18px;font-size:30px;font-weight:700;letter-spacing:-.7px;line-height:1.3}
+.pos .pdc p{margin-top:14px;font-size:20px;line-height:1.55;letter-spacing:-.2px;color:rgba(255,255,255,.88)}
+.pos .dval{top:392px;padding-top:30px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;align-items:center;opacity:0;transition:opacity .6s ease}
 .pos.x2 .dval{opacity:1;transition-delay:1.4s}
-.pos .dval small{font-size:16px;font-weight:600;color:rgba(255,255,255,.8)}
-.pos .dval b{display:block;margin-top:4px;font-size:28px;font-weight:700;letter-spacing:-.8px}
+.pos .dval small{font-size:24px;font-weight:600;letter-spacing:-.4px;color:rgba(255,255,255,.8)}
+.pos .dval b{display:block;font-size:42px;font-weight:700;letter-spacing:-1.2px;line-height:1.25;text-align:right}
 .pos.slide:not(.on) .dpn,.pos.slide:not(.on) .pdc,.pos.slide:not(.on) .dval,.pos.slide:not(.on) .pmw{transition-duration:0s;transition-delay:0s}
 .pos .dt{position:absolute;left:calc(var(--x)*1px);top:calc(var(--y)*1px);display:flex;align-items:center;gap:14px;white-space:nowrap;
   opacity:0;transform:translate(0,-50%) scale(.75);transform-origin:10px 50%;
@@ -408,7 +407,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .sol .sx-kv span{color:var(--body);word-break:keep-all}
 
 /* 벤토 글로우 타일 */
-.sol .bgrid{position:absolute;left:160px;top:140px;width:920px;height:830px}
+.sol .bgrid{position:absolute;left:160px;top:96px;width:920px;height:830px}
 .sol .bt{position:absolute;overflow:hidden;border-radius:46px;color:#fff;opacity:0;transform:translateY(40px) scale(.96);
   transition:opacity .7s ease calc(.45s + var(--k)*.14s),transform 1s var(--ease) calc(.45s + var(--k)*.14s);
   box-shadow:0 24px 50px rgba(30,50,150,.2)}
@@ -723,7 +722,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <section class="slide dash pos" data-id="position" data-no="08">
   <div class="kick rv">포지셔닝</div>
-  <div class="ttl rv" style="--i:1">K-POP 팬 문화에 최적화된 검증 플랫폼, 그 포지션을 노려요</div>
+  <div class="ttl rv" style="--i:1">K-POP 팬 문화에 최적화된 검증 플랫폼</div>
   <div class="sub rv" style="--i:1;top:210px">공연 팬 특화도와 거래 신뢰·검증 수준, 두 기준으로 서비스를 비교했어요</div>
 
   <div class="pmw">
@@ -750,11 +749,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="dpn">
     <div class="dk2">FanStay의 차별점</div>
     <div class="dcols">
-      <div class="pdc" style="--k:0"><div class="nn">1</div><h3>K-POP 팬 문화에 최적화</h3><p>일반 여행 상품과 달리,<br>공연 일정이 설계의 기준이에요</p></div>
-      <div class="pdc" style="--k:1"><div class="nn">2</div><h3>검증된 거래</h3><p>개인 간 거래와 달리,<br>티켓 인증으로 참석자를 확인해요</p></div>
-      <div class="pdc" style="--k:2"><div class="nn">3</div><h3>현장까지 이어지는 연결</h3><p>앱 안에서 끝나지 않고,<br>공연장 앞 현장까지 이어져요</p></div>
+      <div class="pdc" style="--k:0"><div class="nn">1</div><h3>K-POP 팬 문화에 최적화</h3><p>일반 여행 상품과 달리,<br>덕질 여행이 설계의 기준이에요</p></div>
+      <div class="pdc" style="--k:1"><div class="nn">2</div><h3>검증된 거래</h3><p>티켓 인증으로<br>개인 간 거래보다 신뢰도를 높여요</p></div>
+      <div class="pdc" style="--k:2"><div class="nn">3</div><h3>현장까지 이어지는 연결</h3><p>오프라인 경험을<br>적극적으로 개선해요</p></div>
     </div>
-    <div class="dval"><small>우리가 추구하는 가치</small><b>검증과 연결로 팬의 불안을 줄여요</b></div>
+    <div class="dval"><small>우리가 추구하는 가치</small><b>외국인 방한객이 더 쾌적한 K-팬덤 여행을 즐기는 것</b></div>
   </div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>08 / 14</span></div>
