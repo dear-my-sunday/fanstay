@@ -351,14 +351,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd .foot{z-index:5}
 
 /* ===== 솔루션: 글래스 네잎 클로버 + 확장 기능 ===== */
-.sol .sl-ttl{position:absolute;left:160px;top:150px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
+.sol .kick{left:1160px}
+.sol .sl-ttl{position:absolute;left:1160px;top:150px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
 .sol .sl-sub{position:absolute;left:160px;top:392px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body);white-space:nowrap}
 .sol .sl-hint{position:absolute;left:160px;top:960px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue);transition:opacity .3s ease}
 .sol.x2 .sl-hint{opacity:0;transition-delay:0s}
 .sol .xr{opacity:0;transform:translateY(34px);transition:opacity .5s ease,transform .6s var(--ease)}
 .sol.x2 .xr{opacity:1;transform:none;transition-delay:calc(.2s + var(--i)*140ms)}
 .slide:not(.on).sol .xr{transition-duration:0s;transition-delay:0s}
-.sol .sl-ext{position:absolute;left:160px;width:560px;height:142px;border-radius:32px;padding:24px 30px;background:var(--soft)}
+.sol .sl-ext{position:absolute;left:1160px;width:600px;height:120px;border-radius:32px;padding:24px 30px;background:var(--soft)}
 .sol .sx-h{display:flex;align-items:center;gap:12px}
 .sol .sx-h b{font-size:24px;font-weight:700;letter-spacing:-.48px;color:var(--h1);line-height:1.2}
 .sol .sx-n{font-size:13px;font-weight:700;line-height:1;padding:7px 11px;border-radius:999px;background:var(--navy);color:#fff;letter-spacing:-.13px}
@@ -366,7 +367,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .sol .sl-ext p{margin:12px 0 0;font-size:15.5px;line-height:1.55;letter-spacing:-.25px;color:var(--body)}
 
 /* 벤토 글로우 타일 */
-.sol .bgrid{position:absolute;left:760px;top:140px;width:1000px;height:830px}
+.sol .bgrid{position:absolute;left:160px;top:140px;width:920px;height:830px}
 .sol .bt{position:absolute;overflow:hidden;border-radius:46px;color:#fff;opacity:0;transform:translateY(40px) scale(.96);
   transition:opacity .7s ease calc(.45s + var(--k)*.14s),transform 1s var(--ease) calc(.45s + var(--k)*.14s);
   box-shadow:0 24px 50px rgba(30,50,150,.2)}
@@ -375,15 +376,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .sol .bt::before{content:"";position:absolute;inset:-18%;filter:blur(16px);animation:btdrift 9s ease-in-out infinite alternate}
 .sol .bt::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 30px 8px rgba(255,255,255,.34),inset 0 0 0 1px rgba(255,255,255,.4);pointer-events:none}
 @keyframes btdrift{0%{transform:translate(-1.8%,-1.4%) scale(1)}100%{transform:translate(1.8%,1.8%) scale(1.04)}}
-.sol .bt-hub{left:0;top:0;width:1000px;height:250px;background:#0E1B4D}
+.sol .bt-hub{left:0;top:0;width:920px;height:250px;background:#0E1B4D}
 .sol .bt-hub::before{background:radial-gradient(ellipse 44% 84% at 22% 58%,#2F6BFF 0%,rgba(47,107,255,0) 72%),radial-gradient(ellipse 38% 74% at 80% 38%,#7B5CFF 0%,rgba(123,92,255,0) 72%),radial-gradient(ellipse 34% 56% at 52% 112%,#13C4FF 0%,rgba(19,196,255,0) 72%)}
-.sol .bt-1{left:0;top:270px;width:490px;height:270px;background:#BFD8FF}
+.sol .bt-1{left:0;top:270px;width:450px;height:270px;background:#BFD8FF}
 .sol .bt-1::before{background:linear-gradient(180deg,rgba(14,30,120,0) 30%,rgba(14,30,120,.5) 100%),radial-gradient(ellipse 58% 66% at 34% 38%,#0EA5FF 0%,rgba(14,165,255,0) 74%),radial-gradient(ellipse 62% 60% at 70% 92%,#1F4DE0 0%,rgba(31,77,224,0) 74%)}
-.sol .bt-2{left:510px;top:270px;width:490px;height:270px;background:#CBC7FF}
+.sol .bt-2{left:470px;top:270px;width:450px;height:270px;background:#CBC7FF}
 .sol .bt-2::before{background:linear-gradient(180deg,rgba(26,20,120,0) 30%,rgba(26,20,120,.5) 100%),radial-gradient(ellipse 66% 72% at 44% 38%,#4B3FE8 0%,rgba(75,63,232,0) 76%),radial-gradient(ellipse 56% 56% at 78% 94%,#7A4DFF 0%,rgba(122,77,255,0) 72%)}
-.sol .bt-3{left:0;top:560px;width:490px;height:270px;background:#C6D2FF}
+.sol .bt-3{left:0;top:560px;width:450px;height:270px;background:#C6D2FF}
 .sol .bt-3::before{background:linear-gradient(180deg,rgba(14,26,120,0) 30%,rgba(14,26,120,.5) 100%),radial-gradient(ellipse 64% 72% at 32% 40%,#2A57F0 0%,rgba(42,87,240,0) 76%),radial-gradient(ellipse 56% 56% at 78% 94%,#6C4DF0 0%,rgba(108,77,240,0) 72%)}
-.sol .bt-4{left:510px;top:560px;width:490px;height:270px;background:#BDE3F5}
+.sol .bt-4{left:470px;top:560px;width:450px;height:270px;background:#BDE3F5}
 .sol .bt-4::before{background:linear-gradient(180deg,rgba(8,40,110,0) 30%,rgba(8,40,110,.5) 100%),radial-gradient(ellipse 64% 72% at 40% 40%,#0EA5D9 0%,rgba(14,165,217,0) 76%),radial-gradient(ellipse 58% 58% at 76% 94%,#1F5BFF 0%,rgba(31,91,255,0) 72%)}
 .sol .bc{position:absolute;inset:0;z-index:1;padding:34px 38px;text-shadow:0 1px 12px rgba(20,40,140,.4)}
 .sol .bt-hub .bc{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
@@ -661,30 +662,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 <section class="slide dash sol" data-id="solution" data-no="07">
   <div class="kick rv">솔루션</div>
   <div class="sl-ttl rv" style="--i:1">중국·일본 팬의 불편,<br>티켓 인증 하나로<br>풀어요</div>
-  <div class="sl-sub rv" style="--i:2">공연 전 · 공연장 · 공연 후,<br>팬덤 여행 전체를 하나로 잇는 팬허브</div>
 
-  <div class="sl-ext xr" style="--i:0;top:480px">
+  <div class="sl-ext xr" style="--i:0;top:440px">
     <div class="sx-h"><span class="sx-n">확장 1</span><b>현지 가이드 · 소모임</b><span class="sx-r">수익 연결</span></div>
-    <p>소모임 만들고 참여 신청 → 시간대별 동선 계획 → 팬 동선 데이터로 추천 · 가게 제휴</p>
+    <p>FanStay가 콘서트에 한정되지 않도록</p>
   </div>
-  <div class="sl-ext xr" style="--i:1;top:640px">
+  <div class="sl-ext xr" style="--i:1;top:580px">
     <div class="sx-h"><span class="sx-n">확장 2</span><b>현장 경험 개선</b><span class="sx-r">현장 접점</span></div>
     <p>공연장 앞 부스(짐 보관 · 동행 만남 · 귀가 집결지) · 길안내·통역 · 귀가 셔틀</p>
   </div>
-  <div class="sl-ext xr" style="--i:2;top:800px">
+  <div class="sl-ext xr" style="--i:2;top:720px">
     <div class="sx-h"><span class="sx-n">확장 3</span><b>추억 갤러리</b><span class="sx-r">리텐션</span></div>
-    <p>우표 스타일 사진 기록 · 추억 지도 · 공연 디지털 스탬프 · SNS 공유</p>
+    <p>여행이 끝나도 FanStay는 끝나지 않아요</p>
   </div>
 
   <div class="bgrid">
     <div class="bt bt-hub" style="--k:0"><div class="bc"><small>HUB</small><b>티켓 인증</b><p>실제 참석자를 확인하고, 아래 네 가지 해결을 하나로 열어요</p></div></div>
-    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택, 정가 유지</p><span class="bp"><i>해결</i>숙소 찾기 어려움</span></div></div>
-    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>해결</i>심야 귀가 공백</span></div></div>
-    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭, 룸쉐어까지</p><span class="bp"><i>해결</i>혼자 오는 불안</span></div></div>
-    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>해결</i>정보 분산</span></div></div>
+    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택</p><span class="bp"><i>문제</i>숙소 찾기 어려움</span></div></div>
+    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>문제</i>심야 귀가 공백</span></div></div>
+    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭</p><span class="bp"><i>문제</i>혼자 오는 불안</span></div></div>
+    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>문제</i>정보 분산</span></div></div>
   </div>
 
-  <div class="sl-hint rv" style="--i:9">→ 키를 누르면 확장 기능이 보여요</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>07 / 14</span></div>
 </section>
 
