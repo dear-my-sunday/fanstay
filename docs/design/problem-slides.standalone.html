@@ -299,6 +299,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .vc b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1.3}
 
 /* ===== 05 솔루션: 티켓 인증 허브 + 핵심 4가지 + 확장 3가지 ===== */
+.sol .sl-top{position:absolute;left:0;top:0;width:1920px;height:1080px;transform:translateY(150px);transition:transform .9s var(--ease)}
+.sol.x2 .sl-top{transform:none}
+.sol .sl-hint{position:absolute;left:0;right:0;top:1004px;text-align:center;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue);transition:opacity .3s ease}
+.sol.x2 .sl-hint{opacity:0;transition-delay:0s}
+.sol .xr{opacity:0;transform:translateY(34px);transition:opacity .5s ease,transform .6s var(--ease)}
+.sol.x2 .xr{opacity:1;transform:none;transition-delay:calc(.45s + var(--i)*130ms)}
+.slide:not(.on).sol .xr{transition-duration:0s;transition-delay:0s}
 .sol .sl-ring{position:absolute;left:790px;top:290px;width:340px;height:340px;border-radius:50%;background:var(--blue-100)}
 .sol .sl-ring i{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(49,130,246,.45);opacity:0}
 .slide.on.sol .sl-ring i{animation:slpulse 3.2s ease-out 1.2s infinite}
@@ -335,7 +342,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   opacity:0;transform:translateX(-10px);transition:opacity .45s ease,transform .45s var(--ease)}
 .sol .sx-l li+li{margin-top:10px}
 .sol .sx-l li::before{content:counter(n);flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue-100);color:var(--blue);font-size:13px;font-weight:700;display:grid;place-items:center;letter-spacing:0}
-.slide.on.sol .sx-l li{opacity:1;transform:none;transition-delay:calc(1.5s + var(--e)*320ms + var(--k)*130ms)}
+.sol.x2 .sx-l li{opacity:1;transform:none;transition-delay:calc(1s + var(--e)*320ms + var(--k)*130ms)}
 .slide:not(.on).sol .sx-l li{transition-duration:0s;transition-delay:0s}
 
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
@@ -564,6 +571,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="ttl rv" style="--i:1">중국·일본 팬의 불편, 티켓 인증 하나로 풀어요</div>
   <div class="sub rv" style="--i:1;top:222px">공연 전 · 공연장 · 공연 후, 팬덤 여행 전체를 하나로 잇는 팬허브</div>
 
+  <div class="sl-top">
   <svg class="sl-lines" viewBox="0 0 1920 1080" aria-hidden="true">
     <path style="--k:0" pathLength="1" d="M680 366 C740 366 740 420 794.8 420"/><circle style="--k:0" cx="680" cy="366" r="5"/>
     <path style="--k:1" pathLength="1" d="M680 554 C740 554 740 500 794.8 500"/><circle style="--k:1" cx="680" cy="554" r="5"/>
@@ -581,23 +589,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="sl-t">동행 매칭</div><div class="sl-d">티켓 인증된 팬끼리 매칭, 룸쉐어까지</div><div class="sl-s">해결: 혼자 오는 불안</div></div>
   <div class="sl-card  rv" style="left:1240px;top:468px;--i:6"><span class="sl-chip">무료</span>
     <div class="sl-t">공연장 지도</div><div class="sl-d">화장실·식음료·보관소·집결지를 한눈에</div><div class="sl-s">해결: 정보 분산</div></div>
+  </div>
 
-  <div class="sl-xl rv" style="--i:7"><b>확장</b>공연 하나로 K-팬덤 여행 전체를 잇는 팬허브</div>
-  <div class="sl-ext rv" style="left:160px;--i:8">
+  <div class="sl-xl xr" style="--i:0"><b>확장</b>공연 하나로 K-팬덤 여행 전체를 잇는 팬허브</div>
+  <div class="sl-ext xr" style="left:160px;--i:1">
     <div class="sx-h"><span class="sx-n">확장 1</span><span class="sx-r">수익 연결</span></div>
     <div class="sx-t">현지 가이드 · 소모임</div><div class="sx-d">콘서트를 넘어 한국 여행 전체로 이어줘요</div>
     <ul class="sx-l"><li style="--k:0;--e:0">소모임 만들고 참여 신청·확정</li><li style="--k:1;--e:0">시간대별 동선 계획</li><li style="--k:2;--e:0">팬 동선 데이터로 맞춤 추천 · 가게 제휴</li></ul>
   </div>
-  <div class="sl-ext rv" style="left:701px;--i:9">
+  <div class="sl-ext xr" style="left:701px;--i:2">
     <div class="sx-h"><span class="sx-n">확장 2</span><span class="sx-r">현장 접점</span></div>
     <div class="sx-t">현장 경험 개선</div><div class="sx-d">언어 장벽·혼잡 속에서도 헤매지 않게 도와줘요</div>
     <ul class="sx-l"><li style="--k:0;--e:1">공연장 앞 부스: 짐 보관 · 동행 만남 · 귀가 집결지</li><li style="--k:1;--e:1">게이트·좌석 길안내 + 통역 가이드</li><li style="--k:2;--e:1">지정 시각 귀가 셔틀로 퇴장 혼잡 피하기</li></ul>
   </div>
-  <div class="sl-ext rv" style="left:1242px;--i:10">
+  <div class="sl-ext xr" style="left:1242px;--i:3">
     <div class="sx-h"><span class="sx-n">확장 3</span><span class="sx-r">리텐션</span></div>
     <div class="sx-t">추억 갤러리</div><div class="sx-d">여행이 끝나도 앱을 다시 열게 해요</div>
     <ul class="sx-l"><li style="--k:0;--e:2">우표 스타일 사진 기록 · 추억 지도</li><li style="--k:1;--e:2">공연 디지털 스탬프 모으기</li><li style="--k:2;--e:2">꾸민 우표를 SNS로 공유 → 신규 유입</li></ul>
   </div>
+  <div class="sl-hint rv" style="--i:9">→ 키를 누르면 확장 기능이 보여요</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
 </section>
 
@@ -783,6 +793,7 @@ function skipTarget(){
   tgt.classList.add('sp','hx');tgtAt(500,showTargetFinal);
 }
 const isTarget=()=>slides[cur].dataset.id==='target';
+const solSec=$('[data-id=solution]');const isSol=()=>slides[cur].dataset.id==='solution';
 
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
@@ -791,7 +802,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   $('#bar').style.width=((i+1)/slides.length*100)+'%';
   history.replaceState(null,'','#'+(i+1));
   const id=slides[i].dataset.id;
-  resetVideo();
+  resetVideo();solSec.classList.remove('x2');
   if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
   clearTimeout(tgtRst);
   if(id==='target'){resetTarget();startTarget()}
@@ -800,6 +811,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
+  if(isSol()&&!solSec.classList.contains('x2')){solSec.classList.add('x2');return}   // 솔루션: → 한 번 더 누르면 확장 기능이 올라와요
   if(isVideo()){
     if(vs===0){startVideo();return}
     if(vs===1){endVideo();return}   // 재생 중 → 은 건너뛰기
@@ -808,6 +820,7 @@ function next(){
 }
 function prev(){
   if(isVideo()&&vs===1){resetVideo();return}
+  if(isSol()&&solSec.classList.contains('x2')){solSec.classList.remove('x2');return}
   show(cur-1);
 }
 addEventListener('keydown',e=>{
