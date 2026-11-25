@@ -85,7 +85,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .cap .ko{font-size:44px;font-weight:700;line-height:1.4;letter-spacing:-.88px}
 .cap .og{margin-top:14px;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.22px;color:rgba(255,255,255,.78)}
 .rvs{position:absolute;right:160px;top:150px;bottom:330px;width:600px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:1;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 100%);mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 100%)}
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 90%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 90%,transparent 100%)}
 .play .rvs{opacity:1}
 .rv-c{flex:none;box-sizing:border-box;width:560px;padding:22px 28px 26px;border-radius:28px;background:#fff;color:#1c1f27;box-shadow:0 8px 32px rgba(20,29,48,.18)}
 .rv-c:nth-child(even){margin-left:40px}
@@ -577,9 +577,9 @@ function rvSpawn(){
   c.querySelector('.nk').textContent=r.nick;$$('p',c).forEach((p,k)=>p.textContent=r.body[k]);
   const old=[...rvBox.children],y0=old.map(e=>e.getBoundingClientRect().top);
   rvBox.appendChild(c);
-  const E='cubic-bezier(.22,1,.36,1)';
-  old.forEach((e,i)=>{const d=y0[i]-e.getBoundingClientRect().top;if(d)e.animate([{transform:`translateY(${d}px)`},{transform:'none'}],{duration:550,easing:E})});   // 기존 카드는 위로 스윽 밀려 올라감
-  c.animate([{opacity:0,transform:'translateY(60px) scale(.96)'},{opacity:1,transform:'none'}],{duration:550,easing:E});  // 새 카드는 아래에서 스윽 등장
+  const E='cubic-bezier(.25,.8,.25,1)';
+  old.forEach((e,i)=>{const d=y0[i]-e.getBoundingClientRect().top;if(d)e.animate([{transform:`translateY(${d}px)`},{transform:'none'}],{duration:900,easing:E})});   // 기존 카드는 위로 스윽 밀려 올라감
+  c.animate([{opacity:0,transform:'translateY(36px) scale(.97)'},{opacity:1,offset:.6},{opacity:1,transform:'none'}],{duration:1000,easing:E});  // 새 카드는 아래에서 스윽 등장
   old.forEach(e=>{if(e.getBoundingClientRect().bottom<rvBox.getBoundingClientRect().top)e.remove()});
 }
 function rvStart(){rvStop();rvT.push(setTimeout(function f(){rvSpawn();if(rvN<REDDIT.length)rvT.push(setTimeout(f,RV_GAP))},RV_FIRST))}
