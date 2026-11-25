@@ -315,7 +315,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd .msrc{margin-top:8px;font-size:15px;letter-spacing:-.15px;color:var(--cap)}
 .mkd .mk-line{position:absolute;left:959px;top:584px;width:2px;height:68px;z-index:2}
 .mkd .mk-line i{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(180deg,rgba(49,130,246,0),rgba(49,130,246,.7));transform-origin:top;transform:scaleY(0);transition:transform .9s var(--ease)}
-.mkd .mk-line::after{content:"";position:absolute;left:-4px;bottom:-5px;width:10px;height:10px;border:1.5px solid var(--blue);background:#fff;transform:rotate(45deg);opacity:0;transition:opacity .4s ease}
+.mkd .mk-line::after{content:"";position:absolute;box-sizing:border-box;left:-5.5px;bottom:-6.5px;width:13px;height:13px;border:2px solid var(--blue);background:#fff;transform:rotate(45deg);opacity:0;transition:opacity .4s ease}
 .mkd.go .mk-line i{transform:none;transition-delay:2.3s}
 .mkd.go .mk-line::after{opacity:1;transition-delay:3s}
 .slide:not(.on).mkd .mk-line i,.slide:not(.on).mkd .mk-line::after{transition-duration:0s;transition-delay:0s}
