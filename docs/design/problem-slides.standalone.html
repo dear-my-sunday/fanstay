@@ -398,7 +398,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="pt">갑질하는 숙소</div>
     <div class="qg"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
-    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><svg class="lc" viewBox="0 0 302 88" aria-hidden="true"><defs><linearGradient id="lcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".22"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient></defs><path class="la" d="M22.0 59.5 L108.0 58.0 L194.0 56.2 L278.0 26.4 L278 66 L22 66 Z" fill="url(#lcg)"/><line x1="8" y1="66" x2="294" y2="66" stroke="rgba(7,25,76,.1)"/><path class="ll" pathLength="1" d="M22.0 59.5 L108.0 58.0 L194.0 56.2 L278.0 26.4"/><circle class="ld" style="--k:0" cx="22.0" cy="59.5" r="4"/><text class="lv" style="--k:0" x="22.0" y="49.5">16%</text><text class="ly" x="22.0" y="83">2023</text><circle class="ld" style="--k:1" cx="108.0" cy="58.0" r="4"/><text class="lv" style="--k:1" x="108.0" y="48.0">17%</text><text class="ly" x="108.0" y="83">2024</text><circle class="ld" style="--k:2" cx="194.0" cy="56.2" r="4"/><text class="lv" style="--k:2" x="194.0" y="46.2">18%</text><text class="ly" x="194.0" y="83">2025</text><circle class="ld hi" style="--k:3" cx="278.0" cy="26.4" r="6"/><text class="lv hi" style="--k:3" x="278.0" y="13.4">38%</text><text class="ly hi" x="278.0" y="83">2026</text></svg><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
+    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><svg class="lc" viewBox="0 0 302 88" aria-hidden="true"><defs><linearGradient id="lcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".22"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient></defs><path class="la" d="M30.0 59.5 L270.0 26.4 L270 66 L30 66 Z" fill="url(#lcg)"/><line x1="8" y1="66" x2="294" y2="66" stroke="rgba(7,25,76,.1)"/><path class="ll" pathLength="1" d="M30.0 59.5 L270.0 26.4"/><circle class="ld" style="--k:0" cx="30.0" cy="59.5" r="4"/><text class="lv" style="--k:0" x="30.0" y="49.5">16%</text><text class="ly" x="30.0" y="83">2023</text><circle class="ld hi" style="--k:1" cx="270.0" cy="26.4" r="6"/><text class="lv hi" style="--k:1" x="270.0" y="13.4">38%</text><text class="ly hi" x="270.0" y="83">2026</text></svg><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
   <div class="pc rv" style="left:566px;--i:5">
     <div class="no">02</div>
     <div class="pt">함께 즐길 친구</div>
@@ -596,7 +596,7 @@ const REDDIT=[
 /* 카드 위치는 매 프레임 '목표 위치 쪽으로 부드럽게 따라가는' 방식이라, 새 카드가 중간에 들어와도 끊기거나 튀지 않아요 */
 const rvBox=$('#rvs');let rvT=[],rvN=0,rvCards=[],rvRaf=0,rvLast=0;
 const RV_FIRST=500,RV_GAP=850;      // ms: 첫 카드 등장 시점 · 카드 간격
-const RV_STACK=12,RV_TAU=.24;       // px: 카드 사이 간격 · s: 움직임 부드러움(클수록 느긋)
+const RV_STACK=40,RV_TAU=.24;       // px: 카드 사이 간격 · s: 움직임 부드러움(클수록 느긋)
 function rvLayout(){
   const H=rvBox.clientHeight;let t=H;
   for(let i=rvCards.length-1;i>=0;i--){t-=rvCards[i].h;rvCards[i].target=t;t-=RV_STACK}
