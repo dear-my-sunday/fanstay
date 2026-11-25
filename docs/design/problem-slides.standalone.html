@@ -350,52 +350,66 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd .mk-gt b i{font-style:normal;font-size:46px;letter-spacing:-1px;margin-left:12px;color:var(--cap)}
 .mkd .foot{z-index:5}
 
-/* ===== 05 솔루션: 티켓 인증 허브 + 핵심 4가지 + 확장 3가지 ===== */
-.sol .sl-top{position:absolute;left:0;top:0;width:1920px;height:1080px;transform:translateY(150px);transition:transform .9s var(--ease)}
-.sol.x2 .sl-top{transform:none}
-.sol .sl-hint{position:absolute;left:0;right:0;top:1004px;text-align:center;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue);transition:opacity .3s ease}
+/* ===== 솔루션: 글래스 네잎 클로버 + 확장 기능 ===== */
+.sol .sl-ttl{position:absolute;left:160px;top:150px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
+.sol .sl-sub{position:absolute;left:160px;top:392px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body);white-space:nowrap}
+.sol .sl-hint{position:absolute;left:160px;top:960px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue);transition:opacity .3s ease}
 .sol.x2 .sl-hint{opacity:0;transition-delay:0s}
 .sol .xr{opacity:0;transform:translateY(34px);transition:opacity .5s ease,transform .6s var(--ease)}
-.sol.x2 .xr{opacity:1;transform:none;transition-delay:calc(.45s + var(--i)*130ms)}
+.sol.x2 .xr{opacity:1;transform:none;transition-delay:calc(.2s + var(--i)*140ms)}
 .slide:not(.on).sol .xr{transition-duration:0s;transition-delay:0s}
-.sol .sl-ring{position:absolute;left:790px;top:290px;width:340px;height:340px;border-radius:50%;background:var(--blue-100)}
-.sol .sl-ring i{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(49,130,246,.45);opacity:0}
-.slide.on.sol .sl-ring i{animation:slpulse 3.2s ease-out 1.2s infinite}
-.slide.on.sol .sl-ring i+i{animation-delay:2.8s}
-@keyframes slpulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.3);opacity:0}}
-.sol .sl-core{position:absolute;left:845px;top:345px;width:230px;height:230px;border-radius:50%;background:var(--blue);color:#fff;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px #fff}
-.sol .sl-core small{font-size:14px;font-weight:600;letter-spacing:.6px;color:rgba(255,255,255,.8)}
-.sol .sl-core b{display:block;margin-top:2px;font-size:38px;font-weight:700;letter-spacing:-1.2px;line-height:1.2}
-.sol .sl-core span{display:block;margin-top:6px;font-size:15px;font-weight:500;letter-spacing:-.15px;color:rgba(255,255,255,.92)}
-.sol .sl-lines{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none;overflow:visible}
-.sol .sl-lines path{fill:none;stroke:#A9C8FA;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
-.sol .sl-lines circle{fill:#3182F6;opacity:0}
-.slide.on.sol .sl-lines path{stroke-dashoffset:0;transition:stroke-dashoffset .9s var(--ease) calc(.7s + var(--k)*120ms)}
-.slide.on.sol .sl-lines circle{opacity:1;transition:opacity .4s ease calc(.9s + var(--k)*120ms)}
-.slide:not(.on).sol .sl-lines path,.slide:not(.on).sol .sl-lines circle{transition-duration:0s;transition-delay:0s}
-.sol .sl-card{position:absolute;width:520px;height:172px;border-radius:44px;background:var(--soft);padding:26px 36px}
-.sol .sl-card.mv{background:var(--blue-100)}
-.sol .sl-chip{display:inline-block;font-size:14px;font-weight:600;line-height:1;padding:8px 13px;border-radius:999px;letter-spacing:-.14px;background:rgba(7,25,76,.06);color:rgba(28,31,39,.7)}
-.sol .sl-card.mv .sl-chip{background:#fff;color:var(--blue)}
-.sol .sl-t{margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.25;color:var(--h1)}
-.sol .sl-d{margin-top:4px;font-size:16px;font-weight:400;letter-spacing:-.16px;line-height:1.5;color:var(--body);white-space:nowrap}
-.sol .sl-s{margin-top:8px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue)}
-.sol .sl-xl{position:absolute;left:160px;top:668px;display:flex;align-items:center;gap:12px;font-size:18px;font-weight:600;letter-spacing:-.18px;color:var(--h2)}
-.sol .sl-xl b{font-size:14px;font-weight:700;line-height:1;padding:8px 13px;border-radius:999px;background:var(--navy);color:#fff;letter-spacing:-.14px}
-.sol .sl-ext{position:absolute;top:704px;width:517px;height:280px;border-radius:44px;background:var(--soft);padding:28px 36px;box-shadow:inset 0 0 0 1px rgba(7,25,76,.06)}
-.sol .sx-h{display:flex;justify-content:space-between;align-items:center}
-.sol .sx-n{font-size:14px;font-weight:700;line-height:1;padding:8px 13px;border-radius:999px;background:var(--navy);color:#fff;letter-spacing:-.14px}
-.sol .sx-r{font-size:14px;font-weight:600;line-height:1;padding:8px 13px;border-radius:999px;background:var(--blue-100);color:var(--blue);letter-spacing:-.14px}
-.sol .sx-t{margin-top:14px;font-size:28px;font-weight:700;letter-spacing:-.56px;line-height:1.25;color:var(--h1)}
-.sol .sx-d{margin-top:4px;font-size:16px;letter-spacing:-.16px;line-height:1.5;color:var(--body);white-space:nowrap}
-.sol .sx-l{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px solid rgba(7,25,76,.08);counter-reset:n}
-.sol .sx-l li{counter-increment:n;display:flex;align-items:center;gap:12px;font-size:16.5px;font-weight:500;letter-spacing:-.2px;line-height:1.35;color:var(--h2);white-space:nowrap;
-  opacity:0;transform:translateX(-10px);transition:opacity .45s ease,transform .45s var(--ease)}
-.sol .sx-l li+li{margin-top:10px}
-.sol .sx-l li::before{content:counter(n);flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue-100);color:var(--blue);font-size:13px;font-weight:700;display:grid;place-items:center;letter-spacing:0}
-.sol.x2 .sx-l li{opacity:1;transform:none;transition-delay:calc(1s + var(--e)*320ms + var(--k)*130ms)}
-.slide:not(.on).sol .sx-l li{transition-duration:0s;transition-delay:0s}
+.sol .sl-ext{position:absolute;left:160px;width:560px;height:142px;border-radius:32px;padding:24px 30px;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(226,238,255,.7));border:1.5px solid rgba(255,255,255,.95);
+  box-shadow:0 14px 40px rgba(60,110,220,.12),inset 0 2px 0 #fff,inset 0 -24px 50px rgba(120,170,255,.16)}
+.sol .sx-h{display:flex;align-items:center;gap:12px}
+.sol .sx-h b{font-size:24px;font-weight:700;letter-spacing:-.48px;color:var(--h1);line-height:1.2}
+.sol .sx-n{font-size:13px;font-weight:700;line-height:1;padding:7px 11px;border-radius:999px;background:var(--navy);color:#fff;letter-spacing:-.13px}
+.sol .sx-r{margin-left:auto;font-size:13px;font-weight:600;line-height:1;padding:7px 11px;border-radius:999px;background:rgba(49,130,246,.1);color:var(--blue);letter-spacing:-.13px}
+.sol .sl-ext p{margin:12px 0 0;font-size:15.5px;line-height:1.55;letter-spacing:-.25px;color:var(--body)}
+
+.sol .cl{position:absolute;left:770px;top:120px;width:880px;height:880px}
+.sol .pw{position:absolute;inset:0;transform-origin:440px 440px;opacity:0;transform:scale(.55);transition:opacity .7s ease calc(.5s + var(--k)*.16s),transform 1s var(--ease) calc(.5s + var(--k)*.16s)}
+.slide.on.sol .pw{opacity:1;transform:none}
+.slide:not(.on).sol .pw{transition-duration:0s;transition-delay:0s}
+.sol .pt{position:absolute;width:283px;height:283px;transform:rotate(45deg);
+  background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(222,235,255,.78) 55%,rgba(160,198,255,.6) 100%);
+  border:1.5px solid rgba(255,255,255,.96);
+  box-shadow:0 22px 56px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -34px 70px rgba(110,165,255,.26)}
+.sol .pt-t{left:298.5px;top:92.5px;border-radius:50% 26% 0 26%}
+.sol .pt-r{left:504.5px;top:298.5px;border-radius:26% 50% 26% 0}
+.sol .pt-b{left:298.5px;top:504.5px;border-radius:0 26% 50% 26%}
+.sol .pt-l{left:92.5px;top:298.5px;border-radius:26% 0 26% 50%}
+.sol .ptx{position:absolute;width:250px;text-align:center}
+.sol .ptx .pch{display:inline-block;font-size:13px;font-weight:700;line-height:1;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.9);color:var(--blue);letter-spacing:-.13px;box-shadow:0 2px 8px rgba(49,130,246,.12)}
+.sol .ptx b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.2;color:var(--h1)}
+.sol .ptx p{margin:6px 0 0;font-size:15px;line-height:1.5;letter-spacing:-.2px;color:var(--body)}
+.sol .pt-t-x{left:315px;top:152px}
+.sol .pt-r-x{left:551px;top:380px}
+.sol .pt-b-x{left:315px;top:608px}
+.sol .pt-l-x{left:79px;top:380px}
+.sol .hub{position:absolute;left:340px;top:340px;width:200px;height:200px;border-radius:50%;opacity:0;transform:scale(.4);transition:opacity .6s ease .2s,transform .9s var(--ease) .2s;
+  background:radial-gradient(circle at 35% 28%,#6BA8FF 0%,#3182F6 55%,#2468D8 100%);box-shadow:0 0 0 8px rgba(255,255,255,.95),0 18px 50px rgba(49,130,246,.4),inset 0 2px 0 rgba(255,255,255,.5)}
+.slide.on.sol .hub{opacity:1;transform:none}
+.slide:not(.on).sol .hub{transition-duration:0s;transition-delay:0s}
+.sol .hub i{position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(49,130,246,.4);opacity:0}
+.slide.on.sol .hub i{animation:slhub 3.6s ease-out 1.6s infinite}
+.slide.on.sol .hub i+i{animation-delay:3.4s}
+@keyframes slhub{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.9);opacity:0}}
+.sol .hb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.sol .hb small{font-size:13px;font-weight:700;letter-spacing:.6px;color:rgba(255,255,255,.8)}
+.sol .hb b{margin-top:2px;font-size:32px;font-weight:700;letter-spacing:-.9px;line-height:1.2}
+.sol .hb span{margin-top:5px;font-size:13px;font-weight:500;letter-spacing:-.13px;color:rgba(255,255,255,.92)}
+.sol .cc{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(160deg,rgba(255,255,255,.95),rgba(232,241,255,.7));border:1.5px solid rgba(255,255,255,.95);
+  box-shadow:0 14px 36px rgba(60,110,220,.14),inset 0 2px 0 #fff;opacity:0;transform:scale(.7);transition:opacity .6s ease calc(1.1s + var(--k)*.14s),transform .8s var(--ease) calc(1.1s + var(--k)*.14s)}
+.slide.on.sol .cc{opacity:1;transform:none}
+.slide:not(.on).sol .cc{transition-duration:0s;transition-delay:0s}
+.sol .cc small{font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--blue)}
+.sol .cc b{margin-top:4px;font-size:18px;font-weight:700;line-height:1.3;letter-spacing:-.4px;color:var(--h1)}
+.sol .cc-tl{left:35px;top:65px}
+.sol .cc-tr{left:695px;top:65px}
+.sol .cc-bl{left:35px;top:665px}
+.sol .cc-br{left:695px;top:665px}
 
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
 .pb .ttl{top:132px;white-space:normal;width:1600px}
@@ -661,45 +675,34 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <section class="slide dash sol" data-id="solution" data-no="07">
   <div class="kick rv">솔루션</div>
-  <div class="ttl rv" style="--i:1">중국·일본 팬의 불편, 티켓 인증 하나로 풀어요</div>
-  <div class="sub rv" style="--i:1;top:222px">공연 전 · 공연장 · 공연 후, 팬덤 여행 전체를 하나로 잇는 팬허브</div>
+  <div class="sl-ttl rv" style="--i:1">중국·일본 팬의 불편,<br>티켓 인증 하나로<br>풀어요</div>
+  <div class="sl-sub rv" style="--i:2">공연 전 · 공연장 · 공연 후,<br>팬덤 여행 전체를 하나로 잇는 팬허브</div>
 
-  <div class="sl-top">
-  <svg class="sl-lines" viewBox="0 0 1920 1080" aria-hidden="true">
-    <path style="--k:0" pathLength="1" d="M680 366 C740 366 740 420 794.8 420"/><circle style="--k:0" cx="680" cy="366" r="5"/>
-    <path style="--k:1" pathLength="1" d="M680 554 C740 554 740 500 794.8 500"/><circle style="--k:1" cx="680" cy="554" r="5"/>
-    <path style="--k:2" pathLength="1" d="M1240 366 C1180 366 1180 420 1125.2 420"/><circle style="--k:2" cx="1240" cy="366" r="5"/>
-    <path style="--k:3" pathLength="1" d="M1240 554 C1180 554 1180 500 1125.2 500"/><circle style="--k:3" cx="1240" cy="554" r="5"/>
-  </svg>
-  <div class="sl-ring rv" style="--i:2"><i></i><i></i></div>
-  <div class="sl-core rv" style="--i:2"><small>HUB</small><b>티켓 인증</b><span>실제 참석자를 확인해요</span></div>
-
-  <div class="sl-card mv rv" style="left:160px;top:280px;--i:3"><span class="sl-chip">핵심 · MVP</span>
-    <div class="sl-t">제휴 숙소</div><div class="sl-d">공연장별 제휴 숙소 3~4곳 중 선택, 정가 유지</div><div class="sl-s">해결: 숙소 찾기 어려움</div></div>
-  <div class="sl-card mv rv" style="left:1240px;top:280px;--i:4"><span class="sl-chip">핵심 · MVP</span>
-    <div class="sl-t">셔틀</div><div class="sl-d">종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</div><div class="sl-s">해결: 심야 귀가 공백</div></div>
-  <div class="sl-card  rv" style="left:160px;top:468px;--i:5"><span class="sl-chip">핵심 · 소규모</span>
-    <div class="sl-t">동행 매칭</div><div class="sl-d">티켓 인증된 팬끼리 매칭, 룸쉐어까지</div><div class="sl-s">해결: 혼자 오는 불안</div></div>
-  <div class="sl-card  rv" style="left:1240px;top:468px;--i:6"><span class="sl-chip">무료</span>
-    <div class="sl-t">공연장 지도</div><div class="sl-d">화장실·식음료·보관소·집결지를 한눈에</div><div class="sl-s">해결: 정보 분산</div></div>
+  <div class="sl-ext xr" style="--i:0;top:480px">
+    <div class="sx-h"><span class="sx-n">확장 1</span><b>현지 가이드 · 소모임</b><span class="sx-r">수익 연결</span></div>
+    <p>소모임 만들고 참여 신청 → 시간대별 동선 계획 → 팬 동선 데이터로 추천 · 가게 제휴</p>
+  </div>
+  <div class="sl-ext xr" style="--i:1;top:640px">
+    <div class="sx-h"><span class="sx-n">확장 2</span><b>현장 경험 개선</b><span class="sx-r">현장 접점</span></div>
+    <p>공연장 앞 부스(짐 보관 · 동행 만남 · 귀가 집결지) · 길안내·통역 · 귀가 셔틀</p>
+  </div>
+  <div class="sl-ext xr" style="--i:2;top:800px">
+    <div class="sx-h"><span class="sx-n">확장 3</span><b>추억 갤러리</b><span class="sx-r">리텐션</span></div>
+    <p>우표 스타일 사진 기록 · 추억 지도 · 공연 디지털 스탬프 · SNS 공유</p>
   </div>
 
-  <div class="sl-xl xr" style="--i:0"><b>확장</b>공연 하나로 K-팬덤 여행 전체를 잇는 팬허브</div>
-  <div class="sl-ext xr" style="left:160px;--i:1">
-    <div class="sx-h"><span class="sx-n">확장 1</span><span class="sx-r">수익 연결</span></div>
-    <div class="sx-t">현지 가이드 · 소모임</div><div class="sx-d">콘서트를 넘어 한국 여행 전체로 이어줘요</div>
-    <ul class="sx-l"><li style="--k:0;--e:0">소모임 만들고 참여 신청·확정</li><li style="--k:1;--e:0">시간대별 동선 계획</li><li style="--k:2;--e:0">팬 동선 데이터로 맞춤 추천 · 가게 제휴</li></ul>
+  <div class="cl">
+    <div class="pw" style="--k:0"><div class="pt pt-t"></div><div class="ptx pt-t-x"><span class="pch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소<br>3~4곳 중 선택, 정가 유지</p></div></div>
+    <div class="pw" style="--k:1"><div class="pt pt-r"></div><div class="ptx pt-r-x"><span class="pch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약,<br>QR 탑승 확인, 동승 가이드</p></div></div>
+    <div class="pw" style="--k:2"><div class="pt pt-b"></div><div class="ptx pt-b-x"><span class="pch">무료</span><b>공연장 지도</b><p>화장실·식음료·보관소·<br>집결지를 한눈에</p></div></div>
+    <div class="pw" style="--k:3"><div class="pt pt-l"></div><div class="ptx pt-l-x"><span class="pch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리<br>매칭, 룸쉐어까지</p></div></div>
+    <div class="hub"><i></i><i></i><div class="hb"><small>HUB</small><b>티켓 인증</b><span>실제 참석자를 확인해요</span></div></div>
+    <div class="cc cc-tl" style="--k:0"><small>해결</small><b>숙소 찾기<br>어려움</b></div>
+    <div class="cc cc-tr" style="--k:1"><small>해결</small><b>심야 귀가<br>공백</b></div>
+    <div class="cc cc-bl" style="--k:3"><small>해결</small><b>혼자 오는<br>불안</b></div>
+    <div class="cc cc-br" style="--k:2"><small>해결</small><b>정보<br>분산</b></div>
   </div>
-  <div class="sl-ext xr" style="left:701px;--i:2">
-    <div class="sx-h"><span class="sx-n">확장 2</span><span class="sx-r">현장 접점</span></div>
-    <div class="sx-t">현장 경험 개선</div><div class="sx-d">언어 장벽·혼잡 속에서도 헤매지 않게 도와줘요</div>
-    <ul class="sx-l"><li style="--k:0;--e:1">공연장 앞 부스: 짐 보관 · 동행 만남 · 귀가 집결지</li><li style="--k:1;--e:1">게이트·좌석 길안내 + 통역 가이드</li><li style="--k:2;--e:1">지정 시각 귀가 셔틀로 퇴장 혼잡 피하기</li></ul>
-  </div>
-  <div class="sl-ext xr" style="left:1242px;--i:3">
-    <div class="sx-h"><span class="sx-n">확장 3</span><span class="sx-r">리텐션</span></div>
-    <div class="sx-t">추억 갤러리</div><div class="sx-d">여행이 끝나도 앱을 다시 열게 해요</div>
-    <ul class="sx-l"><li style="--k:0;--e:2">우표 스타일 사진 기록 · 추억 지도</li><li style="--k:1;--e:2">공연 디지털 스탬프 모으기</li><li style="--k:2;--e:2">꾸민 우표를 SNS로 공유 → 신규 유입</li></ul>
-  </div>
+
   <div class="sl-hint rv" style="--i:9">→ 키를 누르면 확장 기능이 보여요</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>07 / 14</span></div>
 </section>
