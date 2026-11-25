@@ -905,7 +905,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
   if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);
     setTimeout(()=>{if(isMkt()&&!mkSec.classList.contains('go'))mkSec.classList.add('up')},120);   // 아래에서 올라와 화면을 채운 뒤
-    mkT=setTimeout(mkGo,2100)}                                                             // 다시 아래로 내려가며 지표가 나와요
+    mkT=setTimeout(mkGo,1500)}                                                             // 다시 아래로 내려가며 지표가 나와요
   clearTimeout(tgtRst);
   if(id==='target'){resetTarget();startTarget()}
   else{tgtClear();tgtRst=setTimeout(resetTarget,700)}   // 사라지는 동안엔 최종 화면을 유지하고, 완전히 사라진 뒤에 초기화
