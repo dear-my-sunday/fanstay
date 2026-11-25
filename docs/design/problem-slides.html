@@ -298,12 +298,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .vc small{display:block;font-size:16px;font-weight:600;letter-spacing:-.16px;color:rgba(255,255,255,.82)}
 .pos .vc b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1.3}
 
-/* ===== 시장조사 (라이트 · 글래스 레이어) ===== */
+/* ===== 시장조사 (라이트 · 글래스 2겹 · 인트로) ===== */
 .mkd-bg{display:block;background:linear-gradient(180deg,#FFFFFF 0%,#F3F6FC 55%,#ECF1FA 100%)}
+.mkd .mkr{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .8s var(--ease)}
+.mkd.go .mkr{opacity:1;transform:none;transition-delay:calc(.9s + var(--i)*.42s)}
+.slide:not(.on).mkd .mkr{transition-duration:0s;transition-delay:0s}
 .mkd .ms{position:absolute;top:290px;width:480px}
 .mkd .mh{display:flex;align-items:center;gap:16px}
-.mkd .mi{flex:none;width:72px;height:72px;border-radius:22px;background:#F0F2F6;display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(20,29,48,.05)}
-.mkd .mi svg{width:54px;height:54px}
+.mkd .mi{flex:none;width:72px;height:72px;display:block}
+.mkd .mi svg{display:block;width:72px;height:72px}
 .mkd .mh small{display:block;font-size:15px;font-weight:700;letter-spacing:.2px;line-height:1.2;color:var(--blue)}
 .mkd .mh b{display:block;margin-top:3px;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.4px;color:var(--h2);white-space:nowrap}
 .mkd .mn2{margin-top:22px;font-size:116px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--h1);font-variant-numeric:tabular-nums}
@@ -311,25 +314,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd .mchip{display:inline-block;margin-top:14px;font-size:18px;font-weight:600;letter-spacing:-.2px;color:var(--blue)}
 .mkd .msrc{margin-top:8px;font-size:15px;letter-spacing:-.15px;color:var(--cap)}
 .mkd .mk-line{position:absolute;left:959px;top:584px;width:2px;height:68px;z-index:2}
-.mkd .mk-line i{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(180deg,rgba(49,130,246,0),rgba(49,130,246,.7));transform-origin:top;transform:scaleY(0);transition:transform .9s var(--ease) 1.2s}
-.mkd .mk-line::after{content:"";position:absolute;left:-4px;bottom:-5px;width:10px;height:10px;border:1.5px solid var(--blue);background:#fff;transform:rotate(45deg);opacity:0;transition:opacity .4s ease 1.9s}
-.slide.on.mkd .mk-line i{transform:none}
-.slide.on.mkd .mk-line::after{opacity:1}
+.mkd .mk-line i{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(180deg,rgba(49,130,246,0),rgba(49,130,246,.7));transform-origin:top;transform:scaleY(0);transition:transform .9s var(--ease)}
+.mkd .mk-line::after{content:"";position:absolute;left:-4px;bottom:-5px;width:10px;height:10px;border:1.5px solid var(--blue);background:#fff;transform:rotate(45deg);opacity:0;transition:opacity .4s ease}
+.mkd.go .mk-line i{transform:none;transition-delay:2.3s}
+.mkd.go .mk-line::after{opacity:1;transition-delay:3s}
 .slide:not(.on).mkd .mk-line i,.slide:not(.on).mkd .mk-line::after{transition-duration:0s;transition-delay:0s}
-.mkd .mk-gw{position:absolute;left:calc(-1*var(--ox,0px));top:430px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 430px);overflow:hidden;pointer-events:none}
-.mkd .mk-glow{position:absolute;left:50%;top:300px;width:1500px;height:700px;margin-left:-750px;background:radial-gradient(ellipse 50% 50% at 50% 60%,rgba(49,130,246,.28) 0%,rgba(49,130,246,.10) 45%,rgba(49,130,246,0) 72%);opacity:0;transition:opacity 1.4s ease .5s}
+.mkd .mk-gw{position:absolute;left:calc(-1*var(--ox,0px));top:0;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px));overflow:hidden;pointer-events:none}
+.mkd .mk-glow{position:absolute;left:50%;top:730px;width:1500px;height:700px;margin-left:-750px;background:radial-gradient(ellipse 50% 50% at 50% 60%,rgba(49,130,246,.30) 0%,rgba(49,130,246,.10) 45%,rgba(49,130,246,0) 72%);opacity:0;transform:translateY(-470px);transition:opacity 1.2s ease .3s,transform 1.4s var(--ease)}
 .slide.on.mkd .mk-glow{opacity:1}
-.mkd .gl{position:absolute;border-radius:50%;opacity:0;transform:translateY(220px);transition:transform 1.3s var(--ease) var(--d),opacity .8s ease var(--d);
-  background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(232,241,255,.62) 38%,rgba(196,220,255,.42) 100%);
-  border:1.5px solid rgba(255,255,255,.95);
-  box-shadow:0 -18px 54px rgba(60,110,220,.14),inset 0 2px 0 #fff,inset 0 -60px 100px rgba(120,170,255,.28)}
-.mkd .g1{--d:.25s;left:calc(50% - 1300px);top:220px;width:2600px;height:2600px}
-.mkd .g2{--d:.45s;left:calc(50% - 1100px);top:270px;width:2200px;height:2200px;background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(226,238,255,.75) 34%,rgba(168,202,255,.55) 100%);box-shadow:0 -16px 46px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -70px 110px rgba(120,170,255,.3)}
-.mkd .g3{--d:.65s;left:calc(50% - 900px);top:330px;width:1800px;height:1800px;background:radial-gradient(ellipse 55% 34% at 50% 0%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,rgba(236,244,255,.95) 0%,rgba(190,214,255,.8) 30%,rgba(120,170,255,.7) 100%);
+.mkd.go .mk-glow{transform:none}
+.mkd .gl{position:absolute;border-radius:50%;opacity:0;transform:translateY(-470px);transition:opacity .9s ease var(--d),transform 1.4s var(--ease);
+  border:1.5px solid rgba(255,255,255,.95)}
+.mkd .g2{--d:.1s;left:calc(50% - 1100px);top:700px;width:2200px;height:2200px;background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(226,238,255,.75) 34%,rgba(168,202,255,.55) 100%);box-shadow:0 -16px 46px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -70px 110px rgba(120,170,255,.3)}
+.mkd .g3{--d:.3s;left:calc(50% - 900px);top:770px;width:1800px;height:1800px;background:radial-gradient(ellipse 55% 34% at 50% 0%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,rgba(236,244,255,.95) 0%,rgba(190,214,255,.8) 30%,rgba(120,170,255,.7) 100%);
   box-shadow:0 -12px 40px rgba(49,130,246,.22),inset 0 2px 0 #fff,inset 0 -80px 120px rgba(49,130,246,.34)}
-.slide.on.mkd .gl{opacity:1;transform:none}
-.slide:not(.on).mkd .gl{transition-duration:0s;transition-delay:0s}
-.mkd .mk-gt{position:absolute;left:0;right:0;top:790px;text-align:center}
+.slide.on.mkd .gl{opacity:1}
+.mkd.go .gl{transform:none}
+.slide:not(.on).mkd .gl,.slide:not(.on).mkd .mk-glow{transition-duration:0s;transition-delay:0s}
+.mkd .mk-gt{position:absolute;left:0;right:0;top:800px;text-align:center;opacity:0;transform:translateY(-355px) scale(1.7);transition:opacity .6s ease .25s,transform 1.4s var(--ease)}
+.slide.on.mkd .mk-gt{opacity:1}
+.mkd.go .mk-gt{transform:none}
+.slide:not(.on).mkd .mk-gt{transition-duration:0s;transition-delay:0s}
 .mkd .mk-gt small{display:block;font-size:20px;font-weight:600;letter-spacing:-.2px;color:var(--label)}
 .mkd .mk-gt b{display:block;margin-top:4px;font-size:112px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--navy);font-variant-numeric:tabular-nums}
 .mkd .mk-gt b i{font-style:normal;font-size:46px;letter-spacing:-1px;margin-left:12px;color:var(--cap)}
@@ -607,34 +612,34 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 <!-- 시장조사 -->
 <section class="slide dash mkd" data-id="market" data-no="06">
   <div class="mkd-bg"></div>
-  <div class="kick rv">시장조사</div>
-  <div class="ttl rv" style="--i:1">방한 시장은 크고, 공연은 소비를 키워요</div>
+  <div class="kick mkr" style="--i:0">시장조사</div>
+  <div class="ttl mkr" style="--i:0">방한 시장은 크고, 공연은 소비를 키워요</div>
 
-  <div class="ms rv" style="left:160px;--i:2">
-    <div class="mh"><span class="mi"><svg viewBox="0 0 64 64" width="44" height="44"><circle cx="41" cy="24" r="8.6" fill="#FFD9B8"/><path d="M27 53c0-8 6-13.5 14-13.5S55 45 55 53z" fill="#FF9EB5"/><circle cx="38" cy="24.2" r="1.15" fill="#3A2A2A"/><circle cx="44" cy="24.2" r="1.15" fill="#3A2A2A"/><path d="M38.6 28c1.4 1.2 3.4 1.2 4.8 0" stroke="#C4604A" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="24" cy="28" r="9.6" fill="#FFE3C7"/><path d="M7 57c0-9.5 7.2-15.5 17-15.5S41 47.500 41 57z" fill="#4C8DF6"/><circle cx="20.8" cy="28.2" r="1.25" fill="#3A2A2A"/><circle cx="27.2" cy="28.2" r="1.25" fill="#3A2A2A"/><path d="M21 32.4c1.7 1.5 4.3 1.5 6 0" stroke="#C4604A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="17.6" cy="31.2" r="1.8" fill="#FFB9A0" opacity=".7"/><circle cx="30.4" cy="31.2" r="1.8" fill="#FFB9A0" opacity=".7"/></svg></span><div><small>시장 규모</small><b>중국 + 일본 방한객</b></div></div>
+  <div class="ms mkr" style="left:160px;--i:1">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_15418_17632)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M14.7274 15.7273C16.7357 15.7273 18.3637 17.3553 18.3637 19.3636V20.0909H11.091C10.2877 20.0909 9.63647 19.4397 9.63647 18.6364V17.9091C9.63647 17.0904 9.90719 16.335 10.3637 15.7273H14.7274ZM18.3637 14.2727C20.3721 14.2727 22.0001 15.9008 22.0001 17.9091V18.6364C22.0001 19.4397 21.3489 20.0909 20.5456 20.0909H19.091V19.3636C19.091 16.9537 17.1374 15 14.7274 15H14.4802C14.7733 14.7938 15.0363 14.5483 15.2643 14.2727H18.3637ZM14.238 14.2727C13.6761 14.7272 12.961 15 12.1819 15C11.8667 15 11.562 14.9546 11.2735 14.8714C11.8472 14.4931 12.5342 14.2727 13.2728 14.2727H14.238ZM15.8183 7C17.6258 7 19.091 8.46525 19.091 10.2727C19.091 12.0802 17.6258 13.5455 15.8183 13.5455C15.7934 13.5455 15.7685 13.5439 15.7437 13.5433C16.0226 12.9982 16.1819 12.3817 16.1819 11.7273C16.1819 9.98356 15.0659 8.50137 13.5093 7.95384C14.1012 7.36451 14.9171 7 15.8183 7ZM13.0257 8.56463C14.4242 8.93678 15.4547 10.2116 15.4547 11.7273C15.4547 12.3531 15.2785 12.9375 14.9738 13.4347C13.5757 13.0622 12.5456 11.7881 12.5456 10.2727C12.5456 9.64685 12.7209 9.06181 13.0257 8.56463Z" fill="#626E76"/><path d="M14.7273 15.7273C16.7356 15.7273 18.3636 17.3554 18.3636 19.3637V20.091C18.3636 20.8943 17.7124 21.5455 16.9091 21.5455H7.45455C6.65122 21.5455 6 20.8943 6 20.091V19.3637C6 17.3554 7.62806 15.7273 9.63636 15.7273H14.7273ZM12.1818 8.45459C13.9893 8.45459 15.4545 9.91984 15.4545 11.7273C15.4545 13.5348 13.9893 15 12.1818 15C10.3743 15 8.90909 13.5348 8.90909 11.7273C8.90909 9.91984 10.3743 8.45459 12.1818 8.45459Z" fill="#A3D6FF"/></g><defs><filter id="filter0_i_15418_17632" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_15418_17632"/></filter></defs></svg></span><div><small>시장 규모</small><b>중국 + 일본 방한객</b></div></div>
     <div class="mn2"><span class="cnt" data-v="913" data-dec="0">0</span><small>만 명</small></div>
     <div class="mchip">중국 548만 · 일본 365만</div>
     <div class="msrc">한국관광공사 2025</div>
   </div>
-  <div class="ms rv" style="left:720px;--i:3">
-    <div class="mh"><span class="mi"><svg viewBox="0 0 64 64" width="44" height="44"><rect x="9" y="38" width="11" height="17" rx="3.2" fill="#C3DAFF"/><rect x="26.5" y="28" width="11" height="27" rx="3.2" fill="#82B2FF"/><rect x="44" y="15" width="11" height="40" rx="3.2" fill="#3182F6"/><path d="M11 29 25 20l9 4.4L51 8.5" stroke="#FF8A6B" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M44.2 7.4 53.4 6.6l-1.6 9z" fill="#FF8A6B"/><circle cx="14.5" cy="46" r="1.2" fill="#fff" opacity=".9"/><circle cx="32" cy="37" r="1.2" fill="#fff" opacity=".9"/><circle cx="49.5" cy="26" r="1.2" fill="#fff" opacity=".9"/></svg></span><div><small>파급</small><b>고양 대화동 공연 3일, 외국인 방문객</b></div></div>
+  <div class="ms mkr" style="left:720px;--i:2">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41877)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M8.07288 16.4023C8.07288 15.5739 8.74445 14.9023 9.57288 14.9023H10.9631C11.7916 14.9023 12.4631 15.5739 12.4631 16.4023V21.3048C12.4631 22.1332 11.7916 22.8048 10.9631 22.8048H9.57288C8.74445 22.8048 8.07288 22.1332 8.07288 21.3048V16.4023Z" fill="#A3D6FF"/><path d="M13.3412 12.8901C13.3412 12.0617 14.0128 11.3901 14.8412 11.3901H16.2314C17.0599 11.3901 17.7314 12.0617 17.7314 12.8901V21.3048C17.7314 22.1332 17.0599 22.8048 16.2314 22.8048H14.8412C14.0128 22.8048 13.3412 22.1332 13.3412 21.3048V12.8901Z" fill="#626E76"/><path d="M18.6095 9.37793C18.6095 8.5495 19.2811 7.87793 20.1095 7.87793H21.4998C22.3282 7.87793 22.9998 8.5495 22.9998 9.37793V21.3048C22.9998 22.1332 22.3282 22.8048 21.4998 22.8048H20.1095C19.2811 22.8048 18.6095 22.1332 18.6095 21.3048V9.37793Z" fill="#53A4FF"/><path d="M18.1646 4.01099C18.4774 3.94228 18.7556 4.2206 18.687 4.53345L18.3354 6.13403C18.261 6.47285 17.8415 6.59612 17.5962 6.35083L17.2983 6.052L14.1509 9.20142C13.6365 9.71568 12.8019 9.71568 12.2876 9.20142L11.7739 8.68677C11.6026 8.5155 11.3243 8.51566 11.1528 8.68677L4.74951 15.0911C4.57812 15.2625 4.29988 15.2623 4.12842 15.0911C3.95697 14.9196 3.95697 14.6414 4.12842 14.47L10.5317 8.06665C11.0461 7.55239 11.8797 7.5524 12.394 8.06665L12.9087 8.5813C13.0801 8.75246 13.3584 8.75245 13.5298 8.5813L16.6782 5.43188L16.3481 5.10181C16.1028 4.85651 16.2251 4.437 16.564 4.36255L18.1646 4.01099Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41877" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41877"/></filter></defs></svg></span><div><small>파급</small><b>고양 대화동 공연 3일, 외국인 방문객</b></div></div>
     <div class="mn2"><span class="cnt" data-v="35" data-dec="0">0</span><small>배</small></div>
     <div class="mchip">1,397명 → 48,581명 (전년 같은 기간)</div>
     <div class="msrc">한국경제 2026.4.29 · 특정 지역·기간 결과</div>
   </div>
-  <div class="ms rv" style="left:1280px;--i:4">
-    <div class="mh"><span class="mi"><svg viewBox="0 0 64 64" width="44" height="44"><g transform="rotate(-10 32 32)"><path d="M7 20.500a3.500 3.500 0 0 1 3.500-3.500h43a3.500 3.500 0 0 1 3.500 3.500v6.200a5.300 5.300 0 0 0 0 10.600v6.200a3.500 3.500 0 0 1-3.500 3.500h-43a3.500 3.500 0 0 1-3.500-3.500v-6.200a5.300 5.300 0 0 0 0-10.600z" fill="#FFD66B"/><path d="M43 18.500v27" stroke="#fff" stroke-width="2.2" stroke-dasharray="3.2 3.2" opacity=".95"/><path d="m24.500 25.500 2.300 4.700 5.100.7-3.700 3.600.9 5.100-4.600-2.400-4.600 2.400.9-5.100-3.700-3.600 5.100-.7z" fill="#FF8FA8"/><circle cx="50.200" cy="26" r="1.2" fill="#3A2A2A" opacity=".75"/><circle cx="50.200" cy="36" r="1.2" fill="#3A2A2A" opacity=".75"/></g></svg></span><div><small>수요</small><b>공연 원정 경험이 있는 응답자</b></div></div>
+  <div class="ms mkr" style="left:1280px;--i:3">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41822)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M19.4 7.60474C21.3882 7.60474 23 9.21651 23 11.2047V14.8047C23 16.793 21.3882 18.4047 19.4 18.4047H8.89795L6.35 19.8751C5.75 20.2216 5 19.7884 5 19.0956V11.2047C5 9.21651 6.61177 7.60474 8.6 7.60474H19.4Z" fill="#A3D6FF"/><path d="M11.0245 10.0683C11.1742 9.60761 11.8259 9.60761 11.9756 10.0683L12.1736 10.6777C12.2405 10.8837 12.4325 11.0232 12.6491 11.0232H13.2899C13.7743 11.0232 13.9756 11.643 13.5838 11.9277L13.0654 12.3043C12.8901 12.4317 12.8168 12.6573 12.8838 12.8634L13.0818 13.4728C13.2314 13.9334 12.7042 14.3165 12.3123 14.0318L11.7939 13.6552C11.6187 13.5278 11.3814 13.5278 11.2062 13.6552L10.6877 14.0318C10.2959 14.3165 9.76865 13.9334 9.91832 13.4728L10.1163 12.8634C10.1833 12.6573 10.1099 12.4317 9.9347 12.3043L9.41629 11.9277C9.02444 11.643 9.22583 11.0232 9.71019 11.0232H10.351C10.5676 11.0232 10.7596 10.8837 10.8265 10.6777L11.0245 10.0683Z" fill="#465159"/><path d="M16.3402 5.46614C16.5605 4.84462 17.4395 4.84462 17.6598 5.46614L18.1819 6.93903C18.2809 7.21844 18.5452 7.40517 18.8416 7.40517H20.3925C21.0852 7.40517 21.3571 8.30378 20.7805 8.68778L19.6336 9.45159C19.3667 9.62936 19.2547 9.96579 19.3619 10.2681L19.8241 11.5721C20.0489 12.2065 19.3364 12.7616 18.7763 12.3886L17.388 11.464C17.153 11.3075 16.847 11.3075 16.612 11.464L15.2237 12.3886C14.6636 12.7616 13.9511 12.2064 14.1759 11.5721L14.6381 10.2681C14.7453 9.96579 14.6333 9.62936 14.3664 9.45159L13.2195 8.68778C12.6429 8.30378 12.9148 7.40517 13.6075 7.40517H15.1584C15.4548 7.40517 15.7191 7.21844 15.8181 6.93903L16.3402 5.46614Z" fill="#465159"/><path d="M22.0245 10.0683C22.1742 9.60761 22.8259 9.60761 22.9756 10.0683L23.1736 10.6777C23.2405 10.8837 23.4325 11.0232 23.6491 11.0232H24.2899C24.7743 11.0232 24.9756 11.643 24.5838 11.9277L24.0654 12.3043C23.8901 12.4317 23.8168 12.6573 23.8838 12.8634L24.0818 13.4728C24.2314 13.9334 23.7042 14.3165 23.3123 14.0318L22.7939 13.6552C22.6187 13.5278 22.3814 13.5278 22.2062 13.6552L21.6877 14.0318C21.2959 14.3165 20.7686 13.9334 20.9183 13.4728L21.1163 12.8634C21.1833 12.6573 21.1099 12.4317 20.9347 12.3043L20.4163 11.9277C20.0244 11.643 20.2258 11.0232 20.7102 11.0232H21.351C21.5676 11.0232 21.7596 10.8837 21.8265 10.6777L22.0245 10.0683Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41822" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41822"/></filter></defs></svg></span><div><small>수요</small><b>공연 원정 경험이 있는 응답자</b></div></div>
     <div class="mn2"><span class="cnt" data-v="65" data-dec="0">0</span><small>%</small></div>
     <div class="mchip">아시아 6개 시장 응답자 기준</div>
     <div class="msrc">헤럴드경제 2026.11.5 보도</div>
   </div>
 
-  <div class="mk-line rv" style="--i:5"><i></i></div>
+  <div class="mk-line"><i></i></div>
   <div class="mk-gw">
     <div class="mk-glow"></div>
-    <div class="gl g1"></div><div class="gl g2"></div><div class="gl g3"></div>
+    <div class="gl g2"></div><div class="gl g3"></div>
   </div>
-  <div class="mk-gt rv" style="--i:6">
+  <div class="mk-gt">
     <small>방한 외래관광객 2025</small>
     <b><span class="cnt" data-v="1894" data-dec="0">0</span><i>만 명</i></b>
     <span>2025년 한 해 동안 한국을 찾은 외국인</span>
@@ -870,6 +875,11 @@ function skipTarget(){
 }
 const isTarget=()=>slides[cur].dataset.id==='target';
 const solSec=$('[data-id=solution]');const isSol=()=>slides[cur].dataset.id==='solution';
+const mkSec=$('[data-id=market]');let mkT=0;const isMkt=()=>slides[cur].dataset.id==='market';
+function mkGo(){   // 시장조사: 큰 숫자가 아래로 내려간 뒤 시장 규모·파급·수요가 차례로 나와요
+  if(mkSec.classList.contains('go'))return;clearTimeout(mkT);mkSec.classList.add('go');
+  $$('.ms .cnt',mkSec).forEach((e,i)=>setTimeout(()=>{if(mkSec.classList.contains('go'))count(e,+e.dataset.v,+e.dataset.dec)},1100+i*420));
+}
 
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
@@ -880,7 +890,8 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   const id=slides[i].dataset.id;
   resetVideo();solSec.classList.remove('x2');
   if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
-  if(id==='market'){$$('[data-id=market] .cnt').forEach(e=>{e.textContent='0';count(e,+e.dataset.v,+e.dataset.dec)})}
+  clearTimeout(mkT);mkSec.classList.remove('go');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
+  if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);mkT=setTimeout(mkGo,2400)}
   clearTimeout(tgtRst);
   if(id==='target'){resetTarget();startTarget()}
   else{tgtClear();tgtRst=setTimeout(resetTarget,700)}   // 사라지는 동안엔 최종 화면을 유지하고, 완전히 사라진 뒤에 초기화
@@ -888,6 +899,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
+  if(isMkt()&&!mkSec.classList.contains('go')){mkGo();return}
   if(isSol()&&!solSec.classList.contains('x2')){solSec.classList.add('x2');return}   // 솔루션: → 한 번 더 누르면 확장 기능이 올라와요
   if(isVideo()){
     if(vs===0){startVideo();return}
