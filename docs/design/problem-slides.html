@@ -256,39 +256,30 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .pm{position:absolute;left:160px;top:292px;width:1040px;height:668px;border-radius:52px;background:var(--soft);overflow:hidden}
 .pos .pl{position:absolute;left:84px;top:28px;width:928px;height:564px}
 .pos .pmw{z-index:1;position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 270px;transition:transform 1.1s var(--ease);pointer-events:none}
-.pos .pm{left:160px;top:270px;width:1600px;height:740px;background:none;box-shadow:none;border-radius:0}
+.pos .pm{left:160px;top:270px;width:1600px;height:740px;border-radius:52px;background:#fff;box-shadow:inset 0 0 0 1px rgba(7,25,76,.07);background-image:linear-gradient(rgba(7,25,76,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(7,25,76,.045) 1px,transparent 1px);background-size:40px 40px}
 .pos .pl{left:0;top:0;width:1600px;height:740px}
-.pos .rg{position:absolute;left:calc(800px - var(--r)*1px);top:calc(370px - var(--r)*1px);width:calc(var(--r)*2px);height:calc(var(--r)*2px);border-radius:50%;border:1.5px dashed #AEB6C6;opacity:0;transform:scale(.8);transition:opacity .7s ease .2s,transform 1s var(--ease) .2s}
-.slide.on .pos .rg,.pos.slide.on .rg{opacity:1;transform:none}
-.pos .gx,.pos .gy{position:absolute;background:#4A82E6}
-.pos .gx{left:190px;right:190px;top:369px;height:2px}
-.pos .gy{left:799px;top:46px;bottom:46px;width:2px}
-.pos .gx::before,.pos .gx::after{content:"";position:absolute;top:-4px;width:10px;height:10px;border-radius:50%;background:#4A82E6}
-.pos .gx::before{left:-5px}.pos .gx::after{right:-5px}
-.pos .gy::before,.pos .gy::after{content:"";position:absolute;left:-4px;width:10px;height:10px;border-radius:50%;background:#4A82E6}
-.pos .gy::before{top:-5px}.pos .gy::after{bottom:-5px}
-.pos .bb{position:absolute;left:calc(var(--cx)*1px - var(--w)*.5px);top:calc(var(--cy)*1px - var(--h)*.5px);width:calc(var(--w)*1px);height:calc(var(--h)*1px);border-radius:22px;display:grid;place-items:center;text-align:center;
-  background:#A4ACBC;color:#fff;box-shadow:0 10px 24px rgba(30,45,90,.12);opacity:0;transform:scale(.6);transition:opacity .5s ease calc(.6s + var(--i)*.12s),transform .8s var(--ease) calc(.6s + var(--i)*.12s)}
-.slide.on .pos .bb,.pos.slide.on .bb{opacity:1;transform:none}
-.pos.slide:not(.on) .bb,.pos.slide:not(.on) .rg{transition-duration:0s;transition-delay:0s}
-.pos .bb b{display:block;font-size:21px;font-weight:700;line-height:1.25;letter-spacing:-.4px}
-.pos .bb small{display:block;margin-top:5px;font-size:14px;font-weight:500;line-height:1.3;letter-spacing:-.13px;opacity:.92}
-.pos .bb.need{background:#fff;color:var(--h2);box-shadow:0 8px 20px rgba(30,45,90,.07);border:2px dashed #AEB6C6}
-.pos .bb.me{z-index:2;background:#3182F6;box-shadow:0 0 0 10px rgba(49,130,246,.2),0 0 0 26px rgba(49,130,246,.1),0 0 46px 30px rgba(49,130,246,.22)}
-.pos .bb.me b{font-size:34px;letter-spacing:-1px}
-.pos .bb.me small{font-size:16px;font-weight:600}
-.pos .tip{position:absolute;left:50%;bottom:calc(100% + 40px);transform:translateX(-50%);white-space:nowrap;font-size:16px;font-weight:600;letter-spacing:-.2px;color:var(--h2);background:#EEF0F4;border-radius:14px;padding:12px 20px;box-shadow:0 4px 14px rgba(30,45,90,.08)}
-.pos .tip::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:#EEF0F4;transform:translateX(-50%) rotate(45deg)}
-.pos .ax{position:absolute;font-size:18px;font-weight:700;letter-spacing:-.2px;color:#3E73D8;text-align:center;line-height:1.35;transform:none}
-.pos .ax.at{left:800px;top:6px;transform:translateX(-50%)}
-.pos .ax.ab{left:800px;bottom:6px;top:auto;transform:translateX(-50%)}
-.pos .ax.xl{left:20px;top:370px;transform:translateY(-50%)}
-.pos .ax.xr{right:20px;left:auto;top:370px;transform:translateY(-50%)}
-.pos .lg2{position:absolute;left:30px;bottom:30px}
-.pos .lg2 span{font-size:15px}
+.pos .gx,.pos .gy{position:absolute;background:rgba(7,25,76,.16)}
+.pos .gx{left:80px;right:40px;top:369px;height:1.5px}
+.pos .gy{left:799px;top:60px;bottom:60px;width:1.5px}
+.pos .pn{position:absolute;left:calc(var(--cx)*1px);top:calc(var(--cy)*1px);display:flex;align-items:center;gap:16px;white-space:nowrap;opacity:0;transform:translate(0,-50%) scale(.75);transform-origin:10px 50%;
+  transition:opacity .5s ease calc(.5s + var(--i)*.12s),transform .7s var(--ease) calc(.5s + var(--i)*.12s)}
+.slide.on .pos .pn,.pos.slide.on .pn{opacity:1;transform:translate(0,-50%)}
+.pos.slide:not(.on) .pn{transition-duration:0s;transition-delay:0s}
+.pos .pn i{flex:none;width:22px;height:22px;border-radius:50%;background:#7C89A8;margin-left:-11px}
+.pos .pn b{display:block;font-size:24px;font-weight:700;letter-spacing:-.5px;color:var(--h1);line-height:1.25}
+.pos .pn small{display:block;margin-top:3px;font-size:17px;font-weight:500;letter-spacing:-.17px;color:var(--body);line-height:1.35}
+.pos .pn.me i{width:38px;height:38px;margin-left:-19px;background:var(--blue);box-shadow:0 0 0 10px rgba(49,130,246,.2),0 0 0 24px rgba(49,130,246,.09)}
+.pos .pn.me{transform-origin:19px 50%}
+.pos .pn.me b{font-size:34px;color:var(--blue);letter-spacing:-.9px}
+.pos .pn.me small{font-size:18px;font-weight:600;color:var(--h2)}
+.pos .ax{position:absolute;font-size:18px;font-weight:600;letter-spacing:-.2px;color:var(--label);white-space:nowrap;line-height:1.35}
+.pos .ax.at{left:800px;top:18px;transform:translateX(-50%)}
+.pos .ax.ab{left:800px;bottom:18px;transform:translateX(-50%)}
+.pos .ax.xl{left:34px;top:381px}
+.pos .ax.xr{right:34px;top:381px}
 /* 하단 차별점 패널 */
 .pos .dpn{z-index:3;position:absolute;left:calc(-1*var(--ox,0px));top:500px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 500px);color:#fff;pointer-events:none;
-  background:linear-gradient(180deg,rgba(49,130,246,0) 0%,rgba(66,140,255,.7) 10%,#3182F6 26%,#2455D0 100%);opacity:0;transform:translateY(60%);transition:opacity .7s ease,transform 1.1s var(--ease)}
+  background:linear-gradient(180deg,rgba(46,56,85,0) 0%,rgba(58,68,100,.78) 10%,#2E3855 26%,#1D2540 100%);opacity:0;transform:translateY(60%);transition:opacity .7s ease,transform 1.1s var(--ease)}
 .pos.x2 .dpn{opacity:1;transform:none}
 .pos.x2 .foot,.pos.x2 .foot span{color:rgba(255,255,255,.75);z-index:6}
 .pos .dk2,.pos .dcols,.pos .dval{position:absolute;left:calc(var(--ox,0px) + 160px);width:1600px}
@@ -728,21 +719,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="pmw">
   <div class="pm rv" style="--i:2">
     <div class="pl">
-      <div class="rg" style="--r:120"></div><div class="rg" style="--r:220"></div><div class="rg" style="--r:320"></div>
       <div class="gx"></div><div class="gy"></div>
-        <div class="bb need" style="--cx:420;--cy:215;--w:190;--h:104;--i:0"><div><b>SNS 개인<br>거래·대행</b><small>X · 오픈채팅</small></div></div>
-        <div class="bb " style="--cx:900;--cy:255;--w:200;--h:110;--i:1"><div><b>엔터사<br>공식 패키지</b><small>SM Global Package 등</small></div></div>
-        <div class="bb " style="--cx:1300;--cy:335;--w:200;--h:110;--i:2"><div><b>놀유니버스<br>Play &amp; Stay</b><small>공연+이동+숙박</small></div></div>
-        <div class="bb " style="--cx:1000;--cy:545;--w:190;--h:104;--i:3"><div><b>카카오 T<br>셔틀</b><small>공연장 셔틀 노선</small></div></div>
-        <div class="bb need" style="--cx:1340;--cy:570;--w:190;--h:104;--i:4"><div><b>국내 예매·여행</b><small>NOL 등</small></div></div>
-        <div class="bb need" style="--cx:610;--cy:565;--w:190;--h:104;--i:5"><div><b>글로벌 OTA</b><small>클룩 · KKday</small></div></div>
-        <div class="bb me" style="--cx:1140;--cy:185;--w:236;--h:124;--i:6"><span class="tip">티켓 인증으로 팬의 불안을 줄이는 서비스</span><div><b>FanStay</b><small>티켓 인증 허브</small></div></div>
-      <div class="lg2"><span><em></em>자료조사 근거 있음</span><span><em class="n"></em>근거 자료 추가 필요</span></div>
+      <div class="pn " style="--cx:330;--cy:215;--i:0"><i></i><div><b>SNS 개인 거래·대행</b><small>X · 오픈채팅</small></div></div>
+      <div class="pn " style="--cx:860;--cy:260;--i:1"><i></i><div><b>엔터사 공식 패키지</b><small>SM Global Package 등</small></div></div>
+      <div class="pn " style="--cx:1190;--cy:310;--i:2"><i></i><div><b>놀유니버스 Play &amp; Stay</b><small>공연+이동+숙박</small></div></div>
+      <div class="pn " style="--cx:940;--cy:545;--i:3"><i></i><div><b>카카오 T 셔틀</b><small>공연장 셔틀 노선</small></div></div>
+      <div class="pn " style="--cx:1270;--cy:590;--i:4"><i></i><div><b>국내 예매·여행</b><small>NOL 등</small></div></div>
+      <div class="pn " style="--cx:470;--cy:575;--i:5"><i></i><div><b>글로벌 OTA</b><small>클룩 · KKday</small></div></div>
+      <div class="pn me" style="--cx:1090;--cy:180;--i:6"><i></i><div><b>FanStay</b><small>티켓 인증 허브</small></div></div>
     </div>
     <div class="ax at">공연 팬 특화도 높음</div>
     <div class="ax ab">공연 팬 특화도 낮음</div>
-    <div class="ax xl">거래 신뢰·검증<br>낮음</div>
-    <div class="ax xr">거래 신뢰·검증<br>높음</div>
+    <div class="ax xl">거래 신뢰·검증 낮음</div>
+    <div class="ax xr">거래 신뢰·검증 높음</div>
   </div>
   </div>
 
