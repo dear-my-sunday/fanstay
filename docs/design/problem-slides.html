@@ -306,6 +306,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pc .el{font-size:16px;font-weight:600;line-height:1.3;color:var(--label);letter-spacing:-.16px}
 .pc .es{margin-top:18px;font-size:26px;font-weight:700;line-height:1.3;letter-spacing:-.52px;color:var(--h1);white-space:nowrap}
 .pc .es.am{color:var(--amber)}
+.pc .eg{margin-top:14px;display:grid;row-gap:10px}
+.pc .gr{display:grid;grid-template-columns:44px 1fr 52px;column-gap:12px;align-items:center}
+.pc .gy{font-size:16px;font-weight:600;color:var(--label);letter-spacing:-.16px;font-variant-numeric:tabular-nums}
+.pc .gb{height:14px;border-radius:7px;background:rgba(7,25,76,.07);overflow:hidden}
+.pc .gb i{display:block;height:100%;width:0;border-radius:7px;background:#B8C2D3;transition:width 1s var(--ease) .5s}
+.pc .gr.hi .gb i{background:var(--blue)}
+.slide.on .pc .gb i{width:var(--w)}
+.slide:not(.on) .pc .gb i{transition-duration:0s}
+.pc .gv{font-size:22px;font-weight:700;line-height:1;color:var(--h1);letter-spacing:-.44px;text-align:right;font-variant-numeric:tabular-nums}
+.pc .gr.hi .gv{color:var(--blue)}
 .pc .esrc{margin-top:8px;font-size:16px;line-height:1.45;letter-spacing:-.16px;color:var(--cap)}
 .pc .cmp{margin-top:16px}
 .pc .duo{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
@@ -374,7 +384,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="pt">갑질하는 숙소</div>
     <div class="qg"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
-    <div class="ev"><div class="el">BTS 부산 공연 주간 숙박 요금</div><div class="es">평균 2.4배 · 최대 7.5배</div><div class="esrc">공정위·소비자원 부산 숙소 135곳 조사 (2026.2)</div></div></div>
+    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><div class="eg"><div class="gr"><span class="gy">2024</span><div class="gb"><i style="--w:42%"></i></div><b class="gv">16%</b></div><div class="gr hi"><span class="gy">2026</span><div class="gb"><i style="--w:100%"></i></div><b class="gv">38%</b></div></div><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
   <div class="pc rv" style="left:566px;--i:5">
     <div class="no">02</div>
     <div class="pt">함께 즐길 친구</div>
