@@ -80,17 +80,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .who{z-index:2}
 .scrim{position:absolute;left:0;right:0;bottom:0;height:420px;background:linear-gradient(180deg,rgba(20,29,48,0) 0%,rgba(20,29,48,.45) 100%);opacity:0;transition:opacity .5s ease;pointer-events:none}
 .play .scrim{opacity:1}
-.cap{position:absolute;left:160px;right:780px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
+.cap{position:absolute;left:160px;right:160px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
 .cap.on{opacity:1;transform:none}
 .cap .ko{font-size:44px;font-weight:700;line-height:1.4;letter-spacing:-.88px}
 .cap .og{margin-top:14px;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.22px;color:rgba(255,255,255,.78)}
-.rvs{position:absolute;right:160px;top:0;bottom:0;width:600px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:1;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.rvs{position:absolute;right:160px;top:150px;bottom:330px;width:600px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:1;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 100%);mask-image:linear-gradient(180deg,transparent 0,#000 28%,#000 100%)}
 .play .rvs{opacity:1}
-.rv-c{position:absolute;left:0;top:100%;width:560px;box-sizing:border-box;padding:22px 28px 26px;border-radius:28px;background:#fff;color:#1c1f27;box-shadow:0 8px 32px rgba(20,29,48,.18);will-change:transform}
-.rv-c:nth-child(even){left:40px}
-.play .rv-c{animation:rise var(--dur,6.5s) linear var(--d,0s) both}
-@keyframes rise{from{transform:translateY(0)}to{transform:translateY(calc(-1*var(--H,1080px) - 100%))}}
+.rv-c{flex:none;box-sizing:border-box;width:560px;padding:22px 28px 26px;border-radius:28px;background:#fff;color:#1c1f27;box-shadow:0 8px 32px rgba(20,29,48,.18)}
+.rv-c:nth-child(even){margin-left:40px}
 .rv-h{display:flex;align-items:center;gap:12px;font-size:16px;color:#6b7280;letter-spacing:-.16px}
 .rv-h .av{width:32px;height:32px;border-radius:50%;background:var(--ac,#7ec8e3);filter:blur(4px)}
 .rv-h .nk{font-weight:700;color:#1c1f27;filter:blur(5px);user-select:none}
@@ -571,12 +569,25 @@ const REDDIT=[
   {nick:'AfraidInspection2894',when:'9개월 전',ac:'#b6d86f',body:['택시 잡는 데 시간이 좀 걸렸어, 다들 택시 잡으려고 했고, 기사가 바가지 씌우려고 하더라고. 지하철 끊기기 전에 겨우 탔어.']},
   {nick:'mountainandsea_',when:'9개월 전',ac:'#a0a0a0',body:['셔틀이 있으면 훨씬 스트레스 덜 받을 것 같고, 많은 사람들이 이용할 것 같아요!','2~3만원 정도는 기꺼이 냈을 것 같고, 미리 결제해서 마음 편하게 이용하고 싶어요!']}
 ];
-(function(){const box=$('#rvs'),GAP=0.9;
-  REDDIT.forEach((r,i)=>{const c=document.createElement('div');c.className='rv-c';c.style.setProperty('--d',(i*GAP)+'s');c.style.setProperty('--ac',r.ac);
-    c.innerHTML='<div class="rv-h"><span class="av"></span><span class="nk"></span><span>· '+r.when+'</span></div>'+r.body.map(t=>'<p></p>').join('');
-    c.querySelector('.nk').textContent=r.nick;$$('p',c).forEach((p,k)=>p.textContent=r.body[k]);box.appendChild(c)})})();
+const rvBox=$('#rvs');let rvT=[],rvN=0;
+function rvSpawn(){
+  if(rvN>=REDDIT.length)return;
+  const r=REDDIT[rvN++],c=document.createElement('div');c.className='rv-c';c.style.setProperty('--ac',r.ac);
+  c.innerHTML='<div class="rv-h"><span class="av"></span><span class="nk"></span><span>· '+r.when+'</span></div>'+r.body.map(()=>'<p></p>').join('');
+  c.querySelector('.nk').textContent=r.nick;$$('p',c).forEach((p,k)=>p.textContent=r.body[k]);
+  const old=[...rvBox.children],y0=old.map(e=>e.getBoundingClientRect().top);
+  rvBox.appendChild(c);
+  const E='cubic-bezier(.22,1,.36,1)';
+  old.forEach((e,i)=>{const d=y0[i]-e.getBoundingClientRect().top;if(d)e.animate([{transform:`translateY(${d}px)`},{transform:'none'}],{duration:550,easing:E})});   // 기존 카드는 위로 스윽 밀려 올라감
+  c.animate([{opacity:0,transform:'translateY(60px) scale(.96)'},{opacity:1,transform:'none'}],{duration:550,easing:E});  // 새 카드는 아래에서 스윽 등장
+  old.forEach(e=>{if(e.getBoundingClientRect().bottom<rvBox.getBoundingClientRect().top)e.remove()});
+}
+function rvStart(){rvStop();rvT.push(setTimeout(function f(){rvSpawn();if(rvN<REDDIT.length)rvT.push(setTimeout(f,RV_GAP))},RV_FIRST))}
+function rvStop(){rvT.forEach(clearTimeout);rvT=[]}
+function rvReset(){rvStop();rvN=0;rvBox.innerHTML=''}
+const RV_FIRST=500,RV_GAP=800;   // ms: 첫 카드 등장 시점 · 카드 간격
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261125'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261125b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
 const poster=document.createElement('img');poster.id='vposter';poster.alt='';poster.src=CLIPS[0].poster;$('#vwrap').insertBefore(poster,$('#vwrap').firstChild);
 vbig.classList.add('hasvid');
 let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
@@ -609,17 +620,17 @@ function tick(){
 function startVideo(){
   vs=1;vids.forEach(v=>{v.preload='auto'});
   $('[data-id=video]').classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
-  who.classList.add('on');showClip(0);
+  who.classList.add('on');showClip(0);rvReset();rvStart();
   vids[0].currentTime=0;vids[0].play().catch(()=>{});
   raf=requestAnimationFrame(tick);
 }
 function endVideo(){
-  vs=2;cancelAnimationFrame(raf);vids.forEach(v=>v.pause());setCue(-1);who.classList.remove('on');
+  vs=2;cancelAnimationFrame(raf);rvStop();vids.forEach(v=>v.pause());setCue(-1);who.classList.remove('on');
   $('#vprog').style.width='100%';
   setTimeout(()=>{if(vs===2){$('[data-id=video]').classList.remove('exp');vbig.classList.remove('play');vbig.classList.add('done');$('.vhint').textContent='→ 다음으로'}},900);
 }
 function resetVideo(){
-  vs=0;cancelAnimationFrame(raf);vids.forEach(v=>{v.pause();v.currentTime=0});showClip(0);who.classList.remove('on');
+  vs=0;cancelAnimationFrame(raf);rvReset();vids.forEach(v=>{v.pause();v.currentTime=0});showClip(0);who.classList.remove('on');
   $('[data-id=video]').classList.remove('exp');vbig.classList.remove('play','done');
   $('.vhint').textContent='→ 키를 누르면 재생돼요';$('#vprog').style.width='0';
 }
