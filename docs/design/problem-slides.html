@@ -80,10 +80,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .who{z-index:2}
 .scrim{position:absolute;left:0;right:0;bottom:0;height:420px;background:linear-gradient(180deg,rgba(20,29,48,0) 0%,rgba(20,29,48,.45) 100%);opacity:0;transition:opacity .5s ease;pointer-events:none}
 .play .scrim{opacity:1}
-.cap{position:absolute;left:160px;right:160px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
+.cap{position:absolute;left:160px;right:780px;bottom:140px;text-align:center;color:#fff;opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .5s var(--ease)}
 .cap.on{opacity:1;transform:none}
 .cap .ko{font-size:44px;font-weight:700;line-height:1.4;letter-spacing:-.88px}
 .cap .og{margin-top:14px;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.22px;color:rgba(255,255,255,.78)}
+.rvs{position:absolute;right:160px;top:0;bottom:0;width:600px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:1;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.play .rvs{opacity:1}
+.rv-c{position:absolute;left:0;top:100%;width:560px;box-sizing:border-box;padding:22px 28px 26px;border-radius:28px;background:#fff;color:#1c1f27;box-shadow:0 8px 32px rgba(20,29,48,.18);will-change:transform}
+.rv-c:nth-child(even){left:40px}
+.play .rv-c{animation:rise var(--dur,6.5s) linear var(--d,0s) both}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(calc(-1*var(--H,1080px) - 100%))}}
+.rv-h{display:flex;align-items:center;gap:12px;font-size:16px;color:#6b7280;letter-spacing:-.16px}
+.rv-h .av{width:32px;height:32px;border-radius:50%;background:var(--ac,#7ec8e3);filter:blur(4px)}
+.rv-h .nk{font-weight:700;color:#1c1f27;filter:blur(5px);user-select:none}
+.rv-c p{margin:14px 0 0;font-size:19px;line-height:1.55;letter-spacing:-.3px}
+.rv-c p+p{margin-top:10px}
 .vprog{position:absolute;left:160px;right:160px;bottom:72px;height:4px;border-radius:2px;background:rgba(255,255,255,.28);opacity:0;transition:opacity .4s ease}
 .play .vprog{opacity:1}
 .vprog i{display:block;height:100%;width:0;border-radius:2px;background:#fff}
@@ -337,7 +349,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 10초 · 1회 재생</span>
     <span class="vhint">→ 키를 누르면 재생돼요</span>
     <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></div>
-    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b><span class="ai">*AI 생성 페르소나</span></div>
+    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b><span class="ai">*레딧 설문 내용 기반 생성 페르소나</span></div>
+    <div class="rvs" id="rvs"></div>
     <div class="cap" id="cap"><div class="ko" id="capKo"></div><div class="og" id="capOg"></div></div>
     <div class="vprog"><i id="vprog"></i></div>
   </div>
@@ -545,13 +558,25 @@ fit();
    클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
 const CLIPS=[
   {src:'assets/interview.mp4', poster:'assets/interview-poster.jpg', who:['일본','20대 여성'], cues:[
-    {a:0.7,b:5.8,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
-  {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
-    {a:0.25,b:6.3,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
+    {a:0.3,b:5.7,ko:'해외라 부당한 일을 당해도 보호 받기 어렵다고 느껴요.', og:'海外なので、不当な扱いを受けても守られにくいと感じます。'}]}
   /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
+/* ===== 레딧 설문 카드 (아래 → 위로 올라오며 사라짐). 닉네임·프로필은 블러 처리. 카드를 추가하려면 REDDIT에 항목 추가 ===== */
+const REDDIT=[
+  {nick:'rukki88',when:'9개월 전',ac:'#8fd3c7',body:['이용 가능한 셔틀 서비스는 보통 한국어로만 되어 있어서 외국인이 예약하고 물류를 이해하기 어렵게 만들어.','외국인 친화적인 교통 셔틀 서비스가 있다면 난 분명 관심 있을 거야.']},
+  {nick:'justwannasaysmth',when:'9개월 전',ac:'#7ec8e3',body:['카카오택시로 잡으려고 했는데 안 잡혔고, 길에서 잡으려니까 5배 정도 바가지 씌우더라. 내 알기로는 불법인데.']},
+  {nick:'UAP_andotherthings',when:'9개월 전',ac:'#e8c3d6',body:['팬사인회는 보통 익숙하지 않은 지역의 기차역에서 좀 떨어진 곳에서 열리기도 하거든요. 그런 경우엔 이용할 것 같아요.']},
+  {nick:'maybemid',when:'9개월 전',ac:'#f0b27a',body:['셔틀이 어떻게 생겼는지도 안 알려주고, 내가 한국말로 물어봤는데도 그 사람도 뭘 말하는 건지 모르더라니까 😭 그래서 그냥 택시 타고 돌아왔어.']},
+  {nick:'TheYeeeingHeadbanger',when:'9개월 전',ac:'#9aa5e0',body:['콘서트 끝나고 퇴근길 기다리느라 3시간 걸렸어요 ㅠㅠ 팬들이 기꺼이 지불할 수도 있을 거예요.']},
+  {nick:'AfraidInspection2894',when:'9개월 전',ac:'#b6d86f',body:['택시 잡는 데 시간이 좀 걸렸어, 다들 택시 잡으려고 했고, 기사가 바가지 씌우려고 하더라고. 지하철 끊기기 전에 겨우 탔어.']},
+  {nick:'mountainandsea_',when:'9개월 전',ac:'#a0a0a0',body:['셔틀이 있으면 훨씬 스트레스 덜 받을 것 같고, 많은 사람들이 이용할 것 같아요!','2~3만원 정도는 기꺼이 냈을 것 같고, 미리 결제해서 마음 편하게 이용하고 싶어요!']}
+];
+(function(){const box=$('#rvs'),GAP=0.9;
+  REDDIT.forEach((r,i)=>{const c=document.createElement('div');c.className='rv-c';c.style.setProperty('--d',(i*GAP)+'s');c.style.setProperty('--ac',r.ac);
+    c.innerHTML='<div class="rv-h"><span class="av"></span><span class="nk"></span><span>· '+r.when+'</span></div>'+r.body.map(t=>'<p></p>').join('');
+    c.querySelector('.nk').textContent=r.nick;$$('p',c).forEach((p,k)=>p.textContent=r.body[k]);box.appendChild(c)})})();
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261121b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261125'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
 const poster=document.createElement('img');poster.id='vposter';poster.alt='';poster.src=CLIPS[0].poster;$('#vwrap').insertBefore(poster,$('#vwrap').firstChild);
 vbig.classList.add('hasvid');
 let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
