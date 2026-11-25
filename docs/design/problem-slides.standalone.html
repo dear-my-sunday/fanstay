@@ -304,9 +304,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd.go .mkr{opacity:1;transform:none;transition-delay:calc(.9s + var(--i)*.42s)}
 .slide:not(.on).mkd .mkr{transition-duration:0s;transition-delay:0s}
 .mkd .ms{position:absolute;top:290px;width:480px}
-.mkd .mh{display:flex;align-items:center;gap:16px}
-.mkd .mi{flex:none;width:72px;height:72px;display:block}
-.mkd .mi svg{display:block;width:72px;height:72px}
+.mkd .mh{display:flex;align-items:center;gap:14px}
+.mkd .mi{flex:none;width:52px;height:52px;display:block}
+.mkd .mi svg{display:block;width:52px;height:52px}
 .mkd .mh small{display:block;font-size:15px;font-weight:700;letter-spacing:.2px;line-height:1.2;color:var(--blue)}
 .mkd .mh b{display:block;margin-top:3px;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.4px;color:var(--h2);white-space:nowrap}
 .mkd .mn2{margin-top:22px;font-size:116px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--h1);font-variant-numeric:tabular-nums}
@@ -320,25 +320,35 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mkd.go .mk-line::after{opacity:1;transition-delay:3s}
 .slide:not(.on).mkd .mk-line i,.slide:not(.on).mkd .mk-line::after{transition-duration:0s;transition-delay:0s}
 .mkd .mk-gw{position:absolute;left:calc(-1*var(--ox,0px));top:0;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px));overflow:hidden;pointer-events:none}
-.mkd .mk-glow{position:absolute;left:50%;top:730px;width:1500px;height:700px;margin-left:-750px;background:radial-gradient(ellipse 50% 50% at 50% 60%,rgba(49,130,246,.30) 0%,rgba(49,130,246,.10) 45%,rgba(49,130,246,0) 72%);opacity:0;transform:translateY(-470px);transition:opacity 1.2s ease .3s,transform 1.4s var(--ease)}
-.slide.on.mkd .mk-glow{opacity:1}
-.mkd.go .mk-glow{transform:none}
-.mkd .gl{position:absolute;border-radius:50%;opacity:0;transform:translateY(-470px);transition:opacity .9s ease var(--d),transform 1.4s var(--ease);
-  border:1.5px solid rgba(255,255,255,.95)}
-.mkd .g2{--d:.1s;left:calc(50% - 1100px);top:700px;width:2200px;height:2200px;background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(226,238,255,.75) 34%,rgba(168,202,255,.55) 100%);box-shadow:0 -16px 46px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -70px 110px rgba(120,170,255,.3)}
-.mkd .g3{--d:.3s;left:calc(50% - 900px);top:770px;width:1800px;height:1800px;background:radial-gradient(ellipse 55% 34% at 50% 0%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,rgba(236,244,255,.95) 0%,rgba(190,214,255,.8) 30%,rgba(120,170,255,.7) 100%);
+.mkd .mk-rig{position:absolute;inset:0;opacity:0;transform:translateY(420px);transition:opacity .8s ease,transform 1.3s var(--ease)}
+.slide.on.mkd .mk-rig{opacity:1}
+.mkd.up .mk-rig{transform:translateY(-470px)}
+.mkd.go .mk-rig{transform:none}
+.slide:not(.on).mkd .mk-rig{transition-duration:0s}
+.mkd .mk-glow{position:absolute;left:50%;top:730px;width:1500px;height:700px;margin-left:-750px;background:radial-gradient(ellipse 50% 50% at 50% 60%,rgba(49,130,246,.30) 0%,rgba(49,130,246,.10) 45%,rgba(49,130,246,0) 72%)}
+.mkd .gl{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.95)}
+.mkd .g2{left:calc(50% - 1100px);top:700px;width:2200px;height:2200px;background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(226,238,255,.75) 34%,rgba(168,202,255,.55) 100%);box-shadow:0 -16px 46px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -70px 110px rgba(120,170,255,.3)}
+.mkd .g3{left:calc(50% - 900px);top:770px;width:1800px;height:1800px;background:radial-gradient(ellipse 55% 34% at 50% 0%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,rgba(236,244,255,.95) 0%,rgba(190,214,255,.8) 30%,rgba(120,170,255,.7) 100%);
   box-shadow:0 -12px 40px rgba(49,130,246,.22),inset 0 2px 0 #fff,inset 0 -80px 120px rgba(49,130,246,.34)}
-.slide.on.mkd .gl{opacity:1}
-.mkd.go .gl{transform:none}
-.slide:not(.on).mkd .gl,.slide:not(.on).mkd .mk-glow{transition-duration:0s;transition-delay:0s}
-.mkd .mk-gt{position:absolute;left:0;right:0;top:800px;text-align:center;opacity:0;transform:translateY(-355px) scale(1.7);transition:opacity .6s ease .25s,transform 1.4s var(--ease)}
+.mkd .mk-cy{position:absolute;left:50%;top:790px;width:1200px;height:560px;margin-left:-600px;background:radial-gradient(ellipse 50% 55% at 50% 50%,rgba(96,200,255,.42) 0%,rgba(96,200,255,.14) 48%,rgba(96,200,255,0) 74%)}
+.mkd .rp{position:absolute;left:calc(50% - 900px);top:770px;width:1800px;height:1800px;border-radius:50%;opacity:0;
+  border:1.5px solid rgba(255,255,255,.95);background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0) 62%,rgba(150,205,255,.22) 100%);
+  box-shadow:inset 0 0 50px rgba(120,190,255,.28),0 0 26px rgba(150,205,255,.35)}
+.slide.on.mkd.go .rp{animation:mkripple 5.1s ease-out var(--r) infinite}
+@keyframes mkripple{0%{transform:scale(1);opacity:0}12%{opacity:.85}100%{transform:scale(1.36);opacity:0}}
+.slide.on.mkd .g2{animation:mkbreath 7s ease-in-out infinite}
+.slide.on.mkd .g3{animation:mkbreath 7s ease-in-out -3.5s infinite}
+@keyframes mkbreath{0%,100%{transform:scale(1)}50%{transform:scale(1.014)}}
+.slide.on.mkd .mk-cy{animation:mkcy 4.6s ease-in-out infinite}
+@keyframes mkcy{0%,100%{transform:scale(.92);opacity:.75}50%{transform:scale(1.08);opacity:1}}
+.mkd .mk-gt{position:absolute;left:0;right:0;top:850px;text-align:center;opacity:0;transform:translateY(300px);transition:opacity .8s ease,transform 1.3s var(--ease)}
 .slide.on.mkd .mk-gt{opacity:1}
+.mkd.up .mk-gt{transform:translateY(-385px) scale(1.7)}
 .mkd.go .mk-gt{transform:none}
-.slide:not(.on).mkd .mk-gt{transition-duration:0s;transition-delay:0s}
+.slide:not(.on).mkd .mk-gt{transition-duration:0s}
 .mkd .mk-gt small{display:block;font-size:20px;font-weight:600;letter-spacing:-.2px;color:var(--label)}
 .mkd .mk-gt b{display:block;margin-top:4px;font-size:112px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--navy);font-variant-numeric:tabular-nums}
 .mkd .mk-gt b i{font-style:normal;font-size:46px;letter-spacing:-1px;margin-left:12px;color:var(--cap)}
-.mkd .mk-gt>span{display:block;margin-top:6px;font-size:18px;letter-spacing:-.18px;color:var(--body)}
 .mkd .foot{z-index:5}
 
 /* ===== 05 솔루션: 티켓 인증 허브 + 핵심 4가지 + 확장 3가지 ===== */
@@ -636,13 +646,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
   <div class="mk-line"><i></i></div>
   <div class="mk-gw">
-    <div class="mk-glow"></div>
-    <div class="gl g2"></div><div class="gl g3"></div>
+    <div class="mk-rig">
+      <div class="mk-glow"></div>
+      <div class="gl g2"></div><div class="gl g3"></div>
+      <div class="mk-cy"></div>
+      <div class="rp" style="--r:0s"></div><div class="rp" style="--r:1.7s"></div><div class="rp" style="--r:3.4s"></div>
+    </div>
   </div>
   <div class="mk-gt">
-    <small>방한 외래관광객 2025</small>
+    <small>2025년 방한 외래관광객</small>
     <b><span class="cnt" data-v="1894" data-dec="0">0</span><i>만 명</i></b>
-    <span>2025년 한 해 동안 한국을 찾은 외국인</span>
   </div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>06 / 14</span></div>
 </section>
@@ -877,7 +890,7 @@ const isTarget=()=>slides[cur].dataset.id==='target';
 const solSec=$('[data-id=solution]');const isSol=()=>slides[cur].dataset.id==='solution';
 const mkSec=$('[data-id=market]');let mkT=0;const isMkt=()=>slides[cur].dataset.id==='market';
 function mkGo(){   // 시장조사: 큰 숫자가 아래로 내려간 뒤 시장 규모·파급·수요가 차례로 나와요
-  if(mkSec.classList.contains('go'))return;clearTimeout(mkT);mkSec.classList.add('go');
+  if(mkSec.classList.contains('go'))return;clearTimeout(mkT);mkSec.classList.add('up','go');
   $$('.ms .cnt',mkSec).forEach((e,i)=>setTimeout(()=>{if(mkSec.classList.contains('go'))count(e,+e.dataset.v,+e.dataset.dec)},1100+i*420));
 }
 
@@ -890,8 +903,10 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   const id=slides[i].dataset.id;
   resetVideo();solSec.classList.remove('x2');
   if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
-  clearTimeout(mkT);mkSec.classList.remove('go');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
-  if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);mkT=setTimeout(mkGo,2400)}
+  clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
+  if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);
+    setTimeout(()=>{if(isMkt()&&!mkSec.classList.contains('go'))mkSec.classList.add('up')},120);   // 아래에서 올라와 화면을 채운 뒤
+    mkT=setTimeout(mkGo,3300)}                                                             // 다시 아래로 내려가며 지표가 나와요
   clearTimeout(tgtRst);
   if(id==='target'){resetTarget();startTarget()}
   else{tgtClear();tgtRst=setTimeout(resetTarget,700)}   // 사라지는 동안엔 최종 화면을 유지하고, 완전히 사라진 뒤에 초기화
