@@ -315,6 +315,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .slide:not(.on) .pc .gb i{transition-duration:0s}
 .pc .gv{font-size:22px;font-weight:700;line-height:1;color:var(--h1);letter-spacing:-.44px;text-align:right;font-variant-numeric:tabular-nums}
 .pc .gr.hi .gv{color:var(--blue)}
+.pc .lc{display:block;width:100%;height:auto;margin-top:6px;overflow:visible}
+.pc .ll{fill:none;stroke:#3182F6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.pc .la{opacity:0}
+.pc .ld{fill:#fff;stroke:#B8C2D3;stroke-width:2.5;opacity:0}
+.pc .ld.hi{fill:#3182F6;stroke:#fff;stroke-width:3}
+.pc .lv,.pc .ly{font-family:inherit;text-anchor:middle;letter-spacing:-.3px;opacity:0}
+.pc .lv{font-size:14px;font-weight:600;fill:#525355;font-variant-numeric:tabular-nums}
+.pc .lv.hi{font-size:20px;font-weight:700;fill:#3182F6}
+.pc .ly{font-size:13px;font-weight:600;fill:rgba(22,31,46,.61)}
+.pc .ly.hi{fill:#1E1F21}
+.slide.on .pc .ll{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s var(--ease) .5s}
+.slide.on .pc .la{opacity:1;transition:opacity .8s ease 1.2s}
+.slide.on .pc .ld,.slide.on .pc .lv{opacity:1;transition:opacity .4s ease calc(.5s + var(--k)*.4s)}
+.slide.on .pc .ly{opacity:1;transition:opacity .5s ease .4s}
+.slide:not(.on) .pc .ll,.slide:not(.on) .pc .la,.slide:not(.on) .pc .ld,.slide:not(.on) .pc .lv,.slide:not(.on) .pc .ly{transition-duration:0s;transition-delay:0s}
 .pc .esrc{margin-top:8px;font-size:16px;line-height:1.45;letter-spacing:-.16px;color:var(--cap)}
 .pc .cmp{margin-top:16px}
 .pc .duo{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
@@ -383,7 +398,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="pt">갑질하는 숙소</div>
     <div class="qg"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
-    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><div class="eg"><div class="gr"><span class="gy">2024</span><div class="gb"><i style="--w:42%"></i></div><b class="gv">16%</b></div><div class="gr hi"><span class="gy">2026</span><div class="gb"><i style="--w:100%"></i></div><b class="gv">38%</b></div></div><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
+    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><svg class="lc" viewBox="0 0 302 88" aria-hidden="true"><defs><linearGradient id="lcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".22"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient></defs><path class="la" d="M22.0 59.5 L108.0 58.0 L194.0 56.2 L278.0 26.4 L278 66 L22 66 Z" fill="url(#lcg)"/><line x1="8" y1="66" x2="294" y2="66" stroke="rgba(7,25,76,.1)"/><path class="ll" pathLength="1" d="M22.0 59.5 L108.0 58.0 L194.0 56.2 L278.0 26.4"/><circle class="ld" style="--k:0" cx="22.0" cy="59.5" r="4"/><text class="lv" style="--k:0" x="22.0" y="49.5">16%</text><text class="ly" x="22.0" y="83">2023</text><circle class="ld" style="--k:1" cx="108.0" cy="58.0" r="4"/><text class="lv" style="--k:1" x="108.0" y="48.0">17%</text><text class="ly" x="108.0" y="83">2024</text><circle class="ld" style="--k:2" cx="194.0" cy="56.2" r="4"/><text class="lv" style="--k:2" x="194.0" y="46.2">18%</text><text class="ly" x="194.0" y="83">2025</text><circle class="ld hi" style="--k:3" cx="278.0" cy="26.4" r="6"/><text class="lv hi" style="--k:3" x="278.0" y="13.4">38%</text><text class="ly hi" x="278.0" y="83">2026</text></svg><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
   <div class="pc rv" style="left:566px;--i:5">
     <div class="no">02</div>
     <div class="pt">함께 즐길 친구</div>
