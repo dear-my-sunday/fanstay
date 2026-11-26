@@ -84,6 +84,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .cap.on{opacity:1;transform:none}
 .cap .ko{font-size:44px;font-weight:700;line-height:1.4;letter-spacing:-.88px}
 .cap .og{margin-top:14px;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.22px;color:rgba(255,255,255,.78)}
+.rvs{position:absolute;right:160px;top:110px;bottom:310px;width:600px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:1;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 30%,#000 86%,transparent 100%)}
+.play .rvs{opacity:1}
+.rv-c{position:absolute;left:0;top:0;box-sizing:border-box;width:560px;padding:22px 28px 26px;border-radius:28px;background:#fff;color:#1c1f27;box-shadow:0 8px 32px rgba(20,29,48,.18);will-change:transform,opacity;opacity:0}
+.rv-h{display:flex;align-items:center;gap:12px;font-size:16px;color:#6b7280;letter-spacing:-.16px}
+.rv-h .av{width:32px;height:32px;border-radius:50%;background:var(--ac,#7ec8e3);filter:blur(4px)}
+.rv-h .nk{font-weight:700;color:#1c1f27;filter:blur(5px);user-select:none}
+.rv-c p{margin:14px 0 0;font-size:19px;line-height:1.55;letter-spacing:-.3px}
+.rv-c p+p{margin-top:10px}
 .vprog{position:absolute;left:160px;right:160px;bottom:72px;height:4px;border-radius:2px;background:rgba(255,255,255,.28);opacity:0;transition:opacity .4s ease}
 .play .vprog{opacity:1}
 .vprog i{display:block;height:100%;width:0;border-radius:2px;background:#fff}
@@ -101,7 +110,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .navy .ft{color:rgba(255,255,255,.72)}
 .dash .c.soft{background:var(--blue-100)}
 .dash .soft .big{color:var(--blue)}
-.dash .c.hi{background:var(--blue)}
+.dash .c.hi{background:radial-gradient(ellipse 74% 38% at 52% -2%,#1E56A5 0%,rgba(16,50,100,.75) 50%,rgba(16,50,100,0) 100%),radial-gradient(ellipse 42% 30% at 104% 3%,rgba(34,92,170,.9) 0%,rgba(34,92,170,0) 100%),linear-gradient(180deg,rgba(8,32,90,0) 70%,#08205A 80%,#1F4EB5 88%,#477FF4 93.5%,#76B2FE 97%,#A2DFFF 100%),#030A17}
 .dash .hi .lb,.dash .hi .big{color:#fff}
 .dash .hi .ft{color:rgba(255,255,255,.82)}
 .bar{height:14px;border-radius:7px;background:rgba(7,25,76,.07);overflow:hidden;position:relative}
@@ -130,12 +139,43 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .fx>div{display:grid;grid-template-columns:116px 1fr;column-gap:12px;align-items:center;font-size:20px;line-height:1.45;font-weight:500;letter-spacing:-.2px;color:var(--h2)}
 .dash .fx b{font-size:16px;font-weight:600;color:var(--label);letter-spacing:-.16px}
 .dash .nd{display:inline-block;justify-self:start;font-size:16px;font-weight:600;line-height:1;padding:8px 14px;border-radius:999px;background:#fff;color:var(--amber);letter-spacing:-.16px}
+.dash .dpair{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;margin-top:20px}
+.dash .dn{display:flex;align-items:center;gap:18px}
+.dash .dw{position:relative;flex:none;width:148px;height:148px}
+.dash .dw svg{display:block}
+.dash .dseg{fill:none;stroke-width:22;stroke-dasharray:0 352;transition:stroke-dasharray 1.1s var(--ease) .15s}
+.slide.on .dseg{stroke-dasharray:var(--d) 352}
+.slide:not(.on) .dseg{transition-duration:0s}
+.slide[data-id=target]:not(.xp) .dseg{stroke-dasharray:0 352}
+.dash .dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dash .dc small{font-size:14px;font-weight:600;line-height:16px;color:var(--label);letter-spacing:-.14px}
+.dash .dc b{font-size:28px;font-weight:700;line-height:32px;letter-spacing:-.8px;color:var(--h1);font-variant-numeric:tabular-nums}
+.dash .dc b i{font-style:normal;font-size:16px;margin-left:1px}
+.dash .dt2 .dnm{font-size:22px;font-weight:700;line-height:28px;letter-spacing:-.4px;color:var(--h1)}
+.dash .dt2 .dk{margin-top:6px;font-size:14px;font-weight:600;line-height:18px;letter-spacing:-.14px;color:var(--label)}
+.dash .dt2 .dv{font-size:30px;font-weight:700;line-height:36px;letter-spacing:-1px;color:var(--blue);font-variant-numeric:tabular-nums}
+.dash .dt2 .dv small{font-size:16px;margin-left:2px}
+.dash .dlg{position:absolute;left:40px;right:40px;bottom:22px;display:flex;gap:22px;font-size:14px;font-weight:600;color:var(--label);letter-spacing:-.14px}
+.dash .dlg span{display:inline-flex;align-items:center;gap:8px}
+.dash .dlg em{flex:none;width:12px;height:12px;border-radius:50%}
+.dash .yc{display:grid;grid-template-columns:repeat(3,1fr);column-gap:14px;margin-top:26px}
+.dash .yi{display:flex;flex-direction:column;align-items:center}
+.dash .yb{height:140px;width:100%;display:flex;align-items:flex-end}
+.dash .yb i{font-style:normal;display:flex;justify-content:center;align-items:flex-start;width:100%;height:0;padding-top:12px;box-sizing:border-box;border-radius:14px 14px 6px 6px;background:#D9E0EC;transition:height 1.1s var(--ease) .1s}
+.dash .yb i b{font-size:17px;font-weight:700;line-height:22px;letter-spacing:-.3px;color:var(--h1);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dash .yi.on .yb i{background:var(--blue)}
+.dash .yi.on .yb i b{color:#fff}
+.slide.on .yb i{height:var(--h)}
+.slide:not(.on) .yb i{transition-duration:0s}
+.slide[data-id=target]:not(.xp) .yb i{height:0}
+.dash .yi em{font-style:normal;margin-top:8px;font-size:16px;font-weight:600;line-height:20px;color:var(--label)}
+.dash .ysub{position:absolute;left:40px;right:40px;bottom:18px;text-align:center;font-size:15px;line-height:22px;letter-spacing:-.15px;color:var(--cap)}
 .dash .slot{position:absolute;border-radius:52px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
 .dash .c.chk{background-color:#FAFAFA;background-image:linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%),linear-gradient(45deg,#EAEAEA 25%,transparent 25%,transparent 75%,#EAEAEA 75%);background-size:76px 76px;background-position:0 0,38px 38px}
-.dash .src{position:absolute;left:160px;right:160px;top:984px;font-size:16px;line-height:1.4;letter-spacing:-.16px;color:var(--cap)}
-.dash .bars .row{grid-template-columns:76px 1fr 120px;margin-top:6px}
-.dash .bars .row .n{font-size:18px}
-.dash .bars .row .v{font-size:20px}
+.dash .src{position:absolute;left:160px;right:160px;top:991px;font-size:16px;line-height:1.4;letter-spacing:-.16px;color:var(--cap)}
+.dash .bars .row{grid-template-columns:60px 1fr 110px;margin-top:12px}
+.dash .bars .row .n{font-size:20px}
+.dash .bars .row .v{font-size:22px}
 .dash .bars .row .v small{font-size:14px}
 
 /* ===== 04 타겟 고객: 카드가 둥근 휠로 휙휙 돌다가 중국·일본에서 멈추고 → 확장 → 축소해서 자리로 ===== */
@@ -143,7 +183,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .strip{position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:var(--H,1080px);overflow:hidden;pointer-events:none;z-index:1}
 .hx.dash .strip{opacity:0;transition:opacity .35s ease}
 .dash .wheel{position:absolute;left:calc(var(--ox,0px) + 960px);top:calc(var(--oy,0px) + 1872px);width:0;height:0;transform:rotate(-7.2deg)}
-.sp.dash .wheel{animation:wspin 2.6s cubic-bezier(.14,.66,.1,1) both}
+.sp.dash .wheel{animation:wspin 1.7s cubic-bezier(.14,.66,.1,1) both}
 .slide:not(.on) .wheel{animation:none}
 @keyframes wspin{from{transform:rotate(-247.2deg)}to{transform:rotate(-7.2deg)}}
 .dash .rc{position:absolute;left:0;top:0;width:288px;height:420px;margin:-210px 0 0 -144px;border-radius:52px;overflow:hidden;
@@ -174,9 +214,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .dash .bt .nm{font-size:calc(40px*var(--s,1));font-weight:700;line-height:1.15;letter-spacing:calc(-.8px*var(--s,1));transition:all .9s var(--snap)}
 .dash .bt .nu{margin-top:calc(4px*var(--s,1));font-size:calc(21px*var(--s,1));font-weight:600;line-height:1.3;letter-spacing:-.2px;color:rgba(255,255,255,.92);transition:all .9s var(--snap)}
 .dash .flg{border-radius:14px;box-shadow:0 0 0 1px rgba(0,0,0,.07),0 8px 20px rgba(25,31,40,.12);display:block}
-/* 레이어는 카드 크기를 그대로 따라가고(줄어드는 중에도 바탕이 비지 않게), 글자 영역만 최종 크기(788×412)로 고정해요 */
+/* 레이어는 카드 크기를 그대로 따라가고(줄어드는 중에도 바탕이 비지 않게), 글자 영역만 최종 크기(788×372)로 고정해요 */
 .dash .fcn{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
-.dash .fin{position:absolute;left:0;top:0;width:788px;height:412px;padding:40px 52px;z-index:1}
+.dash .fin{position:absolute;left:0;top:0;width:788px;height:372px;padding:40px 52px;z-index:1}
 .dash .fflag{position:absolute;right:52px;top:40px}
 /* bgl-v6 */
 /* 최종 카드: 랜드마크 그래픽을 카드 전체에 깔고, 검정 딤을 올려 흰 글씨가 읽히게 해요(왼쪽 글자 쪽이 더 어둡고, 완만하게). */
@@ -201,7 +241,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .hx.dash .cx{opacity:1;--s:2.3;left:var(--hl);top:120px;width:820px;height:840px;border-radius:60px;transform:none}
 .hx.dash .kick,.hx.dash .ttl,.hx.dash .hline{opacity:0;transition:opacity .3s ease}
 /* 축소해서 최종 자리로 */
-.xp.dash .cx{left:var(--fl);top:284px;width:788px;height:412px;border-radius:52px;box-shadow:none}
+.xp.dash .cx{left:var(--fl);top:284px;width:788px;height:372px;border-radius:52px;box-shadow:none}
 .xp.dash .cx .lc{opacity:0;transition-delay:.25s}
 .xp.dash .cx .fcn{opacity:1;transition-delay:.5s}
 .xp.dash .kick,.xp.dash .ttl,.xp.dash .hline{opacity:1;transition:opacity .6s ease .5s}
@@ -215,19 +255,48 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 /* ===== 05 포지셔닝: 2×2 타일 맵 + 차별점 3가지 + 추구하는 가치 ===== */
 .pos .pm{position:absolute;left:160px;top:292px;width:1040px;height:668px;border-radius:52px;background:var(--soft);overflow:hidden}
 .pos .pl{position:absolute;left:84px;top:28px;width:928px;height:564px}
-.pos .tile{position:absolute;width:458px;height:276px;border-radius:32px;background:#fff}
-.pos .tile.q1{left:0;top:0}.pos .tile.q2{left:470px;top:0}.pos .tile.q3{left:0;top:288px}.pos .tile.q4{left:470px;top:288px}
-.pos .tile.hl{background:var(--blue-100);box-shadow:inset 0 0 0 2px rgba(49,130,246,.35)}
-.pos .tn{position:absolute;left:22px;top:18px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--label)}
-.pos .tile.hl .tn{color:var(--blue);font-weight:700;font-size:17px}
-.pos .ax{position:absolute;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--label);white-space:nowrap}
-.pos .ax b{font-weight:700;color:var(--h2)}
-.pos .ax.yt{left:30px;top:30px}
-.pos .ax.yb{left:30px;top:566px}
-.pos .ax.ym{left:44px;top:310px;transform:translate(-50%,-50%) rotate(-90deg);transform-origin:center}
-.pos .ax.xl{left:84px;top:618px}
-.pos .ax.xr{right:28px;top:618px}
-.pos .ax.xm{left:548px;top:618px;transform:translateX(-50%)}
+.pos .pmw{z-index:1;position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 270px;transition:transform 1.1s var(--ease);pointer-events:none}
+.pos .pm{left:160px;top:270px;width:1600px;height:740px;border-radius:52px;background:#fff;box-shadow:inset 0 0 0 1px rgba(7,25,76,.07);background-image:linear-gradient(rgba(7,25,76,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(7,25,76,.045) 1px,transparent 1px);background-size:40px 40px}
+.pos .pl{left:0;top:0;width:1600px;height:740px}
+.pos .gx,.pos .gy{position:absolute;background:rgba(7,25,76,.16)}
+.pos .gx{left:80px;right:40px;top:369px;height:1.5px}
+.pos .gy{left:799px;top:60px;bottom:60px;width:1.5px}
+.pos .pn{position:absolute;left:calc(var(--cx)*1px);top:calc(var(--cy)*1px);display:flex;align-items:center;gap:16px;white-space:nowrap;opacity:0;transform:translate(0,-50%) scale(.75);transform-origin:10px 50%;
+  transition:opacity .5s ease calc(.5s + var(--i)*.12s),transform .7s var(--ease) calc(.5s + var(--i)*.12s)}
+.slide.on .pos .pn,.pos.slide.on .pn{opacity:1;transform:translate(0,-50%)}
+.pos.slide:not(.on) .pn{transition-duration:0s;transition-delay:0s}
+.pos .pn i{flex:none;width:22px;height:22px;border-radius:50%;background:#7C89A8;margin-left:-11px}
+.pos .pn b{display:block;font-size:24px;font-weight:700;letter-spacing:-.5px;color:var(--h1);line-height:1.25}
+.pos .pn small{display:block;margin-top:3px;font-size:17px;font-weight:500;letter-spacing:-.17px;color:var(--body);line-height:1.35}
+.pos .pn.me i{width:38px;height:38px;margin-left:-19px;background:var(--blue);box-shadow:0 0 0 10px rgba(49,130,246,.2),0 0 0 24px rgba(49,130,246,.09)}
+.pos .pn.me{transform-origin:19px 50%}
+.pos .pn.me b{font-size:34px;color:var(--blue);letter-spacing:-.9px}
+.pos .pn.me small{font-size:18px;font-weight:600;color:var(--h2)}
+.pos .ax{position:absolute;font-size:18px;font-weight:600;letter-spacing:-.2px;color:var(--label);white-space:nowrap;line-height:1.35}
+.pos .ax.at{left:800px;top:18px;transform:translateX(-50%)}
+.pos .ax.ab{left:800px;bottom:18px;transform:translateX(-50%)}
+.pos .ax.xl{left:34px;top:381px}
+.pos .ax.xr{right:34px;top:381px}
+/* 하단 차별점 패널 */
+.pos .dbl,.pos .dpn{position:absolute;left:calc(-1*var(--ox,0px));top:400px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 400px);pointer-events:none;opacity:0;transform:translateY(100%);transition:opacity 1.1s ease,transform 1.7s cubic-bezier(.16,1,.3,1)}
+.pos .dbl{z-index:2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 36%);mask-image:linear-gradient(180deg,transparent 0%,#000 36%)}
+.pos .dpn{z-index:3;color:#fff;background:linear-gradient(180deg,rgba(38,41,90,0) 0%,rgba(18,20,39,.6) 41.3%,#151627 93.8%,#151627 100%)}
+.pos.x2 .dbl,.pos.x2 .dpn{opacity:1;transform:none}
+.pos.x2 .foot,.pos.x2 .foot span{color:rgba(255,255,255,.75);z-index:6}
+.pos .dk2,.pos .dcols,.pos .dval{position:absolute;left:calc(var(--ox,0px) + 160px);width:1600px}
+.pos .dk2{top:236px;font-size:18px;font-weight:600;letter-spacing:-.18px;color:rgba(255,255,255,.8)}
+.pos .dcols{top:296px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:64px}
+.pos .pdc{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .6s var(--ease)}
+.pos.x2 .pdc{opacity:1;transform:none;transition-delay:calc(.9s + var(--k)*.2s)}
+.pos .pdc{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center}
+.pos .pdc .nn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:15px;font-weight:700}
+.pos .pdc h3{margin:0;font-size:30px;font-weight:700;letter-spacing:-.7px;line-height:1.3}
+.pos .pdc p{grid-column:1/-1;margin-top:18px;font-size:20px;line-height:1.55;letter-spacing:-.2px;color:rgba(255,255,255,.88)}
+.pos .dval{top:492px;padding-top:30px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;align-items:center;opacity:0;transition:opacity .6s ease}
+.pos.x2 .dval{opacity:1;transition-delay:1.7s}
+.pos .dval small{font-size:24px;font-weight:600;letter-spacing:-.4px;color:rgba(255,255,255,.8)}
+.pos .dval b{display:block;font-size:42px;font-weight:700;letter-spacing:-1.2px;line-height:1.25;text-align:right}
+.pos.slide:not(.on) .dbl,.pos.slide:not(.on) .dpn,.pos.slide:not(.on) .pdc,.pos.slide:not(.on) .dval,.pos.slide:not(.on) .pmw{transition-duration:0s;transition-delay:0s}
 .pos .dt{position:absolute;left:calc(var(--x)*1px);top:calc(var(--y)*1px);display:flex;align-items:center;gap:14px;white-space:nowrap;
   opacity:0;transform:translate(0,-50%) scale(.75);transform-origin:10px 50%;
   transition:opacity .5s var(--ease) calc(.5s + var(--i)*130ms),transform .6s var(--ease) calc(.5s + var(--i)*130ms)}
@@ -241,7 +310,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .dt.me i{width:34px;height:34px;margin-left:-17px;background:var(--blue);box-shadow:0 0 0 9px rgba(49,130,246,.2),0 0 0 22px rgba(49,130,246,.09)}
 .pos .dt.me b{font-size:30px;color:var(--blue);letter-spacing:-.8px}
 .pos .dt.me small{font-size:17px;color:var(--h2);font-weight:600}
-.pos .lg2{position:absolute;left:22px;bottom:20px;display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600;color:var(--label);letter-spacing:-.15px}
+.pos .lg2{position:absolute;left:96px;bottom:90px;display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600;color:var(--label);letter-spacing:-.15px}
 .pos .lg2 span{display:inline-flex;align-items:center;gap:9px}
 .pos .lg2 em{flex:none;width:14px;height:14px;border-radius:50%;background:#7C89A8}
 .pos .lg2 em.n{background:#fff;border:2px dashed #7C89A8}
@@ -258,25 +327,108 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pos .vc small{display:block;font-size:16px;font-weight:600;letter-spacing:-.16px;color:rgba(255,255,255,.82)}
 .pos .vc b{display:block;margin-top:10px;font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1.3}
 
-/* ===== 05 솔루션: 티켓 인증 허브 + 4가지 해결 ===== */
-.sol .sl-ring{position:absolute;left:726px;top:360px;width:467px;height:467px;border-radius:50%;background:var(--blue-100)}
-.sol .sl-core{position:absolute;left:830px;top:464px;width:259px;height:259px;border-radius:50%;background:var(--blue);color:#fff;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px #fff}
-.sol .sl-core small{font-size:15px;font-weight:600;letter-spacing:.6px;color:rgba(255,255,255,.8)}
-.sol .sl-core b{display:block;margin-top:4px;font-size:44px;font-weight:700;letter-spacing:-1.3px;line-height:1.2}
-.sol .sl-core span{display:block;margin-top:8px;font-size:17px;font-weight:500;letter-spacing:-.17px;color:rgba(255,255,255,.92)}
-.sol .sl-card{position:absolute;width:500px;height:208px;border-radius:52px;background:var(--soft);padding:30px 40px}
-.sol .sl-card.mv{background:var(--blue-100)}
-.sol .sl-chip{display:inline-block;font-size:14px;font-weight:600;line-height:1;padding:8px 13px;border-radius:999px;letter-spacing:-.14px;background:rgba(7,25,76,.06);color:rgba(28,31,39,.7)}
-.sol .sl-card.mv .sl-chip{background:#fff;color:var(--blue)}
-.sol .sl-t{margin-top:12px;font-size:32px;font-weight:700;letter-spacing:-.64px;line-height:1.25;color:var(--h1)}
-.sol .sl-d{margin-top:6px;font-size:17px;font-weight:400;letter-spacing:-.17px;line-height:1.55;color:var(--body);white-space:nowrap}
-.sol .sl-s{margin-top:12px;font-size:17px;font-weight:600;letter-spacing:-.17px;color:var(--blue)}
-.sol .sl-pill{position:absolute;left:50%;top:880px;transform:translateX(-50%);white-space:nowrap;font-size:18px;font-weight:500;letter-spacing:-.18px;
-  padding:14px 28px;border-radius:999px;background:var(--blue-100);color:var(--h2)}
-.sol .sl-pill b{font-weight:700;color:var(--blue);margin-right:6px}
-.slide.on .sl-pill.rv{transform:translateX(-50%)}
-.slide:not(.on) .sl-pill.rv{transform:translateX(-50%)}
+/* ===== 시장조사 (라이트 · 글래스 2겹 · 인트로) ===== */
+.mkd-bg{display:block;background:linear-gradient(180deg,#FFFFFF 0%,#F3F6FC 55%,#ECF1FA 100%)}
+.mkd .mkr{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .8s var(--ease)}
+.mkd.go .mkr{opacity:1;transform:none;transition-delay:calc(.9s + var(--i)*.42s)}
+.slide:not(.on).mkd .mkr{transition-duration:0s;transition-delay:0s}
+.mkd .ms{position:absolute;top:290px;width:480px}
+.mkd .mh{display:flex;align-items:center;gap:14px}
+.mkd .mi{flex:none;width:52px;height:52px;display:block}
+.mkd .mi svg{display:block;width:52px;height:52px}
+.mkd .mh small{display:block;font-size:15px;font-weight:700;letter-spacing:.2px;line-height:1.2;color:var(--blue)}
+.mkd .mh b{display:block;margin-top:3px;font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.4px;color:var(--h2);white-space:nowrap}
+.mkd .mn2{margin-top:22px;font-size:116px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--h1);font-variant-numeric:tabular-nums}
+.mkd .mn2 small{font-size:46px;font-weight:700;letter-spacing:-1px;margin-left:10px;color:var(--cap)}
+.mkd .mchip{display:inline-block;margin-top:14px;font-size:18px;font-weight:600;letter-spacing:-.2px;color:var(--blue)}
+.mkd .msrc{margin-top:8px;font-size:15px;letter-spacing:-.15px;color:var(--cap)}
+.mkd .mk-line{position:absolute;left:959px;top:584px;width:2px;height:68px;z-index:2}
+.mkd .mk-line i{position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(180deg,rgba(49,130,246,0),rgba(49,130,246,.7));transform-origin:top;transform:scaleY(0);transition:transform .9s var(--ease)}
+.mkd .mk-line::after{content:"";position:absolute;box-sizing:border-box;left:-5.5px;bottom:-6.5px;width:13px;height:13px;border:2px solid var(--blue);background:#fff;transform:rotate(45deg);opacity:0;transition:opacity .4s ease}
+.mkd.go .mk-line i{transform:none;transition-delay:2.3s}
+.mkd.go .mk-line::after{opacity:1;transition-delay:3s}
+.slide:not(.on).mkd .mk-line i,.slide:not(.on).mkd .mk-line::after{transition-duration:0s;transition-delay:0s}
+.mkd .mk-gw{position:absolute;left:calc(-1*var(--ox,0px));top:0;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px));overflow:hidden;pointer-events:none}
+.mkd .mk-rig{position:absolute;inset:0;opacity:0;transform:translateY(420px);transition:opacity .8s ease,transform 1.3s var(--ease)}
+.slide.on.mkd .mk-rig{opacity:1}
+.mkd.up .mk-rig{transform:translateY(-470px);opacity:.62}
+.mkd.go .mk-rig{transform:none;opacity:1}
+.slide:not(.on).mkd .mk-rig{transition-duration:0s}
+.mkd .mk-glow{position:absolute;left:50%;top:730px;width:1500px;height:700px;margin-left:-750px;background:radial-gradient(ellipse 50% 50% at 50% 60%,rgba(49,130,246,.30) 0%,rgba(49,130,246,.10) 45%,rgba(49,130,246,0) 72%)}
+.mkd .gl{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.95)}
+.mkd .g2{left:calc(50% - 1100px);top:700px;width:2200px;height:2200px;background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(226,238,255,.75) 34%,rgba(168,202,255,.55) 100%);box-shadow:0 -16px 46px rgba(60,110,220,.18),inset 0 2px 0 #fff,inset 0 -70px 110px rgba(120,170,255,.3)}
+.mkd .g3{left:calc(50% - 900px);top:770px;width:1800px;height:1800px;background:radial-gradient(ellipse 55% 34% at 50% 0%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,rgba(236,244,255,.95) 0%,rgba(190,214,255,.8) 30%,rgba(120,170,255,.7) 100%);
+  box-shadow:0 -12px 40px rgba(49,130,246,.22),inset 0 2px 0 #fff,inset 0 -80px 120px rgba(49,130,246,.34)}
+.mkd .mk-cy{position:absolute;left:50%;top:790px;width:1200px;height:560px;margin-left:-600px;background:radial-gradient(ellipse 50% 55% at 50% 50%,rgba(96,200,255,.42) 0%,rgba(96,200,255,.14) 48%,rgba(96,200,255,0) 74%)}
+.mkd .rp{position:absolute;left:calc(50% - 900px);top:770px;width:1800px;height:1800px;border-radius:50%;opacity:0;filter:blur(7px);
+  background:radial-gradient(circle closest-side,rgba(150,205,255,0) 86%,rgba(150,205,255,.34) 95%,rgba(150,205,255,0) 100%)}
+.slide.on.mkd.go .rp{animation:mkripple 6.6s cubic-bezier(.25,.6,.3,1) var(--r) infinite}
+@keyframes mkripple{0%{transform:scale(.99);opacity:0}22%{opacity:.9}100%{transform:scale(1.26);opacity:0}}
+.slide.on.mkd .g2{animation:mkbreath 7s ease-in-out infinite}
+.slide.on.mkd .g3{animation:mkbreath 7s ease-in-out -3.5s infinite}
+@keyframes mkbreath{0%,100%{transform:scale(1)}50%{transform:scale(1.008)}}
+.slide.on.mkd .mk-cy{animation:mkcy 4.6s ease-in-out infinite}
+@keyframes mkcy{0%,100%{transform:scale(.92);opacity:.75}50%{transform:scale(1.08);opacity:1}}
+.mkd .mk-gt{position:absolute;left:0;right:0;top:850px;text-align:center;opacity:0;transform:translateY(300px);transition:opacity .8s ease,transform 1.3s var(--ease)}
+.slide.on.mkd .mk-gt{opacity:1}
+.mkd.up .mk-gt{transform:translateY(-312px) scale(1.7)}
+.mkd.go .mk-gt{transform:none}
+.slide:not(.on).mkd .mk-gt{transition-duration:0s}
+.mkd .mk-gt small{display:block;font-size:20px;font-weight:600;letter-spacing:-.2px;color:var(--label)}
+.mkd .mk-gt b{display:block;margin-top:4px;font-size:112px;font-weight:700;line-height:1.05;letter-spacing:-3.8px;color:var(--navy);font-variant-numeric:tabular-nums}
+.mkd .mk-gt b i{font-style:normal;font-size:46px;letter-spacing:-1px;margin-left:12px;color:var(--cap)}
+.mkd .foot{z-index:5}
+
+/* ===== 솔루션: 글래스 네잎 클로버 + 확장 기능 ===== */
+.sol .kick{left:1160px}
+.sol .sl-ttl{position:absolute;left:1160px;top:150px;font-size:56px;font-weight:700;line-height:1.28;letter-spacing:-1.12px;color:var(--h1);white-space:nowrap}
+.sol .sl-sub{position:absolute;left:160px;top:392px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body);white-space:nowrap}
+.sol .sl-hint{position:absolute;left:160px;top:960px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:var(--blue);transition:opacity .3s ease}
+.sol.x2 .sl-hint{opacity:0;transition-delay:0s}
+.sol .xr{opacity:0;transform:translateY(26px);transition:opacity .4s ease,transform .5s var(--ease)}
+.slide.on.sol .xr{opacity:1;transform:none;transition-delay:calc(1.05s + var(--i)*.18s)}
+.slide:not(.on).sol .xr{transition-duration:0s;transition-delay:0s}
+.sol .sl-list{position:absolute;left:1160px;top:350px;width:600px}
+.sol .sl-ext{display:grid;grid-template-columns:52px 1fr;column-gap:6px;padding:30px 0;border-top:1px solid rgba(7,25,76,.09)}
+.sol .sl-ext:last-child{border-bottom:1px solid rgba(7,25,76,.09)}
+.sol .sx-no{font-size:24px;font-weight:700;line-height:36px;letter-spacing:-.3px;color:var(--cap)}
+.sol .sl-ext>b{white-space:nowrap;font-size:28px;font-weight:700;line-height:36px;letter-spacing:-.7px;color:var(--h1)}
+.sol .sx-kv{grid-column:2;margin-top:14px;display:grid;row-gap:8px;font-size:18px;line-height:1.5;letter-spacing:-.25px}
+.sol .sx-kv>div{display:grid;grid-template-columns:50px 1fr;column-gap:10px}
+.sol .sx-kv i{font-style:normal;color:var(--cap)}
+.sol .sx-kv em{font-style:normal;font-weight:700;color:var(--blue)}
+.sol .sx-kv span{color:var(--body);word-break:keep-all}
+
+/* 벤토 글로우 타일 */
+.sol .bgrid{position:absolute;left:160px;top:96px;width:920px;height:830px}
+.sol .bt{position:absolute;overflow:hidden;border-radius:46px;color:#fff;opacity:0;transform:translateY(40px) scale(.96);
+  transition:opacity .7s ease calc(.45s + var(--k)*.14s),transform 1s var(--ease) calc(.45s + var(--k)*.14s);
+  box-shadow:0 24px 50px rgba(30,50,150,.2)}
+.slide.on.sol .bt{opacity:1;transform:none}
+.slide:not(.on).sol .bt{transition-duration:0s;transition-delay:0s}
+.sol .bt::before{content:"";position:absolute;inset:-18%;filter:blur(16px);animation:btdrift 9s ease-in-out infinite alternate}
+.sol .bt::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 22px 4px rgba(255,255,255,.14),inset 0 0 0 1px rgba(255,255,255,.3);pointer-events:none}
+@keyframes btdrift{0%{transform:translate(-1.8%,-1.4%) scale(1)}100%{transform:translate(1.8%,1.8%) scale(1.04)}}
+.sol .bt-hub{left:0;top:0;width:920px;height:250px;background:radial-gradient(ellipse 74% 38% at 52% -2%,#1E56A5 0%,rgba(16,50,100,.75) 50%,rgba(16,50,100,0) 100%),radial-gradient(ellipse 42% 30% at 104% 3%,rgba(34,92,170,.9) 0%,rgba(34,92,170,0) 100%),linear-gradient(180deg,rgba(8,32,90,0) 50%,#08205A 65%,#1F4EB5 75%,#477FF4 84%,#76B2FE 90%,#A2DFFF 100%),#030A17}
+.sol .bt-hub::before{display:none}
+.sol .bt-1{left:0;top:270px;width:450px;height:270px;background:#202D41}
+.sol .bt-1::before{background:linear-gradient(180deg,rgba(14,30,120,0) 30%,rgba(14,30,120,.5) 100%),radial-gradient(ellipse 58% 66% at 34% 38%,#0EA5FF 0%,rgba(14,165,255,0) 74%),radial-gradient(ellipse 62% 60% at 70% 92%,#1F4DE0 0%,rgba(31,77,224,0) 74%)}
+.sol .bt-2{left:470px;top:270px;width:450px;height:270px;background:#605C97}
+.sol .bt-2::before{background:linear-gradient(180deg,rgba(26,20,120,0) 30%,rgba(26,20,120,.5) 100%),radial-gradient(ellipse 66% 72% at 44% 38%,#4B3FE8 0%,rgba(75,63,232,0) 76%),radial-gradient(ellipse 56% 56% at 78% 94%,#7A4DFF 0%,rgba(122,77,255,0) 72%)}
+.sol .bt-3{left:0;top:560px;width:450px;height:270px;background:#586597}
+.sol .bt-3::before{background:linear-gradient(180deg,rgba(14,26,120,0) 30%,rgba(14,26,120,.5) 100%),radial-gradient(ellipse 64% 72% at 32% 40%,#2A57F0 0%,rgba(42,87,240,0) 76%),radial-gradient(ellipse 56% 56% at 78% 94%,#6C4DF0 0%,rgba(108,77,240,0) 72%)}
+.sol .bt-4{left:470px;top:560px;width:450px;height:270px;background:#4A758D}
+.sol .bt-4::before{background:linear-gradient(180deg,rgba(8,40,110,0) 30%,rgba(8,40,110,.5) 100%),radial-gradient(ellipse 64% 72% at 40% 40%,#0EA5D9 0%,rgba(14,165,217,0) 76%),radial-gradient(ellipse 58% 58% at 76% 94%,#1F5BFF 0%,rgba(31,91,255,0) 72%)}
+.sol .bc{position:absolute;inset:0;z-index:1;padding:34px 38px;text-shadow:0 1px 12px rgba(20,40,140,.4)}
+.sol .bt-hub .bc{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.sol .bt-hub small{font-size:15px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.85)}
+.sol .bt-hub b{margin-top:4px;font-size:68px;font-weight:700;letter-spacing:-2px;line-height:1.1}
+.sol .bt-hub p{margin:10px 0 0;font-size:19px;font-weight:500;letter-spacing:-.3px;color:rgba(255,255,255,.92)}
+.sol .bch{display:inline-block;font-size:13px;font-weight:700;line-height:1;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);letter-spacing:-.13px;text-shadow:0 1px 8px rgba(20,40,140,.35)}
+.sol .bc>b{display:block;margin-top:16px;font-size:42px;font-weight:700;letter-spacing:-1px;line-height:1.15}
+.sol .bc>p{margin:8px 0 0;font-size:17px;line-height:1.5;letter-spacing:-.25px;color:rgba(255,255,255,.92);max-width:400px}
+.sol .bp{position:absolute;left:38px;bottom:30px;display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:-.2px;padding:9px 16px 9px 10px;border-radius:999px;background:rgba(255,255,255,.26);text-shadow:none}
+.sol .bp i{font-style:normal;font-size:12px;font-weight:700;line-height:1;padding:5px 8px;border-radius:999px;background:#fff;color:#2F6BFF}
 
 /* ===== 고객 문제 (여정 칩 + 페인 포인트 카드) ===== */
 .pb .ttl{top:132px;white-space:normal;width:1600px}
@@ -289,18 +441,43 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .pc{position:absolute;top:464px;width:382px;height:522px;border-radius:52px;background:var(--soft);padding:36px 40px 0;overflow:hidden;word-break:keep-all}
 .pc .no{font-size:22px;font-weight:600;color:rgba(22,31,46,.45);line-height:1.2}
 .pc .pt{margin-top:14px;font-size:30px;font-weight:700;line-height:1.4;letter-spacing:-.6px;color:var(--h1)}
-.pc .qg{margin-top:24px;width:30px;height:22px;color:rgba(22,31,46,.22)}
-.pc .qg svg{display:block;width:100%;height:100%;fill:currentColor}
+.pc .qg{margin-top:24px;width:30px;height:22px;color:#161F2E}
+.pc .qg svg{display:block;width:100%;height:100%;fill:currentColor;opacity:.22}
 .pc .q{margin-top:12px;font-size:20px;font-weight:500;line-height:1.6;letter-spacing:-.2px;color:var(--body)}
-.pc .ev{position:absolute;left:40px;right:40px;bottom:32px;height:164px;padding-top:16px;border-top:1px solid rgba(7,25,76,.08)}
+.pc .ev{display:flex;flex-direction:column;position:absolute;left:40px;right:40px;bottom:32px;height:164px;padding-top:16px;border-top:1px solid rgba(7,25,76,.08)}
 .pc .el{font-size:16px;font-weight:600;line-height:1.3;color:var(--label);letter-spacing:-.16px}
 .pc .es{margin-top:18px;font-size:26px;font-weight:700;line-height:1.3;letter-spacing:-.52px;color:var(--h1);white-space:nowrap}
 .pc .es.am{color:var(--amber)}
-.pc .esrc{margin-top:8px;font-size:16px;line-height:1.45;letter-spacing:-.16px;color:var(--cap)}
+.pc .eg{margin-top:14px;display:grid;row-gap:10px}
+.pc .gr{display:grid;grid-template-columns:44px 1fr 52px;column-gap:12px;align-items:center}
+.pc .gy{font-size:16px;font-weight:600;color:var(--label);letter-spacing:-.16px;font-variant-numeric:tabular-nums}
+.pc .gb{height:14px;border-radius:7px;background:rgba(7,25,76,.07);overflow:hidden}
+.pc .gb i{display:block;height:100%;width:0;border-radius:7px;background:#B8C2D3;transition:width 1s var(--ease) .5s}
+.pc .gr.hi .gb i{background:var(--blue)}
+.slide.on .pc .gb i{width:var(--w)}
+.slide:not(.on) .pc .gb i{transition-duration:0s}
+.pc .gv{font-size:22px;font-weight:700;line-height:1;color:var(--h1);letter-spacing:-.44px;text-align:right;font-variant-numeric:tabular-nums}
+.pc .gr.hi .gv{color:var(--blue)}
+.pc .lc{display:block;width:100%;height:auto;margin-top:6px;overflow:visible}
+.pc .ll{fill:none;stroke:#3182F6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.pc .la{opacity:0}
+.pc .ld{fill:#fff;stroke:#B8C2D3;stroke-width:2.5;opacity:0}
+.pc .ld.hi{fill:#3182F6;stroke:#fff;stroke-width:3}
+.pc .lv,.pc .ly{font-family:inherit;text-anchor:middle;letter-spacing:-.3px;opacity:0}
+.pc .lv{font-size:14px;font-weight:600;fill:#525355;font-variant-numeric:tabular-nums}
+.pc .lv.hi{font-size:20px;font-weight:700;fill:#3182F6}
+.pc .ly{font-size:13px;font-weight:600;fill:rgba(22,31,46,.61)}
+.pc .ly.hi{fill:#1E1F21}
+.slide.on .pc .ll{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s var(--ease) .5s}
+.slide.on .pc .la{opacity:1;transition:opacity .8s ease 1.2s}
+.slide.on .pc .ld,.slide.on .pc .lv{opacity:1;transition:opacity .4s ease calc(.5s + var(--k)*.4s)}
+.slide.on .pc .ly{opacity:1;transition:opacity .5s ease .4s}
+.slide:not(.on) .pc .ll,.slide:not(.on) .pc .la,.slide:not(.on) .pc .ld,.slide:not(.on) .pc .lv,.slide:not(.on) .pc .ly{transition-duration:0s;transition-delay:0s}
+.pc .esrc{margin-top:auto;padding-top:8px;font-size:16px;line-height:1.45;letter-spacing:-.16px;color:var(--cap)}
 .pc .cmp{margin-top:16px}
 .pc .duo{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
-.pc .duo .n{font-size:30px;font-weight:700;line-height:1.2;letter-spacing:-.6px;color:var(--h1);white-space:nowrap}
-.pc .duo .l{margin-top:4px;font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-.16px;color:var(--body)}
+.pc .duo .n{margin-top:6px;font-size:30px;font-weight:700;line-height:1.2;letter-spacing:-.6px;color:var(--h1);white-space:nowrap}
+.pc .duo .l{font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-.16px;color:var(--body)}
 .pc .duo .d+.d{padding-left:20px;border-left:1px solid rgba(7,25,76,.08)}
 .pc .cmp .r{display:grid;grid-template-columns:84px 1fr 56px;align-items:center;column-gap:10px;height:28px}
 .pc .cmp .n{font-size:16px;font-weight:600;color:var(--body);letter-spacing:-.16px}
@@ -337,7 +514,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <span class="chp">VIDEO SLOT · 방한 팬 인터뷰 (일본어 → 영어) 약 10초 · 1회 재생</span>
     <span class="vhint">→ 키를 누르면 재생돼요</span>
     <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></div>
-    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b><span class="ai">*AI 생성 페르소나</span></div>
+    <div class="who" id="who"><b id="whoA"></b><b id="whoB"></b><span class="ai">*레딧 설문 내용 기반 생성 페르소나</span></div>
+    <div class="rvs" id="rvs"></div>
     <div class="cap" id="cap"><div class="ko" id="capKo"></div><div class="og" id="capOg"></div></div>
     <div class="vprog"><i id="vprog"></i></div>
   </div>
@@ -363,7 +541,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="pt">갑질하는 숙소</div>
     <div class="qg"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="q">외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요. 말도 안 되는 수수료를 부과하는 곳들도 있거든요.</div>
-    <div class="ev"><div class="el">BTS 부산 공연 주간 숙박 요금</div><div class="es">평균 2.4배 · 최대 7.5배</div><div class="esrc">공정위·소비자원 부산 숙소 135곳 조사 (2026.2)</div></div></div>
+    <div class="ev"><div class="el">숙박 관련 예약 취소·위약금 분쟁 급증</div><svg class="lc" viewBox="0 0 302 88" aria-hidden="true"><defs><linearGradient id="lcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".22"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient></defs><path class="la" d="M30.0 59.5 L270.0 26.4 L270 66 L30 66 Z" fill="url(#lcg)"/><line x1="8" y1="66" x2="294" y2="66" stroke="rgba(7,25,76,.1)"/><path class="ll" pathLength="1" d="M30.0 59.5 L270.0 26.4"/><circle class="ld" style="--k:0" cx="30.0" cy="59.5" r="4"/><text class="lv" style="--k:0" x="30.0" y="49.5">16%</text><text class="ly" x="30.0" y="83">2023</text><circle class="ld hi" style="--k:1" cx="270.0" cy="26.4" r="6"/><text class="lv hi" style="--k:1" x="270.0" y="13.4">38%</text><text class="ly hi" x="270.0" y="83">2026</text></svg><div class="esrc">숙박 민원 비중 · 한국관광공사 (뉴시안, 2026.9)</div></div></div>
   <div class="pc rv" style="left:566px;--i:5">
     <div class="no">02</div>
     <div class="pt">함께 즐길 친구</div>
@@ -381,7 +559,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="pt">늦은 밤, 택시와 교통</div>
     <div class="qg"><svg viewBox="0 0 30 22"><g><circle cx="7.6" cy="14.4" r="5.6"/><path d="M2.1 14.4C2.1 8.6 5.6 3.6 12.4 1.6L13 3.7C9.4 5.1 8.2 7.9 8.2 10.6Z"/><circle cx="21.6" cy="14.4" r="5.6"/><path d="M16.1 14.4C16.1 8.6 19.6 3.6 26.4 1.6L27 3.7C23.4 5.1 22.2 7.9 22.2 10.6Z"/></g></svg></div>
     <div class="q">택시 잡기도 힘들고, 늦은 시각엔 위험해요. 외국인한테는 미터기를 끄고 가는 기사님도 있대요.</div>
-    <div class="ev"><div class="el">공연 종료 후 귀가 수단</div><div class="duo"><div class="d"><div class="n">30분+</div><div class="l">셔틀 대기 가능</div></div><div class="d"><div class="n">7건</div><div class="l">택시 불편 신고</div></div></div><div class="esrc">인스파이어 셔틀(팝가) · 부산 관광불편신고(한국관광공사, 2026.5)</div></div></div>
+    <div class="ev"><div class="el">공연 종료 후 귀가 수단</div><div class="duo"><div class="d"><div class="l">셔틀 대기 가능</div><div class="n">30분+</div></div><div class="d"><div class="l">공항행 택시 요금</div><div class="n">5배</div></div></div><div class="esrc">인스파이어 셔틀(팝가) · MBC (2025.6)</div></div></div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>03 / 14</span></div>
 </section>
@@ -434,19 +612,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
 </section>
 
-<section class="slide dash" data-id="target" data-no="04">
+<section class="slide dash" data-id="target" data-no="05">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="f-cn" viewBox="0 0 90 60"><rect width="90" height="60" fill="#DE2910"/><g fill="#FFDE00"><polygon points="15.00,6.00 17.00,12.25 23.56,12.22 18.23,16.05 20.29,22.28 15.00,18.40 9.71,22.28 11.77,16.05 6.44,12.22 13.00,12.25"/><polygon points="27.43,7.54 28.85,5.90 27.74,4.03 29.74,4.88 31.17,3.24 30.99,5.41 32.99,6.26 30.87,6.76 30.67,8.92 29.55,7.06"/><polygon points="33.03,12.42 34.98,11.46 34.68,9.31 36.20,10.87 38.15,9.91 37.14,11.84 38.65,13.40 36.51,13.03 35.49,14.96 35.17,12.80"/><polygon points="33.12,20.18 35.29,20.09 35.89,18.00 36.64,20.05 38.82,19.97 37.11,21.32 37.85,23.36 36.04,22.15 34.32,23.49 34.92,21.39"/><polygon points="27.66,25.13 29.70,25.89 31.06,24.19 30.96,26.37 33.00,27.14 30.90,27.72 30.79,29.89 29.59,28.08 27.49,28.65 28.85,26.95"/></g></symbol><symbol id="f-jp" viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><circle cx="45" cy="30" r="18" fill="#BC002D"/></symbol><symbol id="f-tw" viewBox="0 0 90 60"><rect width="90" height="60" fill="#FE0000"/><rect width="45" height="30" fill="#000095"/><g fill="#fff"><polygon points="22.50,4.50 24.21,8.62 27.75,5.91 27.17,10.33 31.59,9.75 28.88,13.29 33.00,15.00 28.88,16.71 31.59,20.25 27.17,19.67 27.75,24.09 24.21,21.38 22.50,25.50 20.79,21.38 17.25,24.09 17.83,19.67 13.41,20.25 16.12,16.71 12.00,15.00 16.12,13.29 13.41,9.75 17.83,10.33 17.25,5.91 20.79,8.62"/></g><circle cx="22.5" cy="15" r="5.6" fill="#000095"/><circle cx="22.5" cy="15" r="4.2" fill="#fff"/></symbol><symbol id="f-us" viewBox="0 0 90 60"><rect width="90" height="60" fill="#fff"/><rect y="0.00" width="90" height="4.62" fill="#B22234"/><rect y="9.23" width="90" height="4.62" fill="#B22234"/><rect y="18.46" width="90" height="4.62" fill="#B22234"/><rect y="27.69" width="90" height="4.62" fill="#B22234"/><rect y="36.92" width="90" height="4.62" fill="#B22234"/><rect y="46.15" width="90" height="4.62" fill="#B22234"/><rect y="55.38" width="90" height="4.62" fill="#B22234"/><rect width="38" height="32.31" fill="#3C3B6E"/><g fill="#fff"><circle cx="3.20" cy="2.60" r="0.95"/><circle cx="9.50" cy="2.60" r="0.95"/><circle cx="15.80" cy="2.60" r="0.95"/><circle cx="22.10" cy="2.60" r="0.95"/><circle cx="28.40" cy="2.60" r="0.95"/><circle cx="34.70" cy="2.60" r="0.95"/><circle cx="6.35" cy="5.70" r="0.95"/><circle cx="12.65" cy="5.70" r="0.95"/><circle cx="18.95" cy="5.70" r="0.95"/><circle cx="25.25" cy="5.70" r="0.95"/><circle cx="31.55" cy="5.70" r="0.95"/><circle cx="3.20" cy="8.80" r="0.95"/><circle cx="9.50" cy="8.80" r="0.95"/><circle cx="15.80" cy="8.80" r="0.95"/><circle cx="22.10" cy="8.80" r="0.95"/><circle cx="28.40" cy="8.80" r="0.95"/><circle cx="34.70" cy="8.80" r="0.95"/><circle cx="6.35" cy="11.90" r="0.95"/><circle cx="12.65" cy="11.90" r="0.95"/><circle cx="18.95" cy="11.90" r="0.95"/><circle cx="25.25" cy="11.90" r="0.95"/><circle cx="31.55" cy="11.90" r="0.95"/><circle cx="3.20" cy="15.00" r="0.95"/><circle cx="9.50" cy="15.00" r="0.95"/><circle cx="15.80" cy="15.00" r="0.95"/><circle cx="22.10" cy="15.00" r="0.95"/><circle cx="28.40" cy="15.00" r="0.95"/><circle cx="34.70" cy="15.00" r="0.95"/><circle cx="6.35" cy="18.10" r="0.95"/><circle cx="12.65" cy="18.10" r="0.95"/><circle cx="18.95" cy="18.10" r="0.95"/><circle cx="25.25" cy="18.10" r="0.95"/><circle cx="31.55" cy="18.10" r="0.95"/><circle cx="3.20" cy="21.20" r="0.95"/><circle cx="9.50" cy="21.20" r="0.95"/><circle cx="15.80" cy="21.20" r="0.95"/><circle cx="22.10" cy="21.20" r="0.95"/><circle cx="28.40" cy="21.20" r="0.95"/><circle cx="34.70" cy="21.20" r="0.95"/><circle cx="6.35" cy="24.30" r="0.95"/><circle cx="12.65" cy="24.30" r="0.95"/><circle cx="18.95" cy="24.30" r="0.95"/><circle cx="25.25" cy="24.30" r="0.95"/><circle cx="31.55" cy="24.30" r="0.95"/><circle cx="3.20" cy="27.40" r="0.95"/><circle cx="9.50" cy="27.40" r="0.95"/><circle cx="15.80" cy="27.40" r="0.95"/><circle cx="22.10" cy="27.40" r="0.95"/><circle cx="28.40" cy="27.40" r="0.95"/><circle cx="34.70" cy="27.40" r="0.95"/></g></symbol><symbol id="f-hk" viewBox="0 0 90 60"><rect width="90" height="60" fill="#DE2910"/><g transform="translate(45 30)" fill="#fff"><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(0)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(72)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(144)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(216)"/><ellipse cx="0" cy="-8" rx="4.3" ry="8.2" transform="rotate(288)"/></g><circle cx="45" cy="30" r="1.8" fill="#DE2910"/></symbol><symbol id="lm-cn" viewBox="0 0 288 420"><linearGradient id="g-cn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39407A"/><stop offset="0.45" stop-color="#E5806B"/><stop offset="0.78" stop-color="#F8C58B"/></linearGradient><rect width="288" height="420" fill="url(#g-cn)"/><circle cx="208" cy="150" r="40" fill="#FFE3A6" opacity=".92"/><path d="M0 252 L40 202 L78 238 L120 178 L170 234 L214 192 L288 246 L288 420 L0 420Z" fill="#8A6F96"/><path d="M0 292 L60 238 L110 272 L170 216 L230 264 L288 228 L288 420 L0 420Z" fill="#5E4F7A"/><path d="M0 334 C50 304 80 304 120 274 S200 224 288 174 L288 420 L0 420Z" fill="#2C2845"/><path d="M0 326 C50 296 80 296 120 266 S200 216 288 166" stroke="#B88B6E" stroke-width="12" fill="none"/><path d="M0 319 C50 289 80 289 120 259 S200 209 288 159" stroke="#D9AE90" stroke-width="6" stroke-dasharray="8 6" fill="none"/><g fill="#A47860"><rect x="106" y="232" width="28" height="34"/><rect x="192" y="182" width="26" height="32"/></g><g fill="#6E3F36"><path d="M100 234 L120 214 L140 234Z"/><path d="M186 184 L205 165 L224 184Z"/></g><g fill="#3A2A2A"><rect x="115" y="242" width="10" height="12" rx="5"/><rect x="200" y="192" width="10" height="12" rx="5"/></g></symbol><symbol id="lm-jp" viewBox="0 0 288 420"><linearGradient id="g-jp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86A9E6"/><stop offset="0.55" stop-color="#F4C6D8"/><stop offset="0.85" stop-color="#FDE7D0"/></linearGradient><linearGradient id="g-jpm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#445FA6"/><stop offset="1" stop-color="#8FA5D6"/></linearGradient><rect width="288" height="420" fill="url(#g-jp)"/><circle cx="226" cy="118" r="30" fill="#F26B5E" opacity=".92"/><path d="M-30 332 L108 152 Q144 120 180 152 L318 332Z" fill="url(#g-jpm)"/><path d="M99 164 L108 152 Q144 120 180 152 L189 164 Q170 154 158 172 Q144 152 130 172 Q116 154 99 164Z" fill="#fff"/><path d="M0 302 Q70 272 144 298 T288 292 L288 420 L0 420Z" fill="#6E9470"/><path d="M-6 110 Q60 120 120 78" stroke="#6B4A3A" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="#FFB9CC"><circle cx="22" cy="118" r="9"/><circle cx="44" cy="122" r="7"/><circle cx="70" cy="116" r="9"/><circle cx="96" cy="98" r="7"/><circle cx="116" cy="82" r="9"/><circle cx="52" cy="104" r="6"/><circle cx="84" cy="130" r="5"/></g><g fill="#FFF0F5"><circle cx="30" cy="112" r="3"/><circle cx="78" cy="110" r="3"/><circle cx="112" cy="76" r="3"/></g></symbol><symbol id="lm-tw" viewBox="0 0 288 420"><linearGradient id="g-tw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2A5C"/><stop offset="0.6" stop-color="#5873C0"/><stop offset="0.95" stop-color="#F2B3B8"/></linearGradient><linearGradient id="g-twb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7ADBB9"/><stop offset="1" stop-color="#2C9488"/></linearGradient><rect width="288" height="420" fill="url(#g-tw)"/><circle cx="60" cy="86" r="20" fill="#FFF3D2" opacity=".95"/><circle cx="68" cy="82" r="18" fill="#2A3A7A" opacity=".0"/><rect x="-10" y="259" width="29" height="173" fill="#17214A"/><rect x="4" y="267" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="-5" y="291" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="4" y="291" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="4" y="303" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="-5" y="315" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="22" y="271" width="37" height="161" fill="#17214A"/><rect x="36" y="279" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="36" y="303" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="36" y="315" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="45" y="315" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="62" y="251" width="34" height="181" fill="#17214A"/><rect x="76" y="259" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="85" y="271" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="67" y="283" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="76" y="283" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="67" y="295" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="76" y="307" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="85" y="319" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="224" y="252" width="27" height="180" fill="#17214A"/><rect x="238" y="284" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="229" y="308" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="238" y="308" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="254" y="274" width="24" height="158" fill="#17214A"/><rect x="268" y="282" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="259" y="294" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="268" y="294" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="259" y="318" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="281" y="272" width="23" height="160" fill="#17214A"/><rect x="295" y="280" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="286" y="316" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="295" y="316" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="295" y="328" width="3.5" height="4.5" fill="#FFD77A" opacity=".85"/><rect x="112" y="290" width="64" height="150" fill="#1E2C60"/><path d="M125 292 L120 270 L168 270 L163 292Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 270 L120 248 L168 248 L163 270Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 248 L120 226 L168 226 L163 248Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 226 L120 204 L168 204 L163 226Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 204 L120 182 L168 182 L163 204Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 182 L120 160 L168 160 L163 182Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 160 L120 138 L168 138 L163 160Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M125 138 L120 116 L168 116 L163 138Z" fill="url(#g-twb)" stroke="#E8C96A" stroke-width="1.6"/><path d="M128 116 L131 100 L157 100 L160 116Z" fill="#3FAF98" stroke="#E8C96A" stroke-width="1.4"/><path d="M134 100 L136 86 L152 86 L154 100Z" fill="#3FAF98" stroke="#E8C96A" stroke-width="1.2"/><path d="M144 86 L144 54" stroke="#E8C96A" stroke-width="2.4"/></symbol><symbol id="lm-us" viewBox="0 0 288 420"><linearGradient id="g-us" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F67E6B"/><stop offset="0.5" stop-color="#FFC48A"/><stop offset="0.85" stop-color="#CBE6F2"/></linearGradient><linearGradient id="g-usw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2D6F8A"/><stop offset="1" stop-color="#1B4660"/></linearGradient><rect width="288" height="420" fill="url(#g-us)"/><circle cx="210" cy="110" r="28" fill="#FFF0C9" opacity=".95"/><path d="M0 262 Q60 226 120 258 T288 250 L288 420 L0 420Z" fill="#7C8FA0" opacity=".75"/><rect y="290" width="288" height="130" fill="url(#g-usw)"/><path d="M-10 252 Q40 180 75 128" stroke="#D5503A" stroke-width="3" fill="none"/><path d="M75 128 Q146 238 217 128" stroke="#D5503A" stroke-width="3.4" fill="none"/><path d="M217 128 Q252 180 300 252" stroke="#D5503A" stroke-width="3" fill="none"/><line x1="84" y1="138.1" x2="84" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="96" y1="152.7" x2="96" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="108" y1="164.2" x2="108" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="120" y1="172.6" x2="120" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="132" y1="177.9" x2="132" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="144" y1="180.0" x2="144" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="156" y1="178.9" x2="156" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="168" y1="174.7" x2="168" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="180" y1="167.4" x2="180" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="192" y1="156.9" x2="192" y2="272" stroke="#D5503A" stroke-width="1.4"/><line x1="204" y1="143.3" x2="204" y2="272" stroke="#D5503A" stroke-width="1.4"/><rect x="-10" y="270" width="308" height="7" fill="#B8402E"/><g fill="#C0392B"><rect x="69" y="118" width="12" height="164"/><rect x="211" y="118" width="12" height="164"/></g><g fill="#9E2F22"><rect x="65" y="150" width="20" height="5"/><rect x="65" y="196" width="20" height="5"/><rect x="65" y="240" width="20" height="5"/><rect x="207" y="150" width="20" height="5"/><rect x="207" y="196" width="20" height="5"/><rect x="207" y="240" width="20" height="5"/></g><g stroke="#FFD9A8" stroke-width="2" opacity=".5"><line x1="20" y1="312" x2="90" y2="312"/><line x1="150" y1="326" x2="250" y2="326"/><line x1="60" y1="340" x2="140" y2="340"/></g></symbol><symbol id="lm-hk" viewBox="0 0 288 420"><linearGradient id="g-hk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B2D6E"/><stop offset="0.45" stop-color="#C45B8E"/><stop offset="0.78" stop-color="#FFB27A"/></linearGradient><linearGradient id="g-hkw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B3A86"/><stop offset="1" stop-color="#1B1B4E"/></linearGradient><rect width="288" height="420" fill="url(#g-hk)"/><circle cx="62" cy="190" r="26" fill="#FFE0A8" opacity=".9"/><rect x="-8" y="187" width="27" height="135" fill="#241E52"/><rect x="10" y="195" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="205" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="-4" y="215" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="10" y="215" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="-4" y="225" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="225" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="-4" y="245" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="245" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="-4" y="265" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="265" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="10" y="275" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="285" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="10" y="285" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="-4" y="295" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="295" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="10" y="295" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="3" y="305" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="21" y="248" width="34" height="74" fill="#241E52"/><rect x="32" y="256" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="39" y="256" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="46" y="256" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="25" y="266" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="39" y="266" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="25" y="276" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="46" y="276" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="25" y="286" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="39" y="286" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="25" y="296" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="32" y="296" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="25" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="32" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="39" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="57" y="243" width="32" height="79" fill="#241E52"/><rect x="61" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="75" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="82" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="61" y="261" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="75" y="261" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="75" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="82" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="61" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="75" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="82" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="61" y="301" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="61" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="68" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="75" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="82" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="91" y="216" width="29" height="106" fill="#241E52"/><rect x="102" y="224" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="224" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="234" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="234" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="244" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="244" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="254" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="264" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="264" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="274" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="284" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="102" y="294" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="294" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="95" y="304" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="102" y="304" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="109" y="304" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="122" y="226" width="28" height="96" fill="#241E52"/><rect x="126" y="234" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="234" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="244" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="126" y="254" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="254" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="126" y="264" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="133" y="274" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="126" y="284" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="133" y="284" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="284" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="126" y="294" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="133" y="294" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="294" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="126" y="304" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="140" y="304" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="152" y="241" width="25" height="81" fill="#241E52"/><rect x="170" y="259" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="156" y="269" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="163" y="269" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="170" y="279" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="163" y="289" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="156" y="299" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="170" y="299" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="179" y="168" width="31" height="154" fill="#241E52"/><rect x="183" y="176" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="176" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="176" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="186" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="186" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="196" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="196" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="196" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="206" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="206" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="206" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="206" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="216" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="216" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="216" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="216" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="226" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="226" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="236" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="246" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="246" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="246" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="256" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="266" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="266" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="276" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="276" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="286" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="190" y="286" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="286" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="296" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="296" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="183" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="197" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="204" y="306" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="212" y="253" width="25" height="69" fill="#241E52"/><rect x="230" y="261" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="216" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="223" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="230" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="216" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="223" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="216" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="223" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="223" y="301" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="230" y="301" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="216" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="230" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="239" y="223" width="31" height="99" fill="#241E52"/><rect x="250" y="231" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="264" y="231" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="243" y="241" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="250" y="241" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="241" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="243" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="250" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="251" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="243" y="261" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="264" y="271" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="243" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="250" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="281" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="243" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="250" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="291" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="264" y="301" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="257" y="311" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="272" y="209" width="31" height="113" fill="#241E52"/><rect x="276" y="217" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="283" y="217" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="276" y="227" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="283" y="237" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="297" y="237" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="276" y="257" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="290" y="267" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="283" y="277" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="290" y="277" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="297" y="277" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="290" y="287" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="297" y="287" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="283" y="297" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="297" y="297" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="276" y="307" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="290" y="307" width="3" height="4" fill="#FFD27D" opacity=".85"/><rect x="297" y="307" width="3" height="4" fill="#FFD27D" opacity=".85"/><path d="M150 318 L150 112 L166 112 L166 318Z" fill="#2E2766"/><path d="M158 112 L158 78" stroke="#2E2766" stroke-width="3"/><g stroke="#8F7BD6" stroke-width="1.4" opacity=".8"><path d="M150 150 L166 130 M150 190 L166 170 M150 230 L166 210 M150 270 L166 250"/></g><rect y="318" width="288" height="110" fill="url(#g-hkw)"/><g stroke="#FFC98A" stroke-width="2" opacity=".45"><line x1="20" y1="336" x2="100" y2="336"/><line x1="130" y1="350" x2="230" y2="350"/><line x1="50" y1="366" x2="150" y2="366"/></g></symbol></defs></svg>
   <div class="kick rv" style="left:0;width:1920px;text-align:center">타겟 고객</div>
   <div class="ttl rv" style="--i:1;left:0;width:1920px;text-align:center">타겟 고객은 중국·일본 팬</div>
   <div class="hline rv" style="--i:1;top:252px"></div>
 
   <div class="strip"><div class="wheel"><div class="rc" style="--i:0"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div></div><div class="rc" style="--i:1"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div></div><div class="rc" style="--i:2"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-tw"/></svg><span>방한객 3위</span></div><div class="bb"></div><div class="bt"><div class="nm">대만</div><div class="nu">방한객 189만 명</div></div></div></div><div class="rc" style="--i:3"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-us"/></svg><span>방한객 4위</span></div><div class="bb"></div><div class="bt"><div class="nm">미국</div><div class="nu">방한객 148만 명</div></div></div></div><div class="rc" style="--i:4"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-hk"/></svg><span>방한객 5위</span></div><div class="bb"></div><div class="bt"><div class="nm">홍콩</div><div class="nu">방한객 62만 명</div></div></div></div><div class="rc" style="--i:5"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div></div><div class="rc" style="--i:6"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div></div><div class="rc" style="--i:7"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-tw"/></svg><span>방한객 3위</span></div><div class="bb"></div><div class="bt"><div class="nm">대만</div><div class="nu">방한객 189만 명</div></div></div></div><div class="rc" style="--i:8"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-us"/></svg><span>방한객 4위</span></div><div class="bb"></div><div class="bt"><div class="nm">미국</div><div class="nu">방한객 148만 명</div></div></div></div><div class="rc" style="--i:9"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-hk"/></svg><span>방한객 5위</span></div><div class="bb"></div><div class="bt"><div class="nm">홍콩</div><div class="nu">방한객 62만 명</div></div></div></div><div class="rc" style="--i:10"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div></div><div class="rc" style="--i:11"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div></div><div class="rc" style="--i:12"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-tw"/></svg><span>방한객 3위</span></div><div class="bb"></div><div class="bt"><div class="nm">대만</div><div class="nu">방한객 189만 명</div></div></div></div><div class="rc" style="--i:13"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-us"/></svg><span>방한객 4위</span></div><div class="bb"></div><div class="bt"><div class="nm">미국</div><div class="nu">방한객 148만 명</div></div></div></div><div class="rc" style="--i:14"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-hk"/></svg><span>방한객 5위</span></div><div class="bb"></div><div class="bt"><div class="nm">홍콩</div><div class="nu">방한객 62만 명</div></div></div></div><div class="rc" style="--i:15"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div></div><div class="rc" style="--i:16"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div></div><div class="rc" style="--i:17"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-tw"/></svg><span>방한객 3위</span></div><div class="bb"></div><div class="bt"><div class="nm">대만</div><div class="nu">방한객 189만 명</div></div></div></div><div class="rc" style="--i:18"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-us"/></svg><span>방한객 4위</span></div><div class="bb"></div><div class="bt"><div class="nm">미국</div><div class="nu">방한객 148만 명</div></div></div></div><div class="rc" style="--i:19"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-hk"/></svg><span>방한객 5위</span></div><div class="bb"></div><div class="bt"><div class="nm">홍콩</div><div class="nu">방한객 62만 명</div></div></div></div><div class="rc" style="--i:20"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div></div><div class="rc" style="--i:21"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div></div><div class="rc" style="--i:22"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-tw" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-tw"/></svg><span>방한객 3위</span></div><div class="bb"></div><div class="bt"><div class="nm">대만</div><div class="nu">방한객 189만 명</div></div></div></div><div class="rc" style="--i:23"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-us" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-us"/></svg><span>방한객 4위</span></div><div class="bb"></div><div class="bt"><div class="nm">미국</div><div class="nu">방한객 148만 명</div></div></div></div><div class="rc" style="--i:24"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-hk" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-hk"/></svg><span>방한객 5위</span></div><div class="bb"></div><div class="bt"><div class="nm">홍콩</div><div class="nu">방한객 62만 명</div></div></div></div></div></div>
-  <div class="c soft cx" style="--l:656.8px;--t:402.0px;--r:-7.2deg;--hl:120px;--fl:160px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #39407A -136px, #E5806B 166px, #F8C58B 388px)"><svg viewBox="0 0 288 420"><use href="#lm-cn" width="288" height="420"/></svg></div><div class="fin"><span class="tag">중국 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 1위</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="kv"><div class="k">1인당 지출</div><div class="k">관람·재방문</div><div class="v">글로벌 평균을 웃돌아요</div><div class="v"><span class="nd">근거 자료 추가 필요</span></div></div></div></div></div>
-  <div class="c soft cx" style="--l:975.2px;--t:402.0px;--r:7.2deg;--hl:980px;--fl:972px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #86A9E6 -136px, #F4C6D8 234px, #FDE7D0 435px)"><svg viewBox="0 0 288 420"><use href="#lm-jp" width="288" height="420"/></svg></div><div class="fin"><span class="tag">일본 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 2위</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="kv"><div class="k">서울 체류</div><div class="k">공연 관람</div><div class="v">평균 3.5일 · 재방문율 71.2%</div><div class="v"><span class="nd">근거 자료 추가 필요</span></div></div></div></div></div>
+  <div class="c soft cx" style="--l:656.8px;--t:402.0px;--r:-7.2deg;--hl:120px;--fl:160px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #39407A -136px, #E5806B 166px, #F8C58B 388px)"><svg viewBox="0 0 288 420"><use href="#lm-cn" width="288" height="420"/></svg></div><div class="fin"><span class="tag">중국 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 1위</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="kv"><div class="k">1인당 지출</div><div class="k">관람·재방문</div><div class="v">글로벌 평균을 웃돌아요</div><div class="v">재방문율 54.3% · 공연 지출 9.2%</div></div></div></div></div>
+  <div class="c soft cx" style="--l:975.2px;--t:402.0px;--r:7.2deg;--hl:980px;--fl:972px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #86A9E6 -136px, #F4C6D8 234px, #FDE7D0 435px)"><svg viewBox="0 0 288 420"><use href="#lm-jp" width="288" height="420"/></svg></div><div class="fin"><span class="tag">일본 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div><div class="lb" style="margin-top:16px">2025 방한객 2위</div><div class="big" style="font-size:96px;margin-top:8px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:44px">만 명</small></div><div class="kv"><div class="k">서울 체류</div><div class="k">공연 관람</div><div class="v">평균 3.5일 · 재방문율 71.2%</div><div class="v">해외 공연 예매 1위 · 34%</div></div></div></div></div>
   
-  <div class="c bars late" style="left:160px;top:720px;width:788px;height:256px;padding:30px 52px 0;--i:0">
+  <div class="c bars late" style="left:160px;top:680px;width:520px;height:300px;padding:30px 40px 0;--i:0">
     <span class="tag">국가별 방한객 2025</span>
-    <div style="margin-top:10px">
+    <div style="margin-top:14px">
       <div class="row on"><span class="n">중국</span><div class="bar"><i style="--w:100%;"></i></div><span class="v"><span class="cnt" data-v="548" data-dec="0">0</span><small>만 명</small></span></div>
       <div class="row on"><span class="n">일본</span><div class="bar"><i style="--w:66.6%;"></i></div><span class="v"><span class="cnt" data-v="365" data-dec="0">0</span><small>만 명</small></span></div>
       <div class="row"><span class="n">대만</span><div class="bar"><i style="--w:34.5%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="189" data-dec="0">0</span><small>만 명</small></span></div>
@@ -454,72 +632,123 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
       <div class="row"><span class="n">홍콩</span><div class="bar"><i style="--w:11.3%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="62" data-dec="0">0</span><small>만 명</small></span></div>
     </div>
   </div>
-  <div class="c slot chk late" style="left:972px;top:720px;width:382px;height:256px;--i:1"><span class="chp">연령대 · 성별</span><span class="nd">근거 자료 추가 필요</span></div>
-  <div class="c slot chk late" style="left:1378px;top:720px;width:382px;height:256px;--i:2"><span class="chp">연도별 방한객 추이</span><span class="nd">근거 자료 추가 필요</span></div>
+  <div class="c dnc late" style="left:704px;top:680px;width:620px;height:300px;padding:30px 40px 0;--i:1">
+    <span class="tag">연령대 · 성별 2025</span>
+    <div class="dpair"><div class="dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#3182F6" style="--d:136.3px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:75.1px;stroke-dashoffset:-138.3px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#E3E6EC" style="--d:134.5px;stroke-dashoffset:-215.3px"/></g></svg><div class="dc"><small>여성</small><b>61.2<i>%</i></b></div></div><div class="dt2"><div class="dnm">중국</div><div class="dk">20~30대 여성</div><div class="dv">39.3<small>%</small></div></div></div><div class="dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#3182F6" style="--d:117.6px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:117.6px;stroke-dashoffset:-119.6px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#E3E6EC" style="--d:110.6px;stroke-dashoffset:-239.3px"/></g></svg><div class="dc"><small>여성</small><b>68.0<i>%</i></b></div></div><div class="dt2"><div class="dnm">일본</div><div class="dk">20~30대 여성</div><div class="dv">34.0<small>%</small></div></div></div></div>
+    <div class="dlg"><span><em style="background:#3182F6"></em>20~30대 여성</span><span><em style="background:#A9C8FA"></em>그 외 연령 여성</span><span><em style="background:#E3E6EC"></em>남성</span></div>
+  </div>
+  <div class="c yrs late" style="left:1348px;top:680px;width:412px;height:300px;padding:30px 40px 0;--i:2">
+    <span class="tag">연도별 방한객 추이</span>
+    <div class="yc">
+      <div class="yi"><div class="yb"><i style="--h:82px"><b>1,103만</b></i></div><em>2023</em></div>
+      <div class="yi"><div class="yb"><i style="--h:121px"><b>1,637만</b></i></div><em>2024</em></div>
+      <div class="yi on"><div class="yb"><i style="--h:140px"><b>1,894만</b></i></div><em>2025</em></div>
+    </div>
+    <div class="ysub">중국 202→548만 · 일본 232→365만</div>
+  </div>
 
-  <div class="src late" style="--i:3">출처: 한국관광공사 2025 · 서울관광 실태조사 2025 · KB금융 연구 · 방한객 수는 공연 관람객 수가 아니에요</div>
-  <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
-</section>
-
-<section class="slide dash sol" data-id="solution" data-no="05">
-  <div class="kick rv">솔루션</div>
-  <div class="ttl rv" style="--i:1">티켓 인증 하나로,<br>공연 전후를 한 번에</div>
-  <div class="sub rv" style="--i:1;top:296px">숙소 · 셔틀 · 지도 · 동행, 그리고 공연장 앞 현장 접점</div>
-
-  <div class="sl-ring rv" style="--i:2"></div>
-  <div class="sl-core rv" style="--i:2"><small>HUB</small><b>티켓 인증</b><span>실제 참석자를 확인해요</span></div>
-
-  <div class="sl-card mv rv" style="left:160px;top:360px;--i:3"><span class="sl-chip">핵심 · MVP</span>
-    <div class="sl-t">제휴 숙소</div><div class="sl-d">공연장별 제휴 숙소 3~4곳 중 선택, 정가 유지</div><div class="sl-s">해결: 숙소 찾기 어려움</div></div>
-  <div class="sl-card mv rv" style="left:1260px;top:360px;--i:4"><span class="sl-chip">핵심 · MVP</span>
-    <div class="sl-t">셔틀</div><div class="sl-d">종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</div><div class="sl-s">해결: 심야 귀가 공백</div></div>
-  <div class="sl-card rv" style="left:160px;top:619px;--i:5"><span class="sl-chip">핵심 · 소규모</span>
-    <div class="sl-t">동행 매칭</div><div class="sl-d">티켓 인증된 팬끼리 매칭, 룸쉐어까지</div><div class="sl-s">해결: 혼자 오는 불안</div></div>
-  <div class="sl-card rv" style="left:1260px;top:619px;--i:6"><span class="sl-chip">무료</span>
-    <div class="sl-t">공연장 지도</div><div class="sl-d">화장실·식음료·보관소·집결지를 한눈에</div><div class="sl-s">해결: 정보 분산</div></div>
-
-  <div class="sl-pill rv" style="--i:7"><b>현장 접점</b>공연장 앞 부스에서 짐 보관 · 동행 만남 장소 · 귀가 집결지를 안내해요</div>
+  <div class="src late" style="--i:3">출처: 한국관광공사 2025 · 문체부 외래관광객조사 2025 · 인터파크 글로벌(놀유니버스) · 서울관광 실태조사 2025 · KB금융 연구</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
 </section>
 
-<section class="slide dash pos" data-id="position" data-no="06">
+<!-- 시장조사 -->
+<section class="slide dash mkd" data-id="market" data-no="06">
+  <div class="mkd-bg"></div>
+  <div class="kick mkr" style="--i:0">시장조사</div>
+  <div class="ttl mkr" style="--i:0">방한 시장은 크고, 공연은 소비를 키워요</div>
+
+  <div class="ms mkr" style="left:160px;--i:1">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_15418_17632)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M14.7274 15.7273C16.7357 15.7273 18.3637 17.3553 18.3637 19.3636V20.0909H11.091C10.2877 20.0909 9.63647 19.4397 9.63647 18.6364V17.9091C9.63647 17.0904 9.90719 16.335 10.3637 15.7273H14.7274ZM18.3637 14.2727C20.3721 14.2727 22.0001 15.9008 22.0001 17.9091V18.6364C22.0001 19.4397 21.3489 20.0909 20.5456 20.0909H19.091V19.3636C19.091 16.9537 17.1374 15 14.7274 15H14.4802C14.7733 14.7938 15.0363 14.5483 15.2643 14.2727H18.3637ZM14.238 14.2727C13.6761 14.7272 12.961 15 12.1819 15C11.8667 15 11.562 14.9546 11.2735 14.8714C11.8472 14.4931 12.5342 14.2727 13.2728 14.2727H14.238ZM15.8183 7C17.6258 7 19.091 8.46525 19.091 10.2727C19.091 12.0802 17.6258 13.5455 15.8183 13.5455C15.7934 13.5455 15.7685 13.5439 15.7437 13.5433C16.0226 12.9982 16.1819 12.3817 16.1819 11.7273C16.1819 9.98356 15.0659 8.50137 13.5093 7.95384C14.1012 7.36451 14.9171 7 15.8183 7ZM13.0257 8.56463C14.4242 8.93678 15.4547 10.2116 15.4547 11.7273C15.4547 12.3531 15.2785 12.9375 14.9738 13.4347C13.5757 13.0622 12.5456 11.7881 12.5456 10.2727C12.5456 9.64685 12.7209 9.06181 13.0257 8.56463Z" fill="#626E76"/><path d="M14.7273 15.7273C16.7356 15.7273 18.3636 17.3554 18.3636 19.3637V20.091C18.3636 20.8943 17.7124 21.5455 16.9091 21.5455H7.45455C6.65122 21.5455 6 20.8943 6 20.091V19.3637C6 17.3554 7.62806 15.7273 9.63636 15.7273H14.7273ZM12.1818 8.45459C13.9893 8.45459 15.4545 9.91984 15.4545 11.7273C15.4545 13.5348 13.9893 15 12.1818 15C10.3743 15 8.90909 13.5348 8.90909 11.7273C8.90909 9.91984 10.3743 8.45459 12.1818 8.45459Z" fill="#A3D6FF"/></g><defs><filter id="filter0_i_15418_17632" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_15418_17632"/></filter></defs></svg></span><div><small>시장 규모</small><b>중국 + 일본 방한객</b></div></div>
+    <div class="mn2"><span class="cnt" data-v="913" data-dec="0">0</span><small>만 명</small></div>
+    <div class="mchip">중국 548만 · 일본 365만</div>
+    <div class="msrc">한국관광공사 2025</div>
+  </div>
+  <div class="ms mkr" style="left:720px;--i:2">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41877)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M8.07288 16.4023C8.07288 15.5739 8.74445 14.9023 9.57288 14.9023H10.9631C11.7916 14.9023 12.4631 15.5739 12.4631 16.4023V21.3048C12.4631 22.1332 11.7916 22.8048 10.9631 22.8048H9.57288C8.74445 22.8048 8.07288 22.1332 8.07288 21.3048V16.4023Z" fill="#A3D6FF"/><path d="M13.3412 12.8901C13.3412 12.0617 14.0128 11.3901 14.8412 11.3901H16.2314C17.0599 11.3901 17.7314 12.0617 17.7314 12.8901V21.3048C17.7314 22.1332 17.0599 22.8048 16.2314 22.8048H14.8412C14.0128 22.8048 13.3412 22.1332 13.3412 21.3048V12.8901Z" fill="#626E76"/><path d="M18.6095 9.37793C18.6095 8.5495 19.2811 7.87793 20.1095 7.87793H21.4998C22.3282 7.87793 22.9998 8.5495 22.9998 9.37793V21.3048C22.9998 22.1332 22.3282 22.8048 21.4998 22.8048H20.1095C19.2811 22.8048 18.6095 22.1332 18.6095 21.3048V9.37793Z" fill="#53A4FF"/><path d="M18.1646 4.01099C18.4774 3.94228 18.7556 4.2206 18.687 4.53345L18.3354 6.13403C18.261 6.47285 17.8415 6.59612 17.5962 6.35083L17.2983 6.052L14.1509 9.20142C13.6365 9.71568 12.8019 9.71568 12.2876 9.20142L11.7739 8.68677C11.6026 8.5155 11.3243 8.51566 11.1528 8.68677L4.74951 15.0911C4.57812 15.2625 4.29988 15.2623 4.12842 15.0911C3.95697 14.9196 3.95697 14.6414 4.12842 14.47L10.5317 8.06665C11.0461 7.55239 11.8797 7.5524 12.394 8.06665L12.9087 8.5813C13.0801 8.75246 13.3584 8.75245 13.5298 8.5813L16.6782 5.43188L16.3481 5.10181C16.1028 4.85651 16.2251 4.437 16.564 4.36255L18.1646 4.01099Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41877" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41877"/></filter></defs></svg></span><div><small>파급</small><b>고양 대화동 공연 3일, 외국인 방문객</b></div></div>
+    <div class="mn2"><span class="cnt" data-v="35" data-dec="0">0</span><small>배</small></div>
+    <div class="mchip">1,397명 → 48,581명 (전년 같은 기간)</div>
+    <div class="msrc">한국경제 2026.4.29 · 특정 지역·기간 결과</div>
+  </div>
+  <div class="ms mkr" style="left:1280px;--i:3">
+    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41822)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M19.4 7.60474C21.3882 7.60474 23 9.21651 23 11.2047V14.8047C23 16.793 21.3882 18.4047 19.4 18.4047H8.89795L6.35 19.8751C5.75 20.2216 5 19.7884 5 19.0956V11.2047C5 9.21651 6.61177 7.60474 8.6 7.60474H19.4Z" fill="#A3D6FF"/><path d="M11.0245 10.0683C11.1742 9.60761 11.8259 9.60761 11.9756 10.0683L12.1736 10.6777C12.2405 10.8837 12.4325 11.0232 12.6491 11.0232H13.2899C13.7743 11.0232 13.9756 11.643 13.5838 11.9277L13.0654 12.3043C12.8901 12.4317 12.8168 12.6573 12.8838 12.8634L13.0818 13.4728C13.2314 13.9334 12.7042 14.3165 12.3123 14.0318L11.7939 13.6552C11.6187 13.5278 11.3814 13.5278 11.2062 13.6552L10.6877 14.0318C10.2959 14.3165 9.76865 13.9334 9.91832 13.4728L10.1163 12.8634C10.1833 12.6573 10.1099 12.4317 9.9347 12.3043L9.41629 11.9277C9.02444 11.643 9.22583 11.0232 9.71019 11.0232H10.351C10.5676 11.0232 10.7596 10.8837 10.8265 10.6777L11.0245 10.0683Z" fill="#465159"/><path d="M16.3402 5.46614C16.5605 4.84462 17.4395 4.84462 17.6598 5.46614L18.1819 6.93903C18.2809 7.21844 18.5452 7.40517 18.8416 7.40517H20.3925C21.0852 7.40517 21.3571 8.30378 20.7805 8.68778L19.6336 9.45159C19.3667 9.62936 19.2547 9.96579 19.3619 10.2681L19.8241 11.5721C20.0489 12.2065 19.3364 12.7616 18.7763 12.3886L17.388 11.464C17.153 11.3075 16.847 11.3075 16.612 11.464L15.2237 12.3886C14.6636 12.7616 13.9511 12.2064 14.1759 11.5721L14.6381 10.2681C14.7453 9.96579 14.6333 9.62936 14.3664 9.45159L13.2195 8.68778C12.6429 8.30378 12.9148 7.40517 13.6075 7.40517H15.1584C15.4548 7.40517 15.7191 7.21844 15.8181 6.93903L16.3402 5.46614Z" fill="#465159"/><path d="M22.0245 10.0683C22.1742 9.60761 22.8259 9.60761 22.9756 10.0683L23.1736 10.6777C23.2405 10.8837 23.4325 11.0232 23.6491 11.0232H24.2899C24.7743 11.0232 24.9756 11.643 24.5838 11.9277L24.0654 12.3043C23.8901 12.4317 23.8168 12.6573 23.8838 12.8634L24.0818 13.4728C24.2314 13.9334 23.7042 14.3165 23.3123 14.0318L22.7939 13.6552C22.6187 13.5278 22.3814 13.5278 22.2062 13.6552L21.6877 14.0318C21.2959 14.3165 20.7686 13.9334 20.9183 13.4728L21.1163 12.8634C21.1833 12.6573 21.1099 12.4317 20.9347 12.3043L20.4163 11.9277C20.0244 11.643 20.2258 11.0232 20.7102 11.0232H21.351C21.5676 11.0232 21.7596 10.8837 21.8265 10.6777L22.0245 10.0683Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41822" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41822"/></filter></defs></svg></span><div><small>수요</small><b>공연 원정 경험이 있는 응답자</b></div></div>
+    <div class="mn2"><span class="cnt" data-v="65" data-dec="0">0</span><small>%</small></div>
+    <div class="mchip">아시아 6개 시장 응답자 기준</div>
+    <div class="msrc">헤럴드경제 2026.11.5 보도</div>
+  </div>
+
+  <div class="mk-line"><i></i></div>
+  <div class="mk-gw">
+    <div class="mk-rig">
+      <div class="mk-glow"></div>
+      <div class="gl g2"></div><div class="gl g3"></div>
+      <div class="mk-cy"></div>
+      <div class="rp" style="--r:0s"></div><div class="rp" style="--r:2.2s"></div><div class="rp" style="--r:4.4s"></div>
+    </div>
+  </div>
+  <div class="mk-gt">
+    <small>2025년 방한 외래관광객</small>
+    <b><span class="cnt" data-v="1894" data-dec="0">0</span><i>만 명</i></b>
+  </div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>06 / 14</span></div>
+</section>
+
+<section class="slide dash sol" data-id="solution" data-no="07">
+  <div class="kick rv">솔루션</div>
+  <div class="sl-ttl rv" style="--i:1">중국·일본 팬의 불편,<br>티켓 인증 하나로 풀어요</div>
+
+  <div class="sl-list">
+  <div class="sl-ext xr" style="--i:0"><span class="sx-no">01</span><b>현지 가이드 · 소모임</b><div class="sx-kv"><div><i>역할</i><em>수익 연결</em></div><div><i>내용</i><span>팬 활동 기반 소모임 생성 및 가이드 연결</span></div></div></div>
+  <div class="sl-ext xr" style="--i:1"><span class="sx-no">02</span><b>현장 경험 개선</b><div class="sx-kv"><div><i>역할</i><em>현장 접점</em></div><div><i>내용</i><span>공연장 앞 부스(짐 보관·동행 만남·귀가 집결지) ·<br>길안내·통역 · 귀가 셔틀</span></div></div></div>
+  <div class="sl-ext xr" style="--i:2"><span class="sx-no">03</span><b>추억 갤러리</b><div class="sx-kv"><div><i>역할</i><em>리텐션</em></div><div><i>내용</i><span>우표 스타일 사진 기록 · 추억 지도</span></div></div></div>
+  </div>
+
+  <div class="bgrid">
+    <div class="bt bt-hub" style="--k:0"><div class="bc"><small>HUB</small><b>티켓 인증</b><p>실제 참석자를 확인하고, 아래 네 가지 해결을 하나로 열어요</p></div></div>
+    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택</p><span class="bp"><i>문제</i>숙소 찾기 어려움</span></div></div>
+    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>문제</i>심야 귀가 공백</span></div></div>
+    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭</p><span class="bp"><i>문제</i>혼자 오는 불안</span></div></div>
+    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>문제</i>정보 분산</span></div></div>
+  </div>
+
+  <div class="foot"><span>FanStay · IR-DAY</span><span>07 / 14</span></div>
+</section>
+
+<section class="slide dash pos" data-id="position" data-no="08">
   <div class="kick rv">포지셔닝</div>
-  <div class="ttl rv" style="--i:1">K-POP 팬 문화에 최적화된 검증 플랫폼, 그 포지션을 노려요</div>
+  <div class="ttl rv" style="--i:1">K-POP 팬 문화에 최적화된 검증 플랫폼</div>
   <div class="sub rv" style="--i:1;top:210px">공연 팬 특화도와 거래 신뢰·검증 수준, 두 기준으로 서비스를 비교했어요</div>
 
+  <div class="pmw">
   <div class="pm rv" style="--i:2">
     <div class="pl">
-      <div class="tile q1"><span class="tn">팬 특화 · 비정형 거래</span></div>
-      <div class="tile q2 hl"><span class="tn">팬 특화 + 검증된 플랫폼</span></div>
-      <div class="tile q3"><span class="tn">일반 상품 · 비정형 거래</span></div>
-      <div class="tile q4"><span class="tn">일반 상품 · 검증된 플랫폼</span></div>
-      <div class="dt need" style="--x:96;--y:150;--i:0"><i></i><div><b>SNS 개인 거래·대행</b><small>X · 오픈채팅</small></div></div>
-      <div class="dt" style="--x:520;--y:152;--i:1"><i></i><div><b>엔터사 공식 패키지</b><small>SM Global Package 등</small></div></div>
-      <div class="dt" style="--x:560;--y:228;--i:2"><i></i><div><b>놀유니버스 Play &amp; Stay</b><small>공연+이동+숙박 결합</small></div></div>
-      <div class="dt" style="--x:530;--y:372;--i:3"><i></i><div><b>카카오 T 셔틀</b><small>공연장 셔틀 노선</small></div></div>
-      <div class="dt need" style="--x:700;--y:452;--i:4"><i></i><div><b>국내 예매·여행</b><small>NOL 등</small></div></div>
-      <div class="dt need" style="--x:560;--y:522;--i:5"><i></i><div><b>글로벌 OTA</b><small>클룩 · KKday</small></div></div>
-      <div class="dt me" style="--x:736;--y:78;--i:6"><i></i><div><b>FanStay</b><small>티켓 인증 허브</small></div></div>
-      <div class="lg2"><span><em></em>자료조사 근거 있음</span><span><em class="n"></em>근거 자료 추가 필요</span></div>
+      <div class="gx"></div><div class="gy"></div>
+      <div class="pn " style="--cx:330;--cy:215;--i:0"><i></i><div><b>SNS 개인 거래·대행</b><small>X · 오픈채팅</small></div></div>
+      <div class="pn " style="--cx:860;--cy:260;--i:1"><i></i><div><b>엔터사 공식 패키지</b><small>SM Global Package 등</small></div></div>
+      <div class="pn " style="--cx:1190;--cy:310;--i:2"><i></i><div><b>놀유니버스 Play &amp; Stay</b><small>공연+이동+숙박</small></div></div>
+      <div class="pn " style="--cx:940;--cy:545;--i:3"><i></i><div><b>카카오 T 셔틀</b><small>공연장 셔틀 노선</small></div></div>
+      <div class="pn " style="--cx:1270;--cy:590;--i:4"><i></i><div><b>국내 예매·여행</b><small>NOL 등</small></div></div>
+      <div class="pn " style="--cx:470;--cy:575;--i:5"><i></i><div><b>글로벌 OTA</b><small>클룩 · KKday</small></div></div>
+      <div class="pn me" style="--cx:1090;--cy:180;--i:6"><i></i><div><b>FanStay</b><small>티켓 인증 허브</small></div></div>
     </div>
-    <div class="ax yt">높음</div>
-    <div class="ax ym"><b>공연 팬 특화도</b> →</div>
-    <div class="ax yb">낮음</div>
-    <div class="ax xl">낮음</div>
-    <div class="ax xm"><b>거래 신뢰·검증 수준</b> →</div>
-    <div class="ax xr">높음</div>
+    <div class="ax at">공연 팬 특화도 높음</div>
+    <div class="ax ab">공연 팬 특화도 낮음</div>
+    <div class="ax xl">거래 신뢰·검증 낮음</div>
+    <div class="ax xr">거래 신뢰·검증 높음</div>
+  </div>
   </div>
 
-  <div class="df rv" style="--i:3">
-    <div class="dk">FanStay의 차별점</div>
-    <div class="dr"><div class="nn">1</div><div><h3>K-POP 팬 문화에 최적화</h3><p>일반 여행 상품과 달리, 공연 일정이 설계의 기준이에요</p></div></div>
-    <div class="dr"><div class="nn">2</div><div><h3>검증된 거래</h3><p>개인 간 거래와 달리, 티켓 인증으로 참석자를 확인해요</p></div></div>
-    <div class="dr"><div class="nn">3</div><div><h3>현장까지 이어지는 연결</h3><p>앱 안에서 끝나지 않고, 공연장 앞 현장까지 이어져요</p></div></div>
-    <div class="dcap">현장 접점까지 묶은 선례는 조사 범위에서 확인하지 못했어요</div>
+  <div class="dbl"></div>
+  <div class="dpn">
+    <div class="dk2">FanStay의 차별점</div>
+    <div class="dcols">
+      <div class="pdc" style="--k:0"><div class="nn">1</div><h3>K-POP 팬 문화에 최적화</h3><p>일반 여행 상품과 달리,<br>덕질 여행이 설계의 기준이에요</p></div>
+      <div class="pdc" style="--k:1"><div class="nn">2</div><h3>검증된 거래</h3><p>티켓 인증으로<br>개인 간 거래보다 신뢰도를 높여요</p></div>
+      <div class="pdc" style="--k:2"><div class="nn">3</div><h3>현장까지 이어지는 연결</h3><p>오프라인 경험을<br>적극적으로 개선해요</p></div>
+    </div>
+    <div class="dval"><small>우리가 추구하는 가치</small><b>외국인 방한객이 더 쾌적한 K-팬덤 여행을 즐기는 것</b></div>
   </div>
-  <div class="vc rv" style="--i:4"><small>우리가 추구하는 가치</small><b>검증과 연결로 팬의 불안을 줄여요</b></div>
 
-  <div class="foot"><span>FanStay · IR-DAY</span><span>06 / 14</span></div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>08 / 14</span></div>
 </section>
 
 <!-- 03 고객 문제 -->
@@ -545,13 +774,52 @@ fit();
    클립마다 자막 cues(영상 시간 기준 초)를 달아요. 영어 클립이 생기면 CLIPS에 한 줄 추가하면 돼요. */
 const CLIPS=[
   {src:'assets/interview.mp4', poster:'assets/interview-poster.jpg', who:['일본','20대 여성'], cues:[
-    {a:0.7,b:5.8,ko:'외국인이니까, 숙소가 갑자기 예약을 취소하면 갈 곳이 없어져요.', og:'外国人なので、宿が急に予約を取り消したら、行く場所がなくなります。'}]},
-  {src:'assets/interview-2.mp4', who:['일본','20대 여성'], cues:[
-    {a:0.25,b:6.3,ko:'공연이 끝난 뒤에 숙소까지 가는데 교통 같은 걸 잘 모르니까··· 힘들었던 기억이 있네요.', og:'公演のあと宿まで行くのに、交通がよく分からなくて…大変だった記憶があります。'}]}
+    {a:0.3,b:5.7,ko:'해외라 부당한 일을 당해도 보호 받기 어렵다고 느껴요.', og:'海外なので、不当な扱いを受けても守られにくいと感じます。'}]}
   /* ,{src:'assets/interview-en.mp4', who:['영어권','20대 여성'], cues:[{a:0.4,b:5,ko:'공연장 구조가 낯설어서 헤맨 적이 많아요.', og:"The venue layout was so unfamiliar — I've gotten lost a lot."}]} */
 ];
+/* ===== 레딧 설문 카드 (아래 → 위로 올라오며 사라짐). 닉네임·프로필은 블러 처리. 카드를 추가하려면 REDDIT에 항목 추가 ===== */
+const REDDIT=[
+  {nick:'rukki88',when:'9개월 전',ac:'#8fd3c7',body:['아시아드 주경기장, 인천, 인스파이어 아레나를 오가는 건 셔틀 서비스가 제한적이고 서울에 있지 않아서 번거로워. 이 두 경기장에서 행사 끝나고 택시 기다리는 데 시간이 오래 걸렸어.']},
+  {nick:'justwannasaysmth',when:'9개월 전',ac:'#7ec8e3',body:['서울 외곽으로는 인천 아시안게임 경기장 가봤는데, 송도에 숙소 잡아서 괜찮긴 했는데 그래도 40-45분 걸리더라. 돌아올 때 힘들었어. 카카오택시로 잡으려고 했는데 안 잡혔고, 길에서 잡으려니까 5배 정도 바가지 씌우더라. 내 알기로는 불법인데.']},
+  {nick:'TheYeeeingHeadbanger',when:'9개월 전',ac:'#9aa5e0',body:['콘서트 끝나고 공연장 뒤쪽에서 팬들이 퇴근길을 기다리기도 하잖아요. 만약 기다리는 거에 대해 추가 요금을 받는다면 (저번 주말에 있지 퇴근길 기다리느라 3시간 걸렸어요 ㅠㅠ) 팬들이 기꺼이 지불할 수도 있을 거예요.']},
+  {nick:'UAP_andotherthings',when:'9개월 전',ac:'#e8c3d6',body:['팬사인회 같은 경우엔 이용할 것 같아요. 팬사인회는 보통 익숙하지 않은 지역의 기차역에서 좀 떨어진 곳에서 열리기도 하거든요.']},
+  {nick:'AfraidInspection2894',when:'9개월 전',ac:'#b6d86f',body:['지하철 타고 공항까지 가서 거기서 택시 타고 인스파이어까지 갔어. 한 번은 공항까지 가는 셔틀버스를 무료로 제공해줘서 진짜 편했어.']},
+  {nick:'AfraidInspection2894',when:'9개월 전',ac:'#b6d86f',body:['한 번은 택시를 타야 했는데 좀 난리도 아니었지. 택시 잡는 데 시간이 좀 걸렸어, 다들 택시 잡으려고 했고, 기사가 바가지 씌우려고 하더라고. 지하철 끊기기 전에 겨우 탔어.']},
+  {nick:'mountainandsea_',when:'9개월 전',ac:'#a0a0a0',body:['환승하고 뭐 하고 하는 게 귀찮아서 몇몇 페스티벌은 아예 안 갔어요! 셔틀이 있으면 훨씬 스트레스 덜 받을 것 같고, 많은 사람들이 이용할 것 같아요!']}
+];
+/* 카드 위치는 매 프레임 '목표 위치 쪽으로 부드럽게 따라가는' 방식이라, 새 카드가 중간에 들어와도 끊기거나 튀지 않아요 */
+const rvBox=$('#rvs');let rvT=[],rvN=0,rvCards=[],rvRaf=0,rvLast=0;
+const RV_FIRST=500,RV_GAP=850;      // ms: 첫 카드 등장 시점 · 카드 간격
+const RV_STACK=40,RV_TAU=.24;       // px: 카드 사이 간격 · s: 움직임 부드러움(클수록 느긋)
+function rvLayout(){
+  const H=rvBox.clientHeight;let t=H;
+  for(let i=rvCards.length-1;i>=0;i--){t-=rvCards[i].h;rvCards[i].target=t;t-=RV_STACK}
+}
+function rvLoop(now){
+  const dt=Math.min(.05,(now-rvLast)/1000||.016);rvLast=now;
+  const k=1-Math.exp(-dt/RV_TAU),ko=1-Math.exp(-dt/.28);
+  rvCards.forEach(c=>{
+    c.y+=(c.target-c.y)*k;c.op+=(1-c.op)*ko;
+    c.el.style.transform=`translate3d(${c.x}px,${c.y.toFixed(2)}px,0)`;c.el.style.opacity=c.op.toFixed(3);
+  });
+  rvCards=rvCards.filter(c=>{if(c.y+c.h<-40){c.el.remove();return false}return true});
+  rvRaf=requestAnimationFrame(rvLoop);
+}
+function rvSpawn(){
+  if(rvN>=REDDIT.length)return;
+  const r=REDDIT[rvN],c=document.createElement('div');c.className='rv-c';c.style.setProperty('--ac',r.ac);
+  c.innerHTML='<div class="rv-h"><span class="av"></span><span class="nk"></span><span>· '+r.when+'</span></div>'+r.body.map(()=>'<p></p>').join('');
+  c.querySelector('.nk').textContent=r.nick;$$('p',c).forEach((p,k)=>p.textContent=r.body[k]);
+  rvBox.appendChild(c);
+  const card={el:c,h:c.offsetHeight,x:rvN%2?40:0,y:0,target:0,op:0};
+  rvN++;rvCards.push(card);rvLayout();card.y=card.target+90;   // 새 카드는 목표보다 살짝 아래에서 시작해 위로 떠오름
+}
+function rvStart(){rvStop();rvLast=performance.now();rvRaf=requestAnimationFrame(rvLoop);
+  rvT.push(setTimeout(function f(){rvSpawn();if(rvN<REDDIT.length)rvT.push(setTimeout(f,RV_GAP))},RV_FIRST))}
+function rvStop(){rvT.forEach(clearTimeout);rvT=[]}
+function rvReset(){rvStop();cancelAnimationFrame(rvRaf);rvN=0;rvCards=[];rvBox.innerHTML=''}
 const vbig=$('#vbig'),cap=$('#cap'),who=$('#who');
-const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261121b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
+const vids=CLIPS.map((c,i)=>{const v=document.createElement('video');v.playsInline=true;v.preload=i?'metadata':'auto';v.src=c.src.startsWith('data:')?c.src:c.src+'?v=20261125b'+(i?'':'#t=0.1');v.className=i?'':'on';$('#vwrap').appendChild(v);return v});
 const poster=document.createElement('img');poster.id='vposter';poster.alt='';poster.src=CLIPS[0].poster;$('#vwrap').insertBefore(poster,$('#vwrap').firstChild);
 vbig.classList.add('hasvid');
 let vs=0,raf=0,cueIdx=-1,ci=0;       // vs: 0 대기 · 1 재생 · 2 종료
@@ -584,17 +852,17 @@ function tick(){
 function startVideo(){
   vs=1;vids.forEach(v=>{v.preload='auto'});
   $('[data-id=video]').classList.add('exp');vbig.classList.add('play');vbig.classList.remove('done');
-  who.classList.add('on');showClip(0);
+  who.classList.add('on');showClip(0);rvReset();rvStart();
   vids[0].currentTime=0;vids[0].play().catch(()=>{});
   raf=requestAnimationFrame(tick);
 }
 function endVideo(){
-  vs=2;cancelAnimationFrame(raf);vids.forEach(v=>v.pause());setCue(-1);who.classList.remove('on');
+  vs=2;cancelAnimationFrame(raf);rvStop();vids.forEach(v=>v.pause());setCue(-1);who.classList.remove('on');
   $('#vprog').style.width='100%';
   setTimeout(()=>{if(vs===2){$('[data-id=video]').classList.remove('exp');vbig.classList.remove('play');vbig.classList.add('done');$('.vhint').textContent='→ 다음으로'}},900);
 }
 function resetVideo(){
-  vs=0;cancelAnimationFrame(raf);vids.forEach(v=>{v.pause();v.currentTime=0});showClip(0);who.classList.remove('on');
+  vs=0;cancelAnimationFrame(raf);rvReset();vids.forEach(v=>{v.pause();v.currentTime=0});showClip(0);who.classList.remove('on');
   $('[data-id=video]').classList.remove('exp');vbig.classList.remove('play','done');
   $('.vhint').textContent='→ 키를 누르면 재생돼요';$('#vprog').style.width='0';
 }
@@ -611,8 +879,8 @@ const tgtClear=()=>{tgtT.forEach(clearTimeout);tgtT=[]};
 function resetTarget(){tgtClear();tgt.classList.remove('sp','hx','xp');$$('.cnt',tgt).forEach(e=>e.textContent='0')}
 function startTarget(){
   tgt.classList.add('sp');                 // 페이지에 들어오자마자 회전 시작
-  tgtAt(2750,()=>tgt.classList.add('hx'));
-  tgtAt(3950,showTargetFinal);
+  tgtAt(1800,()=>tgt.classList.add('hx'));
+  tgtAt(2800,showTargetFinal);
 }
 function showTargetFinal(){
   if(tgt.classList.contains('xp'))return;
@@ -625,6 +893,13 @@ function skipTarget(){
   tgt.classList.add('sp','hx');tgtAt(500,showTargetFinal);
 }
 const isTarget=()=>slides[cur].dataset.id==='target';
+const posSec=$('[data-id=position]');const isPos=()=>slides[cur].dataset.id==='position';
+const solSec=$('[data-id=solution]');const isSol=()=>slides[cur].dataset.id==='solution';
+const mkSec=$('[data-id=market]');let mkT=0;const isMkt=()=>slides[cur].dataset.id==='market';
+function mkGo(){   // 시장조사: 큰 숫자가 아래로 내려간 뒤 시장 규모·파급·수요가 차례로 나와요
+  if(mkSec.classList.contains('go'))return;clearTimeout(mkT);mkSec.classList.add('up','go');
+  $$('.ms .cnt',mkSec).forEach((e,i)=>setTimeout(()=>{if(mkSec.classList.contains('go'))count(e,+e.dataset.v,+e.dataset.dec)},1100+i*420));
+}
 
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
@@ -633,8 +908,12 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   $('#bar').style.width=((i+1)/slides.length*100)+'%';
   history.replaceState(null,'','#'+(i+1));
   const id=slides[i].dataset.id;
-  resetVideo();
+  resetVideo();solSec.classList.remove('x2');posSec.classList.remove('x2');
   if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
+  clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
+  if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);
+    setTimeout(()=>{if(isMkt()&&!mkSec.classList.contains('go'))mkSec.classList.add('up')},120);   // 아래에서 올라와 화면을 채운 뒤
+    mkT=setTimeout(mkGo,1500)}                                                             // 다시 아래로 내려가며 지표가 나와요
   clearTimeout(tgtRst);
   if(id==='target'){resetTarget();startTarget()}
   else{tgtClear();tgtRst=setTimeout(resetTarget,700)}   // 사라지는 동안엔 최종 화면을 유지하고, 완전히 사라진 뒤에 초기화
@@ -642,6 +921,8 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
+  if(isMkt()&&!mkSec.classList.contains('go')){mkGo();return}
+  if(isPos()&&!posSec.classList.contains('x2')){posSec.classList.add('x2');return}
   if(isVideo()){
     if(vs===0){startVideo();return}
     if(vs===1){endVideo();return}   // 재생 중 → 은 건너뛰기
@@ -650,6 +931,7 @@ function next(){
 }
 function prev(){
   if(isVideo()&&vs===1){resetVideo();return}
+  if(isPos()&&posSec.classList.contains('x2')){posSec.classList.remove('x2');return}
   show(cur-1);
 }
 addEventListener('keydown',e=>{
