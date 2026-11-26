@@ -30,6 +30,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .chp{display:inline-block;font-size:16px;font-weight:600;color:#33383C;background:#fff;padding:8px 14px;border-radius:999px;letter-spacing:-.16px}
 .mnw .cover{position:absolute;left:-3000px;top:-3000px;width:7920px;height:7080px;display:grid;place-items:center}
 .mnw .cover .chp{font-size:20px;padding:12px 20px}
+/* 표지: 로고 폰트는 --logo-font 한 곳만 바꾸면 돼요 */
+.mnw{--logo-font:"Pretendard","Apple SD Gothic Neo",sans-serif}
+.mnw .cv-logo{position:absolute;left:0;right:0;top:300px;text-align:center;font-family:var(--logo-font);font-size:220px;font-weight:900;line-height:1;letter-spacing:-8px;color:var(--h1)}
+.mnw .cv-logo span{color:var(--blue)}
+.mnw .cv-cp{position:absolute;left:0;right:0;top:580px;text-align:center;font-size:64px;font-weight:700;letter-spacing:-1.9px;line-height:1.3;color:var(--h2)}
+.mnw .cv-team{position:absolute;left:0;right:0;top:820px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.mnw .cv-tn{font-size:20px;font-weight:700;letter-spacing:.5px;color:var(--blue);background:var(--blue-100);padding:8px 18px;border-radius:999px}
+.mnw .cv-team ul{list-style:none;display:flex;gap:36px;font-size:24px;font-weight:600;letter-spacing:-.48px;color:var(--body)}
 .mnw .glowtop{position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:620px;background:radial-gradient(ellipse 62% 100% at 50% 0%,#CFE3FB 0%,rgba(207,227,251,0) 100%);pointer-events:none}
 .mnw .vbig{position:absolute;left:160px;top:412px;width:1600px;height:calc(var(--H,1080px) - var(--oy,0px) - 412px);min-height:548px;border-radius:60px 60px 0 0;overflow:hidden;cursor:pointer;
   
@@ -2391,7 +2399,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <!-- 01 표지 (미정) -->
 <section class="slide on" data-id="cover" data-no="01">
-  <div class="cover chk"><span class="chp rv">COVER SLOT · 표지 미정</span></div>
+  <div class="glowtop"></div>
+  <div class="cv-logo rv">Fan<span>Stay</span></div>
+  <div class="cv-cp rv" style="--i:1">당신의 K-POP 전담 매니저</div>
+  <div class="cv-team rv" style="--i:2">
+    <div class="cv-tn">7PM</div>
+    <ul><li>강민희</li><li>김정윤</li><li>박채연</li><li>최빛</li><li>최선아</li></ul>
+  </div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>01 / 14</span></div>
 </section>
 
