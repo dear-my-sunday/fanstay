@@ -97,34 +97,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw [data-id=kgchart].go .ks-v{opacity:1;transition:opacity .5s ease}
 .mnw [data-id=kgchart].go .v1{transition-delay:1.05s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.35s}
 @media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-v{opacity:1}}
-/* 타겟 고객: 방향키로 하나씩 공개 (소비 카드가 가장 크고 강조) */
-.mnw .dash[data-id=stats] .stp{opacity:0;transform:translateY(24px);transition:opacity .55s var(--ease),transform .55s var(--ease);pointer-events:none}
+/* 타겟 고객: 소비는 자동 등장(세로 막대), 방향키 한 번에 오른쪽 카드 4개 */
+.mnw .dash[data-id=stats] .stp{opacity:0;transform:translateY(24px);transition:opacity .55s var(--ease) var(--dl,0s),transform .55s var(--ease) var(--dl,0s);pointer-events:none}
 .mnw .dash[data-id=stats] .stp.vis{opacity:1;transform:none}
-.mnw .dash[data-id=stats] .st-rows .stp{transform:translateY(16px)}
-.mnw .dash[data-id=stats] .st-rows .stp.vis{transform:none}
-.mnw .dash[data-id=stats] .bar i{width:0}
-.mnw .dash[data-id=stats] .stp.vis .bar i{width:var(--w)}
 .mnw .dash[data-id=stats] .st-hero{border-radius:52px;background:radial-gradient(ellipse 74% 30% at 52% -2%,#1E56A5 0%,rgba(16,50,100,.75) 50%,rgba(16,50,100,0) 100%),radial-gradient(ellipse 42% 24% at 104% 3%,rgba(34,92,170,.9) 0%,rgba(34,92,170,0) 100%),linear-gradient(180deg,rgba(8,32,90,0) 78%,#08205A 86%,#1F4EB5 92%,#477FF4 96.5%,#76B2FE 99%,#A2DFFF 100%),#030A17;padding:48px 56px}
 .mnw .dash[data-id=stats] .st-hero .tag{background:rgba(255,255,255,.18);color:#fff}
 .mnw .dash[data-id=stats] .st-hero .lb{margin-top:22px;font-size:38px;font-weight:700;line-height:1.35;letter-spacing:-.76px;color:#fff}
 .mnw .dash[data-id=stats] .st-hero .lb b{color:#8EC0FF;font-weight:700}
-.mnw .dash[data-id=stats] .st-rows{margin-top:56px;display:flex;flex-direction:column;gap:54px}
-.mnw .dash[data-id=stats] .st-hero .row{margin-top:0;grid-template-columns:1fr;row-gap:12px;position:relative}
-.mnw .dash[data-id=stats] .st-hero .row .n{font-size:24px;font-weight:600;color:rgba(255,255,255,.78)}
-.mnw .dash[data-id=stats] .st-hero .row.on .n{color:#fff;font-weight:700}
-.mnw .dash[data-id=stats] .st-hero .row .bar{height:22px;border-radius:11px;background:rgba(255,255,255,.18);grid-row:3}
-.mnw .dash[data-id=stats] .st-hero .row .bar i{border-radius:11px;background:#fff}
-.mnw .dash[data-id=stats] .st-hero .row .v{position:absolute;right:0;top:-8px;font-size:60px;font-weight:700;letter-spacing:-2px;line-height:1.1;color:#fff}
-.mnw .dash[data-id=stats] .st-hero .row .v small{font-size:22px;color:rgba(255,255,255,.75);margin-left:6px}
-.mnw .dash[data-id=stats] .st-hero .row.on .v{font-size:76px;top:-20px}
+.mnw .dash[data-id=stats] .st-chart{position:absolute;left:56px;right:56px;top:210px;bottom:92px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:28px}
+.mnw .dash[data-id=stats] .st-col{display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;min-height:0}
+.mnw .dash[data-id=stats] .st-col .sv{position:absolute;font-style:normal;left:0;right:0;bottom:100%;display:flex;align-items:baseline;justify-content:center;white-space:nowrap;margin-bottom:14px;font-size:64px;font-weight:700;letter-spacing:-2px;line-height:1.1;color:#fff;font-variant-numeric:tabular-nums;opacity:0;transform:translateY(10px);transition:opacity .5s ease calc(var(--d) + .5s),transform .5s var(--ease) calc(var(--d) + .5s)}
+.mnw .dash[data-id=stats] .st-col .sv small{font-size:20px;font-weight:500;letter-spacing:-.2px;color:rgba(255,255,255,.75);margin-left:6px}
+.mnw .dash[data-id=stats] .st-col.on .sv{font-size:80px}
+.mnw .dash[data-id=stats] .st-col .sb{flex:none;height:250px;display:flex;align-items:flex-end}
+.mnw .dash[data-id=stats] .st-col .sb i{position:relative;display:block;width:100%;height:0;border-radius:22px 22px 8px 8px;background:rgba(255,255,255,.34);transition:height 1.1s var(--ease) var(--d)}
+.mnw .dash[data-id=stats] .st-col.on .sb i{background:#fff}
+.mnw .dash[data-id=stats] .st-hero.vis .st-col .sb i{height:var(--h)}
+.mnw .dash[data-id=stats] .st-hero.vis .st-col .sv{opacity:1;transform:none}
+.mnw .dash[data-id=stats] .st-col .sn{flex:none;margin-top:16px;height:60px;text-align:center;font-size:22px;font-weight:600;line-height:1.35;letter-spacing:-.3px;color:rgba(255,255,255,.78)}
+.mnw .dash[data-id=stats] .st-col.on .sn{color:#fff;font-weight:700}
 .mnw .dash[data-id=stats] .st-hero .ft{color:rgba(255,255,255,.85);bottom:34px;left:56px;right:56px}
 .mnw .dash[data-id=stats] .st-s{width:376px;height:338px;padding:40px 44px}
 .mnw .dash[data-id=stats] .st-s .lb{margin-top:16px;font-size:22px}
-.mnw .dash[data-id=stats] .st-s .big{margin-top:10px;font-size:84px;letter-spacing:-2.6px}
-.mnw .dash[data-id=stats] .st-s .big small{font-size:40px}
-.mnw .dash[data-id=stats] .st-s .ft{left:44px;right:44px;bottom:32px;font-size:17px}
+.mnw .dash[data-id=stats] .st-s .big{position:absolute;left:44px;bottom:36px;margin:0;font-size:104px;letter-spacing:-3.2px;line-height:1}
+.mnw .dash[data-id=stats] .st-s .big small{font-size:46px;margin-left:8px}
 .mnw .dash[data-id=stats] .st-s.soft .big{color:var(--blue)}
-@media (prefers-reduced-motion:reduce){.mnw [data-id=stats] .stp{transition:none}}
+@media (prefers-reduced-motion:reduce){.mnw .dash[data-id=stats] .stp,.mnw .dash[data-id=stats] .st-col .sb i,.mnw .dash[data-id=stats] .st-col .sv{transition:none}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2527,40 +2525,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="ttl rv" style="--i:1">방한 외국인 팬은 파급력 있는 고객이에요</div>
   <div class="hline rv" style="--i:1;top:252px"></div>
 
-  <div class="c st-hero stp" data-s="1" style="left:160px;top:284px;width:800px;height:700px">
+  <div class="c st-hero stp" data-s="0" style="left:160px;top:284px;width:800px;height:700px">
     <span class="tag">소비</span>
     <div class="lb">공연 팬은 평균보다 <b>19~44%</b> 더 써요</div>
-    <div class="st-rows">
-      <div class="row stp" data-s="1"><span class="n">외래관광객 평균</span><div class="bar"><i style="--w:69%;background:rgba(255,255,255,.55)"></i></div><span class="v"><span class="cnt" data-v="245" data-dec="0">0</span><small>만 원</small></span></div>
-      <div class="row stp" data-s="2"><span class="n">BTS 고양 공연</span><div class="bar"><i style="--w:82%"></i></div><span class="v"><span class="cnt" data-v="291" data-dec="0">0</span><small>만 원</small></span></div>
-      <div class="row on stp" data-s="3"><span class="n">BTS 광화문 공연</span><div class="bar"><i style="--w:100%"></i></div><span class="v"><span class="cnt" data-v="353" data-dec="0">0</span><small>만 원</small></span></div>
+    <div class="st-chart">
+      <div class="st-col" style="--h:69%;--d:.2s"><div class="sb"><i><div class="sv"><span class="cnt" data-v="245" data-dec="0" data-d="200">0</span><small>만 원</small></div></i></div><div class="sn">외래관광객<br>평균</div></div>
+      <div class="st-col" style="--h:82%;--d:.55s"><div class="sb"><i><div class="sv"><span class="cnt" data-v="291" data-dec="0" data-d="550">0</span><small>만 원</small></div></i></div><div class="sn">BTS<br>고양 공연</div></div>
+      <div class="st-col on" style="--h:100%;--d:.9s"><div class="sb"><i><div class="sv"><span class="cnt" data-v="353" data-dec="0" data-d="900">0</span><small>만 원</small></div></i></div><div class="sn">BTS<br>광화문 공연</div></div>
     </div>
     <div class="ft">문체부 현장조사 (2026) · 평균은 2026년 1분기 잠정치</div>
   </div>
 
-  <div class="c stp st-s" data-s="4" style="left:984px;top:284px">
+  <div class="c stp st-s" data-s="1" style="left:984px;top:284px;--dl:0s">
     <span class="tag">파급</span>
     <div class="lb">공연 3일간<br>외국인 카드 소비</div>
     <div class="big"><span class="cnt" data-v="38" data-dec="0">0</span><small>배</small></div>
-    <div class="ft">890만 → 3.4억 원<br>고양 대화동 · 공연 3일</div>
   </div>
-  <div class="c stp st-s" data-s="5" style="left:1384px;top:284px">
+  <div class="c stp st-s" data-s="1" style="left:1384px;top:284px;--dl:.08s">
     <span class="tag">반복</span>
     <div class="lb">해외 팬 1인당<br>콘서트 관람</div>
     <div class="big"><span class="cnt" data-v="18.8" data-dec="1">0</span><small>회</small></div>
-    <div class="ft">11회 이상 관람이 약 42%</div>
   </div>
-  <div class="c soft stp st-s" data-s="6" style="left:984px;top:646px">
+  <div class="c soft stp st-s" data-s="1" style="left:984px;top:646px;--dl:.16s">
     <span class="tag">수요</span>
     <div class="lb">공연 여행에서 숙박을<br>계획에 고려해요</div>
     <div class="big"><span class="cnt" data-v="88" data-dec="0">0</span><small>%</small></div>
-    <div class="ft">해외 라이브 음악 팬 13개국<br>(Live Nation)</div>
   </div>
-  <div class="c stp st-s st-pain" data-s="7" style="left:1384px;top:646px">
+  <div class="c stp st-s" data-s="1" style="left:1384px;top:646px;--dl:.24s">
     <span class="tag">불편</span>
     <div class="lb">BTS 부산 공연 전<br>관광불편신고 급증</div>
     <div class="big"><span class="cnt" data-v="3.9" data-dec="1">0</span><small>배</small></div>
-    <div class="ft">4월 48건 → 5월 185건 (관광공사)<br>신고자의 83.8%가 외국인</div>
   </div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
@@ -3081,10 +3075,10 @@ vbig.onclick=()=>next();
 
 /* ===== 통계 숫자 카운트업 ===== */
 function count(el,v,dec){const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100),e=1-Math.pow(1-p,3),x=v*e;el.textContent=dec?x.toFixed(dec):Math.round(x).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)})(s)}
-const stSec=$('[data-id=stats]'),ST_MAX=7;let sst=0;
+const stSec=$('[data-id=stats]'),ST_MAX=1;let sst=0;
 function stSet(n){sst=Math.max(0,Math.min(ST_MAX,n));stSec.dataset.st=sst;
   $$('.stp',stSec).forEach(el=>{const on=+el.dataset.s<=sst,own=$$('.cnt',el).filter(e=>e.closest('.stp')===el);
-    if(on&&!el.classList.contains('vis')){el.classList.add('vis');own.forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
+    if(on&&!el.classList.contains('vis')){el.classList.add('vis');own.forEach(e=>setTimeout(()=>{if(el.classList.contains('vis'))count(e,+e.dataset.v,+e.dataset.dec)},+(e.dataset.d||0)))}
     else if(!on&&el.classList.contains('vis')){el.classList.remove('vis');own.forEach(e=>e.textContent='0')}})}
 const isStats=()=>slides[cur].dataset.id==='stats';
 
@@ -3134,7 +3128,8 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   const id=slides[i].dataset.id;
   resetVideo();solSec.classList.remove('x2');posSec.classList.remove('x2');
   CY.enter(id);kgSet(id);cvVidSet(id);
-  if(id!=='stats'||true){$$('.stp',stSec).forEach(el=>el.classList.remove('vis'));$$('.stp .cnt',stSec).forEach(e=>e.textContent='0');sst=0;stSec.dataset.st=0}
+  $$('.stp',stSec).forEach(el=>el.classList.remove('vis'));$$('.stp .cnt',stSec).forEach(e=>e.textContent='0');sst=0;stSec.dataset.st=0;
+  if(id==='stats')setTimeout(()=>{if(isStats()&&sst===0)stSet(0)},30);
   clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
   if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);
     setTimeout(()=>{if(isMkt()&&!mkSec.classList.contains('go'))mkSec.classList.add('up')},120);   // 아래에서 올라와 화면을 채운 뒤
