@@ -95,7 +95,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .kg-lab em{margin-left:12px;font-style:normal;font-size:16px;font-weight:500;color:rgba(22,31,46,.5);letter-spacing:-.16px}
 /* 인트로 그래프: 일본 곡선을 주인공으로, 미국·대만은 얇은 회색 */
 /* 표지 배경: 루프 영상(응원봉 회전 + 우주). 화면 전체를 덮고 아래쪽 기준으로 맞춰요 */
-.mnw .cv-vwrap{--s:.82;--fb:#000;position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:var(--H,1080px);background:var(--fb);overflow:hidden;pointer-events:none}
+.mnw .cv-vwrap{--s:.9;--fb:#000;position:absolute;left:calc(-1*var(--ox,0px));top:calc(-1*var(--oy,0px));width:var(--W,1920px);height:var(--H,1080px);background:var(--fb);overflow:hidden;pointer-events:none}
 .mnw .cv-vid{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:scale(var(--s));transform-origin:50% 100%}
 .mnw .cv-fd{position:absolute;display:block}
 .mnw .cv-fd.t{left:calc((1 - var(--s)) * 50%);right:calc((1 - var(--s)) * 50%);top:calc((1 - var(--s)) * 100%);height:18%;background:linear-gradient(180deg,var(--fb),rgba(0,0,0,0))}
@@ -104,17 +104,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 /* 인트로 그래프(스케치 반영): 카드 없이 흰 배경 + 큰 곡선 + 숫자 하나 */
 .mnw .ks-svg{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
 .mnw .ks-rule{position:absolute;left:160px;right:160px;top:250px;height:1px;background:rgba(7,25,76,.07)}
-.mnw .ks-lab{position:absolute;left:160px;top:306px;font-size:18px;font-weight:600;line-height:1.2;color:var(--label)}
-.mnw .ks-big{position:absolute;left:160px;top:336px;font-size:200px;font-weight:700;letter-spacing:-7px;line-height:1.05;color:var(--h1);white-space:nowrap}
-.mnw .ks-big .u{font-size:200px}
-.mnw .ks-big .t{margin-left:22px;font-size:56px;font-weight:700;letter-spacing:-1.12px;color:var(--h1)}
+.mnw .ks-lab{position:absolute;left:160px;top:296px;font-size:32px;font-weight:700;line-height:1.3;letter-spacing:-.64px;color:var(--h2)}
+.mnw .ks-big{position:absolute;left:160px;top:350px;font-size:250px;font-weight:700;letter-spacing:-9px;line-height:1.05;color:var(--h1);white-space:nowrap}
+.mnw .ks-big .u{font-size:250px}
+.mnw .ks-big .t{margin-left:26px;font-size:64px;font-weight:700;letter-spacing:-1.28px;color:var(--h1)}
 .mnw .ks-cap{position:absolute;left:160px;top:560px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body)}
-.mnw .ks-ln{fill:none;stroke:url(#ksLine);stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.mnw .ks-ln{fill:none;stroke:url(#ksLine);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.mnw .ks-ln-g{stroke-width:26;opacity:.45}
 .mnw [data-id=kgchart].go .ks-ln{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s cubic-bezier(.45,0,.2,1)}
 .mnw .ks-v{opacity:0}
-.mnw .ks-v line{stroke:rgba(49,130,246,.35);stroke-width:3}
+.mnw .ks-v line{stroke-width:3;stroke-dasharray:1 0}
 .mnw .ks-v .pt{fill:#fff;stroke:var(--blue);stroke-width:6}
-.mnw .ks-v .halo{fill:rgba(49,130,246,.16)}
+.mnw .ks-v .ring{fill:none;stroke:rgba(49,130,246,.38);stroke-width:2}
+.mnw .ks-v .glow{fill:url(#ksGlow)}
+.mnw .ks-v .halo{fill:rgba(49,130,246,.14)}
+.mnw .ks-area{opacity:0}
+.mnw [data-id=kgchart].go .ks-area{opacity:1;transition:opacity 1.6s ease 1.4s}
+.mnw .ks-rip{fill:none;stroke:var(--blue);stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center}
+.mnw [data-id=kgchart].go .ks-rip{animation:ksrip 1.6s ease-out 2.6s 1 both}
+.mnw [data-id=kgchart].go .ks-rip.r2{animation-delay:3.0s}
+@keyframes ksrip{0%{opacity:.55;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
 .mnw [data-id=kgchart].go .ks-v{opacity:1;transition:opacity .5s ease}
 .mnw [data-id=kgchart].go .v1{transition-delay:1.0s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.3s}
 @media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-v{opacity:1}}
@@ -2495,18 +2504,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="glowtop"></div>
   <svg class="ks-svg" viewBox="0 0 1920 1080" aria-hidden="true">
 <defs>
-<linearGradient id="ksLine" x1="0" x2="1"><stop offset="0" stop-color="#8DBBE8"/><stop offset=".55" stop-color="#3182F6"/><stop offset="1" stop-color="#1E6FEF"/></linearGradient>
+<linearGradient id="ksLine" x1="0" x2="1"><stop offset="0" stop-color="#A9CBF0"/><stop offset=".45" stop-color="#5CA4F7"/><stop offset=".8" stop-color="#2F7BF0"/><stop offset="1" stop-color="#1E6FEF"/></linearGradient>
+<linearGradient id="ksArea" gradientUnits="userSpaceOnUse" x1="0" y1="190" x2="0" y2="1080"><stop offset="0" stop-color="#3182F6" stop-opacity=".34"/><stop offset=".45" stop-color="#3182F6" stop-opacity=".12"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient>
+<linearGradient id="ksVl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".6"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient>
+<radialGradient id="ksGlow"><stop offset="0" stop-color="#3182F6" stop-opacity=".30"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></radialGradient>
+<linearGradient id="ksAmG" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1654" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".6" stop-color="#fff"/><stop offset=".84" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="ksAm" maskUnits="userSpaceOnUse" x="-40" y="0" width="2000" height="1080"><rect x="-40" y="0" width="1694" height="1080" fill="url(#ksAmG)"/></mask>
+<filter id="ksBlur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="14"/></filter>
 </defs>
-<path class="ks-ln" d="M-20.0 968.0 C61.2 955.6 227.6 945.2 386.0 906.0 C544.4 866.8 629.2 828.0 772.0 772.0 C914.8 716.0 989.4 686.4 1100.0 626.0 C1210.6 565.6 1241.0 534.0 1325.0 470.0 C1409.0 406.0 1454.2 362.0 1520.0 306.0 C1585.8 250.0 1627.2 213.2 1654.0 190.0" pathLength="1"/>
-<g class="ks-v v1"><line x1="772" y1="772" x2="772" y2="1000"/><circle class="pt" cx="772" cy="772" r="11"/></g><g class="ks-v v2"><line x1="1325" y1="470" x2="1325" y2="1000"/><circle class="pt" cx="1325" cy="470" r="11"/></g><g class="ks-v v3"><circle class="halo" cx="1654" cy="190" r="46"/><circle class="pt" cx="1654" cy="190" r="17"/></g>
+<path class="ks-area" mask="url(#ksAm)" d="M-20.0 962.0 C36.0 958.8 144.0 956.0 260.0 946.0 C376.0 936.0 457.6 927.6 560.0 912.0 C662.4 896.4 684.0 894.4 772.0 868.0 C860.0 841.6 918.4 819.2 1000.0 780.0 C1081.6 740.8 1115.0 717.6 1180.0 672.0 C1245.0 626.4 1261.0 612.4 1325.0 552.0 C1389.0 491.6 1434.2 442.4 1500.0 370.0 C1565.8 297.6 1623.2 226.0 1654.0 190.0 L1654 1080 L-20 1080 Z" fill="url(#ksArea)"/>
+<path class="ks-ln ks-ln-g" d="M-20.0 962.0 C36.0 958.8 144.0 956.0 260.0 946.0 C376.0 936.0 457.6 927.6 560.0 912.0 C662.4 896.4 684.0 894.4 772.0 868.0 C860.0 841.6 918.4 819.2 1000.0 780.0 C1081.6 740.8 1115.0 717.6 1180.0 672.0 C1245.0 626.4 1261.0 612.4 1325.0 552.0 C1389.0 491.6 1434.2 442.4 1500.0 370.0 C1565.8 297.6 1623.2 226.0 1654.0 190.0" pathLength="1" filter="url(#ksBlur)"/>
+<path class="ks-ln" d="M-20.0 962.0 C36.0 958.8 144.0 956.0 260.0 946.0 C376.0 936.0 457.6 927.6 560.0 912.0 C662.4 896.4 684.0 894.4 772.0 868.0 C860.0 841.6 918.4 819.2 1000.0 780.0 C1081.6 740.8 1115.0 717.6 1180.0 672.0 C1245.0 626.4 1261.0 612.4 1325.0 552.0 C1389.0 491.6 1434.2 442.4 1500.0 370.0 C1565.8 297.6 1623.2 226.0 1654.0 190.0" pathLength="1"/>
+<g class="ks-v v1"><rect x="770.5" y="868" width="3" height="142" fill="url(#ksVl)"/><circle class="halo" cx="772" cy="868" r="30"/><circle class="ring" cx="772" cy="868" r="21"/><circle class="pt" cx="772" cy="868" r="12"/></g><g class="ks-v v2"><rect x="1323.5" y="552" width="3" height="458" fill="url(#ksVl)"/><circle class="halo" cx="1325" cy="552" r="30"/><circle class="ring" cx="1325" cy="552" r="21"/><circle class="pt" cx="1325" cy="552" r="12"/></g><g class="ks-v v3"><rect x="1652.5" y="190" width="3" height="820" fill="url(#ksVl)"/><circle class="glow" cx="1654" cy="190" r="120"/><circle class="halo" cx="1654" cy="190" r="52"/><circle class="ring" cx="1654" cy="190" r="34"/><circle class="pt" cx="1654" cy="190" r="19"/></g><circle class="ks-rip r1" cx="1654" cy="190" r="30"/><circle class="ks-rip r2" cx="1654" cy="190" r="30"/>
 </svg>
   <div class="kick rv">Intro</div>
   <div class="ttl rv" style="--i:1">점점 <span class="kg-gt">높아지는</span> K-POP에 대한 관심도</div>
   <div class="ks-rule rv" style="--i:2"></div>
-  <div class="ks-lab rv" style="--i:3">K-컬처 검색 관심도</div>
+  <div class="ks-lab rv" style="--i:3">일본·미국·대만 K-컬처 검색 관심도 전년대비</div>
   <div class="ks-big rv" style="--i:3"><span class="cnt" data-v="67" data-dec="0">0</span><span class="u">%</span><span class="t">상승</span></div>
-  <div class="ks-cap rv" style="--i:4">2026년 1~7월 일본·미국·대만 평균, 전년 대비</div>
-  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 검색 관심도 · 그래프는 추세를 단순화한 그래픽이에요</span><span>02 / 14</span></div>
+  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 2026년 1~7월 평균 · 그래프는 추세를 단순화한 그래픽이에요</span><span>02 / 14</span></div>
 </section>
 
 <!-- 01-2 인트로 · 케이팝이 성장하고 있습니다 (야놀자리서치 브리프 Vol.17 기반) -->
