@@ -101,23 +101,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .cv-fd.t{left:calc((1 - var(--s)) * 50%);right:calc((1 - var(--s)) * 50%);top:calc((1 - var(--s)) * 100%);height:18%;background:linear-gradient(180deg,var(--fb),rgba(0,0,0,0))}
 .mnw .cv-fd.l{left:calc((1 - var(--s)) * 50%);width:13%;top:calc((1 - var(--s)) * 100%);bottom:0;background:linear-gradient(90deg,var(--fb),rgba(0,0,0,0))}
 .mnw .cv-fd.r{right:calc((1 - var(--s)) * 50%);width:13%;top:calc((1 - var(--s)) * 100%);bottom:0;background:linear-gradient(270deg,var(--fb),rgba(0,0,0,0))}
-/* 인트로 그래프(단순화): 큰 숫자 하나 + 오르는 곡선 */
-.mnw .ks-card{left:160px;width:1600px;padding:52px}
-.mnw .ks-big{margin-top:10px;font-size:200px;font-weight:700;letter-spacing:-7px;line-height:1.05;color:var(--blue)}
-.mnw .ks-big .u{font-size:.5em;margin-left:6px}
-.mnw .ks-svg{position:absolute;left:52px;top:208px;width:1496px;height:400px;overflow:visible}
-.mnw .ks-x{font-size:18px;font-weight:500;fill:rgba(23,30,41,.47)}
-.mnw .ks-ln{fill:none;stroke:url(#ksLine);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
-.mnw [data-id=kgchart].go .ks-ln{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s cubic-bezier(.45,0,.2,1)}
-.mnw .ks-area{opacity:0}
-.mnw [data-id=kgchart].go .ks-area{opacity:1;transition:opacity 1.4s ease 1.5s}
-.mnw .ks-dot{opacity:0}
-.mnw .ks-dot line{stroke:rgba(7,25,76,.22);stroke-width:2}
-.mnw .ks-dot .halo{fill:rgba(49,130,246,.16)}
-.mnw .ks-dot .pt{fill:#fff;stroke:var(--blue);stroke-width:5}
-.mnw [data-id=kgchart].go .ks-dot{opacity:1;transition:opacity .5s ease}
-.mnw [data-id=kgchart].go .k1{transition-delay:.35s}.mnw [data-id=kgchart].go .k2{transition-delay:.95s}.mnw [data-id=kgchart].go .k3{transition-delay:1.55s}.mnw [data-id=kgchart].go .k4{transition-delay:2.15s}
-@media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-area,.mnw .ks-dot{opacity:1}}
+/* 인트로 그래프(스케치 반영): 카드 없이 흰 배경 + 큰 곡선 + 숫자 하나 */
+.mnw .ks-svg{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+.mnw .ks-rule{position:absolute;left:160px;right:160px;top:250px;height:1px;background:rgba(7,25,76,.07)}
+.mnw .ks-lab{position:absolute;left:160px;top:306px;font-size:18px;font-weight:600;line-height:1.2;color:var(--label)}
+.mnw .ks-big{position:absolute;left:160px;top:336px;font-size:200px;font-weight:700;letter-spacing:-7px;line-height:1.05;color:var(--h1);white-space:nowrap}
+.mnw .ks-big .u{font-size:200px}
+.mnw .ks-big .t{margin-left:22px;font-size:56px;font-weight:700;letter-spacing:-1.12px;color:var(--h1)}
+.mnw .ks-cap{position:absolute;left:160px;top:560px;font-size:20px;line-height:1.6;letter-spacing:-.4px;color:var(--body)}
+.mnw .ks-ln{fill:none;stroke:url(#ksLine);stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.mnw [data-id=kgchart].go .ks-ln{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s cubic-bezier(.45,0,.2,1)}
+.mnw .ks-v{opacity:0}
+.mnw .ks-v line{stroke:rgba(49,130,246,.35);stroke-width:3}
+.mnw .ks-v .pt{fill:#fff;stroke:var(--blue);stroke-width:6}
+.mnw .ks-v .halo{fill:rgba(49,130,246,.16)}
+.mnw [data-id=kgchart].go .ks-v{opacity:1;transition:opacity .5s ease}
+.mnw [data-id=kgchart].go .v1{transition-delay:1.0s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.3s}
+@media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-v{opacity:1}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2493,25 +2493,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <section class="slide" data-id="kgchart">
   <div class="glowtop"></div>
+  <svg class="ks-svg" viewBox="0 0 1920 1080" aria-hidden="true">
+<defs>
+<linearGradient id="ksLine" x1="0" x2="1"><stop offset="0" stop-color="#8DBBE8"/><stop offset=".55" stop-color="#3182F6"/><stop offset="1" stop-color="#1E6FEF"/></linearGradient>
+</defs>
+<path class="ks-ln" d="M-20.0 968.0 C61.2 955.6 227.6 945.2 386.0 906.0 C544.4 866.8 629.2 828.0 772.0 772.0 C914.8 716.0 989.4 686.4 1100.0 626.0 C1210.6 565.6 1241.0 534.0 1325.0 470.0 C1409.0 406.0 1454.2 362.0 1520.0 306.0 C1585.8 250.0 1627.2 213.2 1654.0 190.0" pathLength="1"/>
+<g class="ks-v v1"><line x1="772" y1="772" x2="772" y2="1000"/><circle class="pt" cx="772" cy="772" r="11"/></g><g class="ks-v v2"><line x1="1325" y1="470" x2="1325" y2="1000"/><circle class="pt" cx="1325" cy="470" r="11"/></g><g class="ks-v v3"><circle class="halo" cx="1654" cy="190" r="46"/><circle class="pt" cx="1654" cy="190" r="17"/></g>
+</svg>
   <div class="kick rv">Intro</div>
   <div class="ttl rv" style="--i:1">점점 <span class="kg-gt">높아지는</span> K-POP에 대한 관심도</div>
-  <div class="sub rv" style="--i:2;top:226px">일본·미국·대만에서 K-컬처 검색이 1년 새 크게 늘었어요</div>
-  <div class="kg-card ks-card rv" style="--i:3">
-    <div class="kg-lab">K-컬처 검색 관심도 <em>전년 대비 · 일본·미국·대만 평균</em></div>
-    <div class="ks-big"><span>+</span><span class="cnt" data-v="67" data-dec="0">0</span><span class="u">%</span></div>
-    <svg class="ks-svg" viewBox="0 0 1496 400" aria-hidden="true">
-<defs>
-<linearGradient id="ksLine" x1="0" x2="1"><stop offset="0" stop-color="#8DBBE8"/><stop offset=".6" stop-color="#2F7BF0"/><stop offset="1" stop-color="#1E6FEF"/></linearGradient>
-<linearGradient id="ksArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182F6" stop-opacity=".28"/><stop offset=".7" stop-color="#3182F6" stop-opacity=".06"/><stop offset="1" stop-color="#3182F6" stop-opacity="0"/></linearGradient>
-<filter id="ksGlow" x="-5%" y="-20%" width="110%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#3182F6" flood-opacity=".35"/></filter>
-</defs>
-<line x1="0" y1="340" x2="1496" y2="340" stroke="#07194C" stroke-opacity=".08"/>
-<path class="ks-area" d="M0.0 312.0 C22.0 310.8 2.0 312.0 110.0 306.0 C218.0 300.0 368.0 304.0 540.0 282.0 C712.0 260.0 802.0 245.6 970.0 196.0 C1138.0 146.4 1298.0 66.4 1380.0 34.0 L1380 340 L0 340 Z" fill="url(#ksArea)"/>
-<path class="ks-ln" d="M0.0 312.0 C22.0 310.8 2.0 312.0 110.0 306.0 C218.0 300.0 368.0 304.0 540.0 282.0 C712.0 260.0 802.0 245.6 970.0 196.0 C1138.0 146.4 1298.0 66.4 1380.0 34.0" pathLength="1" filter="url(#ksGlow)"/>
-<g class="ks-dot k1"><line x1="110" y1="306" x2="110" y2="340"/><circle class="halo" cx="110" cy="306" r="20.7"/><circle class="pt" cx="110" cy="306" r="9"/></g><text class="ks-x" x="110" y="386" text-anchor="middle">’25.01</text><g class="ks-dot k2"><line x1="540" y1="282" x2="540" y2="340"/><circle class="halo" cx="540" cy="282" r="23.0"/><circle class="pt" cx="540" cy="282" r="10"/></g><text class="ks-x" x="540" y="386" text-anchor="middle">’25.07</text><g class="ks-dot k3"><line x1="970" y1="196" x2="970" y2="340"/><circle class="halo" cx="970" cy="196" r="25.3"/><circle class="pt" cx="970" cy="196" r="11"/></g><text class="ks-x" x="970" y="386" text-anchor="middle">’26.01</text><g class="ks-dot k4"><line x1="1380" y1="34" x2="1380" y2="340"/><circle class="halo" cx="1380" cy="34" r="34.5"/><circle class="pt" cx="1380" cy="34" r="15"/></g><text class="ks-x" x="1380" y="386" text-anchor="middle">’26.07</text>
-</svg>
-  </div>
-  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 2026년 1~7월 평균 · 그래프는 추세를 단순화한 그래픽이에요</span><span>02 / 14</span></div>
+  <div class="ks-rule rv" style="--i:2"></div>
+  <div class="ks-lab rv" style="--i:3">K-컬처 검색 관심도</div>
+  <div class="ks-big rv" style="--i:3"><span class="cnt" data-v="67" data-dec="0">0</span><span class="u">%</span><span class="t">상승</span></div>
+  <div class="ks-cap rv" style="--i:4">2026년 1~7월 일본·미국·대만 평균, 전년 대비</div>
+  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 검색 관심도 · 그래프는 추세를 단순화한 그래픽이에요</span><span>02 / 14</span></div>
 </section>
 
 <!-- 01-2 인트로 · 케이팝이 성장하고 있습니다 (야놀자리서치 브리프 Vol.17 기반) -->
