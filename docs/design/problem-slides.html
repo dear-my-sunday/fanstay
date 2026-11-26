@@ -121,11 +121,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .ks-area{opacity:0}
 .mnw [data-id=kgchart].go .ks-area{opacity:1;transition:opacity 1.6s ease 1.4s}
 .mnw .ks-rip{fill:none;stroke:var(--blue);stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center}
-.mnw [data-id=kgchart].go .ks-rip{animation:ksrip 1.6s ease-out 2.6s 1 both}
-.mnw [data-id=kgchart].go .ks-rip.r2{animation-delay:3.0s}
+.mnw [data-id=kgchart].go .ks-rip{animation:ksrip 1.6s ease-out 2.5s 1 forwards}
+.mnw [data-id=kgchart].go .ks-rip.r2{animation-delay:2.9s}
 @keyframes ksrip{0%{opacity:.55;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
 .mnw [data-id=kgchart].go .ks-v{opacity:1;transition:opacity .5s ease}
-.mnw [data-id=kgchart].go .v1{transition-delay:1.0s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.3s}
+.mnw [data-id=kgchart].go .v1{transition-delay:1.05s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.35s}
 @media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-v{opacity:1}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
@@ -2517,11 +2517,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 <g class="ks-v v1"><rect x="770.5" y="868" width="3" height="142" fill="url(#ksVl)"/><circle class="halo" cx="772" cy="868" r="30"/><circle class="ring" cx="772" cy="868" r="21"/><circle class="pt" cx="772" cy="868" r="12"/></g><g class="ks-v v2"><rect x="1323.5" y="552" width="3" height="458" fill="url(#ksVl)"/><circle class="halo" cx="1325" cy="552" r="30"/><circle class="ring" cx="1325" cy="552" r="21"/><circle class="pt" cx="1325" cy="552" r="12"/></g><g class="ks-v v3"><rect x="1652.5" y="190" width="3" height="820" fill="url(#ksVl)"/><circle class="glow" cx="1654" cy="190" r="120"/><circle class="halo" cx="1654" cy="190" r="52"/><circle class="ring" cx="1654" cy="190" r="34"/><circle class="pt" cx="1654" cy="190" r="19"/></g><circle class="ks-rip r1" cx="1654" cy="190" r="30"/><circle class="ks-rip r2" cx="1654" cy="190" r="30"/>
 </svg>
   <div class="kick rv">Intro</div>
-  <div class="ttl rv" style="--i:1">점점 <span class="kg-gt">높아지는</span> K-POP에 대한 관심도</div>
-  <div class="ks-rule rv" style="--i:2"></div>
-  <div class="ks-lab rv" style="--i:3">일본·미국·대만 K-컬처 검색 관심도 전년대비</div>
-  <div class="ks-big rv" style="--i:3"><span class="cnt" data-v="67" data-dec="0">0</span><span class="u">%</span><span class="t">상승</span></div>
-  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 2026년 1~7월 평균 · 그래프는 추세를 단순화한 그래픽이에요</span><span>02 / 14</span></div>
+  <div class="ttl rv" style="--i:0">점점 <span class="kg-gt">높아지는</span> K-POP에 대한 관심도</div>
+  <div class="ks-rule rv" style="--i:0"></div>
+  <div class="ks-lab rv" style="--i:0">일본·미국·대만 K-컬처 검색 관심도 전년대비</div>
+  <div class="ks-big rv" style="--i:0"><span class="cnt" data-v="67" data-dec="0">0</span><span class="u">%</span><span class="t">상승</span></div>
+  <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 2026년 1~7월 평균</span><span>02 / 14</span></div>
 </section>
 
 <!-- 01-2 인트로 · 케이팝이 성장하고 있습니다 (야놀자리서치 브리프 Vol.17 기반) -->
@@ -3154,7 +3154,7 @@ function mkGo(){   // 시장조사: 큰 숫자가 아래로 내려간 뒤 시장
 const kgSec=$('[data-id=kgrow]'),kcSec=$('[data-id=kgchart]');let kgT=0;
 function kgSet(id){clearTimeout(kgT);[kgSec,kcSec].forEach(sec=>{sec.classList.remove('go');$$('.cnt',sec).forEach(e=>e.textContent='0')});
   if(id==='kgrow'||id==='kgchart')kgT=setTimeout(()=>{const cu=slides[cur];if(cu.dataset.id!==id)return;cu.classList.add('go');
-    $$('.cnt',cu).forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))},650)}
+    $$('.cnt',cu).forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))},40)}
 /* 표지 영상: 표지일 때만 재생(다른 장에서는 멈춰서 가볍게) */
 const cvVid=$('.cv-vid');
 function cvVidSet(id){if(!cvVid)return;if(id==='cover'){const pr=cvVid.play();if(pr&&pr.catch)pr.catch(()=>{})}else cvVid.pause()}
