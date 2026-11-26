@@ -97,6 +97,34 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw [data-id=kgchart].go .ks-v{opacity:1;transition:opacity .5s ease}
 .mnw [data-id=kgchart].go .v1{transition-delay:1.05s}.mnw [data-id=kgchart].go .v2{transition-delay:1.7s}.mnw [data-id=kgchart].go .v3{transition-delay:2.35s}
 @media (prefers-reduced-motion:reduce){.mnw .ks-ln{stroke-dashoffset:0}.mnw .ks-v{opacity:1}}
+/* 타겟 고객: 방향키로 하나씩 공개 (소비 카드가 가장 크고 강조) */
+.mnw .dash[data-id=stats] .stp{opacity:0;transform:translateY(24px);transition:opacity .55s var(--ease),transform .55s var(--ease);pointer-events:none}
+.mnw .dash[data-id=stats] .stp.vis{opacity:1;transform:none}
+.mnw .dash[data-id=stats] .st-rows .stp{transform:translateY(16px)}
+.mnw .dash[data-id=stats] .st-rows .stp.vis{transform:none}
+.mnw .dash[data-id=stats] .bar i{width:0}
+.mnw .dash[data-id=stats] .stp.vis .bar i{width:var(--w)}
+.mnw .dash[data-id=stats] .st-hero{border-radius:52px;background:radial-gradient(ellipse 74% 30% at 52% -2%,#1E56A5 0%,rgba(16,50,100,.75) 50%,rgba(16,50,100,0) 100%),radial-gradient(ellipse 42% 24% at 104% 3%,rgba(34,92,170,.9) 0%,rgba(34,92,170,0) 100%),linear-gradient(180deg,rgba(8,32,90,0) 78%,#08205A 86%,#1F4EB5 92%,#477FF4 96.5%,#76B2FE 99%,#A2DFFF 100%),#030A17;padding:48px 56px}
+.mnw .dash[data-id=stats] .st-hero .tag{background:rgba(255,255,255,.18);color:#fff}
+.mnw .dash[data-id=stats] .st-hero .lb{margin-top:22px;font-size:38px;font-weight:700;line-height:1.35;letter-spacing:-.76px;color:#fff}
+.mnw .dash[data-id=stats] .st-hero .lb b{color:#8EC0FF;font-weight:700}
+.mnw .dash[data-id=stats] .st-rows{margin-top:56px;display:flex;flex-direction:column;gap:54px}
+.mnw .dash[data-id=stats] .st-hero .row{margin-top:0;grid-template-columns:1fr;row-gap:12px;position:relative}
+.mnw .dash[data-id=stats] .st-hero .row .n{font-size:24px;font-weight:600;color:rgba(255,255,255,.78)}
+.mnw .dash[data-id=stats] .st-hero .row.on .n{color:#fff;font-weight:700}
+.mnw .dash[data-id=stats] .st-hero .row .bar{height:22px;border-radius:11px;background:rgba(255,255,255,.18);grid-row:3}
+.mnw .dash[data-id=stats] .st-hero .row .bar i{border-radius:11px;background:#fff}
+.mnw .dash[data-id=stats] .st-hero .row .v{position:absolute;right:0;top:-8px;font-size:60px;font-weight:700;letter-spacing:-2px;line-height:1.1;color:#fff}
+.mnw .dash[data-id=stats] .st-hero .row .v small{font-size:22px;color:rgba(255,255,255,.75);margin-left:6px}
+.mnw .dash[data-id=stats] .st-hero .row.on .v{font-size:76px;top:-20px}
+.mnw .dash[data-id=stats] .st-hero .ft{color:rgba(255,255,255,.85);bottom:34px;left:56px;right:56px}
+.mnw .dash[data-id=stats] .st-s{width:376px;height:338px;padding:40px 44px}
+.mnw .dash[data-id=stats] .st-s .lb{margin-top:16px;font-size:22px}
+.mnw .dash[data-id=stats] .st-s .big{margin-top:10px;font-size:84px;letter-spacing:-2.6px}
+.mnw .dash[data-id=stats] .st-s .big small{font-size:40px}
+.mnw .dash[data-id=stats] .st-s .ft{left:44px;right:44px;bottom:32px;font-size:17px}
+.mnw .dash[data-id=stats] .st-s.soft .big{color:var(--blue)}
+@media (prefers-reduced-motion:reduce){.mnw [data-id=stats] .stp{transition:none}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2494,6 +2522,50 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="foot"><span>자료: 야놀자리서치 브리프 Vol.17(2026.09), Google Trends · 예술·엔터테인먼트 2026년 1~7월 평균</span><span>02 / 14</span></div>
 </section>
 
+<section class="slide dash" data-id="stats" data-no="04" data-st="0">
+  <div class="kick rv">타겟 고객</div>
+  <div class="ttl rv" style="--i:1">방한 외국인 팬은 파급력 있는 고객이에요</div>
+  <div class="hline rv" style="--i:1;top:252px"></div>
+
+  <div class="c st-hero stp" data-s="1" style="left:160px;top:284px;width:800px;height:700px">
+    <span class="tag">소비</span>
+    <div class="lb">공연 팬은 평균보다 <b>19~44%</b> 더 써요</div>
+    <div class="st-rows">
+      <div class="row stp" data-s="1"><span class="n">외래관광객 평균</span><div class="bar"><i style="--w:69%;background:rgba(255,255,255,.55)"></i></div><span class="v"><span class="cnt" data-v="245" data-dec="0">0</span><small>만 원</small></span></div>
+      <div class="row stp" data-s="2"><span class="n">BTS 고양 공연</span><div class="bar"><i style="--w:82%"></i></div><span class="v"><span class="cnt" data-v="291" data-dec="0">0</span><small>만 원</small></span></div>
+      <div class="row on stp" data-s="3"><span class="n">BTS 광화문 공연</span><div class="bar"><i style="--w:100%"></i></div><span class="v"><span class="cnt" data-v="353" data-dec="0">0</span><small>만 원</small></span></div>
+    </div>
+    <div class="ft">문체부 현장조사 (2026) · 평균은 2026년 1분기 잠정치</div>
+  </div>
+
+  <div class="c stp st-s" data-s="4" style="left:984px;top:284px">
+    <span class="tag">파급</span>
+    <div class="lb">공연 3일간<br>외국인 카드 소비</div>
+    <div class="big"><span class="cnt" data-v="38" data-dec="0">0</span><small>배</small></div>
+    <div class="ft">890만 → 3.4억 원<br>고양 대화동 · 공연 3일</div>
+  </div>
+  <div class="c stp st-s" data-s="5" style="left:1384px;top:284px">
+    <span class="tag">반복</span>
+    <div class="lb">해외 팬 1인당<br>콘서트 관람</div>
+    <div class="big"><span class="cnt" data-v="18.8" data-dec="1">0</span><small>회</small></div>
+    <div class="ft">11회 이상 관람이 약 42%</div>
+  </div>
+  <div class="c soft stp st-s" data-s="6" style="left:984px;top:646px">
+    <span class="tag">수요</span>
+    <div class="lb">공연 여행에서 숙박을<br>계획에 고려해요</div>
+    <div class="big"><span class="cnt" data-v="88" data-dec="0">0</span><small>%</small></div>
+    <div class="ft">해외 라이브 음악 팬 13개국<br>(Live Nation)</div>
+  </div>
+  <div class="c stp st-s st-pain" data-s="7" style="left:1384px;top:646px">
+    <span class="tag">불편</span>
+    <div class="lb">BTS 부산 공연 전<br>관광불편신고 급증</div>
+    <div class="big"><span class="cnt" data-v="3.9" data-dec="1">0</span><small>배</small></div>
+    <div class="ft">4월 48건 → 5월 185건 (관광공사)<br>신고자의 83.8%가 외국인</div>
+  </div>
+
+  <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
+</section>
+
 <!-- 02 문제 제기 · 인터뷰 영상 -->
 <section class="slide" data-id="video" data-no="02">
   <div class="glowtop"></div>
@@ -2555,54 +2627,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="ev"><div class="el">공연 종료 후 귀가 수단</div><div class="duo"><div class="d"><div class="l">셔틀 대기 가능</div><div class="n">30분+</div></div><div class="d"><div class="l">공항행 택시 요금</div><div class="n">5배</div></div></div><div class="esrc">인스파이어 셔틀(팝가) · MBC (2025.6)</div></div></div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>03 / 14</span></div>
-</section>
-
-<section class="slide dash" data-id="stats" data-no="04">
-  <div class="kick rv">타겟 고객</div>
-  <div class="ttl rv" style="--i:1">방한 외국인 팬은 파급력 있는 고객이에요</div>
-  <div class="hline rv" style="--i:1;top:252px"></div>
-
-  <div class="c rv" style="left:160px;top:284px;width:788px;height:340px;--i:2">
-    <span class="tag">소비</span>
-    <div class="lb">공연 팬은 평균보다 19~44% 더 써요</div>
-    <div class="row" style="margin-top:18px"><span class="n">외래관광객 평균</span><div class="bar"><i style="--w:69%;background:#C9D3E3"></i></div><span class="v"><span class="cnt" data-v="245" data-dec="0">0</span><small>만 원</small></span></div>
-    <div class="row" style="margin-top:14px"><span class="n">BTS 고양 공연</span><div class="bar"><i style="--w:82%"></i></div><span class="v"><span class="cnt" data-v="291" data-dec="0">0</span><small>만 원</small></span></div>
-    <div class="row on" style="margin-top:14px"><span class="n">BTS 광화문 공연</span><div class="bar"><i style="--w:100%"></i></div><span class="v"><span class="cnt" data-v="353" data-dec="0">0</span><small>만 원</small></span></div>
-    <div class="ft">문체부 현장조사 (2026) · 평균은 2026년 1분기 잠정치</div>
-  </div>
-  <div class="c rv" style="left:972px;top:284px;width:394px;height:340px;--i:3">
-    <span class="tag">파급</span>
-    <div class="lb">공연 3일간 외국인 카드 소비</div>
-    <div class="big" style="font-size:88px;margin-top:12px"><span class="cnt" data-v="38" data-dec="0">0</span><small style="font-size:44px">배</small></div>
-    <div class="ft">890만 → 3.4억 원<br>고양 대화동 · 공연 3일</div>
-  </div>
-  <div class="c rv" style="left:1390px;top:284px;width:370px;height:340px;--i:4">
-    <span class="tag">반복</span>
-    <div class="lb">해외 팬 1인당 콘서트 관람</div>
-    <div class="big" style="font-size:88px;margin-top:12px"><span class="cnt" data-v="18.8" data-dec="1">0</span><small style="font-size:44px">회</small></div>
-    <div class="ft">11회 이상 관람이 약 42%</div>
-  </div>
-
-  <div class="c soft rv" style="left:160px;top:648px;width:456px;height:332px;--i:5">
-    <span class="tag">수요</span>
-    <div class="lb">공연 여행에서 숙박을<br>계획에 고려해요</div>
-    <div class="big" style="font-size:76px;margin-top:8px"><span class="cnt" data-v="88" data-dec="0">0</span><small style="font-size:40px">%</small></div>
-    <div class="ft">해외 라이브 음악 팬 13개국 (Live Nation)</div>
-  </div>
-  <div class="c hi rv" style="left:640px;top:648px;width:1120px;height:332px;--i:6">
-    <span class="tag">불편</span>
-    <div class="lb">BTS 부산 공연을 앞두고 관광불편신고가 급증했어요</div>
-    <div style="position:absolute;left:52px;top:132px;display:flex;align-items:flex-end;gap:56px;right:52px">
-      <div class="big" style="margin:0;font-size:112px"><span class="cnt" data-v="3.9" data-dec="1">0</span><small>배</small></div>
-      <div style="flex:1;padding-bottom:14px">
-        <div class="row" style="margin-top:0;grid-template-columns:90px 1fr 90px"><span class="n" style="color:rgba(255,255,255,.85)">4월</span><div class="bar"><i style="--w:26%"></i></div><span class="v" style="color:#fff"><span class="cnt" data-v="48" data-dec="0">0</span><small style="color:rgba(255,255,255,.8)">건</small></span></div>
-        <div class="row" style="grid-template-columns:90px 1fr 90px"><span class="n" style="color:#fff">5월</span><div class="bar"><i style="--w:100%"></i></div><span class="v" style="color:#fff"><span class="cnt" data-v="185" data-dec="0">0</span><small style="color:rgba(255,255,255,.8)">건</small></span></div>
-      </div>
-    </div>
-    <div class="ft">신고자의 83.8%가 외국인, 숙박 관련이 154건 (부산 · 한국관광공사)</div>
-  </div>
-
-  <div class="foot"><span>FanStay · IR-DAY</span><span>04 / 14</span></div>
 </section>
 
 <section class="slide dash" data-id="target" data-no="05">
@@ -3057,7 +3081,12 @@ vbig.onclick=()=>next();
 
 /* ===== 통계 숫자 카운트업 ===== */
 function count(el,v,dec){const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1100),e=1-Math.pow(1-p,3),x=v*e;el.textContent=dec?x.toFixed(dec):Math.round(x).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)})(s)}
-function runStats(){$$('[data-id=stats] .cnt').forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
+const stSec=$('[data-id=stats]'),ST_MAX=7;let sst=0;
+function stSet(n){sst=Math.max(0,Math.min(ST_MAX,n));stSec.dataset.st=sst;
+  $$('.stp',stSec).forEach(el=>{const on=+el.dataset.s<=sst,own=$$('.cnt',el).filter(e=>e.closest('.stp')===el);
+    if(on&&!el.classList.contains('vis')){el.classList.add('vis');own.forEach(e=>count(e,+e.dataset.v,+e.dataset.dec))}
+    else if(!on&&el.classList.contains('vis')){el.classList.remove('vis');own.forEach(e=>e.textContent='0')}})}
+const isStats=()=>slides[cur].dataset.id==='stats';
 
 /* ===== 04 타겟 고객: 카드가 돌다가 중국·일본에서 멈춤(sp) → 확장(hx) → 축소해서 자리로(xp). → 키로 건너뛰기 ===== */
 const tgt=$('[data-id=target]');let tgtT=[],tgtRst=0;
@@ -3105,7 +3134,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   const id=slides[i].dataset.id;
   resetVideo();solSec.classList.remove('x2');posSec.classList.remove('x2');
   CY.enter(id);kgSet(id);cvVidSet(id);
-  if(id==='stats'){$$('[data-id=stats] .cnt').forEach(e=>e.textContent='0');runStats()}
+  if(id!=='stats'||true){$$('.stp',stSec).forEach(el=>el.classList.remove('vis'));$$('.stp .cnt',stSec).forEach(e=>e.textContent='0');sst=0;stSec.dataset.st=0}
   clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
   if(id==='market'){const big=$('.mk-gt .cnt',mkSec);count(big,+big.dataset.v,+big.dataset.dec);
     setTimeout(()=>{if(isMkt()&&!mkSec.classList.contains('go'))mkSec.classList.add('up')},120);   // 아래에서 올라와 화면을 채운 뒤
@@ -3117,6 +3146,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
 const isVideo=()=>slides[cur].dataset.id==='video';
 function next(){
   if(CY.next())return;
+  if(isStats()&&sst<ST_MAX){stSet(sst+1);return}
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
   if(isMkt()&&!mkSec.classList.contains('go')){mkGo();return}
   if(isPos()&&!posSec.classList.contains('x2')){posSec.classList.add('x2');return}
@@ -3128,9 +3158,11 @@ function next(){
 }
 function prev(){
   if(CY.prev())return;
+  if(isStats()&&sst>0){stSet(sst-1);return}
   if(isVideo()&&vs===1){resetVideo();return}
   if(isPos()&&posSec.classList.contains('x2')){posSec.classList.remove('x2');return}
   show(cur-1);
+  if(isStats())stSet(ST_MAX);   // 뒤로 돌아오면 전부 펼친 상태
 }
 addEventListener('keydown',e=>{
   if(/INPUT/.test(document.activeElement.tagName))return;
