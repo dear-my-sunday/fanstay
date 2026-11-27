@@ -209,6 +209,53 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .mkd .vmid small{display:block;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-.17px;color:rgba(255,255,255,.88)}
 .mnw .mkd .vmid b{display:block;margin-top:6px;text-shadow:0 2px 24px rgba(10,40,140,.45);font-size:64px;font-weight:700;letter-spacing:-1.5px;line-height:1}
 @media (prefers-reduced-motion:reduce){.mnw .mkd .vc,.mnw .mkd .vlens{transition:none}}
+/* 문제 제기: 페르소나 카드(3D 카루셀) → 방향키로 확장 */
+.mnw .ps-src{position:absolute;left:160px;right:160px;top:984px;font-size:16px;line-height:1.4;letter-spacing:-.16px;color:var(--cap);text-align:center}
+.mnw .pe .ps-src{text-align:left}
+.mnw .pcw{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
+.mnw .psc{position:absolute;left:var(--l);top:300px;width:400px;height:580px;border-radius:52px;overflow:hidden;z-index:var(--zi);
+  background:linear-gradient(180deg,var(--c1) 0%,var(--c2) 52%,var(--c3) 100%);
+  box-shadow:0 36px 90px rgba(50,80,150,.18),inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.7);
+  transform:perspective(2400px) rotateY(var(--r)) translateZ(var(--z));
+  transition:left .9s var(--snap),top .9s var(--snap),width .9s var(--snap),height .9s var(--snap),transform .9s var(--snap),opacity .5s ease}
+.mnw .slide.on .psc{animation:pcin .9s var(--ease) backwards;animation-delay:calc(.25s + var(--k)*.12s)}
+@keyframes pcin{from{opacity:0;translate:0 70px}}
+.mnw .pf,.mnw .pd{position:absolute;inset:0;transition:opacity .45s ease}
+.mnw .pf{padding:36px 36px 40px;display:flex;flex-direction:column}
+.mnw .pf-top{display:flex;justify-content:space-between;align-items:center}
+.mnw .pf-st{font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ac);background:rgba(255,255,255,.72);padding:9px 16px;border-radius:999px}
+.mnw .pf-flag,.mnw .pd-flag{border-radius:8px;box-shadow:0 0 0 1px rgba(0,0,0,.07),0 6px 16px rgba(25,31,40,.12);display:block}
+.mnw .pf-no{margin-top:12px;font-size:150px;font-weight:700;line-height:1;letter-spacing:-6px;color:var(--ac);opacity:.2}
+.mnw .pf-bt{margin-top:auto}
+.mnw .pf-nm{font-size:60px;font-weight:700;letter-spacing:-1.6px;line-height:1.1;color:var(--h1)}
+.mnw .pf-mt{margin-top:8px;font-size:20px;font-weight:600;letter-spacing:-.2px;color:var(--label)}
+.mnw .pf-ln{margin-top:22px;padding-top:20px;border-top:1px solid rgba(7,25,76,.09);font-size:24px;font-weight:600;line-height:1.42;letter-spacing:-.4px;color:var(--h2)}
+.mnw .pd{opacity:0;pointer-events:none;padding:56px 64px;display:grid;grid-template-columns:520px 1fr;column-gap:72px}
+/* expanded */
+.mnw .pe .psc{left:160px;top:270px;width:1600px;height:704px;transform:none;opacity:0;pointer-events:none}
+.mnw .pe .psc.ex{opacity:1;z-index:5}
+.mnw .pe .psc.ng{transition:opacity .5s ease}
+.mnw .pe .psc .pf{opacity:0}
+.mnw .pe .psc.ex .pd{opacity:1;transition-delay:.5s}
+.mnw .pe .psc.ng.ex .pd{transition-delay:.15s}
+.mnw .pd-h{display:flex;align-items:center;gap:16px}
+.mnw .pd-st{font-size:20px;font-weight:700;letter-spacing:-.2px;color:var(--ac);background:rgba(255,255,255,.75);padding:10px 18px;border-radius:999px}
+.mnw .pd-nm{margin-top:34px;font-size:96px;font-weight:700;letter-spacing:-3px;line-height:1.05;color:var(--h1)}
+.mnw .pd-mt{margin-top:10px;font-size:24px;font-weight:600;letter-spacing:-.3px;color:var(--label)}
+.mnw .pd-ln{margin-top:40px;font-size:38px;font-weight:700;line-height:1.38;letter-spacing:-.8px;color:var(--h1)}
+.mnw .pd-sit{margin-top:22px;font-size:20px;line-height:1.55;letter-spacing:-.3px;color:var(--body)}
+.mnw .pd-r{display:flex;flex-direction:column;min-width:0}
+.mnw .pd-lab{font-size:18px;font-weight:600;color:var(--label)}
+.mnw .pd-pn{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:20px}
+.mnw .pd-pn li{display:flex;align-items:center;gap:20px;font-size:30px;font-weight:600;line-height:1.35;letter-spacing:-.6px;color:var(--h2)}
+.mnw .pd-pn i{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-size:20px;font-weight:700;color:var(--ac)}
+.mnw .pd-ev{margin-top:auto;padding-top:30px;border-top:1px solid rgba(7,25,76,.1);display:flex;align-items:center;gap:40px}
+.mnw .pd-big{flex:none;font-size:130px;font-weight:700;line-height:1;letter-spacing:-5px;color:var(--ac)}
+.mnw .pd-ed b{display:block;font-size:24px;font-weight:700;line-height:1.4;letter-spacing:-.4px;color:var(--h1)}
+.mnw .pd-ed small{display:block;margin-top:6px;font-size:16px;color:var(--label)}
+.mnw .pd-ed p{margin-top:14px;font-size:18px;line-height:1.55;letter-spacing:-.2px;color:var(--body)}
+.mnw .pd-ed em{font-style:normal;font-weight:600;color:var(--label);margin-left:4px}
+@media (prefers-reduced-motion:reduce){.mnw .psc,.mnw .pf,.mnw .pd{transition:none}.mnw .slide.on .psc{animation:none}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2692,6 +2739,112 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
 </section>
 
+<section class="slide dash" data-id="persona" data-no="05">
+  <div class="glowtop"></div>
+  <div class="kick rv">문제 제기</div>
+  <div class="ttl rv" style="--i:1">타겟 고객은 공연 여정마다 막혀요</div>
+  <div class="pcw">
+  <div class="psc" data-i="0" style="--l:115px;--r:-34deg;--z:-90px;--zi:1;--k:0;--c1:#D9EAFD;--c2:#EEF6FF;--c3:#FAFCFF;--ac:#2F73E0">
+    <div class="pf">
+      <div class="pf-top"><span class="pf-st">공연 준비</span><svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div>
+      <div class="pf-no">01</div>
+      <div class="pf-bt"><div class="pf-nm">원</div><div class="pf-mt">중국 · 24세 · 여성</div><div class="pf-ln">공연 날짜는 정했는데,<br>잘 곳이 안 구해져요.</div></div>
+    </div>
+    <div class="pd">
+      <div class="pd-l">
+        <div class="pd-h"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span class="pd-st">공연 준비</span></div>
+        <div class="pd-nm">원</div>
+        <div class="pd-mt">중국 · 24세 · 여성</div>
+        <div class="pd-ln">공연 날짜는 정했는데,<br>잘 곳이 안 구해져요.</div>
+        <div class="pd-sit">공연 일정은 정했고, 한국에서 묵을 숙소를 알아보는 중이에요.</div>
+      </div>
+      <div class="pd-r">
+        <div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>공연장 근처 숙소를 찾기가 어려워요</span></li><li><i>2</i><span>외국인이라 갑작스러운 예약 취소와 위약금이 걱정돼요</span></li><li><i>3</i><span>호스트와 영어로 소통하는 것이 부담돼요</span></li></ul>
+        <div class="pd-ev">
+          <div class="pd-big">71%</div>
+          <div class="pd-ed"><b>공연장 인근 숙소 찾기가 어렵다고 답했어요</b><small>Live Nation, 해외 라이브 음악 팬 13개국 조사</small><p>“에어비앤비 호스트가 영어에 자신이 없을 수 있고, 매일 번역을 부탁하고 싶진 않아요.” <em>Soup_oi · r/kpophelp</em></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="psc" data-i="1" style="--l:545px;--r:-12deg;--z:0px;--zi:3;--k:1;--c1:#E6E2FA;--c2:#F1EFFC;--c3:#FBFAFE;--ac:#6F5FDB">
+    <div class="pf">
+      <div class="pf-top"><span class="pf-st">공연 전</span><svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div>
+      <div class="pf-no">02</div>
+      <div class="pf-bt"><div class="pf-nm">미유</div><div class="pf-mt">일본 · 22세 · 여성</div><div class="pf-ln">같이 온 사람이 없어서,<br>길 찾는 것도 혼자예요.</div></div>
+    </div>
+    <div class="pd">
+      <div class="pd-l">
+        <div class="pd-h"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span class="pd-st">공연 전</span></div>
+        <div class="pd-nm">미유</div>
+        <div class="pd-mt">일본 · 22세 · 여성</div>
+        <div class="pd-ln">같이 온 사람이 없어서,<br>길 찾는 것도 혼자예요.</div>
+        <div class="pd-sit">혼자 한국에 와서 처음 가는 공연장으로 이동하는 중이에요.</div>
+      </div>
+      <div class="pd-r">
+        <div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>함께 즐길 친구 없이 혼자 움직여요</span></li><li><i>2</i><span>환승하다 노선을 헷갈려 30분을 잃어요</span></li><li><i>3</i><span>이동이 번거로워 공연을 포기한 적도 있어요</span></li></ul>
+        <div class="pd-ev">
+          <div class="pd-big">26.6%</div>
+          <div class="pd-ed"><b>국내 K-POP 관람자 중 혼자 관람하는 비율이에요</b><small>2020 K-POP 체험 논문 · 국내 241명 (동성 친구와 48.5%)</small><p>“신도림에서 환승하다 반대 방향 1호선을 타서 30분이 더 걸렸어요.” <em>mountainandsea_ · r/kpophelp</em></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="psc" data-i="2" style="--l:975px;--r:12deg;--z:0px;--zi:3;--k:2;--c1:#D9F2E7;--c2:#EAF8F1;--c3:#F9FDFB;--ac:#23996F">
+    <div class="pf">
+      <div class="pf-top"><span class="pf-st">공연장에서</span><svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div>
+      <div class="pf-no">03</div>
+      <div class="pf-bt"><div class="pf-nm">샤오위</div><div class="pf-mt">중국 · 26세 · 여성</div><div class="pf-ln">공연장 구조가 낯설어서<br>헤맨 적이 많아요.</div></div>
+    </div>
+    <div class="pd">
+      <div class="pd-l">
+        <div class="pd-h"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span class="pd-st">공연장에서</span></div>
+        <div class="pd-nm">샤오위</div>
+        <div class="pd-mt">중국 · 26세 · 여성</div>
+        <div class="pd-ln">공연장 구조가 낯설어서<br>헤맨 적이 많아요.</div>
+        <div class="pd-sit">공연장에 도착했지만 입장 줄과 셔틀 위치를 찾기 어려워요.</div>
+      </div>
+      <div class="pd-r">
+        <div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>안내가 대부분 한국어뿐이에요</span></li><li><i>2</i><span>지도와 안내가 부족해서 직원에게 물어도 몰라요</span></li><li><i>3</i><span>결제는 위챗페이·알리페이를 쓰고 싶어요</span></li></ul>
+        <div class="pd-ev">
+          <div class="pd-big">75분</div>
+          <div class="pd-ed"><b>BTS 부산 공연 지연, 현장 안내 혼선과 한국어 안내</b><small>코리아헤럴드, 2026.6 · 한 공연의 사례</small><p>“직원도 회사가 준 셔틀 안내 지도가 무슨 말인지 모르더라고요.” <em>maybemid · r/kpophelp</em></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="psc" data-i="3" style="--l:1405px;--r:34deg;--z:-90px;--zi:1;--k:3;--c1:#FCE4E8;--c2:#FDF0EE;--c3:#FFFAF8;--ac:#DB5B77">
+    <div class="pf">
+      <div class="pf-top"><span class="pf-st">공연 종료 후</span><svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div>
+      <div class="pf-no">04</div>
+      <div class="pf-bt"><div class="pf-nm">하루카</div><div class="pf-mt">일본 · 27세 · 여성</div><div class="pf-ln">공연은 너무 좋았는데,<br>집에 가는 길은 아찔해요.</div></div>
+    </div>
+    <div class="pd">
+      <div class="pd-l">
+        <div class="pd-h"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span class="pd-st">공연 종료 후</span></div>
+        <div class="pd-nm">하루카</div>
+        <div class="pd-mt">일본 · 27세 · 여성</div>
+        <div class="pd-ln">공연은 너무 좋았는데,<br>집에 가는 길은 아찔해요.</div>
+        <div class="pd-sit">공연이 끝난 밤, 인천 공연장에서 숙소로 돌아가야 해요.</div>
+      </div>
+      <div class="pd-r">
+        <div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>택시가 안 잡히고 줄이 길어요</span></li><li><i>2</i><span>지나가는 택시는 요금을 5배쯤 불러요</span></li><li><i>3</i><span>지하철 막차를 간신히 타요</span></li></ul>
+        <div class="pd-ev">
+          <div class="pd-big">5배</div>
+          <div class="pd-ed"><b>공항행 택시 요금, 셔틀 대기는 30분 이상이었어요</b><small>MBC, 2025.6 · 인스파이어 셔틀</small><p>“카카오택시는 못 잡았고, 지나가는 택시는 요금을 5배쯤 받더라고요.” <em>justwannasaysmth · r/kpophelp</em></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="ps-src">레딧 댓글(r/kpophelp)과 통계를 바탕으로, 타겟(2030 중·일 여성 팬)에 맞춰 구성한 가상 페르소나예요</div>
+  <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
+</section>
+
 <!-- 02 고객 문제 -->
 <section class="slide pb" data-id="problems" data-no="03">
   <div class="kick rv">고객 문제</div>
@@ -3037,6 +3190,14 @@ function kgSet(id){clearTimeout(kgT);kcSec.classList.remove('go');$$('.cnt',kcSe
 /* 표지 영상: 표지일 때만 재생(다른 장에서는 멈춰서 가볍게) */
 const cvVid=$('.cv-vid');
 function cvVidSet(id){if(!cvVid)return;if(id==='cover'){const pr=cvVid.play();if(pr&&pr.catch)pr.catch(()=>{})}else cvVid.pause()}
+/* 문제 제기(페르소나): 카루셀 → 방향키로 하나씩 확장 */
+const persSec=$('[data-id=persona]'),persCards=$$('.psc',persSec);let psi=-1;
+function persSet(n){const prevN=psi;psi=Math.max(-1,Math.min(3,n));
+  const swap=prevN>=0&&psi>=0;
+  persSec.classList.toggle('pe',psi>=0);
+  persCards.forEach((c,i)=>{c.classList.toggle('ng',swap);c.classList.toggle('ex',i===psi)});
+  if(swap)setTimeout(()=>persCards.forEach(c=>c.classList.remove('ng')),700)}
+const isPers=()=>slides[cur].dataset.id==='persona';
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
 function show(i){i=Math.max(0,Math.min(slides.length-1,i));
@@ -3045,7 +3206,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
   history.replaceState(null,'','#'+(i+1));
   const id=slides[i].dataset.id;
   solSec.classList.remove('x2');posSec.classList.remove('x2');
-  CY.enter(id);kgSet(id);cvVidSet(id);
+  CY.enter(id);kgSet(id);cvVidSet(id);persSet(-1);
   $$('.stp',stSec).forEach(el=>el.classList.remove('vis'));$$('.stp .cnt',stSec).forEach(e=>e.textContent='0');sst=0;stSec.dataset.st=0;
   if(id==='stats')setTimeout(()=>{if(isStats()&&sst===0)stSet(0)},30);
   clearTimeout(mkT);mkSec.classList.remove('go','up');$$('[data-id=market] .cnt').forEach(e=>e.textContent='0');
@@ -3056,6 +3217,7 @@ function show(i){i=Math.max(0,Math.min(slides.length-1,i));
 }
 function next(){
   if(CY.next())return;
+  if(isPers()&&psi<3){persSet(psi+1);return}
   if(isStats()&&sst<ST_MAX){stSet(sst+1);return}
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
   if(isTarget()&&!tgt.classList.contains('dm')){tgt.classList.add('dm');$$('.cnt2',tgt).forEach(e=>setTimeout(()=>{if(tgt.classList.contains('dm'))count(e,+e.dataset.v,+e.dataset.dec)},1150));return}
@@ -3065,6 +3227,7 @@ function next(){
 }
 function prev(){
   if(CY.prev())return;
+  if(isPers()&&psi>=0){persSet(psi-1);return}
   if(isTarget()&&tgt.classList.contains('dm')){tgt.classList.remove('dm');$$('.cnt2',tgt).forEach(e=>e.textContent='0');return}
   if(isStats()&&sst>0){stSet(sst-1);return}
   if(isPos()&&posSec.classList.contains('x2')){posSec.classList.remove('x2');return}
