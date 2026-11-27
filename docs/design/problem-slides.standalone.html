@@ -3281,7 +3281,7 @@ function cvVidSet(id){if(!cvVid)return;if(id==='cover'){const pr=cvVid.play();if
 const persSec=$('[data-id=persona]'),persCards=$$('.psc',persSec);let psi=-1,pk=0,pk0=0,persT=[],persIv=0;
 function persPlace(){persCards.forEach((c,i)=>c.dataset.p=(i-pk+4)%4)}
 function persSet(n){psi=Math.max(-1,Math.min(3,n));
-  if(psi>=0){clearInterval(persIv);persIv=0;if(psi===0)pk0=pk}
+  if(psi>=0){clearInterval(persIv);persIv=0;if(psi===0){pk0=0}}
   persSec.classList.toggle('pe',psi>=0);
   persCards.forEach((c,i)=>{const rel=(i-pk0+4)%4;c.style.setProperty('--o',rel-psi);c.classList.toggle('ex',psi>=0&&rel===psi);c.classList.toggle('nx',psi>=0&&rel===psi+1)})}
 function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr');
