@@ -123,6 +123,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .dash[data-id=stats] .st-s .big small{font-size:46px;margin-left:8px}
 .mnw .dash[data-id=stats] .st-s.soft .big{color:var(--blue)}
 @media (prefers-reduced-motion:reduce){.mnw .dash[data-id=stats] .stp,.mnw .dash[data-id=stats] .st-col .sb i,.mnw .dash[data-id=stats] .st-col .sv{transition:none}}
+/* 타겟 고객: 방향키 → 아래에서 흐림+어두운 레이어가 올라오고 그 위에 데이터 2개 */
+.mnw .tgt-dim{position:absolute;left:calc(-1*var(--ox,0px));top:420px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 420px);z-index:4;pointer-events:none;opacity:0;transform:translateY(110%);transition:transform .9s var(--snap),opacity .5s ease;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);background:linear-gradient(180deg,rgba(8,12,24,0) 0%,rgba(8,12,24,.5) 24%,rgba(10,14,28,.9) 68%,rgba(12,14,28,.97) 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 26%);mask-image:linear-gradient(180deg,transparent 0,#000 26%)}
+.mnw .dm.dash .tgt-dim{opacity:1;transform:none}
+.mnw .dash .tgd{z-index:5;opacity:0;transform:translateY(80px);transition:opacity .6s ease,transform .9s var(--snap);pointer-events:none}
+.mnw .dm.dash .tgd{opacity:1;transform:none;transition-delay:.35s}
+.mnw .dm.dash .tgd.dnc{transition-delay:.45s}
+@media (prefers-reduced-motion:reduce){.mnw .tgt-dim,.mnw .dash .tgd{transition:none}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -226,7 +233,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .dash .dseg{fill:none;stroke-width:22;stroke-dasharray:0 352;transition:stroke-dasharray 1.1s var(--ease) .15s}
 .mnw .slide.on .dseg{stroke-dasharray:var(--d) 352}
 .mnw .slide:not(.on) .dseg{transition-duration:0s}
-.mnw .slide[data-id=target]:not(.xp) .dseg{stroke-dasharray:0 352}
+.mnw .slide[data-id=target]:not(.dm) .dseg{stroke-dasharray:0 352}
 .mnw .dash .dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .mnw .dash .dc small{font-size:14px;font-weight:600;line-height:16px;color:var(--label);letter-spacing:-.14px}
 .mnw .dash .dc b{font-size:28px;font-weight:700;line-height:32px;letter-spacing:-.8px;color:var(--h1);font-variant-numeric:tabular-nums}
@@ -316,8 +323,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .dash .late{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease) calc(.8s + var(--i)*100ms),transform .6s var(--ease) calc(.8s + var(--i)*100ms)}
 .mnw .xp.dash .late{opacity:1;transform:none}
 .mnw .slide:not(.on) .late{transition-duration:0s;transition-delay:0s}
-.mnw .slide[data-id=target]:not(.xp) .bar i{width:0}
-.mnw .slide[data-id=target] .bar i{transition-delay:1.1s}
+.mnw .slide[data-id=target]:not(.dm) .bar i{width:0}
+.mnw .slide[data-id=target] .bar i{transition-delay:.7s}
 .mnw .pos .pm{position:absolute;left:160px;top:292px;width:1040px;height:668px;border-radius:52px;background:var(--soft);overflow:hidden}
 .mnw .pos .pl{position:absolute;left:84px;top:28px;width:928px;height:564px}
 .mnw .pos .pmw{z-index:1;position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 270px;transition:transform 1.1s var(--ease);pointer-events:none}
@@ -2570,6 +2577,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="c soft cx" style="--l:656.8px;--t:402.0px;--r:-7.2deg;--hl:120px;--fl:160px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-cn" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-cn"/></svg><span>방한객 1위</span></div><div class="bb"></div><div class="bt"><div class="nm">중국</div><div class="nu">방한객 548만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #39407A -136px, #E5806B 166px, #F8C58B 388px)"><svg viewBox="0 0 288 420"><use href="#lm-cn" width="288" height="420"/></svg></div><div class="fin"><span class="tag">중국 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-cn"/></svg></div><div class="lb" style="margin-top:20px;font-size:26px">2025 방한객 1위</div><div class="big" style="font-size:132px;margin-top:10px"><span class="cnt" data-v="548" data-dec="0">0</span><small style="font-size:56px">만 명</small></div><div class="kv"><div class="k">1인당 지출</div><div class="k">관람·재방문</div><div class="v">글로벌 평균을 웃돌아요</div><div class="v">재방문율 54.3% · 공연 지출 9.2%</div></div></div></div></div>
   <div class="c soft cx" style="--l:975.2px;--t:402.0px;--r:7.2deg;--hl:980px;--fl:972px"><div class="lc"><svg class="lm" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b1" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><svg class="lm b2" viewBox="0 0 288 420" preserveAspectRatio="xMidYMid slice"><use href="#lm-jp" width="288" height="420"/></svg><div class="tr"><svg class="tf" width="44" height="29" viewBox="0 0 90 60"><use href="#f-jp"/></svg><span>방한객 2위</span></div><div class="bb"></div><div class="bt"><div class="nm">일본</div><div class="nu">방한객 365만 명</div></div></div><div class="fcn"><div class="bgl" style="background:linear-gradient(180deg, #86A9E6 -136px, #F4C6D8 234px, #FDE7D0 435px)"><svg viewBox="0 0 288 420"><use href="#lm-jp" width="288" height="420"/></svg></div><div class="fin"><span class="tag">일본 팬</span><div class="fflag"><svg class="flg" width="96" height="64" viewBox="0 0 90 60"><use href="#f-jp"/></svg></div><div class="lb" style="margin-top:20px;font-size:26px">2025 방한객 2위</div><div class="big" style="font-size:132px;margin-top:10px"><span class="cnt" data-v="365" data-dec="0">0</span><small style="font-size:56px">만 명</small></div><div class="kv"><div class="k">서울 체류</div><div class="k">공연 관람</div><div class="v">평균 3.5일 · 재방문율 71.2%</div><div class="v">해외 공연 예매 1위 · 34%</div></div></div></div></div>
   
+  <div class="tgt-dim"></div>
+  <div class="c bars tgd" style="left:160px;top:680px;width:640px;height:300px;padding:30px 48px 0;--i:0">
+    <span class="tag">국가별 방한객 2025</span>
+    <div style="margin-top:14px">
+      <div class="row on"><span class="n">중국</span><div class="bar"><i style="--w:100%;"></i></div><span class="v"><span class="cnt2" data-v="548" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row on"><span class="n">일본</span><div class="bar"><i style="--w:66.6%;"></i></div><span class="v"><span class="cnt2" data-v="365" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">대만</span><div class="bar"><i style="--w:34.5%;background:#C9D3E3"></i></div><span class="v"><span class="cnt2" data-v="189" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">미국</span><div class="bar"><i style="--w:27.0%;background:#C9D3E3"></i></div><span class="v"><span class="cnt2" data-v="148" data-dec="0">0</span><small>만 명</small></span></div>
+      <div class="row"><span class="n">홍콩</span><div class="bar"><i style="--w:11.3%;background:#C9D3E3"></i></div><span class="v"><span class="cnt2" data-v="62" data-dec="0">0</span><small>만 명</small></span></div>
+    </div>
+  </div>
+  <div class="c dnc tgd" style="left:824px;top:680px;width:936px;height:300px;padding:30px 48px 0;--i:1;transition-delay:.45s">
+    <span class="tag">연령대 · 성별 2025</span>
+    <div class="dpair"><div class="dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#3182F6" style="--d:136.3px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:75.1px;stroke-dashoffset:-138.3px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#E3E6EC" style="--d:134.5px;stroke-dashoffset:-215.3px"/></g></svg><div class="dc"><small>여성</small><b>61.2<i>%</i></b></div></div><div class="dt2"><div class="dnm">중국</div><div class="dk">20~30대 여성</div><div class="dv">39.3<small>%</small></div></div></div><div class="dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#3182F6" style="--d:117.6px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:117.6px;stroke-dashoffset:-119.6px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#E3E6EC" style="--d:110.6px;stroke-dashoffset:-239.3px"/></g></svg><div class="dc"><small>여성</small><b>68.0<i>%</i></b></div></div><div class="dt2"><div class="dnm">일본</div><div class="dk">20~30대 여성</div><div class="dv">34.0<small>%</small></div></div></div></div>
+    <div class="dlg"><span><em style="background:#3182F6"></em>20~30대 여성</span><span><em style="background:#A9C8FA"></em>그 외 연령 여성</span><span><em style="background:#E3E6EC"></em>남성</span></div>
+  </div>
+
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
 </section>
 
@@ -3060,7 +3084,7 @@ const isStats=()=>slides[cur].dataset.id==='stats';
 const tgt=$('[data-id=target]');let tgtT=[],tgtRst=0;
 const tgtAt=(ms,f)=>tgtT.push(setTimeout(f,ms));
 const tgtClear=()=>{tgtT.forEach(clearTimeout);tgtT=[]};
-function resetTarget(){tgtClear();tgt.classList.remove('sp','hx','xp');$$('.cnt',tgt).forEach(e=>e.textContent='0')}
+function resetTarget(){tgtClear();tgt.classList.remove('sp','hx','xp','dm');$$('.cnt,.cnt2',tgt).forEach(e=>e.textContent='0')}
 function startTarget(){
   tgt.classList.add('sp');                 // 페이지에 들어오자마자 회전 시작
   tgtAt(1800,()=>tgt.classList.add('hx'));
@@ -3117,6 +3141,7 @@ function next(){
   if(CY.next())return;
   if(isStats()&&sst<ST_MAX){stSet(sst+1);return}
   if(isTarget()&&!tgt.classList.contains('xp')){skipTarget();return}
+  if(isTarget()&&!tgt.classList.contains('dm')){tgt.classList.add('dm');$$('.cnt2',tgt).forEach(e=>setTimeout(()=>{if(tgt.classList.contains('dm'))count(e,+e.dataset.v,+e.dataset.dec)},550));return}
   if(isMkt()&&!mkSec.classList.contains('go')){mkGo();return}
   if(isPos()&&!posSec.classList.contains('x2')){posSec.classList.add('x2');return}
   if(isVideo()){
@@ -3127,6 +3152,7 @@ function next(){
 }
 function prev(){
   if(CY.prev())return;
+  if(isTarget()&&tgt.classList.contains('dm')){tgt.classList.remove('dm');$$('.cnt2',tgt).forEach(e=>e.textContent='0');return}
   if(isStats()&&sst>0){stSet(sst-1);return}
   if(isVideo()&&vs===1){resetVideo();return}
   if(isPos()&&posSec.classList.contains('x2')){posSec.classList.remove('x2');return}
