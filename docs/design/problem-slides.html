@@ -178,22 +178,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 @media (prefers-reduced-motion:reduce){.mnw .tg-dbl,.mnw .tg-dpn,.mnw .tg-dpn>*{transition:none}}
 /* 시장조사: 벤다이어그램 (왼 파급 · 가운데 K-POP · 오른 수요) */
 .mnw .mkd .vn{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
-.mnw .mkd .vc{position:absolute;top:290px;width:720px;height:720px;border-radius:50%;opacity:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.95),inset 0 0 70px rgba(255,255,255,.8),inset 0 -30px 80px rgba(255,255,255,.35),0 40px 100px rgba(70,120,230,.16);transition:opacity .9s ease,transform 1.3s var(--ease)}
-.mnw .mkd .vl{left:350px;background:linear-gradient(135deg,rgba(104,152,238,.78) 0%,rgba(160,192,246,.55) 48%,rgba(222,235,253,.6) 100%);transform:translateX(150px)}
-.mnw .mkd .vr{left:850px;background:linear-gradient(225deg,rgba(150,186,246,.62) 0%,rgba(205,223,251,.5) 50%,rgba(240,246,255,.65) 100%);transform:translateX(-150px)}
+.mnw .mkd .vc{position:absolute;top:280px;width:860px;height:860px;border-radius:50%;opacity:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.95),inset 0 0 70px rgba(255,255,255,.8),inset 0 -30px 80px rgba(255,255,255,.35),0 40px 100px rgba(70,120,230,.16);transition:opacity .9s ease,transform 1.3s var(--ease)}
+.mnw .mkd .vl{left:260px;background:linear-gradient(135deg,rgba(104,152,238,.78) 0%,rgba(160,192,246,.55) 48%,rgba(222,235,253,.6) 100%);transform:translateX(-170px)}
+.mnw .mkd .vr{left:800px;background:linear-gradient(225deg,rgba(150,186,246,.62) 0%,rgba(205,223,251,.5) 50%,rgba(240,246,255,.65) 100%);transform:translateX(170px)}
 .mnw .mkd.go .vc{opacity:1;transform:none;transition-delay:.1s}
-.mnw .mkd .vlens{position:absolute;left:850px;top:290px;width:220px;height:720px;opacity:0;transition:opacity 1s ease .9s;clip-path:circle(360px at -140px 360px)}
-.mnw .mkd .vlens i{position:absolute;inset:0;clip-path:circle(360px at 360px 360px)}
-.mnw .mkd .vlens i::before{content:"";position:absolute;left:-30px;right:-30px;top:60px;bottom:60px;border-radius:50%;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(20,64,184,.92) 0%,rgba(38,92,214,.6) 45%,rgba(60,120,236,.18) 100%);filter:blur(26px)}
+.mnw .mkd.go .vr{transition-delay:.9s}
+.mnw .mkd .vlens{position:absolute;left:800px;top:280px;width:320px;height:860px;opacity:0;transition:opacity 1.2s ease 1.8s;clip-path:circle(430px at -110px 430px)}
+.mnw .mkd .vlens i{position:absolute;inset:0;clip-path:circle(430px at 430px 430px)}
+.mnw .mkd .vlens i::before{content:"";position:absolute;left:-40px;right:-40px;top:70px;bottom:70px;border-radius:50%;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(20,64,184,.92) 0%,rgba(38,92,214,.6) 45%,rgba(60,120,236,.18) 100%);filter:blur(30px)}
+.mnw .mkd.go .vlens i::before{animation:vhum 3.2s ease-in-out 2.6s infinite}
+.mnw .mkd .vlens::after{content:"";position:absolute;left:50%;top:50%;width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:50%;border:2px solid rgba(255,255,255,.75);opacity:0}
+.mnw .mkd.go .vlens::after{animation:vring 3.2s ease-out 2.6s infinite}
+@keyframes vhum{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.14);opacity:1}}
+@keyframes vring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(3.4);opacity:0}}
 .mnw .mkd .vg{position:absolute;background:rgba(255,255,255,.85);opacity:0;transition:opacity 1.2s ease .6s}
 .mnw .mkd.go .vg{opacity:.5}
-.mnw .mkd .vgh{left:120px;top:650px;width:1680px;height:1px}
-.mnw .mkd .vgv{left:960px;top:270px;width:1px;height:760px}
-.mnw .mkd .vgd1,.mnw .mkd .vgd2{left:260px;top:650px;width:1400px;height:1px;transform-origin:50% 50%}
+.mnw .mkd .vgv{left:960px;top:270px;width:1px;height:810px}
+.mnw .mkd .vgd1,.mnw .mkd .vgd2{left:200px;top:710px;width:1520px;height:1px;transform-origin:50% 50%}
 .mnw .mkd .vgd1{transform:rotate(36deg)}.mnw .mkd .vgd2{transform:rotate(-36deg)}
 .mnw .mkd.go .vlens{opacity:1}
-.mnw .mkd .ms.vt{position:absolute;top:490px;width:340px;text-align:left;z-index:3}
-.mnw .mkd .vtl{left:372px}.mnw .mkd .vtr{left:1226px}
+.mnw .mkd .ms.vt{position:absolute;top:520px;width:340px;text-align:left;z-index:3}
+.mnw .mkd .vtl{left:300px}.mnw .mkd .vtr{left:1200px}
+.mnw .mkd.go .vtl.mkr{transition-delay:.45s}.mnw .mkd.go .vtr.mkr{transition-delay:1.25s}.mnw .mkd.go .vmid.mkr{transition-delay:2.1s}
 .mnw .mkd .vt .mh{gap:12px}
 .mnw .mkd .vt .mi,.mnw .mkd .vt .mi svg{width:52px;height:52px}
 .mnw .mkd .vt .mh small{font-size:16px}
@@ -201,10 +207,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .mkd .vt .mn2{margin-top:18px;font-size:150px;letter-spacing:-5px;line-height:1}
 .mnw .mkd .vt .mn2 small{font-size:56px;margin-left:8px}
 .mnw .mkd .vt .mchip{margin-top:14px;font-size:20px;color:var(--h2)}
-.mnw .mkd .vmid{position:absolute;left:850px;top:600px;width:220px;text-align:center;z-index:4;color:#fff}
+.mnw .mkd .vmid{position:absolute;left:800px;top:660px;width:320px;text-align:center;z-index:4;color:#fff}
 .mnw .mkd .vmid small{display:block;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-.17px;color:rgba(255,255,255,.88)}
-.mnw .mkd .vmid b{display:block;margin-top:6px;text-shadow:0 2px 24px rgba(10,40,140,.45);font-size:52px;font-weight:700;letter-spacing:-1.5px;line-height:1}
-.mnw .mkd.go .vmid.mkr{transition-delay:1.2s}
+.mnw .mkd .vmid b{display:block;margin-top:6px;text-shadow:0 2px 24px rgba(10,40,140,.45);font-size:64px;font-weight:700;letter-spacing:-1.5px;line-height:1}
 @media (prefers-reduced-motion:reduce){.mnw .mkd .vc,.mnw .mkd .vlens{transition:none}}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
@@ -2611,16 +2616,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
   <div class="vn">
     <div class="vc vl"></div><div class="vc vr"></div>
-    <i class="vg vgh"></i><i class="vg vgv"></i><i class="vg vgd1"></i><i class="vg vgd2"></i>
+    <i class="vg vgv"></i><i class="vg vgd1"></i><i class="vg vgd2"></i>
     <div class="vlens"><i></i></div>
   </div>
   <div class="ms vt vtl mkr" style="--i:1">
-    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41877)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M8.07288 16.4023C8.07288 15.5739 8.74445 14.9023 9.57288 14.9023H10.9631C11.7916 14.9023 12.4631 15.5739 12.4631 16.4023V21.3048C12.4631 22.1332 11.7916 22.8048 10.9631 22.8048H9.57288C8.74445 22.8048 8.07288 22.1332 8.07288 21.3048V16.4023Z" fill="#A3D6FF"/><path d="M13.3412 12.8901C13.3412 12.0617 14.0128 11.3901 14.8412 11.3901H16.2314C17.0599 11.3901 17.7314 12.0617 17.7314 12.8901V21.3048C17.7314 22.1332 17.0599 22.8048 16.2314 22.8048H14.8412C14.0128 22.8048 13.3412 22.1332 13.3412 21.3048V12.8901Z" fill="#626E76"/><path d="M18.6095 9.37793C18.6095 8.5495 19.2811 7.87793 20.1095 7.87793H21.4998C22.3282 7.87793 22.9998 8.5495 22.9998 9.37793V21.3048C22.9998 22.1332 22.3282 22.8048 21.4998 22.8048H20.1095C19.2811 22.8048 18.6095 22.1332 18.6095 21.3048V9.37793Z" fill="#53A4FF"/><path d="M18.1646 4.01099C18.4774 3.94228 18.7556 4.2206 18.687 4.53345L18.3354 6.13403C18.261 6.47285 17.8415 6.59612 17.5962 6.35083L17.2983 6.052L14.1509 9.20142C13.6365 9.71568 12.8019 9.71568 12.2876 9.20142L11.7739 8.68677C11.6026 8.5155 11.3243 8.51566 11.1528 8.68677L4.74951 15.0911C4.57812 15.2625 4.29988 15.2623 4.12842 15.0911C3.95697 14.9196 3.95697 14.6414 4.12842 14.47L10.5317 8.06665C11.0461 7.55239 11.8797 7.5524 12.394 8.06665L12.9087 8.5813C13.0801 8.75246 13.3584 8.75245 13.5298 8.5813L16.6782 5.43188L16.3481 5.10181C16.1028 4.85651 16.2251 4.437 16.564 4.36255L18.1646 4.01099Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41877" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41877"/></filter></defs></svg></span><div><small>파급</small><b>고양 대화동 공연 3일<br>외국인 방문객</b></div></div>
+    <div class="mh"><div><small>파급</small><b>고양 대화동 공연 3일<br>외국인 방문객</b></div></div>
     <div class="mn2"><span class="cnt" data-v="35" data-dec="0">0</span><small>배</small></div>
     <div class="mchip">1,397명 → 48,581명</div>
   </div>
   <div class="ms vt vtr mkr" style="--i:2">
-    <div class="mh"><span class="mi"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_i_29314_41822)"><rect width="28" height="28" rx="8" fill="#F3F5F7"/><path d="M19.4 7.60474C21.3882 7.60474 23 9.21651 23 11.2047V14.8047C23 16.793 21.3882 18.4047 19.4 18.4047H8.89795L6.35 19.8751C5.75 20.2216 5 19.7884 5 19.0956V11.2047C5 9.21651 6.61177 7.60474 8.6 7.60474H19.4Z" fill="#A3D6FF"/><path d="M11.0245 10.0683C11.1742 9.60761 11.8259 9.60761 11.9756 10.0683L12.1736 10.6777C12.2405 10.8837 12.4325 11.0232 12.6491 11.0232H13.2899C13.7743 11.0232 13.9756 11.643 13.5838 11.9277L13.0654 12.3043C12.8901 12.4317 12.8168 12.6573 12.8838 12.8634L13.0818 13.4728C13.2314 13.9334 12.7042 14.3165 12.3123 14.0318L11.7939 13.6552C11.6187 13.5278 11.3814 13.5278 11.2062 13.6552L10.6877 14.0318C10.2959 14.3165 9.76865 13.9334 9.91832 13.4728L10.1163 12.8634C10.1833 12.6573 10.1099 12.4317 9.9347 12.3043L9.41629 11.9277C9.02444 11.643 9.22583 11.0232 9.71019 11.0232H10.351C10.5676 11.0232 10.7596 10.8837 10.8265 10.6777L11.0245 10.0683Z" fill="#465159"/><path d="M16.3402 5.46614C16.5605 4.84462 17.4395 4.84462 17.6598 5.46614L18.1819 6.93903C18.2809 7.21844 18.5452 7.40517 18.8416 7.40517H20.3925C21.0852 7.40517 21.3571 8.30378 20.7805 8.68778L19.6336 9.45159C19.3667 9.62936 19.2547 9.96579 19.3619 10.2681L19.8241 11.5721C20.0489 12.2065 19.3364 12.7616 18.7763 12.3886L17.388 11.464C17.153 11.3075 16.847 11.3075 16.612 11.464L15.2237 12.3886C14.6636 12.7616 13.9511 12.2064 14.1759 11.5721L14.6381 10.2681C14.7453 9.96579 14.6333 9.62936 14.3664 9.45159L13.2195 8.68778C12.6429 8.30378 12.9148 7.40517 13.6075 7.40517H15.1584C15.4548 7.40517 15.7191 7.21844 15.8181 6.93903L16.3402 5.46614Z" fill="#465159"/><path d="M22.0245 10.0683C22.1742 9.60761 22.8259 9.60761 22.9756 10.0683L23.1736 10.6777C23.2405 10.8837 23.4325 11.0232 23.6491 11.0232H24.2899C24.7743 11.0232 24.9756 11.643 24.5838 11.9277L24.0654 12.3043C23.8901 12.4317 23.8168 12.6573 23.8838 12.8634L24.0818 13.4728C24.2314 13.9334 23.7042 14.3165 23.3123 14.0318L22.7939 13.6552C22.6187 13.5278 22.3814 13.5278 22.2062 13.6552L21.6877 14.0318C21.2959 14.3165 20.7686 13.9334 20.9183 13.4728L21.1163 12.8634C21.1833 12.6573 21.1099 12.4317 20.9347 12.3043L20.4163 11.9277C20.0244 11.643 20.2258 11.0232 20.7102 11.0232H21.351C21.5676 11.0232 21.7596 10.8837 21.8265 10.6777L22.0245 10.0683Z" fill="#465159"/></g><defs><filter id="filter0_i_29314_41822" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix type="matrix" values="0 0 0 0 0.27451 0 0 0 0 0.317647 0 0 0 0 0.34902 0 0 0 0.08 0"/><feBlend mode="normal" in2="shape" result="effect1_innerShadow_29314_41822"/></filter></defs></svg></span><div><small>수요</small><b>공연 원정 경험이 있는<br>아시아 6개 시장 응답자</b></div></div>
+    <div class="mh"><div><small>수요</small><b>공연 원정 경험이 있는<br>아시아 6개 시장 응답자</b></div></div>
     <div class="mn2"><span class="cnt" data-v="65" data-dec="0">0</span><small>%</small></div>
     <div class="mchip">공연 때문에 해외로 떠나요</div>
   </div>
@@ -3160,7 +3165,7 @@ const solSec=$('[data-id=solution]');const isSol=()=>slides[cur].dataset.id==='s
 const mkSec=$('[data-id=market]');let mkT=0;const isMkt=()=>slides[cur].dataset.id==='market';
 function mkGo(){   // 시장조사: 큰 숫자가 아래로 내려간 뒤 시장 규모·파급·수요가 차례로 나와요
   if(mkSec.classList.contains('go'))return;clearTimeout(mkT);mkSec.classList.add('up','go');
-  $$('.ms .cnt',mkSec).forEach((e,i)=>setTimeout(()=>{if(mkSec.classList.contains('go'))count(e,+e.dataset.v,+e.dataset.dec)},500+i*420));
+  $$('.ms .cnt',mkSec).forEach((e,i)=>setTimeout(()=>{if(mkSec.classList.contains('go'))count(e,+e.dataset.v,+e.dataset.dec)},600+i*800));
 }
 
 /* 인트로(케이팝 성장): 넘기자마자 숫자 카운트업 + 곡선이 그려짐 */
