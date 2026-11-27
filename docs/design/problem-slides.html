@@ -340,6 +340,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .slide.on .psc,.mnw .psc{transition:transform .75s var(--snap),opacity .25s ease,filter .75s ease,left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap)}
 .mnw .slide.on.pr .psc[data-p="2"]{opacity:1;z-index:1;filter:blur(7px) brightness(.88);transform:translate3d(840px,0,-640px) rotateY(-40deg) scale(.7)}
 .mnw .slide.on.pe.pr .psc[data-p]{transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),opacity .5s ease}
+
+/* 확장 화면: 가로 사진 + 인물을 왼쪽으로 배치 */
+.mnw .phw,.mnw .phwb{display:none;position:absolute;top:0;height:100%}
+.mnw .phwb{z-index:0}.mnw .phw{z-index:1}
+.mnw .psc .pf{z-index:2}.mnw .psc .pd{z-index:3}.mnw .psc .ph{z-index:1}
+.mnw .pe .psc.ex .pd{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(90deg,rgba(14,18,34,0) 0%,rgba(14,18,34,0) 36%,rgba(14,18,34,.55) 52%,rgba(14,18,34,.86) 66%,rgba(14,18,34,.92) 100%)!important}
+.mnw .pe .psc.ex .phi,.mnw .pe .psc.ex .phb{display:none}
+.mnw .pe .psc.ex .phwb{display:block;left:0;width:100%;object-fit:cover;filter:blur(32px);transform:scale(1.25);opacity:1}
+.mnw .pe .psc.ex .phw{display:block;left:-250px;width:auto;-webkit-mask-image:linear-gradient(90deg,#000 68%,transparent 100%);mask-image:linear-gradient(90deg,#000 68%,transparent 100%)}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2831,7 +2840,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   <div class="rdcs"><div class="rdc L1" style="--ac:#7ec8e3;--j:0"><div class="rdc-h"><span class="av"></span><span class="nk">justwannasaysmth</span><span class="wh">· r/kpophelp</span></div><p>택시가 안 잡히고, 지나가는 택시는 요금을 5배쯤 불러요.</p></div><div class="rdc R1" style="--ac:#8fd3c7;--j:1"><div class="rdc-h"><span class="av"></span><span class="nk">rukki88</span><span class="wh">· r/kpophelp</span></div><p>셔틀 안내가 한국어로만 되어 있어서 외국인은 예약하기 어려워요.</p></div><div class="rdc L2" style="--ac:#a0a0a0;--j:2"><div class="rdc-h"><span class="av"></span><span class="nk">mountainandsea_</span><span class="wh">· r/kpophelp</span></div><p>환승이 귀찮아서 페스티벌을 몇 번이나 포기했어요.</p></div><div class="rdc R2" style="--ac:#e8c3d6;--j:3"><div class="rdc-h"><span class="av"></span><span class="nk">maybemid</span><span class="wh">· r/kpophelp</span></div><p>직원도 셔틀 안내 지도가 무슨 말인지 모르더라고요.</p></div></div>
   <div class="pcw"><div class="pwh">
   <div class="psc" data-i="0" style="--a:-16deg;--o:0;--l:115px;--r:-34deg;--z:-90px;--zi:1;--k:0;--c1:#D9EAFD;--c2:#EEF6FF;--c3:#FAFCFF">
-    <div class="ph"><img class="phi" alt="" src="assets/persona-1.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-1.jpg" onerror="this.remove()"></div>
+    <div class="ph"><img class="phi" alt="" src="assets/persona-1.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-1.jpg" onerror="this.remove()"><img class="phw" alt="" src="assets/persona-wide-1.jpg" onerror="this.remove()"><img class="phwb" alt="" src="assets/persona-wide-1.jpg" onerror="this.remove()"></div>
     <div class="pf">
       <svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
       <div class="pf-bl"></div>
@@ -2860,7 +2869,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
   </div>
   <div class="psc" data-i="1" style="--a:-5deg;--o:1;--l:545px;--r:-12deg;--z:0px;--zi:3;--k:1;--c1:#E6E2FA;--c2:#F1EFFC;--c3:#FBFAFE">
-    <div class="ph"><img class="phi" alt="" src="assets/persona-2.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-2.jpg" onerror="this.remove()"></div>
+    <div class="ph"><img class="phi" alt="" src="assets/persona-2.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-2.jpg" onerror="this.remove()"><img class="phw" alt="" src="assets/persona-wide-2.jpg" onerror="this.remove()"><img class="phwb" alt="" src="assets/persona-wide-2.jpg" onerror="this.remove()"></div>
     <div class="pf">
       <svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
       <div class="pf-bl"></div>
@@ -2889,7 +2898,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
   </div>
   <div class="psc" data-i="2" style="--a:5deg;--o:2;--l:975px;--r:12deg;--z:0px;--zi:3;--k:2;--c1:#D9F2E7;--c2:#EAF8F1;--c3:#F9FDFB">
-    <div class="ph"><img class="phi" alt="" src="assets/persona-3.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-3.jpg" onerror="this.remove()"></div>
+    <div class="ph"><img class="phi" alt="" src="assets/persona-3.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-3.jpg" onerror="this.remove()"><img class="phw" alt="" src="assets/persona-wide-3.jpg" onerror="this.remove()"><img class="phwb" alt="" src="assets/persona-wide-3.jpg" onerror="this.remove()"></div>
     <div class="pf">
       <svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
       <div class="pf-bl"></div>
@@ -2918,7 +2927,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
   </div>
   <div class="psc" data-i="3" style="--a:16deg;--o:3;--l:1405px;--r:34deg;--z:-90px;--zi:1;--k:3;--c1:#FCE4E8;--c2:#FDF0EE;--c3:#FFFAF8">
-    <div class="ph"><img class="phi" alt="" src="assets/persona-4.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-4.jpg" onerror="this.remove()"></div>
+    <div class="ph"><img class="phi" alt="" src="assets/persona-4.jpg" onerror="this.remove()"><img class="phb" alt="" src="assets/persona-4.jpg" onerror="this.remove()"><img class="phw" alt="" src="assets/persona-wide-4.jpg" onerror="this.remove()"><img class="phwb" alt="" src="assets/persona-wide-4.jpg" onerror="this.remove()"></div>
     <div class="pf">
       <svg class="pf-flag" width="48" height="32" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
       <div class="pf-bl"></div>
