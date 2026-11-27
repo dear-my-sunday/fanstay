@@ -125,28 +125,44 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 @media (prefers-reduced-motion:reduce){.mnw .dash[data-id=stats] .stp,.mnw .dash[data-id=stats] .st-col .sb i,.mnw .dash[data-id=stats] .st-col .sv{transition:none}}
 /* 타겟 고객: 방향키 → 포지셔닝과 같은 방식: 블러 레이어 + 어두운 패널이 올라오고 흰 글씨가 바로 얹혀요 */
 .mnw .tg-dbl,.mnw .tg-dpn{position:absolute;left:calc(-1*var(--ox,0px));top:400px;width:var(--W,1920px);height:calc(var(--H,1080px) - var(--oy,0px) - 400px);pointer-events:none;opacity:0;transform:translateY(100%);transition:opacity 1.1s ease,transform 1.7s cubic-bezier(.16,1,.3,1)}
-.mnw .tg-dbl{z-index:4;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 36%);mask-image:linear-gradient(180deg,transparent 0%,#000 36%)}
-.mnw .tg-dpn{z-index:5;color:#fff;background:linear-gradient(180deg,rgba(38,41,90,0) 0%,rgba(18,20,39,.6) 41.3%,#151627 93.8%,#151627 100%)}
+.mnw .tg-dbl{z-index:4;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 30%);mask-image:linear-gradient(180deg,transparent 0%,#000 36%)}
+.mnw .tg-dpn{z-index:5;color:#fff;background:linear-gradient(180deg,rgba(38,41,90,0) 0%,rgba(18,20,39,.78) 20%,rgba(21,22,39,.94) 40%,#151627 66%,#151627 100%)}
 .mnw .dm.dash .tg-dbl,.mnw .dm.dash .tg-dpn{opacity:1;transform:none}
 .mnw .dm.dash .foot,.mnw .dm.dash .foot span{color:rgba(255,255,255,.75);z-index:6}
 .mnw .tg-dpn>*{position:absolute;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .6s var(--ease)}
 .mnw .dm.dash .tg-dpn>*{opacity:1;transform:none;transition-delay:.9s}
 .mnw .dm.dash .tg-dpn>.tg-bars{transition-delay:1.05s}
-.mnw .dm.dash .tg-dpn>.tg-dpair,.mnw .dm.dash .tg-dpn>.tg-leg{transition-delay:1.25s}
+.mnw .dm.dash .tg-dpn>.tg-stwrap{transition-delay:1.25s}
 .mnw .tg-k{font-size:18px;font-weight:600;letter-spacing:-.18px;color:rgba(255,255,255,.8);top:226px;white-space:nowrap}
 .mnw .tg-kl{left:calc(var(--ox,0px) + 160px)}
 .mnw .tg-kr{left:calc(var(--ox,0px) + 964px)}
 .mnw .tg-bars{left:calc(var(--ox,0px) + 160px);top:274px;width:700px;display:flex;flex-direction:column;gap:20px}
 .mnw .tg-row{display:grid;grid-template-columns:70px 1fr 150px;column-gap:22px;align-items:center}
-.mnw .tg-row .n{font-size:24px;font-weight:600;letter-spacing:-.4px;color:rgba(255,255,255,.7)}
+.mnw .tg-row .n{font-size:24px;font-weight:600;letter-spacing:-.4px;color:rgba(255,255,255,.82)}
 .mnw .tg-row.on .n{color:#fff;font-weight:700}
-.mnw .tg-b{height:18px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}
-.mnw .tg-b i{display:block;height:100%;width:0;border-radius:9px;background:rgba(255,255,255,.34);transition:width 1.1s var(--ease) .1s}
+.mnw .tg-b{height:18px;border-radius:9px;background:rgba(255,255,255,.2);overflow:hidden}
+.mnw .tg-b i{display:block;height:100%;width:0;border-radius:9px;background:rgba(255,255,255,.5);transition:width 1.1s var(--ease) .1s}
 .mnw .tg-row.on .tg-b i{background:#fff}
 .mnw .slide[data-id=target].dm .tg-b i{width:var(--w);transition-delay:1.3s}
 .mnw .tg-row .v{font-size:32px;font-weight:700;letter-spacing:-.8px;text-align:right;color:#fff;font-variant-numeric:tabular-nums}
 .mnw .tg-row .v small{font-size:17px;font-weight:500;color:rgba(255,255,255,.7);margin-left:6px}
 .mnw .slide[data-id=target].dm .dseg{transition-delay:1.4s}
+.mnw .tg-k small{margin-left:10px;font-size:15px;font-weight:500;color:rgba(255,255,255,.6)}
+.mnw .tg-stwrap{left:calc(var(--ox,0px) + 964px);top:274px;width:796px;display:flex;flex-direction:column;gap:34px}
+.mnw .tg-sh{display:flex;align-items:flex-end;gap:16px;margin-bottom:14px}
+.mnw .tg-sh .nm{font-size:30px;font-weight:700;letter-spacing:-.6px;line-height:1.1;color:#fff}
+.mnw .tg-sh .fm{font-size:18px;font-weight:600;letter-spacing:-.2px;color:rgba(255,255,255,.8);padding-bottom:3px}
+.mnw .tg-sh .kv2{margin-left:auto;display:flex;align-items:baseline;gap:12px}
+.mnw .tg-sh .kv2 small{font-size:18px;font-weight:600;color:rgba(255,255,255,.8)}
+.mnw .tg-sh .kv2 b{font-size:52px;font-weight:700;letter-spacing:-1.6px;line-height:1;color:#8EC0FF;font-variant-numeric:tabular-nums}
+.mnw .tg-sb{display:flex;height:34px;border-radius:17px;overflow:hidden;background:rgba(255,255,255,.12)}
+.mnw .tg-sb i{display:block;height:100%;width:0;transition:width 1.2s var(--ease) calc(1.35s + var(--dl,0s))}
+.mnw .tg-sb .sga{background:#4D93FF}
+.mnw .tg-sb .sgb{background:#A9C8FA}
+.mnw .tg-sb .sgc{background:rgba(255,255,255,.28)}
+.mnw .slide[data-id=target].dm .tg-sb i{width:var(--w)}
+.mnw .tg-sl{display:flex;margin-top:8px;font-size:16px;font-weight:600;letter-spacing:-.16px;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums}
+.mnw .tg-sl span{display:block;white-space:nowrap}
 .mnw .tg-vl{left:calc(var(--ox,0px) + 906px);top:230px;width:1px;height:330px;background:rgba(255,255,255,.2)}
 .mnw .tg-dpair{left:calc(var(--ox,0px) + 964px);top:274px;width:796px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
 .mnw .tg-dn{display:flex;align-items:center;gap:22px}
@@ -2612,9 +2628,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     <div class="tg-k tg-kl">국가별 방한객 2025</div>
     <div class="tg-bars"><div class="tg-row on"><span class="n">중국</span><div class="tg-b"><i style="--w:100%"></i></div><span class="v"><span class="cnt2" data-v="548" data-dec="0">0</span><small>만 명</small></span></div><div class="tg-row on"><span class="n">일본</span><div class="tg-b"><i style="--w:66.6%"></i></div><span class="v"><span class="cnt2" data-v="365" data-dec="0">0</span><small>만 명</small></span></div><div class="tg-row"><span class="n">대만</span><div class="tg-b"><i style="--w:34.5%"></i></div><span class="v"><span class="cnt2" data-v="189" data-dec="0">0</span><small>만 명</small></span></div><div class="tg-row"><span class="n">미국</span><div class="tg-b"><i style="--w:27.0%"></i></div><span class="v"><span class="cnt2" data-v="148" data-dec="0">0</span><small>만 명</small></span></div><div class="tg-row"><span class="n">홍콩</span><div class="tg-b"><i style="--w:11.3%"></i></div><span class="v"><span class="cnt2" data-v="62" data-dec="0">0</span><small>만 명</small></span></div></div>
     <div class="tg-vl"></div>
-    <div class="tg-k tg-kr">연령대 · 성별 2025</div>
-    <div class="tg-dpair"><div class="tg-dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#4D93FF" style="--d:136.3px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:75.1px;stroke-dashoffset:-138.3px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="rgba(255,255,255,.2)" style="--d:134.5px;stroke-dashoffset:-215.3px"/></g></svg><div class="dc"><small>여성</small><b>61.2<i>%</i></b></div></div><div class="dt2"><div class="dnm">중국</div><div class="dk">20~30대 여성</div><div class="dv">39.3<small>%</small></div></div></div><div class="tg-dn"><div class="dw"><svg viewBox="0 0 140 140" width="148" height="148"><g transform="rotate(-90 70 70)"><circle class="dseg" cx="70" cy="70" r="56" stroke="#4D93FF" style="--d:117.6px;stroke-dashoffset:-0.0px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="#A9C8FA" style="--d:117.6px;stroke-dashoffset:-119.6px"/><circle class="dseg" cx="70" cy="70" r="56" stroke="rgba(255,255,255,.2)" style="--d:110.6px;stroke-dashoffset:-239.3px"/></g></svg><div class="dc"><small>여성</small><b>68.0<i>%</i></b></div></div><div class="dt2"><div class="dnm">일본</div><div class="dk">20~30대 여성</div><div class="dv">34.0<small>%</small></div></div></div></div>
-    <div class="tg-leg"><span><em style="background:#4D93FF"></em>20~30대 여성</span><span><em style="background:#A9C8FA"></em>그 외 연령 여성</span><span><em style="background:rgba(255,255,255,.2)"></em>남성</span></div>
+    <div class="tg-k tg-kr">연령대 · 성별 2025 <small>방한객 중 비중</small></div>
+    <div class="tg-stwrap"><div class="tg-st" style="--dl:0s"><div class="tg-sh"><div class="nm">중국</div><div class="fm">여성 61.2%</div><div class="kv2"><small>20~30대 여성</small><b><span class="cnt2" data-v="39.3" data-dec="1">0</span>%</b></div></div><div class="tg-sb"><i class="sga" style="--w:39.3%"></i><i class="sgb" style="--w:21.9%"></i><i class="sgc" style="--w:38.8%"></i></div><div class="tg-sl"><span style="width:39.3%">20~30대 여성 39.3%</span><span style="width:21.9%">그 외 여성 21.9%</span><span style="width:38.8%">남성 38.8%</span></div></div><div class="tg-st" style="--dl:.12s"><div class="tg-sh"><div class="nm">일본</div><div class="fm">여성 68.0%</div><div class="kv2"><small>20~30대 여성</small><b><span class="cnt2" data-v="34.0" data-dec="1">0</span>%</b></div></div><div class="tg-sb"><i class="sga" style="--w:34.0%"></i><i class="sgb" style="--w:34.0%"></i><i class="sgc" style="--w:32.0%"></i></div><div class="tg-sl"><span style="width:34.0%">20~30대 여성 34.0%</span><span style="width:34.0%">그 외 여성 34.0%</span><span style="width:32.0%">남성 32.0%</span></div></div></div>
   </div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
