@@ -228,7 +228,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pf-bl{position:absolute;left:0;right:0;bottom:0;height:52%;background:linear-gradient(180deg,rgba(14,18,34,0) 0%,rgba(14,18,34,.14) 25%,rgba(14,18,34,.42) 58%,rgba(14,18,34,.72) 100%)}
 .mnw .phb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;filter:blur(18px);transform:scale(1.12);transform-origin:50% 100%;
   -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 48%,rgba(0,0,0,.45) 64%,#000 88%);mask-image:linear-gradient(180deg,transparent 0%,transparent 48%,rgba(0,0,0,.45) 64%,#000 88%);transition:opacity .45s ease}
-.mnw .pe .psc.ex .phb{opacity:0}
 .mnw .pf-bt{position:absolute;left:0;right:0;bottom:0;padding:0 34px 38px;color:#fff}
 .mnw .pf-nm,.mnw .pd-nm{display:flex;align-items:baseline;gap:12px}
 .mnw .pf-nm b{font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1.1}
@@ -238,9 +237,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 /* 확장: 사진 위에 어두운 블러 레이어 + 흰 글씨 */
 .mnw .pd{opacity:0;pointer-events:none;padding:56px 64px;display:grid;grid-template-columns:480px 1fr;column-gap:72px;color:#fff;
   -webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);background:linear-gradient(180deg,rgba(14,18,34,.5) 0%,rgba(14,18,34,.72) 100%)}
-.mnw .pe .psc.ex .pf{opacity:0}
-.mnw .pe .psc.ex .pd{opacity:1;transition-delay:.5s}
-.mnw .pe .psc.ng.ex .pd{transition-delay:.15s}
 .mnw .pd-nm{margin-top:32px}
 .mnw .pd-nm b{font-size:104px;font-weight:700;letter-spacing:-2px;line-height:1.05}
 .mnw .pd-nm i{font-size:28px}
@@ -275,8 +271,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pe .psc{left:calc(-800px + var(--o)*1536px);top:-2730px;width:1500px;height:704px;margin:0;transform:none;z-index:2;opacity:0;pointer-events:none}
 .mnw .slide.on.pe .psc.nx{opacity:1;transition-delay:0s}
 .mnw .slide.on.pe .psc.ex{opacity:1;z-index:5;transition-delay:0s}
-.mnw .pe .psc.nx .pf{opacity:1}
-.mnw .pe .psc.nx .pd{opacity:0}
 @media (prefers-reduced-motion:reduce){.mnw .psc,.mnw .pf,.mnw .pd{transition:none}.mnw .slide.on .psc{animation:none}}
 
 /* === 페르소나 v3: 3D 코버플로우 회전 + 좌 사진 / 우 텍스트(딤) 확장 === */
@@ -300,12 +294,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .slide.on.pe.pr .psc[data-p],.mnw .slide.on.pe.pr .psc[data-p="2"]{transform:none;filter:none;opacity:0;z-index:2}
 .mnw .slide.on.pe.pr .psc[data-p].nx,.mnw .slide.on.pe.pr .psc[data-p="2"].nx{opacity:1;z-index:3}
 .mnw .slide.on.pe.pr .psc[data-p].ex,.mnw .slide.on.pe.pr .psc[data-p="2"].ex{opacity:1;z-index:5}
-.mnw .pe .psc.ex .phi{width:62%;transform:none;right:auto;-webkit-mask-image:linear-gradient(90deg,#000 60%,transparent 100%);mask-image:linear-gradient(90deg,#000 60%,transparent 100%);object-position:50% 22%}
-.mnw .pe .psc.ex .phb{opacity:1;filter:blur(30px);transform:scale(1.2);transform-origin:50% 40%;object-position:50% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 34%,#000 62%);mask-image:linear-gradient(90deg,transparent 0%,transparent 34%,#000 62%)}
-.mnw .pe .psc.ex{background:#151627}
-.mnw .pe .psc.ex .pd{-webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(90deg,rgba(14,18,34,0) 0%,rgba(14,18,34,.35) 30%,rgba(14,18,34,.8) 52%,rgba(14,18,34,.9) 100%);
-  display:flex;flex-direction:column;justify-content:center;gap:30px;padding:30px 64px 30px 700px}
-.mnw .pe .psc.ex .pd-l,.mnw .pe .psc.ex .pd-r{min-width:0}
 .mnw .pd-flag{width:56px;height:37px}
 .mnw .pe .psc .pd-nm{margin-top:12px}
 .mnw .pe .psc .pd-nm b{font-size:76px}
@@ -342,13 +330,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .slide.on.pe.pr .psc[data-p]{transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),opacity .5s ease}
 
 /* 확장 화면: 가로 사진 + 인물을 왼쪽으로 배치 */
-.mnw .phw,.mnw .phwb{display:none;position:absolute;top:0;height:100%}
+.mnw .phw,.mnw .phwb{display:block;position:absolute;top:0;height:100%}
 .mnw .phwb{z-index:0}.mnw .phw{z-index:1}
 .mnw .psc .pf{z-index:2}.mnw .psc .pd{z-index:3}.mnw .psc .ph{z-index:1}
-.mnw .pe .psc.ex .pd{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:linear-gradient(90deg,rgba(14,18,34,0) 0%,rgba(14,18,34,0) 36%,rgba(14,18,34,.55) 52%,rgba(14,18,34,.86) 66%,rgba(14,18,34,.92) 100%)!important}
-.mnw .pe .psc.ex .phi,.mnw .pe .psc.ex .phb{display:none}
-.mnw .pe .psc.ex .phwb{display:block;left:0;width:100%;object-fit:cover;filter:blur(32px);transform:scale(1.25);opacity:1}
-.mnw .pe .psc.ex .phw{display:block;left:-250px;width:auto;-webkit-mask-image:linear-gradient(90deg,#000 68%,transparent 100%);mask-image:linear-gradient(90deg,#000 68%,transparent 100%)}
+
+/* === 페르소나 v5: 확장 상태를 모든 카드가 똑같이 → 전환 중 사진이 깨지지 않음 / 전체 딤 / 좌하단 신상 / 인용문 === */
+.mnw .phw,.mnw .phwb{opacity:0;transition:opacity .6s ease}
+.mnw .phi,.mnw .phb{transition:opacity .6s ease}
+.mnw .phwb{left:0;width:100%;object-fit:cover;filter:blur(32px);transform:scale(1.25)}
+.mnw .phw{left:-250px;width:auto;-webkit-mask-image:linear-gradient(90deg,#000 68%,transparent 100%);mask-image:linear-gradient(90deg,#000 68%,transparent 100%)}
+.mnw .pe .psc{background:#151627}
+.mnw .pe .psc .phi,.mnw .pe .psc .phb{opacity:0}
+.mnw .pe .psc .phw,.mnw .pe .psc .phwb{opacity:1}
+.mnw .pe .psc .pf{opacity:0}
+.mnw .pe .psc .pd{opacity:1;transition-delay:.45s;-webkit-backdrop-filter:none;backdrop-filter:none;
+  background:linear-gradient(0deg,rgba(8,10,22,.66) 0%,rgba(8,10,22,.2) 34%,rgba(8,10,22,0) 56%),linear-gradient(90deg,rgba(12,16,32,.42) 0%,rgba(12,16,32,.46) 36%,rgba(14,18,34,.8) 54%,rgba(14,18,34,.92) 100%);
+  display:flex;flex-direction:column;justify-content:center;gap:34px;padding:30px 64px 30px 700px;right:auto;width:1500px}
+.mnw .pe .psc .pd-l{display:contents}
+.mnw .pe .psc .pd-id{position:absolute;left:64px;bottom:50px;display:flex;flex-direction:column;align-items:flex-start;text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.mnw .pe .psc .pd-id .pd-flag{width:56px;height:37px}
+.mnw .pe .psc .pd-id .pd-nm{margin-top:14px}
+.mnw .pe .psc .pd-id .pd-mt{margin-top:6px;font-size:22px;color:rgba(255,255,255,.88)}
+.mnw .pe .psc .pd-ln{margin:0;font-size:38px;line-height:1.38}
+.mnw .pe .psc .pd-ln::before{content:"\201C";margin-right:5px;color:rgba(255,255,255,.65)}
+.mnw .pe .psc .pd-ln::after{content:"\201D";margin-left:5px;color:rgba(255,255,255,.65)}
+.mnw .pe .psc .pd-pn li{font-size:28px}
+.mnw .slide.on.pe.pr .psc[data-p].pv{left:calc(160px - 1710px);transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),opacity 0s linear .62s}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2852,9 +2859,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
     <div class="pd">
       <div class="pd-l">
-        <svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
+        <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
         <div class="pd-nm"><b>李雯</b><i>| 리원</i></div>
-        <div class="pd-mt">중국 · 24세 · 여성</div>
+        <div class="pd-mt">중국 · 24세 · 여성</div></div>
         <div class="pd-ln">공연 날짜는 정했는데,<br>잘 곳이 안 구해져요.</div>
         <div class="pd-sit">공연 일정은 정했고, 한국에서 묵을 숙소를 알아보는 중이에요.</div>
       </div>
@@ -2881,9 +2888,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
     <div class="pd">
       <div class="pd-l">
-        <svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
+        <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
         <div class="pd-nm"><b>美優</b><i>| 미유</i></div>
-        <div class="pd-mt">일본 · 22세 · 여성</div>
+        <div class="pd-mt">일본 · 22세 · 여성</div></div>
         <div class="pd-ln">같이 온 사람이 없어서,<br>길 찾는 것도 혼자예요.</div>
         <div class="pd-sit">혼자 한국에 와서 처음 가는 공연장으로 이동하는 중이에요.</div>
       </div>
@@ -2910,9 +2917,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
     <div class="pd">
       <div class="pd-l">
-        <svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
+        <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
         <div class="pd-nm"><b>小雨</b><i>| 샤오위</i></div>
-        <div class="pd-mt">중국 · 26세 · 여성</div>
+        <div class="pd-mt">중국 · 26세 · 여성</div></div>
         <div class="pd-ln">공연장 구조가 낯설어서<br>헤맨 적이 많아요.</div>
         <div class="pd-sit">공연장에 도착했지만 입장 줄과 셔틀 위치를 찾기 어려워요.</div>
       </div>
@@ -2939,9 +2946,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
     <div class="pd">
       <div class="pd-l">
-        <svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
+        <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
         <div class="pd-nm"><b>遥</b><i>| 하루카</i></div>
-        <div class="pd-mt">일본 · 27세 · 여성</div>
+        <div class="pd-mt">일본 · 27세 · 여성</div></div>
         <div class="pd-ln">공연은 너무 좋았는데,<br>집에 가는 길은 아찔해요.</div>
         <div class="pd-sit">공연이 끝난 밤, 인천 공연장에서 숙소로 돌아가야 해요.</div>
       </div>
@@ -3311,7 +3318,7 @@ function persPlace(){persCards.forEach((c,i)=>c.dataset.p=(i-pk+4)%4)}
 function persSet(n){psi=Math.max(-1,Math.min(3,n));
   if(psi>=0){clearInterval(persIv);persIv=0;if(psi===0){pk0=0}}
   persSec.classList.toggle('pe',psi>=0);
-  persCards.forEach((c,i)=>{const rel=(i-pk0+4)%4;c.style.setProperty('--o',rel-psi);c.classList.toggle('ex',psi>=0&&rel===psi);c.classList.toggle('nx',psi>=0&&rel===psi+1)})}
+  persCards.forEach((c,i)=>{const rel=(i-pk0+4)%4;c.style.setProperty('--o',rel-psi);c.classList.toggle('ex',psi>=0&&rel===psi);c.classList.toggle('nx',psi>=0&&rel===psi+1);c.classList.toggle('pv',psi>=0&&rel===psi-1)})}
 function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr');
   if(!on)return;
   persT.push(setTimeout(()=>{persSec.classList.add('pr')},3550));
