@@ -380,6 +380,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .slide.on.dly{transition:opacity .4s ease .16s}
 .mnw .slide[data-id=persona].on{transition:opacity .4s ease .16s}
 .mnw .pd-ln,.mnw .pf-ln{word-break:keep-all;overflow-wrap:break-word}
+/* === 고객 대안 · 시장 규모(TAM) === */
+.mnw .alt .alr{position:absolute;left:160px;top:292px;width:1600px;display:grid;grid-template-columns:repeat(4,1fr);column-gap:24px}
+.mnw .alc{height:560px;border-radius:52px;background:var(--soft);padding:40px 36px 36px;display:flex;flex-direction:column}
+.mnw .al-id{display:flex;align-items:center;gap:10px;font-size:20px;color:var(--h2)}
+.mnw .al-id .alf{border-radius:5px;flex:none}
+.mnw .al-id b{font-size:24px;font-weight:700;letter-spacing:-.4px;color:var(--h1)}
+.mnw .al-id i{font-style:normal;font-size:18px;font-weight:500;color:var(--label)}
+.mnw .al-tag{align-self:flex-start;margin-top:22px;padding:6px 14px;border-radius:999px;background:var(--blue-100);color:var(--blue);font-size:18px;font-weight:600}
+.mnw .al-pb{margin-top:16px;font-size:28px;font-weight:700;line-height:1.36;letter-spacing:-.56px;color:var(--h1);min-height:116px}
+.mnw .al-blk{margin-top:26px;border-top:1px solid rgba(7,25,76,.07);padding-top:22px}
+.mnw .al-blk small{display:block;font-size:16px;font-weight:600;color:var(--label);margin-bottom:8px}
+.mnw .al-blk b{font-size:22px;font-weight:700;letter-spacing:-.3px;color:var(--h2)}
+.mnw .al-blk p{font-size:18px;line-height:1.55;letter-spacing:-.3px;color:var(--body)}
+.mnw .al-lm{margin-top:20px}
+.mnw .alb{position:absolute;left:160px;right:160px;top:884px;display:flex;align-items:baseline;gap:20px}
+.mnw .alb b{font-size:28px;font-weight:700;letter-spacing:-.56px;color:var(--h1)}
+.mnw .alb span{font-size:22px;letter-spacing:-.3px;color:var(--body)}
+
+.mnw .tam .tmw{position:absolute;left:160px;top:292px;width:1600px;display:flex;flex-direction:column;gap:20px;align-items:center}
+.mnw .tmr{display:grid;grid-template-columns:300px 1fr 1fr;column-gap:24px;align-items:center;height:140px;padding:20px 48px 18px;border-radius:44px;background:var(--soft);position:relative}
+.mnw .tm0{width:1600px;background:#F4F6FA}
+.mnw .tm1{width:1380px;background:#EDF2FB}
+.mnw .tm2{width:1160px;background:#E5EDFA}
+.mnw .tm3{width:940px;background:var(--blue);color:#fff;padding:20px 40px 18px}
+.mnw .tm-n{display:flex;flex-direction:column;gap:6px}
+.mnw .tm-n em{font-style:normal;align-self:flex-start;font-size:18px;font-weight:700;letter-spacing:.2px;color:var(--blue)}
+.mnw .tm-n b{font-size:24px;font-weight:700;letter-spacing:-.4px;color:var(--h1)}
+.mnw .tm-v small{display:block;font-size:16px;font-weight:600;color:var(--label);margin-bottom:2px}
+.mnw .tm-v strong{font-size:44px;font-weight:700;letter-spacing:-1.3px;color:var(--h1);white-space:nowrap}
+.mnw .tm-v:last-of-type strong{font-size:32px;letter-spacing:-.9px}
+.mnw .tm-e{grid-column:1/-1;margin-top:8px;font-size:16px;color:var(--cap);letter-spacing:-.2px}
+.mnw .tm3 .tm-n em,.mnw .tm3 .tm-n b,.mnw .tm3 .tm-v strong{color:#fff}
+.mnw .tm3 .tm-v small,.mnw .tm3 .tm-e{color:rgba(255,255,255,.78)}
+.mnw .tmn{position:absolute;left:160px;right:160px;top:950px;text-align:center;font-size:18px;color:var(--body);letter-spacing:-.2px}
+
+.mnw .alc,.mnw .tmr,.mnw .alb{word-break:keep-all;overflow-wrap:break-word}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2988,25 +3024,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 </section>
 
 <!-- 시장조사 -->
-<section class="slide dash sol" data-id="solution" data-no="07">
-  <div class="kick rv">솔루션</div>
-  <div class="sl-ttl rv" style="--i:1">중국·일본 팬의 불편,<br>티켓 인증 하나로 풀어요</div>
-
-  <div class="sl-list">
-  <div class="sl-ext xr" style="--i:0"><span class="sx-no">01</span><b>현지 가이드 · 소모임</b><div class="sx-kv"><div><i>역할</i><em>수익 연결</em></div><div><i>내용</i><span>팬 활동 기반 소모임 생성 및 가이드 연결</span></div></div></div>
-  <div class="sl-ext xr" style="--i:1"><span class="sx-no">02</span><b>현장 경험 개선</b><div class="sx-kv"><div><i>역할</i><em>현장 접점</em></div><div><i>내용</i><span>공연장 앞 부스(짐 보관·동행 만남·귀가 집결지) ·<br>길안내·통역 · 귀가 셔틀</span></div></div></div>
-  <div class="sl-ext xr" style="--i:2"><span class="sx-no">03</span><b>추억 갤러리</b><div class="sx-kv"><div><i>역할</i><em>리텐션</em></div><div><i>내용</i><span>우표 스타일 사진 기록 · 추억 지도</span></div></div></div>
+<section class="slide dash alt" data-id="alts" data-no="06">
+  <div class="glowtop"></div>
+  <div class="kick rv">고객 대안</div>
+  <div class="ttl rv" style="--i:1">이들은 지금, 이렇게 해결하고 있어요</div>
+  <div class="alr">
+<div class="alc rv" style="--i:2"><div class="al-id"><svg class="alf" width="40" height="27" viewBox="0 0 90 60"><use href="#f-cn"/></svg><b>李雯</b><i>| 리원</i></div><div class="al-tag">숙소</div><div class="al-pb">공연장 근처에서 잘 곳을 못 구해요</div><div class="al-blk"><small>지금 쓰는 대안</small><b>글로벌 OTA · 에어비앤비</b></div><div class="al-blk al-lm"><small>아쉬운 점</small><p>공연 일정과 공연장 위치를 몰라요. 취소·위약금 걱정과 호스트와의 영어 소통은 팬이 떠안아요.</p></div></div>
+<div class="alc rv" style="--i:3"><div class="al-id"><svg class="alf" width="40" height="27" viewBox="0 0 90 60"><use href="#f-jp"/></svg><b>美優</b><i>| 미유</i></div><div class="al-tag">동행</div><div class="al-pb">혼자라서 함께 즐길 사람이 없어요</div><div class="al-blk"><small>지금 쓰는 대안</small><b>X · 오픈채팅</b></div><div class="al-blk al-lm"><small>아쉬운 점</small><p>동행은 구할 수 있어도 티켓과 신원을 확인할 방법이 없어서 믿기 어려워요.</p></div></div>
+<div class="alc rv" style="--i:4"><div class="al-id"><svg class="alf" width="40" height="27" viewBox="0 0 90 60"><use href="#f-cn"/></svg><b>小雨</b><i>| 샤오위</i></div><div class="al-tag">현장 안내</div><div class="al-pb">입장 줄과 셔틀 위치를 못 찾아요</div><div class="al-blk"><small>지금 쓰는 대안</small><b>엔터사 공식 패키지</b></div><div class="al-blk al-lm"><small>아쉬운 점</small><p>소속 아티스트 공연 중심이라, 다른 공연에서는 한국어 안내와 직원 설명에 기대야 해요.</p></div></div>
+<div class="alc rv" style="--i:5"><div class="al-id"><svg class="alf" width="40" height="27" viewBox="0 0 90 60"><use href="#f-jp"/></svg><b>遥</b><i>| 하루카</i></div><div class="al-tag">귀가</div><div class="al-pb">공연이 끝난 밤, 숙소로 돌아가기 아찔해요</div><div class="al-blk"><small>지금 쓰는 대안</small><b>카카오 T 셔틀 · 택시</b></div><div class="al-blk al-lm"><small>아쉬운 점</small><p>셔틀 대기는 30분이 넘고, 지나가는 택시는 요금을 5배쯤 불러요.</p></div></div>
   </div>
-
-  <div class="bgrid">
-    <div class="bt bt-hub" style="--k:0"><div class="bc"><small>HUB</small><b>티켓 인증</b><p>실제 참석자를 확인하고, 아래 네 가지 해결을 하나로 열어요</p></div></div>
-    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택</p><span class="bp"><i>문제</i>숙소 찾기 어려움</span></div></div>
-    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>문제</i>심야 귀가 공백</span></div></div>
-    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭</p><span class="bp"><i>문제</i>혼자 오는 불안</span></div></div>
-    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>문제</i>정보 분산</span></div></div>
-  </div>
-
-  <div class="foot"><span>FanStay · IR-DAY</span><span>07 / 14</span></div>
+  <div class="alb rv" style="--i:6"><b>하나씩만 풀어줘요</b><span>숙소·동행·안내·귀가를 한 번에 이어 주는 서비스는 아직 보이지 않아요</span></div>
+  <div class="foot"><span>자료: 레딧 r/kpophelp · MBC 2025.6 · 코리아헤럴드 2026.6</span><span>00 / 00</span></div>
 </section>
 
 <section class="slide dash pos" data-id="position" data-no="08">
@@ -3045,6 +3074,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   </div>
 
   <div class="foot"><span>FanStay · IR-DAY</span><span>08 / 14</span></div>
+</section>
+
+<section class="slide dash tam" data-id="tam" data-no="08">
+  <div class="glowtop"></div>
+  <div class="kick rv">시장 규모</div>
+  <div class="ttl rv" style="--i:1">방한 외국인 1,894만 명에서 시작해요</div>
+  <div class="sub rv" style="--i:1;top:210px">중국·일본 방한객으로 공략 범위를 좁히고, 공연 목적 방문객 중 일부를 첫 목표로 잡았어요</div>
+  <div class="tmw">
+<div class="tmr tm0 rv" style="--i:2"><div class="tm-n"><em>TAM</em><b>전체 시장</b></div><div class="tm-v"><small>인원</small><strong>1,894만 명</strong></div><div class="tm-v"><small>금액(매출 환산)</small><strong>약 1조 원</strong></div><div class="tm-e">2025년 방한 외래관광객 전체 (한국관광공사)</div></div>
+<div class="tmr tm1 rv" style="--i:3"><div class="tm-n"><em>SAM</em><b>공략 가능 시장</b></div><div class="tm-v"><small>인원</small><strong>913만 명</strong></div><div class="tm-v"><small>금액(매출 환산)</small><strong>약 4,839억 원</strong></div><div class="tm-e">중국 548만 + 일본 365만 · TAM의 48.2%</div></div>
+<div class="tmr tm2 rv" style="--i:4"><div class="tm-n"><em>공연 방문</em><b>공연 목적 방문</b></div><div class="tm-v"><small>인원</small><strong>45.7만 명</strong></div><div class="tm-v"><small>금액(매출 환산)</small><strong>약 242억 원</strong></div><div class="tm-e">SAM의 5% (팀 가정)</div></div>
+<div class="tmr tm3 rv" style="--i:5"><div class="tm-n"><em>SOM</em><b>확보 가능 시장</b></div><div class="tm-v"><small>인원</small><strong>약 1.4만 명/년</strong></div><div class="tm-v"><small>금액(매출 환산)</small><strong>약 7.3억 원/년</strong></div><div class="tm-e">공연 목적 방문의 3% (팀 가정)</div></div>
+  </div>
+  <div class="tmn rv" style="--i:6">1인당 매출 약 5.3만 원 = 셔틀 탑승권 2만 원 + 숙박 수수료 약 3.3만 원 (팀 가정)</div>
+  <div class="foot"><span>방한 외래관광객 수이며 K-POP 팬 수가 아니에요 · 막대 폭은 단계 구분용이에요</span><span>00 / 00</span></div>
+</section>
+
+<section class="slide dash sol" data-id="solution" data-no="07">
+  <div class="kick rv">솔루션</div>
+  <div class="sl-ttl rv" style="--i:1">중국·일본 팬의 불편,<br>티켓 인증 하나로 풀어요</div>
+
+  <div class="sl-list">
+  <div class="sl-ext xr" style="--i:0"><span class="sx-no">01</span><b>현지 가이드 · 소모임</b><div class="sx-kv"><div><i>역할</i><em>수익 연결</em></div><div><i>내용</i><span>팬 활동 기반 소모임 생성 및 가이드 연결</span></div></div></div>
+  <div class="sl-ext xr" style="--i:1"><span class="sx-no">02</span><b>현장 경험 개선</b><div class="sx-kv"><div><i>역할</i><em>현장 접점</em></div><div><i>내용</i><span>공연장 앞 부스(짐 보관·동행 만남·귀가 집결지) ·<br>길안내·통역 · 귀가 셔틀</span></div></div></div>
+  <div class="sl-ext xr" style="--i:2"><span class="sx-no">03</span><b>추억 갤러리</b><div class="sx-kv"><div><i>역할</i><em>리텐션</em></div><div><i>내용</i><span>우표 스타일 사진 기록 · 추억 지도</span></div></div></div>
+  </div>
+
+  <div class="bgrid">
+    <div class="bt bt-hub" style="--k:0"><div class="bc"><small>HUB</small><b>티켓 인증</b><p>실제 참석자를 확인하고, 아래 네 가지 해결을 하나로 열어요</p></div></div>
+    <div class="bt bt-1" style="--k:1"><div class="bc"><span class="bch">핵심 · MVP</span><b>제휴 숙소</b><p>공연장별 제휴 숙소 3~4곳 중 선택</p><span class="bp"><i>문제</i>숙소 찾기 어려움</span></div></div>
+    <div class="bt bt-2" style="--k:2"><div class="bc"><span class="bch">핵심 · MVP</span><b>셔틀</b><p>종료 후 시간대 예약, QR 탑승 확인, 동승 가이드</p><span class="bp"><i>문제</i>심야 귀가 공백</span></div></div>
+    <div class="bt bt-3" style="--k:3"><div class="bc"><span class="bch">핵심 · 소규모</span><b>동행 매칭</b><p>티켓 인증된 팬끼리 매칭</p><span class="bp"><i>문제</i>혼자 오는 불안</span></div></div>
+    <div class="bt bt-4" style="--k:4"><div class="bc"><span class="bch">무료</span><b>공연장 지도</b><p>화장실 · 식음료 · 보관소 · 집결지를 한눈에</p><span class="bp"><i>문제</i>정보 분산</span></div></div>
+  </div>
+
+  <div class="foot"><span>FanStay · IR-DAY</span><span>07 / 14</span></div>
 </section>
 
 <!-- 03 고객 문제 -->
