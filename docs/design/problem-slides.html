@@ -363,6 +363,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pe .psc .pd-ln,.mnw .pe .psc .pd-st,.mnw .pe .psc .pd-ev{flex:none;margin:0}
 .mnw .pe .psc .pd-ev{padding-top:26px}
 .mnw .pe .psc .pd-id{left:64px;bottom:56px}
+
+/* v6: 이름·국기·신상 간격 / 미유 통계 2개 / 레딧 인트로 잔상 제거 / 첫 확장 시 다음 카드 겹침 제거 */
+.mnw .pe .psc .pd-id .pd-nm{margin-top:24px}
+.mnw .pe .psc .pd-id .pd-mt{margin-top:14px}
+.mnw .pe .psc .pd-ev2{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;align-items:start}
+.mnw .pe .psc .pd-e{display:flex;flex-direction:column;gap:10px;min-width:0}
+.mnw .pe .psc .pd-ev2 .pd-big{font-size:80px;letter-spacing:-3px}
+.mnw .pe .psc .pd-ev2 .pd-ed b{font-size:19px}
+.mnw .pe .psc .pd-ev2 .pd-ed small{font-size:14px}
+.mnw .pe .psc .pd-ev2 .pd-ed p{font-size:15px;margin-top:8px}
+.mnw .rd-off .rdi,.mnw .rd-off .rdcs{opacity:0!important;visibility:hidden!important;animation:none!important}
+.mnw .slide.on.pin .psc:not(.ex){transition:none!important}
+.mnw .slide.on.pin .psc.nx{opacity:0!important}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2861,7 +2874,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
       <div class="pf-bt">
         <div class="pf-nm"><b>李雯</b><i>| 리원</i></div>
         <div class="pf-mt">중국 · 24세 · 여성</div>
-        <div class="pf-ln">공연 날짜는 정했는데,<br>잘 곳이 안 구해져요.</div>
+        <div class="pf-ln">공연 날짜는 정했는데, 잘 곳이 안 구해져요.</div>
       </div>
     </div>
     <div class="pd">
@@ -2869,7 +2882,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
         <div class="pd-nm"><b>李雯</b><i>| 리원</i></div>
         <div class="pd-mt">중국 · 24세 · 여성</div></div>
-        <div class="pd-ln">공연 날짜는 정했는데,<br>잘 곳이 안 구해져요.</div>
+        <div class="pd-ln">공연 날짜는 정했는데, 잘 곳이 안 구해져요.</div>
         <div class="pd-sit">공연 일정은 정했고, 한국에서 묵을 숙소를 알아보는 중이에요.</div>
       </div>
       <div class="pd-r">
@@ -2890,7 +2903,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
       <div class="pf-bt">
         <div class="pf-nm"><b>美優</b><i>| 미유</i></div>
         <div class="pf-mt">일본 · 22세 · 여성</div>
-        <div class="pf-ln">같이 온 사람이 없어서,<br>길 찾는 것도 혼자예요.</div>
+        <div class="pf-ln">같이 온 사람이 없어서, 길 찾는 것도 혼자예요.</div>
       </div>
     </div>
     <div class="pd">
@@ -2898,16 +2911,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
         <div class="pd-nm"><b>美優</b><i>| 미유</i></div>
         <div class="pd-mt">일본 · 22세 · 여성</div></div>
-        <div class="pd-ln">같이 온 사람이 없어서,<br>길 찾는 것도 혼자예요.</div>
+        <div class="pd-ln">같이 온 사람이 없어서, 길 찾는 것도 혼자예요.</div>
         <div class="pd-sit">혼자 한국에 와서 처음 가는 공연장으로 이동하는 중이에요.</div>
       </div>
       <div class="pd-r">
         <div class="pd-st"><div class="pd-lab">겪는 불편</div>
         <ul class="pd-pn"><li><i>1</i><span>함께 즐길 친구 없이 혼자 움직여요</span></li><li><i>2</i><span>환승하다 노선을 헷갈려 30분을 잃어요</span></li><li><i>3</i><span>이동이 번거로워 공연을 포기한 적도 있어요</span></li></ul></div>
-        <div class="pd-ev">
-          <div class="pd-big">26.6%</div>
-          <div class="pd-ed"><b>국내 K-POP 관람자 중 혼자 관람하는 비율이에요</b><small>2020 K-POP 체험 논문 · 국내 241명 (동성 친구와 48.5%)</small><p>“신도림에서 환승하다 반대 방향 1호선을 타서 30분이 더 걸렸어요.” <em>mountainandsea_ · r/kpophelp</em></p></div>
-        </div>
+        <div class="pd-ev pd-ev2"><div class="pd-e"><div class="pd-big">26.6%</div><div class="pd-ed"><b>국내 K-POP 관람자 중 혼자 관람 비율</b><small>2020 K-POP 체험 논문 · 국내 241명 (동성 친구와 48.5%)</small></div></div><div class="pd-e"><div class="pd-big">30분</div><div class="pd-ed"><b>환승 중 노선을 잘못 타서 더 걸린 시간이에요</b><small>한 이용자의 사례 · r/kpophelp</small><p>“환승을 몇 번씩 하는 게 귀찮아서 축제를 몇 번이나 포기하기도 했어요!” <em>mountainandsea_</em></p></div></div></div>
       </div>
     </div>
   </div>
@@ -2919,7 +2929,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
       <div class="pf-bt">
         <div class="pf-nm"><b>小雨</b><i>| 샤오위</i></div>
         <div class="pf-mt">중국 · 26세 · 여성</div>
-        <div class="pf-ln">공연장 구조가 낯설어서<br>헤맨 적이 많아요.</div>
+        <div class="pf-ln">공연장 구조가 낯설어서 헤맨 적이 많아요.</div>
       </div>
     </div>
     <div class="pd">
@@ -2927,7 +2937,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-cn"/></svg>
         <div class="pd-nm"><b>小雨</b><i>| 샤오위</i></div>
         <div class="pd-mt">중국 · 26세 · 여성</div></div>
-        <div class="pd-ln">공연장 구조가 낯설어서<br>헤맨 적이 많아요.</div>
+        <div class="pd-ln">공연장 구조가 낯설어서 헤맨 적이 많아요.</div>
         <div class="pd-sit">공연장에 도착했지만 입장 줄과 셔틀 위치를 찾기 어려워요.</div>
       </div>
       <div class="pd-r">
@@ -2948,7 +2958,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
       <div class="pf-bt">
         <div class="pf-nm"><b>遥</b><i>| 하루카</i></div>
         <div class="pf-mt">일본 · 27세 · 여성</div>
-        <div class="pf-ln">공연은 너무 좋았는데,<br>집에 가는 길은 아찔해요.</div>
+        <div class="pf-ln">공연은 너무 좋았는데, 집에 가는 길은 아찔해요.</div>
       </div>
     </div>
     <div class="pd">
@@ -2956,7 +2966,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-id"><svg class="pd-flag" width="72" height="48" viewBox="0 0 90 60"><use href="#f-jp"/></svg>
         <div class="pd-nm"><b>遥</b><i>| 하루카</i></div>
         <div class="pd-mt">일본 · 27세 · 여성</div></div>
-        <div class="pd-ln">공연은 너무 좋았는데,<br>집에 가는 길은 아찔해요.</div>
+        <div class="pd-ln">공연은 너무 좋았는데, 집에 가는 길은 아찔해요.</div>
         <div class="pd-sit">공연이 끝난 밤, 인천 공연장에서 숙소로 돌아가야 해요.</div>
       </div>
       <div class="pd-r">
@@ -3322,11 +3332,12 @@ function cvVidSet(id){if(!cvVid)return;if(id==='cover'){const pr=cvVid.play();if
 /* 문제 제기(페르소나): 레딧 아이콘 → 3D 카루셀 자동 회전 → 방향키로 카드 확장(좌 사진·우 텍스트, 다음 카드 살짝) */
 const persSec=$('[data-id=persona]'),persCards=$$('.psc',persSec);let psi=-1,pk=0,pk0=0,persT=[],persIv=0;
 function persPlace(){persCards.forEach((c,i)=>c.dataset.p=(i-pk+4)%4)}
-function persSet(n){psi=Math.max(-1,Math.min(3,n));
-  if(psi>=0){clearInterval(persIv);persIv=0;if(psi===0){pk0=0}}
+function persSet(n){const was=psi;psi=Math.max(-1,Math.min(3,n));
+  if(psi>=0){clearInterval(persIv);persIv=0;if(psi===0){pk0=0}
+    if(was<0){persT.forEach(clearTimeout);persT=[];persSec.classList.add('pr','rd-off','pin');persT.push(setTimeout(()=>persSec.classList.remove('pin'),900))}}
   persSec.classList.toggle('pe',psi>=0);
   persCards.forEach((c,i)=>{const rel=(i-pk0+4)%4;c.style.setProperty('--o',rel-psi);c.classList.toggle('ex',psi>=0&&rel===psi);c.classList.toggle('nx',psi>=0&&rel===psi+1);c.classList.toggle('pv',psi>=0&&rel===psi-1)})}
-function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr');
+function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr','rd-off','pin');
   if(!on)return;
   persT.push(setTimeout(()=>{persSec.classList.add('pr')},3550));
   persT.push(setTimeout(()=>{persIv=setInterval(()=>{if(psi>=0)return;pk=(pk+1)%4;persPlace()},1700)},5000))}
