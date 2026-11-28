@@ -670,8 +670,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pos .pn.me i::before,.mnw .pos .pn.me i::after{content:"";position:absolute;left:50%;top:50%;border-radius:50%;pointer-events:none;z-index:-1}
 .mnw .pos .pn.me i::before{width:150px;height:150px;margin:-75px 0 0 -75px;background:radial-gradient(circle,rgba(49,130,246,.5) 0%,rgba(49,130,246,.22) 34%,rgba(49,130,246,.07) 58%,rgba(49,130,246,0) 72%);filter:blur(10px)}
 .mnw .pos .pn.me i::after{width:34px;height:34px;margin:-17px 0 0 -17px;background:rgba(49,130,246,.42);filter:blur(7px);opacity:0}
-.mnw .slide.on .pos .pn.me i::after{animation:mePulse 2.8s ease-out 1.6s infinite}
-@keyframes mePulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(5.2);opacity:0}}
+.mnw .pos.slide.on .pn.me i::after{animation:mePulse 2.4s ease-out 1.7s infinite}
+.mnw .pos.slide.on .pn.me i::before{animation:meGlow 2.4s ease-in-out 1.7s infinite}
+.mnw .pos.slide.on .pn.me i{animation:meTw 2.4s ease-in-out 1.7s infinite}
+@keyframes mePulse{0%{transform:scale(1);opacity:.7}55%{transform:scale(3.6);opacity:.16}100%{transform:scale(5.6);opacity:0}}
+@keyframes meGlow{0%,100%{transform:scale(.8);opacity:.55}45%{transform:scale(1.32);opacity:1}70%{transform:scale(1.1);opacity:.78}}
+@keyframes meTw{0%,100%{box-shadow:0 0 14px 2px rgba(49,130,246,.35)}45%{box-shadow:0 0 34px 12px rgba(49,130,246,.62)}70%{box-shadow:0 0 24px 6px rgba(49,130,246,.45)}}
 .mnw .pos .pn.me{transform-origin:19px 50%}
 .mnw .pos .pn.me b{font-size:34px;color:var(--blue);letter-spacing:-.9px}
 .mnw .pos .pn.me small{font-size:18px;font-weight:600;color:var(--h2)}
