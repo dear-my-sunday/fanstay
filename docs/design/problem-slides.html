@@ -312,12 +312,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pe .psc .pd-ed small{font-size:14px}
 
 /* === 페르소나 v4: 짧은 레딧 인트로(댓글이 숑숑) → 빠른 4장 카루셀 === */
-.mnw .slide.on .rdi img{animation:rdup .7s var(--ease) .15s forwards,rdout .5s ease 3.1s forwards}
+.mnw .slide.on .rdi img{animation:rdup .6s var(--ease) .1s forwards,rdout .35s ease 2.05s forwards}
 .mnw .rdcs{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none;z-index:3;opacity:1}
-.mnw .slide.on .rdcs{animation:rdout2 .5s ease 3.1s forwards}
+.mnw .slide.on .rdcs{animation:rdout2 .35s ease 2.05s forwards}
 @keyframes rdout2{to{opacity:0;transform:scale(.96)}}
 .mnw .rdc{position:absolute;width:540px;padding:22px 28px;border-radius:28px;background:#fff;box-shadow:0 18px 50px rgba(30,50,100,.14),0 0 0 1px rgba(7,25,76,.05);opacity:0;transform:translateY(46px) scale(.96)}
-.mnw .slide.on .rdc{animation:rdpop .45s var(--ease) calc(.85s + var(--j)*.38s) forwards}
+.mnw .slide.on .rdc{animation:rdpop .4s var(--ease) calc(.6s + var(--j)*.28s) forwards}
 @keyframes rdpop{to{opacity:1;transform:none}}
 .mnw .rdc.L1{left:250px;top:300px}.mnw .rdc.R1{left:1130px;top:270px}.mnw .rdc.L2{left:330px;top:590px}.mnw .rdc.R2{left:1050px;top:620px}
 .mnw .rdc-h{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--cap)}
@@ -3339,8 +3339,8 @@ function persSet(n){const was=psi;psi=Math.max(-1,Math.min(3,n));
   persCards.forEach((c,i)=>{const rel=(i-pk0+4)%4;c.style.setProperty('--o',rel-psi);c.classList.toggle('ex',psi>=0&&rel===psi);c.classList.toggle('nx',psi>=0&&rel===psi+1);c.classList.toggle('pv',psi>=0&&rel===psi-1)})}
 function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr','rd-off','pin');
   if(!on)return;
-  persT.push(setTimeout(()=>{persSec.classList.add('pr')},3550));
-  persT.push(setTimeout(()=>{persIv=setInterval(()=>{if(psi>=0)return;pk=(pk+1)%4;persPlace()},1700)},5000))}
+  persT.push(setTimeout(()=>{persSec.classList.add('pr')},2450));
+  persT.push(setTimeout(()=>{const tk=()=>{if(psi>=0)return;pk=(pk+1)%4;persPlace()};persIv=setInterval(tk,1700)},3600))}
 const isPers=()=>slides[cur].dataset.id==='persona';
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
