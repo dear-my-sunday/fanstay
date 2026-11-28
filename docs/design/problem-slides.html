@@ -210,8 +210,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .mkd .vmid b{display:block;margin-top:6px;text-shadow:0 2px 24px rgba(10,40,140,.45);font-size:64px;font-weight:700;letter-spacing:-1.5px;line-height:1}
 @media (prefers-reduced-motion:reduce){.mnw .mkd .vc,.mnw .mkd .vlens{transition:none}}
 /* 문제 제기: 페르소나 카드(3D 카루셀, 인물 사진 배경 + 하단 블러) → 방향키로 확장 */
-.mnw .ps-src{position:absolute;left:160px;right:160px;top:984px;font-size:16px;line-height:1.4;letter-spacing:-.16px;color:var(--cap);text-align:center}
-.mnw .pe .ps-src{text-align:left}
 .mnw .pcw{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
 .mnw .pwh{position:absolute;left:960px;top:3000px;width:0;height:0;transform:rotate(0deg);transition:transform 1s var(--snap)}
 .mnw .psc{position:absolute;left:0;top:0;width:400px;height:580px;margin:-290px 0 0 -200px;border-radius:52px;overflow:hidden;z-index:1;
@@ -2980,7 +2978,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
     </div>
   </div>
   </div></div>
-  <div class="ps-src">레딧 댓글(r/kpophelp)과 통계를 바탕으로, 타겟(2030 중·일 여성 팬)에 맞춰 구성한 가상 페르소나예요</div>
   <div class="foot"><span>FanStay · IR-DAY</span><span>05 / 14</span></div>
 </section>
 
@@ -3340,7 +3337,7 @@ function persSet(n){const was=psi;psi=Math.max(-1,Math.min(3,n));
 function persEnter(on){persT.forEach(clearTimeout);persT=[];clearInterval(persIv);persIv=0;pk=0;persPlace();persSec.classList.remove('pr','rd-off','pin');
   if(!on)return;
   persT.push(setTimeout(()=>{persSec.classList.add('pr')},2450));
-  persT.push(setTimeout(()=>{const tk=()=>{if(psi>=0)return;pk=(pk+1)%4;persPlace()};persIv=setInterval(tk,1700)},3600))}
+  persT.push(setTimeout(()=>{const tk=()=>{if(psi>=0)return;pk=(pk+1)%4;persPlace()};tk();persIv=setInterval(tk,1600)},3300))}
 const isPers=()=>slides[cur].dataset.id==='persona';
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
