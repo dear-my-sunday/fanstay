@@ -356,6 +356,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .pe .psc .pd-ln::after{content:"\201D";margin-left:5px;color:rgba(255,255,255,.65)}
 .mnw .pe .psc .pd-pn li{font-size:28px}
 .mnw .slide.on.pe.pr .psc[data-p].pv{left:calc(160px - 1710px);transition:left .8s var(--snap),top .8s var(--snap),width .8s var(--snap),height .8s var(--snap),opacity 0s linear .62s}
+
+/* 우측 3블록(한줄소개 / 불편 단계 / 통계): 카드 높이를 꽉 채우고 사이 간격은 자동(space-between), 안쪽 여백 상하 56 · 우 64 */
+.mnw .pe .psc .pd{justify-content:space-between;gap:0;padding:56px 64px 56px 700px}
+.mnw .pe .psc .pd-r{display:contents}
+.mnw .pe .psc .pd-ln,.mnw .pe .psc .pd-st,.mnw .pe .psc .pd-ev{flex:none;margin:0}
+.mnw .pe .psc .pd-ev{padding-top:26px}
+.mnw .pe .psc .pd-id{left:64px;bottom:56px}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -2866,8 +2873,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-sit">공연 일정은 정했고, 한국에서 묵을 숙소를 알아보는 중이에요.</div>
       </div>
       <div class="pd-r">
-        <div class="pd-lab">겪는 불편</div>
-        <ul class="pd-pn"><li><i>1</i><span>공연장 근처 숙소를 찾기가 어려워요</span></li><li><i>2</i><span>외국인이라 갑작스러운 예약 취소와 위약금이 걱정돼요</span></li><li><i>3</i><span>호스트와 영어로 소통하는 것이 부담돼요</span></li></ul>
+        <div class="pd-st"><div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>공연장 근처 숙소를 찾기가 어려워요</span></li><li><i>2</i><span>외국인이라 갑작스러운 예약 취소와 위약금이 걱정돼요</span></li><li><i>3</i><span>호스트와 영어로 소통하는 것이 부담돼요</span></li></ul></div>
         <div class="pd-ev">
           <div class="pd-big">71%</div>
           <div class="pd-ed"><b>공연장 인근 숙소 찾기가 어렵다고 답했어요</b><small>Live Nation, 해외 라이브 음악 팬 13개국 조사</small><p>“에어비앤비 호스트가 영어에 자신이 없을 수 있고, 매일 번역을 부탁하고 싶진 않아요.” <em>Soup_oi · r/kpophelp</em></p></div>
@@ -2895,8 +2902,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-sit">혼자 한국에 와서 처음 가는 공연장으로 이동하는 중이에요.</div>
       </div>
       <div class="pd-r">
-        <div class="pd-lab">겪는 불편</div>
-        <ul class="pd-pn"><li><i>1</i><span>함께 즐길 친구 없이 혼자 움직여요</span></li><li><i>2</i><span>환승하다 노선을 헷갈려 30분을 잃어요</span></li><li><i>3</i><span>이동이 번거로워 공연을 포기한 적도 있어요</span></li></ul>
+        <div class="pd-st"><div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>함께 즐길 친구 없이 혼자 움직여요</span></li><li><i>2</i><span>환승하다 노선을 헷갈려 30분을 잃어요</span></li><li><i>3</i><span>이동이 번거로워 공연을 포기한 적도 있어요</span></li></ul></div>
         <div class="pd-ev">
           <div class="pd-big">26.6%</div>
           <div class="pd-ed"><b>국내 K-POP 관람자 중 혼자 관람하는 비율이에요</b><small>2020 K-POP 체험 논문 · 국내 241명 (동성 친구와 48.5%)</small><p>“신도림에서 환승하다 반대 방향 1호선을 타서 30분이 더 걸렸어요.” <em>mountainandsea_ · r/kpophelp</em></p></div>
@@ -2924,8 +2931,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-sit">공연장에 도착했지만 입장 줄과 셔틀 위치를 찾기 어려워요.</div>
       </div>
       <div class="pd-r">
-        <div class="pd-lab">겪는 불편</div>
-        <ul class="pd-pn"><li><i>1</i><span>안내가 대부분 한국어뿐이에요</span></li><li><i>2</i><span>지도와 안내가 부족해서 직원에게 물어도 몰라요</span></li><li><i>3</i><span>결제는 위챗페이·알리페이를 쓰고 싶어요</span></li></ul>
+        <div class="pd-st"><div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>안내가 대부분 한국어뿐이에요</span></li><li><i>2</i><span>지도와 안내가 부족해서 직원에게 물어도 몰라요</span></li><li><i>3</i><span>결제는 위챗페이·알리페이를 쓰고 싶어요</span></li></ul></div>
         <div class="pd-ev">
           <div class="pd-big">75분</div>
           <div class="pd-ed"><b>BTS 부산 공연 지연, 현장 안내 혼선과 한국어 안내</b><small>코리아헤럴드, 2026.6 · 한 공연의 사례</small><p>“직원도 회사가 준 셔틀 안내 지도가 무슨 말인지 모르더라고요.” <em>maybemid · r/kpophelp</em></p></div>
@@ -2953,8 +2960,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
         <div class="pd-sit">공연이 끝난 밤, 인천 공연장에서 숙소로 돌아가야 해요.</div>
       </div>
       <div class="pd-r">
-        <div class="pd-lab">겪는 불편</div>
-        <ul class="pd-pn"><li><i>1</i><span>택시가 안 잡히고 줄이 길어요</span></li><li><i>2</i><span>지나가는 택시는 요금을 5배쯤 불러요</span></li><li><i>3</i><span>지하철 막차를 간신히 타요</span></li></ul>
+        <div class="pd-st"><div class="pd-lab">겪는 불편</div>
+        <ul class="pd-pn"><li><i>1</i><span>택시가 안 잡히고 줄이 길어요</span></li><li><i>2</i><span>지나가는 택시는 요금을 5배쯤 불러요</span></li><li><i>3</i><span>지하철 막차를 간신히 타요</span></li></ul></div>
         <div class="pd-ev">
           <div class="pd-big">5배</div>
           <div class="pd-ed"><b>공항행 택시 요금, 셔틀 대기는 30분 이상이었어요</b><small>MBC, 2025.6 · 인스파이어 셔틀</small><p>“카카오택시는 못 잡았고, 지나가는 택시는 요금을 5배쯤 받더라고요.” <em>justwannasaysmth · r/kpophelp</em></p></div>
