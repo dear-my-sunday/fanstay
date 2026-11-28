@@ -374,6 +374,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 .mnw .rd-off .rdi,.mnw .rd-off .rdcs{opacity:0!important;visibility:hidden!important;animation:none!important}
 .mnw .slide.on.pin .psc:not(.ex){transition:none!important}
 .mnw .slide.on.pin .psc.nx{opacity:0!important}
+
+/* 페르소나 슬라이드를 나갈 때: 어두운 카드가 먼저 빠르게 사라지고, 다음 슬라이드는 살짝 늦게 켜져서 반투명 겹침(번쩍임)이 없게 */
+.mnw .slide[data-id=persona]:not(.on){transition:opacity .18s ease,visibility 0s .18s}
+.mnw .slide.on.dly{transition:opacity .4s ease .16s}
+.mnw .slide[data-id=persona].on{transition:opacity .4s ease .16s}
 @keyframes cvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .mnw .slide.on .cv-stars circle:nth-child(4n){animation:cvtw 3.2s ease-in-out infinite}
 .mnw .slide.on .cv-stars circle:nth-child(4n+1){animation:cvtw 4.6s ease-in-out infinite .8s}
@@ -3342,6 +3347,8 @@ const isPers=()=>slides[cur].dataset.id==='persona';
 /* ===== 이동 ===== */
 const slides=$$('.slide');let cur=0;
 function show(i){i=Math.max(0,Math.min(slides.length-1,i));
+  const fromPers=slides[cur]&&slides[cur].dataset.id==='persona'&&i!==cur;
+  if(fromPers){const nx=slides[i];nx.classList.add('dly');setTimeout(()=>nx.classList.remove('dly'),800)}
   slides.forEach((s,k)=>s.classList.toggle('on',k===i));cur=i;
   $('#bar').style.width=((i+1)/slides.length*100)+'%';
   history.replaceState(null,'','#'+(i+1));
